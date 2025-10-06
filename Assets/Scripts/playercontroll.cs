@@ -8,7 +8,7 @@ public class playercontroll : MonoBehaviour
     GameObject cube;
     Actions action;
     [SerializeField]
-    private Image[] moucecursor;
+    private Image moucecursor;
     [SerializeField]
     private RectTransform cursor_position;
     [SerializeField]
@@ -23,20 +23,6 @@ public class playercontroll : MonoBehaviour
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
-    }
-    void Awake()
-    {
-        action = new Actions();
-        //action.Player.Interact.performed += Pressed;
-    }
-
-    private void OnEnable()
-    {
-        action.Enable();
-    }
-    private void OnDisable()
-    {
-        action.Disable();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,19 +42,8 @@ public class playercontroll : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(ray,out hit))
             {
-                
+                cube.transform.position = new Vector3(MovInput.x,MovInput.y,-50.0f);
             }
         }
     }
-
-    //private void Pressed(InputAction.CallbackContext cont)
-    //{
-    //    var Intaract = cont.ReadValue<Vector2>();
-    //    Ray ray = Camera.main.ScreenPointToRay(Intaract);
-    //    RaycastHit hit;
-    //    if(Physics.Raycast(ray,out hit))
-    //    {
-    //        cube.transform.position = Intaract;
-    //    }
-    //}
 }
