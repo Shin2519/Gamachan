@@ -8,16 +8,17 @@ public class playercontroll : MonoBehaviour
     [SerializeField]
     GameObject cube;
     [SerializeField]
+    private float Speed;
+    [SerializeField,Header("マウスカーソルとなるUI")]
     private Image moucecursor;
     [SerializeField,Header("マウスカーソルの種類")]
-    private Sprite[] moucecursorSprite;
-    [SerializeField]
+    private Sprite[] MouceCursorSprite;
+    [SerializeField,Header("マウスカーソルのポジション")]
     private RectTransform cursor_position;
-    [SerializeField]
+    [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
-    [SerializeField]
+    [SerializeField,Header("クリックしたかどうか")]
     private bool IsInter;
-    public Vector2 MoucePos => MovInput;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -36,8 +37,8 @@ public class playercontroll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;
-        moucecursor.sprite = moucecursorSprite[0];
+        Cursor.visible = false;//マウスカーソルを非表示にする
+        moucecursor.sprite = MouceCursorSprite[0];
     }
 
     // Update is called once per frame
@@ -49,19 +50,17 @@ public class playercontroll : MonoBehaviour
         Vector3 CurrentPos = cube.transform.position;
         if(IsInter)
         {
-            moucecursor.sprite = moucecursorSprite[1];
+            moucecursor.sprite = MouceCursorSprite[1];
             Ray ray = Camera.main.ScreenPointToRay(MovInput);
             RaycastHit hit;
-            if(Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
-                Vector3 TargetPos = new Vector3(MovInput.x, MovInput.y, -50.0f);
-                cube.transform.position = TargetPos;
-                Vector3 DisPos = TargetPos - CurrentPos;
+                GameObject Cube = hit.collider.gameObject;
             }
         }
         else
         {
-            moucecursor.sprite = moucecursorSprite[0];
+            moucecursor.sprite = MouceCursorSprite[0];
         }
     }
 }

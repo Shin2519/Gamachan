@@ -120,8 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 0}
-  moucecursor:
-  - {fileID: 7199052735283952892}
+  moucecursor: {fileID: 0}
+  moucecursorSprite:
+  - {fileID: 21300000, guid: 68d8fca631adbaa498479c8e978dfc26, type: 3}
+  - {fileID: 21300000, guid: 7ef7ced680b96c44babd116c44c14aaf, type: 3}
   cursor_position: {fileID: 3150112285906587118}
   MovInput: {x: 0, y: 0}
   IsInter: 0
