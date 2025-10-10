@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
+using System.Collections;
 
 public class InputName : MonoBehaviour
 {
@@ -12,12 +14,38 @@ public class InputName : MonoBehaviour
     [Header("名前入力スペース")]
     [SerializeField] private TMP_InputField inputField;//プレイヤーの名前を入力
     [SerializeField] private TextMeshProUGUI playername;//プレイヤーの名前を記憶
+
+    [SerializeField] private TextMeshProUGUI namecount;
+
+    [SerializeField] private string[] ngword;//NGワードリスト
+    [SerializeField] private TextMeshProUGUI ngtext;
+    private bool isNgword;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         inputText.enabled = false;
         inputText_e.enabled = false;
-       
+        isNgword = false;
+        namecount.enabled = false;
+        ngtext.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(inputField.text.Length == inputField.characterLimit)
+        {
+            namecount.enabled = true;
+        }
+
+        //if (ngword.Length == playername.text.Length)
+        //{
+        //    Debug.Log(isNgword);
+        //    isNgword = true;
+        //}
+        //else
+        //{
+        //    isNgword = false;
+        //}
     }
 
     public void InputText()
@@ -27,12 +55,15 @@ public class InputName : MonoBehaviour
 
     public void OnButtonGame()
     {
-       
-        if(inputField.text == "")
+        if (inputField.text == "")
         {
-            inputText.enabled = true;
-            inputText_e.enabled = true;
+            StartCoroutine(stay());
+            
         }
+        //else if(isNgword==true)
+        //{
+        //    ngtext.enabled = true;
+        //}
         else
         {
             SceneManager.LoadScene("SampleScene");
@@ -42,5 +73,15 @@ public class InputName : MonoBehaviour
     {
         //SceneManager.LoadScene("ModeSelectScene");シーン名は仮
         Debug.Log("モード選択シーン");
+    }
+
+    IEnumerator stay()
+    {
+        inputText.enabled = true;
+        inputText_e.enabled = true;
+        yield return new WaitForSeconds(2);
+        inputText.enabled = false;
+        inputText_e.enabled = false;
+
     }
 }
