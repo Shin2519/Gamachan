@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u540D\u524D\u306F5\u6587\u5B57\u307E\u3067\u3067\u3059"
+  m_text: "\u540D\u524D\u306F10\u6587\u5B57\u307E\u3067\u3067\u3059"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1ee7311507c07542824fcee7eea1bad, type: 2}
   m_sharedMaterial: {fileID: -351584940367668010, guid: b1ee7311507c07542824fcee7eea1bad, type: 2}
@@ -1911,8 +1911,7 @@ MonoBehaviour:
   inputField: {fileID: 1487470234}
   playername: {fileID: 1312077148}
   namecount: {fileID: 1116266086}
-  ngword:
-  - 1234
+  ngword: []
   ngtext: {fileID: 236511616}
 --- !u!1 &1487470232
 GameObject:
@@ -2011,7 +2010,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 5
+  m_CharacterLimit: 10
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
