@@ -1,15 +1,24 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
+
     [SerializeField,Header("マウスカーソルのポジション")]
     private RectTransform cursor_position;
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
-    GameObject Cube;
+    [SerializeField]
+    private EventSystem E_System;
+    [SerializeField,Header("判定するレイヤー")]
+    private LayerMask layer;
+    string layername;
+    [SerializeField]
+    GraphicRaycaster G_raycas;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -38,7 +47,7 @@ public class playercontroll : MonoBehaviour
         cursor_position.position = pos;
     }
 
-    public void DragAndDrop(bool IsClick)
+    public void DragAndDrop(bool IsClick)//物をつかんで離す
     {
         if(IsClick)
         {
@@ -46,21 +55,19 @@ public class playercontroll : MonoBehaviour
         }
         else
         {
-            Cube = null;
+            
         } 
     }
 
     private void Drag()
     {
-        Ray ray = Camera.main.ScreenPointToRay(MovInput);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        PointerEventData data = new PointerEventData(E_System);
+        data.position = MovInput;
+        List<RaycastResult> results = new List<RaycastResult>();
+        G_raycas.Raycast(data, results);
+        foreach(var result in results)
         {
-            Cube = hit.collider.gameObject;
-        }
-        if (Cube != null)
-        {
-            Cube.transform.position = new Vector3(MovInput.x, MovInput.y, -50.0f);
+            result.gameObject.transform.position = data.position;
         }
     }
 }
