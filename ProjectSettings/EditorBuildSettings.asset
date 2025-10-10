@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InputNameScene.unity
     guid: 4cee54f39b17cc640be68cf8db6df5d4
+  - enabled: 1
+    path: Assets/Scenes/SettingScene.unity
+    guid: d46ac0b1e47a82749a5a78cf58db1452
+  - enabled: 1
+    path: Assets/Scenes/RankingScene.unity
+    guid: 45a6c53f7bfc97342a797cdab0c31e85
+  - enabled: 1
+    path: Assets/Scenes/RuleCheckScene.unity
+    guid: 03ca9b17c079c9547b35146c589cf40e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
