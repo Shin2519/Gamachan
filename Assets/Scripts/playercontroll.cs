@@ -1,15 +1,34 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
+
     [SerializeField,Header("マウスカーソルのポジション")]
     private RectTransform cursor_position;
+
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
-    GameObject Cube;
+
+    [SerializeField,Header("動かしたいUIのキャンバスにあるGraphicRaycaster")]
+    private GraphicRaycaster G_raycast;
+
+    [SerializeField]
+    private EventSystem E_system;
+
+    [SerializeField,Header("動かしたいUIの親となっているキャンバス")]
+    private RectTransform ParentCanvas;
+
+    [SerializeField, Header("ガマちゃんの変化")]
+    private Sprite[] Gama;
+
+    GameObject ui;
+
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -40,27 +59,42 @@ public class playercontroll : MonoBehaviour
 
     public void DragAndDrop(bool IsClick)
     {
-        if(IsClick)
+        if (IsClick)
         {
             Drag();
         }
         else
         {
-            Cube = null;
+            ui = null;
         } 
     }
 
     private void Drag()
     {
-        Ray ray = Camera.main.ScreenPointToRay(MovInput);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        PointerEventData data = new PointerEventData(E_system);
+        data.position = MovInput;
+        List<RaycastResult> results = new List<RaycastResult>();
+        G_raycast.Raycast(data, results);
+        if (results.Count > 0)
         {
-            Cube = hit.collider.gameObject;
+            ui = results[0].gameObject;
+            Sprite ui_sp = ui.GetComponent<Sprite>();
         }
-        if (Cube != null)
+        if(ui!=null)
         {
-            Cube.transform.position = new Vector3(MovInput.x, MovInput.y, -50.0f);
+            RectTransform ui_Pos = ui.GetComponent<RectTransform>();
+            Vector2 CurrnetPos = ui_Pos.position;
+            Vector2 localPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, MovInput, null, out localPos);
+            ui_Pos.anchoredPosition = localPos;
+            Vector2 AfterPos = ui_Pos.position;
+            Vector2 Dis = AfterPos - CurrnetPos;
+            Debug.Log(Dis.magnitude);
+            if(Dis.magnitude>=0)
+            {
+                int rnd = Random.Range(0, 2);
+                Debug.Log($"{rnd}");
+            }
         }
     }
 }
