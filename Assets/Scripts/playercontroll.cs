@@ -1,9 +1,8 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using NUnit.Framework;
+using UnityEngine.EventSystems;
 
 public class playercontroll : MonoBehaviour
 {
@@ -11,24 +10,15 @@ public class playercontroll : MonoBehaviour
 
     [SerializeField,Header("マウスカーソルのポジション")]
     private RectTransform cursor_position;
-
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
-
-    [SerializeField,Header("動かしたいUIのキャンバスにあるGraphicRaycaster")]
-    private GraphicRaycaster G_raycast;
-
     [SerializeField]
-    private EventSystem E_system;
-
-    [SerializeField,Header("動かしたいUIの親となっているキャンバス")]
-    private RectTransform ParentCanvas;
-
-    [SerializeField, Header("ガマちゃんの変化")]
-    private Sprite[] Gama;
-
-    GameObject ui;
-
+    private EventSystem E_System;
+    [SerializeField,Header("判定するレイヤー")]
+    private LayerMask layer;
+    string layername;
+    [SerializeField]
+    GraphicRaycaster G_raycas;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -57,44 +47,27 @@ public class playercontroll : MonoBehaviour
         cursor_position.position = pos;
     }
 
-    public void DragAndDrop(bool IsClick)
+    public void DragAndDrop(bool IsClick)//物をつかんで離す
     {
-        if (IsClick)
+        if(IsClick)
         {
             Drag();
         }
         else
         {
-            ui = null;
+            
         } 
     }
 
     private void Drag()
     {
-        PointerEventData data = new PointerEventData(E_system);
+        PointerEventData data = new PointerEventData(E_System);
         data.position = MovInput;
         List<RaycastResult> results = new List<RaycastResult>();
-        G_raycast.Raycast(data, results);
-        if (results.Count > 0)
+        G_raycas.Raycast(data, results);
+        foreach(var result in results)
         {
-            ui = results[0].gameObject;
-            Sprite ui_sp = ui.GetComponent<Sprite>();
-        }
-        if(ui!=null)
-        {
-            RectTransform ui_Pos = ui.GetComponent<RectTransform>();
-            Vector2 CurrnetPos = ui_Pos.position;
-            Vector2 localPos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, MovInput, null, out localPos);
-            ui_Pos.anchoredPosition = localPos;
-            Vector2 AfterPos = ui_Pos.position;
-            Vector2 Dis = AfterPos - CurrnetPos;
-            Debug.Log(Dis.magnitude);
-            if(Dis.magnitude>=0)
-            {
-                int rnd = Random.Range(0, 2);
-                Debug.Log($"{rnd}");
-            }
+            result.gameObject.transform.position = data.position;
         }
     }
 }
