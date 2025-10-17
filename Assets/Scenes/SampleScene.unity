@@ -1591,6 +1591,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5424014148959956265, guid: 692497f6a463481409719d584e307108, type: 3}
+      propertyPath: judge
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424014148959956265, guid: 692497f6a463481409719d584e307108, type: 3}
+      propertyPath: E_System
+      value: 
+      objectReference: {fileID: 1682901629}
+    - target: {fileID: 5424014148959956265, guid: 692497f6a463481409719d584e307108, type: 3}
       propertyPath: E_system
       value: 
       objectReference: {fileID: 1682901629}
