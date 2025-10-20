@@ -1194,7 +1194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: -163}
+  m_AnchoredPosition: {x: 17, y: -126}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116266086
@@ -1911,7 +1911,10 @@ MonoBehaviour:
   inputField: {fileID: 1487470234}
   playername: {fileID: 1312077148}
   namecount: {fileID: 1116266086}
-  ngword: []
+  ngword:
+  - aa
+  - "\u3057\u306D"
+  - "\u3042\u307B"
   ngtext: {fileID: 236511616}
 --- !u!1 &1487470232
 GameObject:

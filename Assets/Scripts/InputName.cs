@@ -27,20 +27,38 @@ public class InputName : MonoBehaviour
         inputText_e.enabled = false;
         namecount.enabled = false;
         ngtext.enabled = false;
+
+        inputField.onValueChanged.AddListener(delegate { InputText(); });
+
+        if(inputField != null )
+        {
+            inputField.Select();
+            inputField.ActivateInputField();
+        }
     }
 
     void Update()
     {
-        if(inputField.text.Length == inputField.characterLimit)
-        {
-            namecount.enabled = true;
-        }
+        namecount.enabled = inputField.text.Length == inputField.characterLimit;
 
     }
 
     public void InputText()
     {
         playername.text = inputField.text;//変更予定
+
+        bool isNg = false;
+
+        foreach (string n in ngword)
+        {
+            if (playername.text.Contains(n))
+            {
+                isNg = true;
+                break;
+            }
+        }
+
+        ngtext.enabled = isNg;
     }
 
     public void OnButtonGame()
@@ -49,6 +67,10 @@ public class InputName : MonoBehaviour
         {
             StartCoroutine(stay());
             
+        }
+        else if(ngtext.enabled)
+        {
+
         }
         else
         {
@@ -60,18 +82,6 @@ public class InputName : MonoBehaviour
         //SceneManager.LoadScene("ModeSelectScene");シーン名は仮
         Debug.Log("モード選択シーン");
     }
-
-    //public bool NGWordCheck(string input)
-    //{
-    //    foreach(var word in ngword)
-    //    {
-    //        if(input.Contains(word))
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
 
     IEnumerator stay()
     {
