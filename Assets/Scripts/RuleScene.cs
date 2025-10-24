@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class RuleScene : MonoBehaviour
 {
-<<<<<<< HEAD
-=======
     [SerializeField] private GameObject Page1;
     [SerializeField] private GameObject Page2;
     [SerializeField] private GameObject Page3;
@@ -16,7 +14,6 @@ public class RuleScene : MonoBehaviour
     }
 
 
->>>>>>> 80745dc8801b4a9a2f5b2f97d73d17c34fc0a3e3
     public void TitleButton()
     {
        SceneManager.LoadScene("TitleScene");
@@ -25,8 +22,6 @@ public class RuleScene : MonoBehaviour
     {
        SceneManager.LoadScene("ModeSelectScene");
     }
-<<<<<<< HEAD
-=======
 
     public void Page1to2()
     {
@@ -51,5 +46,4 @@ public class RuleScene : MonoBehaviour
         Page2.SetActive(true);
         Page3.SetActive(false);
     }
->>>>>>> 80745dc8801b4a9a2f5b2f97d73d17c34fc0a3e3
 }
