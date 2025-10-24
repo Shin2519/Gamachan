@@ -20,6 +20,8 @@ public class InputName : MonoBehaviour
     [SerializeField] private string[] ngword;//NGワードリスト
     [SerializeField] private TextMeshProUGUI ngtext;//NGワードテキスト
     [SerializeField] private TextMeshProUGUI ngtext_e;
+
+    Mode mode;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -83,15 +85,22 @@ public class InputName : MonoBehaviour
         if (inputField.text == "")
         {
             StartCoroutine(stay());
-            
+
         }
-        else if(ngtext.enabled)
+        else if (ngtext.enabled)
         {
 
         }
         else
         {
-            SceneManager.LoadScene("SampleScene");
+            if(Mode.Instance.isMode)
+            {
+                SceneManager.LoadScene("SampleScene");//チャレンジモード
+            }
+            else if(!Mode.Instance.isMode)
+            {
+                SceneManager.LoadScene("TitleScene");//タイムリミットモード
+            }
         }
     }
     public void OnButtonMode()
