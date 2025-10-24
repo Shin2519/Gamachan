@@ -17,6 +17,7 @@ public class playercontroll : MonoBehaviour
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
 
+    Vector2 AfterPos;
     [SerializeField]
     private EventSystem E_System;
     [SerializeField]
@@ -80,28 +81,36 @@ public class playercontroll : MonoBehaviour
             bool WasSwiping = false;
 
             RectTransform ui_Pos = ui.GetComponent<RectTransform>();
-            Vector2 Dis = DistanceMath(ui_Pos);
-
-            if(Dis.magnitude > judge)
+            float Speed = Mathf.Pow(SpeedMath(ui_Pos),0.5f);
+            Debug.Log(Speed);
+            if (Speed > judge)
             {
                 isSwiping = true;
             }
-            else if(Dis.magnitude < 0.1f)
+            else if (Speed < 0.1f)
             {
                 isSwiping = false;
             }
-            if (!WasSwiping&&isSwiping)
+            if (!WasSwiping && isSwiping)
             {
                 int rnd = Random.Range(0, 2);
+                if (rnd == 1)
+                {
+                    DropMoney.instance.KindofMoney(Speed);
+                }
+                else
+                {
+
+                }
                 Debug.Log(rnd);
             }
 
             WasSwiping = isSwiping;
         }
     }
-    private Vector2 DistanceMath(RectTransform UIPosition)
+    private float SpeedMath(RectTransform UIPosition)
     {
-        Vector2 CurrentPos = UIPosition.position;
+        Vector2 CurrentPos = UIPosition.anchoredPosition;
 
         Vector2 localPoint;
 
@@ -109,8 +118,10 @@ public class playercontroll : MonoBehaviour
 
         UIPosition.anchoredPosition = localPoint;
 
-        Vector2 AfterPos = UIPosition.position;
+        AfterPos = UIPosition.anchoredPosition;
 
-        return AfterPos - CurrentPos;
+        Vector2 Dis = AfterPos - CurrentPos;
+
+        return Dis.magnitude/Time.deltaTime;
     }
 }
