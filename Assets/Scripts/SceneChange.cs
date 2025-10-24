@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_st()
     {
-        SceneManager.LoadScene("SettingScene");
+        SceneManager.LoadScene("OptionScene");
     }
 
     public void ChangeButton_rk()
