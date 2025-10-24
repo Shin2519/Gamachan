@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+ï»¿using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -7,19 +7,16 @@ using UnityEngine.EventSystems;
 public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
-    enum STATE 
-    { 
-        normal,
-        shake
-    }
-    [SerializeField]
-    private STATE state;
-    [SerializeField,Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ")]
+
+    [SerializeField,Header("æŒ¯ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹ç¯„å›²")]
     private float judge;
-    [SerializeField,Header("ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚Ìƒ|ƒWƒVƒ‡ƒ“")]
+
+    [SerializeField,Header("ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ãƒã‚¸ã‚·ãƒ§ãƒ³")]
     private RectTransform cursor_position;
-    [SerializeField,Header("ƒJ[ƒ\ƒ‹‚ğ“®‚©‚µ‚½‚Æ‚«‚É‘ã“ü‚³‚ê‚é“ü—ÍƒxƒNƒgƒ‹")]
+
+    [SerializeField,Header("ã‚«ãƒ¼ã‚½ãƒ«ã‚’å‹•ã‹ã—ãŸã¨ãã«ä»£å…¥ã•ã‚Œã‚‹å…¥åŠ›ãƒ™ã‚¯ãƒˆãƒ«")]
     Vector2 MovInput;
+
     [SerializeField]
     private EventSystem E_System;
     [SerializeField]
@@ -39,8 +36,7 @@ public class playercontroll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;//ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ”ñ•\¦‚É‚·‚é
-        state = STATE.normal;
+        Cursor.visible = false;//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’éè¡¨ç¤ºã«ã™ã‚‹
     }
 
     // Update is called once per frame
@@ -56,7 +52,7 @@ public class playercontroll : MonoBehaviour
         cursor_position.position = pos;
     }
 
-    public void DragAndDrop(bool IsClick)//•¨‚ğ‚Â‚©‚ñ‚Å—£‚·
+    public void DragAndDrop(bool IsClick)//ç‰©ã‚’ã¤ã‹ã‚“ã§é›¢ã™
     {
         if(IsClick)
         {
@@ -80,26 +76,41 @@ public class playercontroll : MonoBehaviour
         }
         if (ui!= null)
         {
-            int Count = 1;
+            bool isSwiping = false;
+            bool WasSwiping = false;
+
             RectTransform ui_Pos = ui.GetComponent<RectTransform>();
-            Vector2 CurrentPos = ui_Pos.position;
-            Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, MovInput, null, out localPoint);
-            ui_Pos.anchoredPosition = localPoint;
-            Vector2 AfterPos = ui_Pos.position;
-            Vector2 Dis = AfterPos - CurrentPos;
-            if(Dis.magnitude > judge&&Count!=0)
+            Vector2 Dis = DistanceMath(ui_Pos);
+
+            if(Dis.magnitude > judge)
             {
-                Count = 0;
-                state = STATE.shake;
-                int rnd = Random.Range(0, 2);
-                Debug.Log(rnd);
+                isSwiping = true;
             }
             else if(Dis.magnitude < 0.1f)
             {
-                state = STATE.normal;
+                isSwiping = false;
             }
+            if (!WasSwiping&&isSwiping)
+            {
+                int rnd = Random.Range(0, 2);
+                Debug.Log(rnd);
+            }
+
+            WasSwiping = isSwiping;
         }
-        
+    }
+    private Vector2 DistanceMath(RectTransform UIPosition)
+    {
+        Vector2 CurrentPos = UIPosition.position;
+
+        Vector2 localPoint;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, MovInput, null, out localPoint);
+
+        UIPosition.anchoredPosition = localPoint;
+
+        Vector2 AfterPos = UIPosition.position;
+
+        return AfterPos - CurrentPos;
     }
 }
