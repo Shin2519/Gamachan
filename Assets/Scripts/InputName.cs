@@ -96,8 +96,7 @@ public class InputName : MonoBehaviour
     }
     public void OnButtonMode()
     {
-        //SceneManager.LoadScene("ModeSelectScene");シーン名は仮
-        Debug.Log("モード選択シーン");
+        SceneManager.LoadScene("ModeSelectScene");
     }
 
     IEnumerator stay()
