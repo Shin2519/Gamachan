@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using System.Collections;
-using UnityEngine.Windows;
 
 public class InputName : MonoBehaviour
 {
@@ -20,6 +19,7 @@ public class InputName : MonoBehaviour
 
     [SerializeField] private string[] ngword;//NGワードリスト
     [SerializeField] private TextMeshProUGUI ngtext;//NGワードテキスト
+    [SerializeField] private TextMeshProUGUI ngtext_e;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +27,7 @@ public class InputName : MonoBehaviour
         inputText_e.enabled = false;
         namecount.enabled = false;
         ngtext.enabled = false;
+        ngtext_e.enabled = false;
 
         inputField.onValueChanged.AddListener(delegate { InputText(); });
 
@@ -39,8 +40,17 @@ public class InputName : MonoBehaviour
 
     void Update()
     {
-        namecount.enabled = inputField.text.Length == inputField.characterLimit;
+        namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
 
+        //if(inputField.isFocused)
+        //{
+        //    if(Input.GetKeyDown(KeyCode.Return))
+        //    {
+        //        //マウスカーソルの表示
+
+        //        inputField.DeactivateInputField();
+        //    }
+        //}
     }
 
     public void InputText()
@@ -59,6 +69,13 @@ public class InputName : MonoBehaviour
         }
 
         ngtext.enabled = isNg;
+        ngtext_e.enabled = isNg;
+
+        if(isNg )
+        {
+            inputText.enabled = false;
+            inputText_e.enabled = false;
+        }
     }
 
     public void OnButtonGame()
