@@ -8,7 +8,7 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
 
-    [SerializeField] private SelectGoodsSO selectGoods;
+    [SerializeField] private SelectGoodsManager selectGoods;
     private int sumamount = 0;
     //private int amount = 100;
     private int inputamount = 50;
