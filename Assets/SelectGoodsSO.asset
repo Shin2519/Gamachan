@@ -13,17 +13,27 @@ MonoBehaviour:
   m_Name: SelectGoodsSO
   m_EditorClassIdentifier: 
   dataList:
-  - image: {fileID: 0}
+  - image: {fileID: 21300000, guid: 68d8fca631adbaa498479c8e978dfc26, type: 3}
     price: 300
-  - image: {fileID: 0}
+    count: 0
+    total: 0
+  - image: {fileID: 21300000, guid: 7ef7ced680b96c44babd116c44c14aaf, type: 3}
     price: 200
-  - image: {fileID: 0}
+    count: 0
+    total: 0
+  - image: {fileID: 7482667652216324306, guid: 105b219063ff3fa4c92c7e2499638371, type: 3}
     price: 120
+    count: 0
+    total: 0
   - image: {fileID: 0}
-    price: 0
+    price: 1
+    count: 0
+    total: 0
   - image: {fileID: 0}
-    price: 0
-  - image: {fileID: 0}
-    price: 0
-  total: 0
-  maxcount: 0
+    price: 2
+    count: 0
+    total: 0
+  - image: {fileID: 21300000, guid: f814e483d927c8f49bb83888f1332ccd, type: 3}
+    price: 3
+    count: 0
+    total: 0
