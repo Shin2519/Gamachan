@@ -32,7 +32,8 @@ public class DropMoney : MonoBehaviour
 
     public void KindofMoney(float Amount)
     {
-        if(Amount>=100)
+        if (Amount <= 0) return;
+        if (Amount>=100)
         {
             speed = Speed.Fast;
         }
@@ -57,24 +58,70 @@ public class DropMoney : MonoBehaviour
                     if(rnd==0)
                     {
                         //500円玉
+                        Instantiate(Mny[0]);
                     }
                     else
                     {
                         //100円玉
+                        Instantiate(Mny[1]);
                     }
                 }
                 else
                 {
                     //100円玉
+                    Instantiate(Mny[1]);
                 }
                     break;
             case Speed.Soso:
                 if(Amount>=80)
                 {
                     //100円玉
+                    Instantiate(Mny[1]);
+                    Debug.Log(Speed.Soso);
                 }
-                break;
+                else if(Amount >= 70)
+                {
+                    int rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        //100円玉
+                        Instantiate(Mny[1]);
+                    }
+                    else
+                    {
+                        //50円玉
+                        Instantiate(Mny[2]);
+                    }
+                }
+                else
+                {
+                    Instantiate(Mny[2]);
+                }
+                    break;
             case Speed.Slow:
+                if (Amount <= 20)
+                {
+                    //100円玉
+                    Instantiate(Mny[2]);
+                }
+                else if (Amount <= 10)
+                {
+                    int rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        //100円玉
+                        Instantiate(Mny[2]);
+                    }
+                    else
+                    {
+                        //50円玉
+                        Instantiate(Mny[3]);
+                    }
+                }
+                else if(Amount <= 5)
+                {
+                    Instantiate(Mny[3]);
+                }
                 break;
         }
 

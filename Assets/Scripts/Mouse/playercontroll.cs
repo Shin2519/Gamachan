@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEditorInternal;
+using System;
 
 public class playercontroll : MonoBehaviour
 {
@@ -93,16 +95,12 @@ public class playercontroll : MonoBehaviour
             }
             if (!WasSwiping && isSwiping)
             {
-                int rnd = Random.Range(0, 2);
-                if (rnd == 1)
-                {
-                    DropMoney.instance.KindofMoney(Speed);
-                }
-                else
+                UIManagement.instance.gauge();
+                if(UIManagement.instance.Currentgauge>=100)
                 {
 
                 }
-                Debug.Log(rnd);
+                ProbabilityManager.instance.Normal(Speed);
             }
 
             WasSwiping = isSwiping;
