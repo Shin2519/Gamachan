@@ -7,10 +7,7 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sumamountyen;//合計金額テキスト
     [SerializeField] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
-
-    [SerializeField] private SelectGoodsManager selectGoods;
     private int sumamount = 0;
-    //private int amount = 100;
     private int inputamount = 50;
 
 
@@ -18,7 +15,7 @@ public class TachPanel : MonoBehaviour
     void Start()
     {
         sumamounttext.text = sumamount.ToString() + "円";
-        amounttext.text = selectGoods.total.ToString() + "円";
+        //amounttext.text = selectGoods.total.ToString() + "円";
         inputamounttext.text = inputamount.ToString() + "円";
 
         sumamounttext.enabled = false;
@@ -28,7 +25,7 @@ public class TachPanel : MonoBehaviour
 
     public void OnButton()
     {
-        sumamount = selectGoods.total - inputamount;
+        //sumamount = selectGoods.total - inputamount;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
 
