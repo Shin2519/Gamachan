@@ -3,17 +3,24 @@ using UnityEngine.UI;
 
 public class UIManagement : MonoBehaviour
 {
+    enum STATE
+    {
+        Normal,
+        Gold
+    }
+    [SerializeField]
+    private STATE state;
     public static UIManagement instance;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
     [SerializeField]
     private Sprite Gold;
     [SerializeField]
-    int Current = 0;
+    float Current = 0;
     int Min = 0;
     int Max = 100;
 
-    public int Currentgauge {get{ return Current; }set { Current = Mathf.Clamp(value,Min,Max); } }
+    public float Currentgauge {get{ return Current; }set { Current = Mathf.Clamp(value,Min,Max); } }
     void Awake()
     {
         instance = this;
@@ -29,8 +36,9 @@ public class UIManagement : MonoBehaviour
     {
         if(Current>=Max)
         {
+            state = STATE.Gold;
             float time = 10;
-            while(time>0)
+            if(time>0)
             {
                 time -= Time.deltaTime;
                 Currentgauge--;
@@ -38,12 +46,12 @@ public class UIManagement : MonoBehaviour
         }
         else
         {
+            state = STATE.Normal;
             Gauge.fillAmount = Current / Max;
         }
     }
-
     public void gauge()
     {
-        Currentgauge += 10;
+        Currentgauge += 10 * Time.deltaTime;
     }
 }

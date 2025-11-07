@@ -13,7 +13,7 @@ public class ProbabilityManager : MonoBehaviour
         int rnd = Random.Range(0, 100);
         if (rnd >= 0 && rnd <= 49)
         {
-            DropMoney.instance.KindofMoney(Shakespeed);
+            //DropMoney.instance.KindofMoney(Shakespeed);
         }
         else
         {
@@ -26,7 +26,7 @@ public class ProbabilityManager : MonoBehaviour
         int rnd = Random.Range(0, 100);
         if (rnd >= 0 && rnd <= 59)
         {
-            DropMoney.instance.KindofMoney(Shakespeed);
+            //DropMoney.instance.KindofMoney(Shakespeed);
         }
         else
         {

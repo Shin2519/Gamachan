@@ -72,7 +72,9 @@ public class playercontroll : MonoBehaviour
         PointerEventData data = new PointerEventData(E_System);
         data.position = MovInput;
         List<RaycastResult> results = new List<RaycastResult>();
+
         G_raycast.Raycast(data, results);
+
         if(results.Count > 0)
         {
             ui = results[0].gameObject;
@@ -83,7 +85,9 @@ public class playercontroll : MonoBehaviour
             bool WasSwiping = false;
 
             RectTransform ui_Pos = ui.GetComponent<RectTransform>();
+
             float Speed = Mathf.Pow(SpeedMath(ui_Pos),0.5f);
+
             Debug.Log(Speed);
             if (Speed > judge)
             {
@@ -95,14 +99,16 @@ public class playercontroll : MonoBehaviour
             }
             if (!WasSwiping && isSwiping)
             {
-                UIManagement.instance.gauge();
                 if(UIManagement.instance.Currentgauge>=100)
                 {
-
+                    ProbabilityManager.instance.Gold(Speed);
                 }
-                ProbabilityManager.instance.Normal(Speed);
+                else
+                {
+                    UIManagement.instance.gauge();
+                    ProbabilityManager.instance.Normal(Speed);
+                } 
             }
-
             WasSwiping = isSwiping;
         }
     }
