@@ -4,39 +4,35 @@ using UnityEngine;
 public class TachPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI sumamounttext;//‡Œv‹àŠzƒeƒLƒXƒg(‰~)
-    [SerializeField]private TextMeshProUGUI sumamountyen;//‡Œv‹àŠzƒeƒLƒXƒg
+    [SerializeField] private TextMeshProUGUI sumamountyen;//‡Œv‹àŠzƒeƒLƒXƒg
     [SerializeField] private TextMeshProUGUI amounttext;//¤•i‚Ì‹àŠzƒeƒLƒXƒg
     [SerializeField] private TextMeshProUGUI inputamounttext;//“Š“ü‹àŠz(‰¼)ƒeƒLƒXƒg
 
+    [SerializeField] private SelectGoodsSO selectGoods;
     private int sumamount = 0;
-    private int amount = 100;
-    private int inputamount = 150;
+    //private int amount = 100;
+    private int inputamount = 50;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sumamounttext.text = sumamount.ToString() + "‰~";
-        amounttext.text = amount.ToString() + "‰~";
+        amounttext.text = selectGoods.total.ToString() + "‰~";
         inputamounttext.text = inputamount.ToString() + "‰~";
 
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
     public void OnButton()
     {
-        sumamount = amount - inputamount;
+        sumamount = selectGoods.total - inputamount;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
 
-        if (sumamount >0)
+        if (sumamount <0)
         {
             sumamountyen.text = "‚¨’Þ‚è";
             sumamounttext.text =  sumamount.ToString() + "‰~";
