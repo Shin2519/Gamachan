@@ -3,13 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class ResultManager : MonoBehaviour
 {
-    public AudioClip clickSE; // InspectorÇ≈ê›íËÇ∑ÇÈ
-    private AudioSource audioSource;
-
-    private void Start()
-    {
-        audioSource = GameObject.Find("SEPlayer").GetComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clickSE;
 
     private void PlayClickSE()
     {
