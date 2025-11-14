@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class DropMoney : MonoBehaviour
 {
@@ -15,8 +16,7 @@ public class DropMoney : MonoBehaviour
     [SerializeField, Header("小銭の種類")]
     private GameObject[] Mny;
     [SerializeField, Header("ガマちゃん")]
-    private GameObject Gama;
-    private
+    private Transform Gama;
    void Awake()
     {
         instance = this;
@@ -53,7 +53,7 @@ public class DropMoney : MonoBehaviour
             case Speed.Fast:
                 if(Amount>=130)
                 {
-                    Instantiate(Mny[0],Gama.transform);
+                    Instantiate(Mny[0], Gama.position, Quaternion.identity);
                 }
                 else if(Amount>=120)
                 {
@@ -61,25 +61,27 @@ public class DropMoney : MonoBehaviour
                     if(rnd==0)
                     {
                         //500円玉
-                        Instantiate(Mny[0]);
+                        GameObject coin = Instantiate(Mny[0], Gama.position, Quaternion.identity);
+                        Transform child = coin.transform.GetChild(0);
+                        child.position = Gama.position;
                     }
                     else
                     {
                         //100円玉
-                        Instantiate(Mny[1]);
+                        Instantiate(Mny[1], Gama.position, Quaternion.identity);
                     }
                 }
                 else
                 {
                     //100円玉
-                    Instantiate(Mny[1]);
+                    Instantiate(Mny[1], Gama.position, Quaternion.identity);
                 }
                     break;
             case Speed.Soso:
                 if(Amount>=80)
                 {
                     //100円玉
-                    Instantiate(Mny[1]);
+                    Instantiate(Mny[1], Gama.position, Quaternion.identity);
                     Debug.Log(Speed.Soso);
                 }
                 else if(Amount >= 70)
@@ -88,24 +90,24 @@ public class DropMoney : MonoBehaviour
                     if (rnd == 0)
                     {
                         //100円玉
-                        Instantiate(Mny[1]);
+                        Instantiate(Mny[1], Gama.position, Quaternion.identity);
                     }
                     else
                     {
                         //50円玉
-                        Instantiate(Mny[2]);
+                        Instantiate(Mny[2], Gama.position, Quaternion.identity);
                     }
                 }
                 else
                 {
-                    Instantiate(Mny[2]);
+                    Instantiate(Mny[2], Gama.position, Quaternion.identity);
                 }
                     break;
             case Speed.Slow:
                 if (Amount <= 20)
                 {
                     //100円玉
-                    Instantiate(Mny[2]);
+                    Instantiate(Mny[2], Gama.position, Quaternion.identity);
                 }
                 else if (Amount <= 10)
                 {
@@ -113,17 +115,17 @@ public class DropMoney : MonoBehaviour
                     if (rnd == 0)
                     {
                         //100円玉
-                        Instantiate(Mny[2]);
+                        Instantiate(Mny[2], Gama.position, Quaternion.identity);
                     }
                     else
                     {
                         //50円玉
-                        Instantiate(Mny[3]);
+                        Instantiate(Mny[3], Gama.position, Quaternion.identity);
                     }
                 }
                 else if(Amount <= 5)
                 {
-                    Instantiate(Mny[3]);
+                    Instantiate(Mny[3], Gama.position, Quaternion.identity);
                 }
                 break;
         }

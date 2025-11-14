@@ -33,6 +33,8 @@ public class playercontroll : MonoBehaviour
     [SerializeField]
     private GameObject cursor;
     GameObject ui;
+
+    public Vector2 MovPos => MovInput;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
