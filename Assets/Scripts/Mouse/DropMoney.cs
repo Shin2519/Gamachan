@@ -14,6 +14,9 @@ public class DropMoney : MonoBehaviour
     private Speed speed;
     [SerializeField, Header("小銭の種類")]
     private GameObject[] Mny;
+    [SerializeField, Header("ガマちゃん")]
+    private GameObject Gama;
+    private
    void Awake()
     {
         instance = this;
@@ -50,7 +53,7 @@ public class DropMoney : MonoBehaviour
             case Speed.Fast:
                 if(Amount>=130)
                 {
-                    Instantiate(Mny[0]);
+                    Instantiate(Mny[0],Gama.transform);
                 }
                 else if(Amount>=120)
                 {

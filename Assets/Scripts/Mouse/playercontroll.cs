@@ -19,6 +19,9 @@ public class playercontroll : MonoBehaviour
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
 
+    Vector2 MinPos = new Vector2(-960,0);
+    Vector2 MaxPos = new Vector2(960,540);
+
     Vector2 AfterPos;
     [SerializeField]
     private EventSystem E_System;
@@ -26,6 +29,9 @@ public class playercontroll : MonoBehaviour
     GraphicRaycaster G_raycast;
     [SerializeField]
     private RectTransform ParentCanvas;
+
+    [SerializeField]
+    private GameObject cursor;
     GameObject ui;
     private void OnMove(InputValue val)
     {
@@ -34,6 +40,7 @@ public class playercontroll : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(cursor);
         instance = this;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -120,7 +127,13 @@ public class playercontroll : MonoBehaviour
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, MovInput, null, out localPoint);
 
-        UIPosition.anchoredPosition = localPoint;
+        float Clamped_x = Mathf.Clamp(localPoint.x, MinPos.x, MaxPos.x);
+
+        float Clamped_y = Mathf.Clamp(localPoint.y, MinPos.y, MaxPos.y);
+
+        Vector2 ClampedlocalPoint = new Vector2(Clamped_x,Clamped_y);
+
+        UIPosition.anchoredPosition = ClampedlocalPoint;
 
         AfterPos = UIPosition.anchoredPosition;
 
