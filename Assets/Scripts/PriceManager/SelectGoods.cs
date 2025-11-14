@@ -10,6 +10,7 @@ public class SelectGoods : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI goodscount;//商品個数のテキスト
     [SerializeField] private TextMeshProUGUI pricetext;//商品単価のテキスト
+    [SerializeField] private Image image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO selectGoodsso;
     
@@ -22,10 +23,12 @@ public class SelectGoods : MonoBehaviour
 
     void Start()
     {
-      
+        image.SetNativeSize();
+
         ui.gameObject.SetActive(false);
         
         pricetext.text = selectGoodsso.dataList[index].price.ToString() + "円";
+        image.sprite=selectGoodsso.dataList[index].image;
 
         selectGoodsso.dataList[index].count = 0;
         selectGoodsso.dataList[index].total = 0;
