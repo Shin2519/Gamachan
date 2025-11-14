@@ -6,8 +6,10 @@ public class OptionManager : MonoBehaviour
 {
     public Slider bgmSlider;
     public Slider seSlider;
+    public Button backButton;
     public AudioSource bgmSource;
     public AudioSource seSource;
+    public AudioClip backSE; // –ß‚éƒ{ƒ^ƒ“—p‚ÌŒø‰Ê‰¹
 
     void Start()
     {
@@ -19,22 +21,33 @@ public class OptionManager : MonoBehaviour
 
         bgmSource.volume = bgmVolume;
         seSource.volume = seVolume;
+
+        bgmSlider.onValueChanged.AddListener(delegate { OnBGMVolumeChanged(); });
+        seSlider.onValueChanged.AddListener(delegate { OnSEVolumeChanged(); });
+        backButton.onClick.AddListener(OnBackButtonPressed);
     }
 
     public void OnBGMVolumeChanged()
     {
         bgmSource.volume = bgmSlider.value;
         PlayerPrefs.SetFloat("BGMVolume", bgmSlider.value);
+        PlayerPrefs.Save();
     }
 
     public void OnSEVolumeChanged()
     {
         seSource.volume = seSlider.value;
         PlayerPrefs.SetFloat("SEVolume", seSlider.value);
+        PlayerPrefs.Save();
     }
 
     public void OnBackButtonPressed()
     {
+        if (backSE != null)
+        {
+            seSource.PlayOneShot(backSE);
+        }
+
         SceneManager.LoadScene("TitleScene");
     }
 }

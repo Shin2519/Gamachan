@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.73679906, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.92725825, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -860,8 +860,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6a3a7526f896ec647b4d85e0c4deeeb3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6a3a7526f896ec647b4d85e0c4deeeb3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1602,8 +1602,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 2041772242}
   seSlider: {fileID: 544901577}
+  backButton: {fileID: 135487505}
   bgmSource: {fileID: 682734292}
   seSource: {fileID: 1597689210}
+  backSE: {fileID: 8300000, guid: f13bf02c97cc49c4bbc665e56cf0208c, type: 3}
 --- !u!4 &1637921043
 Transform:
   m_ObjectHideFlags: 0
