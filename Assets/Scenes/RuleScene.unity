@@ -1746,6 +1746,7 @@ MonoBehaviour:
   Page1: {fileID: 696303927}
   Page2: {fileID: 1324377686}
   Page3: {fileID: 34326541}
+  clip: {fileID: 8300000, guid: f13bf02c97cc49c4bbc665e56cf0208c, type: 3}
 --- !u!4 &888571932
 Transform:
   m_ObjectHideFlags: 0
