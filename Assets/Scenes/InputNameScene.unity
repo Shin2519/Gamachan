@@ -3429,6 +3429,8 @@ MonoBehaviour:
   pricetext: {fileID: 1048812296}
   ui: {fileID: 527202967}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 0}
+  selectgoodUI: {fileID: 0}
   index: 4
 --- !u!1 &554301475
 GameObject:
@@ -6632,6 +6634,8 @@ MonoBehaviour:
   pricetext: {fileID: 1828107800}
   ui: {fileID: 407669753}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 0}
+  selectgoodUI: {fileID: 0}
   index: 1
 --- !u!1 &1401788201
 GameObject:
@@ -7573,10 +7577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sumamounttext: {fileID: 953517912}
-  sumamountyen: {fileID: 1943491046}
   amounttext: {fileID: 1441263345}
   inputamounttext: {fileID: 1978419519}
+  sumamounttext: {fileID: 953517912}
+  sumamountyen: {fileID: 1943491046}
+  selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
 --- !u!1 &1487470232
 GameObject:
   m_ObjectHideFlags: 0
@@ -8583,6 +8588,8 @@ MonoBehaviour:
   pricetext: {fileID: 1639413609}
   ui: {fileID: 72906437}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 0}
+  selectgoodUI: {fileID: 0}
   index: 2
 --- !u!1 &1697808386
 GameObject:
@@ -8789,6 +8796,8 @@ MonoBehaviour:
   pricetext: {fileID: 336890646}
   ui: {fileID: 1832314700}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 0}
+  selectgoodUI: {fileID: 0}
   index: 5
 --- !u!224 &1708926427
 RectTransform:
@@ -9346,6 +9355,8 @@ MonoBehaviour:
   pricetext: {fileID: 1077501437}
   ui: {fileID: 2045476685}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 1484602541}
+  selectgoodUI: {fileID: 240309224}
   index: 0
 --- !u!1 &1755612587
 GameObject:
@@ -9955,9 +9966,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1754189670}
         m_TargetAssemblyTypeName: SelectGoods, Assembly-CSharp
-        m_MethodName: OnTuchpanel
+        m_MethodName: OnPay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11436,6 +11447,8 @@ MonoBehaviour:
   pricetext: {fileID: 1924024498}
   ui: {fileID: 947472372}
   selectGoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 0}
+  selectgoodUI: {fileID: 0}
   index: 3
 --- !u!1 &2066960951
 GameObject:
