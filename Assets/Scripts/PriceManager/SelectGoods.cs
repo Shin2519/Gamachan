@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Linq;
 
 
 public class SelectGoods : MonoBehaviour
@@ -13,6 +14,8 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] private SelectGoodsSO selectGoodsso;
 
     int counta = 0;
+
+    bool max;
 
     public int index;
 
@@ -25,6 +28,8 @@ public class SelectGoods : MonoBehaviour
 
         selectGoodsso.dataList[index].count = 0;
         selectGoodsso.dataList[index].total = 0;
+
+        max = false;
     }
     private void Update()
     {
@@ -34,7 +39,15 @@ public class SelectGoods : MonoBehaviour
 
         Total();
 
-        Count();
+        if(counta > 5)
+        {
+            max = true;
+        }
+        else
+        {
+            max = false;
+        }
+        counta = selectGoodsso.dataList.Sum(data=>data.count);
         
     }
 
@@ -48,23 +61,13 @@ public class SelectGoods : MonoBehaviour
 
         Debug.Log(total);
     }
-
-    private void Count()
-    {
-        foreach(var item in selectGoodsso.dataList)
-        {
-            counta += item.count;
-        }
-        Debug.Log(counta);
-    }
     
     public void OnPlusButton()
     {
-        if(counta<=6)
+        if(!max)
         {
             selectGoodsso.dataList[index].count += 1;
-        }
-        
+        } 
     }
     public void OnMinusButton()
     {
