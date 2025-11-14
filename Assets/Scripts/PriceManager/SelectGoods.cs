@@ -12,8 +12,7 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pricetext;//商品単価のテキスト
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO selectGoodsso;
-    [SerializeField] private GameObject tachpanel;
-    [SerializeField] GameObject selectgoodUI;
+    
 
     int counta = 0;
 
@@ -33,7 +32,7 @@ public class SelectGoods : MonoBehaviour
 
         max = false;
 
-        tachpanel.SetActive(false);
+        
     }
     private void Update()
     {
@@ -52,7 +51,6 @@ public class SelectGoods : MonoBehaviour
         counta = selectGoodsso.dataList.Sum(data=>data.count);
         
     }
-
     private void Total()
     {
         int total = 0;
@@ -82,12 +80,6 @@ public class SelectGoods : MonoBehaviour
     {
         ui.gameObject.SetActive(true);
         
-    }
-
-    public void OnPay()
-    {
-        tachpanel.SetActive(true);
-        selectgoodUI.SetActive(false);
     }
 
 }
