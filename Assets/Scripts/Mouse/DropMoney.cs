@@ -16,7 +16,7 @@ public class DropMoney : MonoBehaviour
     [SerializeField, Header("小銭の種類")]
     private GameObject[] Mny;
     [SerializeField, Header("ガマちゃん")]
-    private Transform Gama;
+    private RectTransform Gama;
    void Awake()
     {
         instance = this;
@@ -62,8 +62,7 @@ public class DropMoney : MonoBehaviour
                     {
                         //500円玉
                         GameObject coin = Instantiate(Mny[0], Gama.position, Quaternion.identity);
-                        RectTransform coin_pos = coin.GetComponentInChildren<RectTransform>();
-                        coin_pos.position = Gama.position;
+                        coinPossetter.instance.CoinSet(Gama);
                     }
                     else
                     {
