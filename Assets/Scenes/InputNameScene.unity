@@ -399,6 +399,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &265989000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+  m_PrefabInstance: {fileID: 2493267751698235839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281631242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3104,10 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 265988998}
+    - target: {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: targettext
+      value: 
+      objectReference: {fileID: 1277628939}
     - target: {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: image
       value: 
@@ -3350,6 +3365,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: sl
+      value: 
+      objectReference: {fileID: 265989000}
+    - target: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: tachpanel
       value: 
       objectReference: {fileID: 1484602541}
@@ -3427,7 +3446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712311229515320275, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9051047679071195258, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3632,7 +3651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3640280308471638626, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4773218154460916785, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: m_AnchoredPosition.x

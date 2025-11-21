@@ -10,10 +10,12 @@ public class SelectGoods : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI goodscount;//商品個数のテキスト
     [SerializeField] private TextMeshProUGUI pricetext;//商品単価のテキスト
+    [SerializeField] private TextMeshProUGUI targettext;//目標金額
     [SerializeField] private Image image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO selectGoodsso;
     
+    public int target;
 
     int counta = 0;
 
@@ -23,12 +25,16 @@ public class SelectGoods : MonoBehaviour
 
     void Start()
     {
-        image.SetNativeSize();
-
         ui.gameObject.SetActive(false);
-        
-        pricetext.text = selectGoodsso.dataList[index].price.ToString() + "円";
+                
         image.sprite=selectGoodsso.dataList[index].image;
+        //image.SetNativeSize();
+
+        target = Random.Range(500, 1000);
+        targettext.text = target.ToString() + "円を目指せ!";
+
+        selectGoodsso.dataList[index].price = Random.Range(1, 500);
+        pricetext.text = selectGoodsso.dataList[index].price.ToString() + "円";
 
         selectGoodsso.dataList[index].count = 0;
         selectGoodsso.dataList[index].total = 0;
@@ -82,7 +88,7 @@ public class SelectGoods : MonoBehaviour
     public void OnGoodsButton()
     {
         ui.gameObject.SetActive(true);
-        
+
     }
 
 }
