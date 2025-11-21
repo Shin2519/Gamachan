@@ -1966,6 +1966,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  parentcanvas: {fileID: 0}
   Gama: {fileID: 0}
 --- !u!4 &1035528695
 Transform:
@@ -2545,22 +2546,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423696624}
   m_CullTransparentMesh: 1
---- !u!114 &1463701975 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2193844442155330548, guid: 3ca54b83295b198429aadf58e6dc218f, type: 3}
-  m_PrefabInstance: {fileID: 1486961490}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &1463701978 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2984179333449276466, guid: 3ca54b83295b198429aadf58e6dc218f, type: 3}
-  m_PrefabInstance: {fileID: 1486961490}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1486961490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2692,7 +2677,7 @@ GameObject:
   - component: {fileID: 1551677191}
   - component: {fileID: 1551677190}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: pose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3229,11 +3214,11 @@ PrefabInstance:
     - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: G_raycast
       value: 
-      objectReference: {fileID: 1463701975}
+      objectReference: {fileID: 0}
     - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: ParentCanvas
       value: 
-      objectReference: {fileID: 1463701978}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
