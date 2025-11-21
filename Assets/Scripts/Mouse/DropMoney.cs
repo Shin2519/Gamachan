@@ -62,8 +62,8 @@ public class DropMoney : MonoBehaviour
                     {
                         //500円玉
                         GameObject coin = Instantiate(Mny[0], Gama.position, Quaternion.identity);
-                        Transform child = coin.transform.GetChild(0);
-                        child.position = Gama.position;
+                        RectTransform coin_pos = coin.GetComponentInChildren<RectTransform>();
+                        coin_pos.position = Gama.position;
                     }
                     else
                     {
