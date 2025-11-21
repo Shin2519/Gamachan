@@ -17,7 +17,8 @@ public class tlymoving : MonoBehaviour
     void Update()
     {
         RectTransform tlyPos = GetComponent<RectTransform>();
-        Vector2 Pos = tlyPos.anchoredPosition;
+        Vector2 Pos = tlyPos.position;
         Pos.x += speed * Time.deltaTime;
+        tlyPos.position = Pos;
     }
 }
