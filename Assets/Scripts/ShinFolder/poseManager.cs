@@ -10,6 +10,14 @@ public class poseManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    //音量設定用
+    public Slider bgmSlider;
+    public Slider seSlider;
+    public Button backButton;
+    public AudioSource bgmSource;
+    public AudioSource seSource;
+    public AudioClip backSE; // 戻るボタン用の効果音
+
     private void Start()
     {
         //パネル非表示
@@ -18,6 +26,20 @@ public class poseManager : MonoBehaviour
         //ボタンにリスナーを追加
         ResumeButton.onClick.AddListener(ResumeGame);
         TitleButton.onClick.AddListener(ChangeScene_Ti);
+
+        //音量設定用
+        float bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
+        float seVolume = PlayerPrefs.GetFloat("SEVolume", 0.5f);
+
+        bgmSlider.value = bgmVolume;
+        seSlider.value = seVolume;
+
+        bgmSource.volume = bgmVolume;
+        seSource.volume = seVolume;
+
+        bgmSlider.onValueChanged.AddListener(delegate { OnBGMVolumeChanged(); });
+        seSlider.onValueChanged.AddListener(delegate { OnSEVolumeChanged(); });
+        backButton.onClick.AddListener(OnBackButtonPressed);
     }
 
     private void Update()
@@ -65,6 +87,31 @@ public class poseManager : MonoBehaviour
 
     public void ChangeScene_Ti()
     {
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    //音量設定用
+    public void OnBGMVolumeChanged()
+    {
+        bgmSource.volume = bgmSlider.value;
+        PlayerPrefs.SetFloat("BGMVolume", bgmSlider.value);
+        PlayerPrefs.Save();
+    }
+
+    public void OnSEVolumeChanged()
+    {
+        seSource.volume = seSlider.value;
+        PlayerPrefs.SetFloat("SEVolume", seSlider.value);
+        PlayerPrefs.Save();
+    }
+
+    public void OnBackButtonPressed()
+    {
+        if (backSE != null)
+        {
+            seSource.PlayOneShot(backSE);
+        }
+
         SceneManager.LoadScene("TitleScene");
     }
 }
