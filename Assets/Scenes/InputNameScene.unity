@@ -3247,10 +3247,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+    - target: {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
     - target: {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: targettext
       value: 
       objectReference: {fileID: 1277628939}
+    - target: {fileID: 2787890239426272106, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
     - target: {fileID: 2787890239426272106, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: targettext
       value: 
@@ -3343,10 +3355,22 @@ PrefabInstance:
       propertyPath: tachpanel
       value: 
       objectReference: {fileID: 1484602541}
+    - target: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: targettext
+      value: 
+      objectReference: {fileID: 1277628939}
+    - target: {fileID: 7775373817179039723, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
     - target: {fileID: 7775373817179039723, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: targettext
       value: 
       objectReference: {fileID: 1277628939}
+    - target: {fileID: 8102748215367006306, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
     - target: {fileID: 8102748215367006306, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: targettext
       value: 
@@ -3359,6 +3383,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9055992220522381282, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
     - target: {fileID: 9055992220522381282, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: targettext
       value: 

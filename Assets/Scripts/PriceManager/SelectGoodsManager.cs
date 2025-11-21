@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,11 +9,17 @@ public class SelectGoodsManager : MonoBehaviour
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 
+    [SerializeField] private TextMeshProUGUI targettext;//目標金額
+    public int target;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tachpanel.SetActive(false); 
+        tachpanel.SetActive(false);
+
+        target = Random.Range(500, 1000);
+        targettext.text = target.ToString() + "円を目指せ!";
     }
 
     // Update is called once per frame
