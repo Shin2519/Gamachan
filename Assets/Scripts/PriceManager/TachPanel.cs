@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TachPanel : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class TachPanel : MonoBehaviour
     private int index = 0;
     private int inputamount = 500;
     private float sumamount;//çáåvã‡äz
+    [SerializeField] SelectGoods selectgoods;
+    [SerializeField] private Image[] image;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +33,6 @@ public class TachPanel : MonoBehaviour
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
     }
-
 
     public void OnButton()
     {

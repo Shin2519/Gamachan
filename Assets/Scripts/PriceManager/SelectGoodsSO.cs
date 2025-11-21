@@ -8,11 +8,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "SelectGoodsSO", menuName = "Scriptable Objects/SelectGoodsSO")]
 public class SelectGoodsSO : ScriptableObject
 {
-    public List<data> dataList;
-
-
-    
-
+    public List<data> dataList;   
 }
 
 [Serializable]
