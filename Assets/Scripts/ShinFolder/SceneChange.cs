@@ -23,6 +23,11 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("RuleCheckScene");
     }
 
+    public void ChangeButton_Ti()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+
     public void EndGame()
     {
         UnityEditor.EditorApplication.isPlaying = false;
