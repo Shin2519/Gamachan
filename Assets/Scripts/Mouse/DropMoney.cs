@@ -15,9 +15,11 @@ public class DropMoney : MonoBehaviour
     private Speed speed;
     [SerializeField, Header("小銭の種類")]
     private GameObject[] Mny;
+    [SerializeField, Header("親にするキャンバス")]
+    private GameObject parentcanvas;
     [SerializeField, Header("ガマちゃん")]
-    private RectTransform Gama;
-   void Awake()
+    private GameObject Gama;
+    void Awake()
     {
         instance = this;
     }
@@ -53,7 +55,10 @@ public class DropMoney : MonoBehaviour
             case Speed.Fast:
                 if(Amount>=130)
                 {
-                    Instantiate(Mny[0], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[0]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
                 }
                 else if(Amount>=120)
                 {
@@ -61,26 +66,38 @@ public class DropMoney : MonoBehaviour
                     if(rnd==0)
                     {
                         //500円玉
-                        GameObject coin = Instantiate(Mny[0], Gama.position, Quaternion.identity);
-                        coinPossetter.instance.CoinSet(Gama);
+                        GameObject coin = Instantiate(Mny[0]);
+                        coin.transform.SetParent(parentcanvas.transform,false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                     else
                     {
                         //100円玉
-                        Instantiate(Mny[1], Gama.position, Quaternion.identity);
+                        GameObject coin = Instantiate(Mny[1]);
+                        coin.transform.SetParent(parentcanvas.transform, false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                 }
                 else
                 {
                     //100円玉
-                    Instantiate(Mny[1], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[1]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
                 }
                     break;
             case Speed.Soso:
                 if(Amount>=80)
                 {
                     //100円玉
-                    Instantiate(Mny[1], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[1]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
+
                     Debug.Log(Speed.Soso);
                 }
                 else if(Amount >= 70)
@@ -89,24 +106,36 @@ public class DropMoney : MonoBehaviour
                     if (rnd == 0)
                     {
                         //100円玉
-                        Instantiate(Mny[1], Gama.position, Quaternion.identity);
+                        GameObject coin = Instantiate(Mny[1]);
+                        coin.transform.SetParent(parentcanvas.transform, false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                     else
                     {
                         //50円玉
-                        Instantiate(Mny[2], Gama.position, Quaternion.identity);
+                        GameObject coin = Instantiate(Mny[2]);
+                        coin.transform.SetParent(parentcanvas.transform, false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                 }
                 else
                 {
-                    Instantiate(Mny[2], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[2]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
                 }
                     break;
             case Speed.Slow:
                 if (Amount <= 20)
                 {
                     //100円玉
-                    Instantiate(Mny[2], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[2]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
                 }
                 else if (Amount <= 10)
                 {
@@ -114,17 +143,26 @@ public class DropMoney : MonoBehaviour
                     if (rnd == 0)
                     {
                         //100円玉
-                        Instantiate(Mny[2], Gama.position, Quaternion.identity);
+                        GameObject coin = Instantiate(Mny[2]);
+                        coin.transform.SetParent(parentcanvas.transform, false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                     else
                     {
                         //50円玉
-                        Instantiate(Mny[3], Gama.position, Quaternion.identity);
+                        GameObject coin = Instantiate(Mny[3]);
+                        coin.transform.SetParent(parentcanvas.transform, false);
+                        GameObject child = coin;
+                        child.transform.position = Gama.transform.position;
                     }
                 }
                 else if(Amount <= 5)
                 {
-                    Instantiate(Mny[3], Gama.position, Quaternion.identity);
+                    GameObject coin = Instantiate(Mny[3]);
+                    coin.transform.SetParent(parentcanvas.transform, false);
+                    GameObject child = coin;
+                    child.transform.position = Gama.transform.position;
                 }
                 break;
         }
