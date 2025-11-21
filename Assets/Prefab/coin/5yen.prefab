@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4089233039947487537}
   - component: {fileID: 4062883560485885952}
   - component: {fileID: 4327617323369503335}
+  - component: {fileID: -533015671922937361}
+  - component: {fileID: 2320211315085085072}
   m_Layer: 5
   m_Name: 5yen
   m_TagString: Coin
@@ -75,3 +77,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-533015671922937361
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578872055335136747}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &2320211315085085072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578872055335136747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994c6161605019443870c79b1c5f2be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 15

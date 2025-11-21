@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2564087205465104516}
   - component: {fileID: 5348721554816970058}
   - component: {fileID: 6735037575728953559}
+  - component: {fileID: -8184507153784949229}
+  - component: {fileID: 7042117187430306030}
   m_Layer: 5
   m_Name: 100yen
   m_TagString: Coin
@@ -75,3 +77,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-8184507153784949229
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966368269713309528}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &7042117187430306030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966368269713309528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994c6161605019443870c79b1c5f2be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 30
