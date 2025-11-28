@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TachPanel : MonoBehaviour
 {
+    public static TachPanel instance;
     [SerializeField,Header("–Ú•W‹àŠz")] private TextMeshProUGUI amounttext;//¤•i‚Ì‹àŠzƒeƒLƒXƒg
     [SerializeField,Header("“Š“ü‹àŠz")] private TextMeshProUGUI inputamounttext;//“Š“ü‹àŠz(‰¼)ƒeƒLƒXƒg
     [SerializeField,Header("‡Œv‹àŠz")] private TextMeshProUGUI sumamounttext;//‡Œv‹àŠzƒeƒLƒXƒg(‰~)
@@ -13,19 +14,23 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sumamountyen;//‡Œv‹àŠzƒeƒLƒXƒg(‚¨’Ş‚èAx•¥cŠz)
     [SerializeField] SelectGoodsSO selectgoodsso;
     private int index = 0;
-    private int inputamount = 500;
+    [SerializeField]
+    private int inputamount;
     private float sumamount;//‡Œv‹àŠz
     [SerializeField] SelectGoods selectgoods;
     [SerializeField] private Image[] image;
-
-
+    public int Inp_Am { get { return inputamount; } set { inputamount = value; } }
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //–Ú•W‹àŠz
         amounttext.text = selectgoodsso.total.ToString() + "‰~";
         //“Š“ü‹àŠz
-        inputamounttext.text = inputamount.ToString() + "‰~";
+        inputamounttext.text = Inp_Am.ToString() + "‰~";
         //‡Œv‹àŠz
         sumamounttext.text = sumamount.ToString() + "‰~";
 
@@ -33,7 +38,10 @@ public class TachPanel : MonoBehaviour
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
     }
-
+    void Update()
+    {
+        inputamounttext.text = Inp_Am.ToString() + "‰~";
+    }
     public void OnButton()
     {
         sumamount = selectgoodsso.total - inputamount;
@@ -52,6 +60,5 @@ public class TachPanel : MonoBehaviour
             sumamounttext.text = "-"+ sumamount.ToString() + "‰~";
             sumamounttext.color = Color.red;
         }
-
     }
 }

@@ -97,7 +97,7 @@ public class playercontroll : MonoBehaviour
 
             float Speed = Mathf.Pow(SpeedMath(ui_Pos),0.5f);
 
-            Debug.Log(Speed);
+            //Debug.Log(Speed);
             if (Speed > judge)
             {
                 isSwiping = true;
@@ -114,7 +114,6 @@ public class playercontroll : MonoBehaviour
                 }
                 else
                 {
-                    UIManagement.instance.gauge();
                     ProbabilityManager.instance.Normal(Speed);
                 } 
             }
