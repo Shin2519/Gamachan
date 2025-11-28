@@ -13,12 +13,17 @@ public class SelectGoods : MonoBehaviour
     [SerializeField]private TextMeshProUGUI goodscount;//商品個数のテキスト
     [SerializeField] private TextMeshProUGUI pricetext;//商品単価のテキスト
     
+
     [SerializeField] public Image[] image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO select;
 
+    [SerializeField] private TextMeshProUGUI targettext;//目標金額
+    public int target;
+
     int counta = 0;//選択個数
     bool max;
+    public int sum;
 
 
     public int index = 0;
@@ -33,6 +38,10 @@ public class SelectGoods : MonoBehaviour
         select.dataList[index].count = 0;
         select.dataList[index].total = 0;
 
+        target = Random.Range(650, 2000);
+        targettext.text = target.ToString() + "円を目指せ!";
+
+        Price();
 
         Goods(); 
         max = false;
@@ -42,7 +51,7 @@ public class SelectGoods : MonoBehaviour
     private void Update()
     {
         goodscount.text = select.dataList[index].count.ToString();
-
+        
         Total();
         //最大選択数6
         if(counta > 5)
@@ -56,14 +65,62 @@ public class SelectGoods : MonoBehaviour
         counta = select.dataList.Sum(data=>data.count);
         
     }
-    //商品画像,価格
+
+    //商品価格
+    private void Price()
+    {
+        int usecount = Random.Range(2, 5);
+
+        List<int> ans = new List<int>();
+        int sum = 0;
+
+        for(int i=0; i<usecount-1;i++)
+        {
+            int v=Random.Range(10, target/2);
+            ans.Add(v);
+            sum += v;
+        }
+
+        int last = target - sum;
+        if(last<=0)
+        {
+            Price();
+            return;
+        }
+        ans.Add(last);
+
+        List<int> temp=new List<int>(ans);
+
+        while(temp.Count < 6)
+        {
+            int dummy = Random.Range(10, 300);
+            if (dummy == target||ans.Contains(dummy))
+            {
+                continue;
+            }
+            temp.Add(dummy);
+        }
+        for (int i=0;i<temp.Count;i++)
+        { 
+            int r=Random.Range(i,temp.Count);
+            (temp[i], temp[r]) = (temp[i], temp[r]);
+        }
+        for(int i=0;i<6;i++)
+        {
+            select.dataList[i].price = temp[i];
+           pricetext.text= temp[i].ToString() + "円";
+        }
+
+        //select.dataList[index].price = Random.Range(1, 450);
+        //pricetext.text = select.dataList[index].price.ToString() + "円";
+
+
+    }
+    //商品画像
     private void Goods()
     {
         int slotcount=image.Length;
         int imagecount = select.dataList.Count;
-
-        select.dataList[index].price = Random.Range(1, 500);
-        pricetext.text = select.dataList[index].price.ToString() + "円";
 
         if(imagecount<slotcount)
         {
@@ -93,7 +150,6 @@ public class SelectGoods : MonoBehaviour
         }
         
     }
-
 
     //合計金額
     private void Total()
