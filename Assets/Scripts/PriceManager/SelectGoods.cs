@@ -17,7 +17,7 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] public Image[] image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO select;
-
+    private data[] currentgood = new data[6];
     [SerializeField] private TextMeshProUGUI targettext;//目標金額
     //public int target;
 
@@ -38,12 +38,10 @@ public class SelectGoods : MonoBehaviour
         select.dataList[index].count = 0;
         select.total = 0;
 
-        select.target = Random.Range(70, 250)*10;
-        targettext.text = select.target.ToString() + "円を目指せ!";
 
         Price();
 
-        Goods(); 
+        //Goods(); 
         max = false;
         
 
@@ -66,85 +64,57 @@ public class SelectGoods : MonoBehaviour
         
     }
 
-    //商品価格
+    //商品価格.画像
     private void Price()
     {
-        int usecount = Random.Range(2, 6);
+        priceset();
+        List<int> prices = select.dataList.Select(d=>d.price).ToList();
 
-        List<int> ans = new List<int>();
-        int sum = 0;
+        List<int> total = new List<int>();
 
-        for(int i=0; i<usecount-1;i++)
+        int n = prices.Count;
+
+        for(int m =1;m<(1<<n);m++)
         {
-            int v=Random.Range(1, select.target /20)*10;
-            ans.Add(v);
-            sum += v;
-        }
-
-        int last = select.target - sum;
-        if(last<=0||last%100!=0)
-        {
-            Price();
-            return;
-        }
-        ans.Add(last);
-
-        List<int> temp=new List<int>(ans);
-
-        while(temp.Count < 6)
-        {
-            int dummy = Random.Range(10, 50)*10;
-            if (dummy == select.target ||ans.Contains(dummy))
+            int sum = 0;
+            for(int i=0;i<n;i++)
             {
-                continue;
+                if((m&(1<<i))!=0)
+                {
+                    sum += prices[i];
+                }
             }
-            temp.Add(dummy);
+            total.Add(sum);
         }
-        for (int i=0;i<temp.Count;i++)
-        { 
-            int r=Random.Range(i,temp.Count);
-            (temp[i], temp[r]) = (temp[r], temp[i]);
-        }
+        total = total.Distinct().ToList();
+
+
+        select.target = total[Random.Range(0,total.Count)];
+        targettext.text = select.target.ToString() + "円を目指せ!";
+
+        var shuffled = select.dataList.OrderBy(a => Random.value).ToList();
         for(int i=0;i<6;i++)
         {
-            select.dataList[i].price = temp[i];
-            pricetext[i].text= select.dataList[i].price.ToString() + "円";
+            currentgood[i] = shuffled[i];
+            pricetext[i].text = shuffled[i].price + "円";
+            image[i].sprite = shuffled[i].image;
         }
 
     }
-    //商品画像
-    private void Goods()
+    //商品の価格設定
+    private void priceset()
     {
-        int slotcount=image.Length;
-        int imagecount = select.dataList.Count;
-
-        if(imagecount<slotcount)
-        {
-            Debug.Log("ss");
-            return;
-        }
-
-        imageindex.Clear();
-
-        for (int i = 0; i < imagecount; i++)
-        {
-            imageindex.Add(i);
-        }
-        for (int i = 0; i < imageindex.Count; i++)
-        {
-            int random = Random.Range(i, imageindex.Count);
-            int temp = imageindex[i];
-            imageindex[i] = imageindex[random];
-            imageindex[random] = temp;
-
-        }
-
-        for(int i=0;i<slotcount;i++)
-        {
-            int index = imageindex[i];
-            image[i].sprite = select.dataList[index].image;
-        }
-        
+        //商品の価格
+        select.dataList[0].price = Random.Range(3, 5);//袋
+        select.dataList[1].price = Random.Range(10, 20) * 10;//パン
+        select.dataList[2].price = Random.Range(10, 25) * 10;//おにぎり
+        select.dataList[3].price = Random.Range(20, 35) * 10;//サンドイッチ
+        select.dataList[4].price = Random.Range(40, 60) * 10;//お弁当
+        select.dataList[5].price = Random.Range(15, 25) * 10;//チキン
+        select.dataList[6].price = Random.Range(8, 11) * 10;//お茶
+        select.dataList[7].price = Random.Range(11, 16) * 10;//ポテトチップス
+        select.dataList[8].price = Random.Range(8, 15) * 10;//アイスクリーム
+        select.dataList[9].price = Random.Range(15, 32) * 10;//ラーメン
     }
 
     //合計金額
