@@ -8,7 +8,13 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "SelectGoodsSO", menuName = "Scriptable Objects/SelectGoodsSO")]
 public class SelectGoodsSO : ScriptableObject
 {
-    public List<data> dataList;   
+    public List<data> dataList;
+    /// <summary>
+    /// çáåvã‡äz
+    /// </summary>
+    public int total;
+
+    public int target;
 }
 
 [Serializable]
@@ -29,8 +35,10 @@ public class data
     /// </summary>
     public int count;
 
+    
+
     /// <summary>
-    /// çáåvã‡äz
+    /// ñ⁄ïWã‡äz
     /// </summary>
-    public int total;
+    public int target;
 }

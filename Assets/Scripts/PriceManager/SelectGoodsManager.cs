@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SelectGoodsManager : MonoBehaviour
 {
@@ -10,22 +11,22 @@ public class SelectGoodsManager : MonoBehaviour
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
     [SerializeField] private TextMeshProUGUI sa;
-
+    [SerializeField] SelectGoods so;
 
     int index;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         tachpanel.SetActive(false);
 
-        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        sa.text = selectgoodsso.dataList[index].total.ToString();
+        sa.text = selectgoodsso.total.ToString();
         if (timer>=0)
         timetext.text = "TIME:" + timer.ToString("F0");
 
@@ -50,9 +51,12 @@ public class SelectGoodsManager : MonoBehaviour
     }
 
     public void OnPay()
-    {  
-        tachpanel.SetActive(true);
-        this.gameObject.SetActive(false);
- 
+    {
+        if (selectgoodsso.target == selectgoodsso.total)
+        {
+            tachpanel.SetActive(true);
+            this.gameObject.SetActive(false);
+        }
     }
+
 }

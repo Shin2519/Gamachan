@@ -23,7 +23,7 @@ public class TachPanel : MonoBehaviour
     void Start()
     {
         //–Ú•W‹àŠz
-        amounttext.text = selectgoodsso.dataList[index].total.ToString() + "‰~";
+        amounttext.text = selectgoodsso.total.ToString() + "‰~";
         //“Š“ü‹àŠz
         inputamounttext.text = inputamount.ToString() + "‰~";
         //‡Œv‹àŠz
@@ -36,7 +36,7 @@ public class TachPanel : MonoBehaviour
 
     public void OnButton()
     {
-        sumamount = selectgoodsso.dataList[index].total - inputamount;
+        sumamount = selectgoodsso.total - inputamount;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
 
