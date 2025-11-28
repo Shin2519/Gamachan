@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class DropMoney : MonoBehaviour
 {
     public static DropMoney instance;
-
     enum Speed
     {
         Fast,
@@ -15,8 +14,6 @@ public class DropMoney : MonoBehaviour
     private Speed speed;
     [SerializeField, Header("小銭の種類")]
     private GameObject[] Mny;
-    [SerializeField, Header("親にするキャンバス")]
-    private GameObject parentcanvas;
     [SerializeField, Header("ガマちゃん")]
     private GameObject Gama;
     void Awake()
