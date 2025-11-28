@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TachPanel : MonoBehaviour
 {
+    public static TachPanel instance;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -13,12 +14,15 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sumamountyen;//合計金額テキスト(お釣り、支払残額)
     [SerializeField] SelectGoodsSO selectgoodsso;
     private int index = 0;
-    private int inputamount = 500;
+    private int inputamount;
     private float sumamount;//合計金額
     [SerializeField] SelectGoods selectgoods;
     [SerializeField] private Image[] image;
 
-
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,7 +37,10 @@ public class TachPanel : MonoBehaviour
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
     }
-
+    void Update()
+    {
+        
+    }
     public void OnButton()
     {
         sumamount = selectgoodsso.dataList[index].total - inputamount;
@@ -52,6 +59,5 @@ public class TachPanel : MonoBehaviour
             sumamounttext.text = "-"+ sumamount.ToString() + "円";
             sumamounttext.color = Color.red;
         }
-
     }
 }
