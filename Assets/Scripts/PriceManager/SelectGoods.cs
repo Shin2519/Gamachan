@@ -38,7 +38,7 @@ public class SelectGoods : MonoBehaviour
         select.dataList[index].count = 0;
         select.total = 0;
 
-        select.target = Random.Range(650, 2000);
+        select.target = Random.Range(70, 250)*10;
         targettext.text = select.target.ToString() + "‰~‚ð–ÚŽw‚¹!";
 
         Price();
@@ -76,13 +76,13 @@ public class SelectGoods : MonoBehaviour
 
         for(int i=0; i<usecount-1;i++)
         {
-            int v=Random.Range(10, select.target /2);
+            int v=Random.Range(1, select.target /20)*10;
             ans.Add(v);
             sum += v;
         }
 
         int last = select.target - sum;
-        if(last<=0)
+        if(last<=0||last%100!=0)
         {
             Price();
             return;
@@ -93,7 +93,7 @@ public class SelectGoods : MonoBehaviour
 
         while(temp.Count < 6)
         {
-            int dummy = Random.Range(10, 300);
+            int dummy = Random.Range(10, 50)*10;
             if (dummy == select.target ||ans.Contains(dummy))
             {
                 continue;
@@ -110,10 +110,6 @@ public class SelectGoods : MonoBehaviour
             select.dataList[i].price = temp[i];
             pricetext[i].text= select.dataList[i].price.ToString() + "‰~";
         }
-
-        //select.dataList[index].price = Random.Range(1, 450);
-        //pricetext.text = select.dataList[index].price.ToString() + "‰~";
-
 
     }
     //¤•i‰æ‘œ
