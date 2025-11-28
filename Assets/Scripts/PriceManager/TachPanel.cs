@@ -14,11 +14,12 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sumamountyen;//çáåvã‡äzÉeÉLÉXÉg(Ç®íﬁÇËÅAéxï•écäz)
     [SerializeField] SelectGoodsSO selectgoodsso;
     private int index = 0;
+    [SerializeField]
     private int inputamount;
     private float sumamount;//çáåvã‡äz
     [SerializeField] SelectGoods selectgoods;
     [SerializeField] private Image[] image;
-
+    public int Inp_Am { get { return inputamount; } set { inputamount = value; } }
     void Awake()
     {
         instance = this;
@@ -29,7 +30,7 @@ public class TachPanel : MonoBehaviour
         //ñ⁄ïWã‡äz
         amounttext.text = selectgoodsso.total.ToString() + "â~";
         //ìäì¸ã‡äz
-        inputamounttext.text = inputamount.ToString() + "â~";
+        inputamounttext.text = Inp_Am.ToString() + "â~";
         //çáåvã‡äz
         sumamounttext.text = sumamount.ToString() + "â~";
 
@@ -39,7 +40,7 @@ public class TachPanel : MonoBehaviour
     }
     void Update()
     {
-        
+        inputamounttext.text = Inp_Am.ToString() + "â~";
     }
     public void OnButton()
     {
