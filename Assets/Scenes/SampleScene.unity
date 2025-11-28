@@ -384,8 +384,8 @@ GameObject:
   - component: {fileID: 79986731}
   - component: {fileID: 79986734}
   - component: {fileID: 79986733}
-  - component: {fileID: 79986732}
   - component: {fileID: 79986735}
+  - component: {fileID: 79986736}
   m_Layer: 5
   m_Name: tly
   m_TagString: Untagged
@@ -412,19 +412,6 @@ RectTransform:
   m_AnchoredPosition: {x: -85, y: -300}
   m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &79986732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79986730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a3036a810e47f40b467df07dc521a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
 --- !u!114 &79986733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +462,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &79986736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79986730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a013b885b24fb34da7d4f32fc8b7812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 200
+  Speed: 2
 --- !u!1 &108860433
 GameObject:
   m_ObjectHideFlags: 0
