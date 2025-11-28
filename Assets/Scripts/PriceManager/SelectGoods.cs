@@ -13,11 +13,9 @@ public class SelectGoods : MonoBehaviour
     [SerializeField]private TextMeshProUGUI goodscount;//商品個数のテキスト
     [SerializeField] private TextMeshProUGUI pricetext;//商品単価のテキスト
     
-    [SerializeField] public Image image;//商品画像
+    [SerializeField] public Image[] image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO select;
-    
-    
 
     int counta = 0;//選択個数
     bool max;
@@ -36,11 +34,7 @@ public class SelectGoods : MonoBehaviour
         select.dataList[index].total = 0;
 
 
-        Goods();
-        
-        
-
-        
+        Goods(); 
         max = false;
 
         
@@ -62,14 +56,24 @@ public class SelectGoods : MonoBehaviour
         counta = select.dataList.Sum(data=>data.count);
         
     }
-    //商品画像
+    //商品画像,価格
     private void Goods()
     {
+        int slotcount=image.Length;
+        int imagecount = select.dataList.Count;
+
         select.dataList[index].price = Random.Range(1, 500);
         pricetext.text = select.dataList[index].price.ToString() + "円";
 
+        if(imagecount<slotcount)
+        {
+            Debug.Log("ss");
+            return;
+        }
 
-        for (int i = 0; i < 10; i++)
+        imageindex.Clear();
+
+        for (int i = 0; i < imagecount; i++)
         {
             imageindex.Add(i);
         }
@@ -82,11 +86,12 @@ public class SelectGoods : MonoBehaviour
 
         }
 
-
-        for (int i = 0; i < imageindex.Count; i++)
+        for(int i=0;i<slotcount;i++)
         {
-            image.sprite = select.dataList[imageindex[i]].image;
+            int index = imageindex[i];
+            image[i].sprite = select.dataList[index].image;
         }
+        
     }
 
 
