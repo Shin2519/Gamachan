@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class TlyMove : MonoBehaviour
 {
+    [SerializeField, Header("Gama")]
+    GameObject Gama;
+    [SerializeField, Header("GamaÇÃä¥èÓ")]
+    Sprite KindofEmotion;
+    Sprite GamaEmo;
     public float moveDistance = 200f;
     public float Speed = 2f;
 
     private Transform pos;
     private Vector2 startPos;
 
+
+    void Awake()
+    {
+        GamaEmo = Gama.GetComponent<Sprite>();
+    }
     void Start()
     {
         pos = GetComponent<Transform>();
@@ -23,29 +33,28 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
+            GamaEmo = KindofEmotion;
             UIManagement.instance.gauge();
-            if (other.gameObject.name=="500yen")
+            if (other.gameObject.name=="500yen(Clone)")
             {
-                Debug.Log("500");
-                TachPanel.instance.inputamount += 500;
+                TachPanel.instance.InputAmount += 500;
             }
-            else if (other.gameObject.name == "100yen")
+            else if (other.gameObject.name == "100yen(Clone)")
             {
-                TachPanel.instance.inputamount += 100;
+                TachPanel.instance.InputAmount += 100;
             }
-            else if (other.gameObject.name=="50yen")
+            else if (other.gameObject.name== "50yen(Clone)")
             {
-                TachPanel.instance.inputamount += 50;
-                Debug.Log("50");
+                TachPanel.instance.InputAmount += 50;
+                Destroy(other.gameObject);
             }
-            else if (other.gameObject.name=="10yen")
+            else if (other.gameObject.name== "10yen(Clone)")
             {
-                TachPanel.instance. inputamount += 10;
+                TachPanel.instance. InputAmount += 10;
             }
-            else if (other.gameObject.name=="1yen")
+            else if (other.gameObject.name== "1yen(Clone)")
             {
-                TachPanel.instance.inputamount += 1;
-                Debug.Log("1");
+                TachPanel.instance.InputAmount += 1;
             }
             Destroy(other.gameObject);
         }
