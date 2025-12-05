@@ -36,9 +36,4 @@ public class data
     public int count;
 
     
-
-    /// <summary>
-    /// –Ú•W‹àŠz
-    /// </summary>
-    public int target;
 }
