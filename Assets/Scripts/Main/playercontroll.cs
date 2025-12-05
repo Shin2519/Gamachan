@@ -19,22 +19,20 @@ public class playercontroll : MonoBehaviour
     [SerializeField,Header("カーソルを動かしたときに代入される入力ベクトル")]
     Vector2 MovInput;
 
-    Vector2 MinPos = new Vector2(-960,0);
+    Vector2 MinPos = new Vector2(-860,130);
     Vector2 MaxPos = new Vector2(960,540);
 
     Vector2 AfterPos;
     [SerializeField]
-    private EventSystem E_System;
+    EventSystem E_System;
     [SerializeField]
     GraphicRaycaster G_raycast;
     [SerializeField]
-    private RectTransform ParentCanvas;
+    RectTransform ParentCanvas;
 
     [SerializeField]
-    private GameObject cursor;
+    GameObject cursor;
     GameObject ui;
-
-    public Vector2 MovPos => MovInput;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();

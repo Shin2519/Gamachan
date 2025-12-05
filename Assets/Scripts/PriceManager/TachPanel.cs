@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class TachPanel : MonoBehaviour
@@ -14,10 +13,12 @@ public class TachPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sumamountyen;//合計金額テキスト(お釣り、支払残額)
     [SerializeField] SelectGoodsSO selectgoodsso;
     private int index = 0;
-    public int inputamount;
+    [SerializeField]
+    private int inputamount = 0;
     private float sumamount;//合計金額
     [SerializeField] SelectGoods selectgoods;
     [SerializeField] private Image[] image;
+    public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     void Awake()
     {
         instance = this;
