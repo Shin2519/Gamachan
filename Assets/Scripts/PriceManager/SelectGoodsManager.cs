@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class SelectGoodsManager : MonoBehaviour
@@ -14,6 +16,7 @@ public class SelectGoodsManager : MonoBehaviour
     [SerializeField] SelectGoods so;
 
     int index;
+    [SerializeField]private RectTransform button;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,6 +47,10 @@ public class SelectGoodsManager : MonoBehaviour
             Debug.Log("gameover");
         }
        
+        if(selectgoodsso.total>selectgoodsso.target)
+        {
+            StartCoroutine(Butto());
+        }
     }
     private void FixedUpdate()
     {
@@ -59,4 +66,14 @@ public class SelectGoodsManager : MonoBehaviour
         }
     }
 
+    IEnumerator Butto()
+    {
+        for(int i=0;i<6;i++)
+        {
+            button.position = new Vector3(5,0,0);
+            button.position = new Vector3(-5, 0, 0);
+            yield return null;
+        }
+        so.priceset();
+    }
 }

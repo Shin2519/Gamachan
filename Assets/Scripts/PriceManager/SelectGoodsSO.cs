@@ -14,7 +14,12 @@ public class SelectGoodsSO : ScriptableObject
     /// </summary>
     public int total;
 
+    /// <summary>
+    /// –Ú•W‹àŠz
+    /// </summary>
     public int target;
+
+   
 }
 
 [Serializable]
@@ -35,5 +40,4 @@ public class data
     /// </summary>
     public int count;
 
-    
 }

@@ -2,10 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Collections;
 
 
 public class SelectGoods : MonoBehaviour
@@ -17,34 +14,31 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] public Image[] image;//商品画像
     [SerializeField] private GameObject ui;//ボタン表示用
     [SerializeField] private SelectGoodsSO select;
-    private data[] currentgood = new data[6];
     [SerializeField] private TextMeshProUGUI targettext;//目標金額
-    //public int target;
 
     int counta = 0;//選択個数
     bool max;
-    public int sum;
     
     public int index = 0;
 
-
+    private List<data> pricedata;
     void Start()
     {
-        priceset();
-
         ui.gameObject.SetActive(false);
-
+        pricedata = select.dataList
+            .Select(x => new data { price = x.price, image = x.image, count = x.count })
+            .ToList();
 
         select.dataList[index].count = 0;
         select.total = 0;
+        select.target = 0;
 
+        priceset();
 
         Price();
         max = false;
-        
-
     }
-    private void Update()
+    void Update()
     {
         goodscount.text = select.dataList[index].count.ToString();
         
@@ -61,65 +55,77 @@ public class SelectGoods : MonoBehaviour
         counta = select.dataList.Sum(data=>data.count);
         
     }
-
     //商品価格.画像
-    private void Price()
+    public void Price()
     {
         int usecount = Random.Range(2, 6);
-
-        List<int> ans = new List<int>();
-        int sum = 0;
-
-        List<int> registered = select.dataList.Select(x=>x.price).ToList();
-
-        while(true)
-        {
-            for (int i = 0; i < usecount - 1; i++)
-            {
-                int v = registered[Random.Range(0, registered.Count)];
-                ans.Add(v);
-                sum += v;
-            }
-
-            int last = select.target - sum;
-            if (last <= 0 || !registered.Contains(last))
-            {
-                Price();
-                break;
-            }
-            ans.Add(last);
-        }
         
 
-        List<int> temp = new List<int>(ans);
+        List<int> ans = new List<int>();
+        
 
-        while (temp.Count < 6)
+        int n =pricedata.Count;
+        //目標金額の作成
+        ans.Clear();
+
+        for (int i = 1; i < (1<<n); i++)
         {
-            int dummy = registered[Random.Range(0,registered.Count)];
-
-            if (dummy == select.target || ans.Contains(dummy))
+            int sum = 0;
+            for(int f=0;f<n;f++)
             {
-                continue;
+                if((i&(1<<i)) !=0)
+                {
+                    sum += pricedata[i].price;
+                }
             }
-            temp.Add(dummy);
+            ans.Add(sum);
         }
+        ans =ans.Distinct().ToList();
+
+        select.target = ans[Random.Range(0, ans.Count)];
+
+        int last = select.target;
+        ans.Add(last);
+        
+        List<int> temp = new List<int>(ans);
+        //ダミー料金
+        //while (temp.Count < 6 &&pricedata.Count>0)
+        //{
+        //    int dummy = pricedata[Random.Range(0, pricedata.Count)];
+
+        //    if (dummy == select.target || ans.Contains(dummy))
+        //    {
+        //        pricedata.Remove(dummy);
+        //        continue;
+        //    }
+        //    temp.Add(dummy);
+        //    pricedata.Remove(dummy);
+        //}
+        //表示シャッフル
         for (int i = 0; i < temp.Count; i++)
         {
             int r = Random.Range(i, temp.Count);
             (temp[i], temp[r]) = (temp[r], temp[i]);
         }
+        while (temp.Count<6)
+        {
+            int dm = ans[Random.Range(0, ans.Count)];
+            temp.Add(dm);
+        }
+        //UI適応
         for (int i = 0; i < 6; i++)
         {
-            select.dataList[i].price = temp[i];
-            pricetext[i].text = select.dataList[i].price.ToString() + "円";
+            pricedata[i].price=temp[i];
+            pricetext[i].text = temp[i].ToString() + "円";//select.dataList[0]のindexを変更することで表示される金額が変わる
         }
+        targettext.text = select.target.ToString();
     }
     
     //商品の価格設定
-    private void priceset()
+    public void priceset()
     {
         //商品の価格
-        select.dataList[0].price = Random.Range(3, 5);//袋
+        select.dataList[0].price = Random.Range(3, 5)*1;//袋
         select.dataList[1].price = Random.Range(10, 20) * 10;//パン
         select.dataList[2].price = Random.Range(10, 25) * 10;//おにぎり
         select.dataList[3].price = Random.Range(20, 35) * 10;//サンドイッチ
@@ -163,7 +169,4 @@ public class SelectGoods : MonoBehaviour
         ui.gameObject.SetActive(true);
 
     }
-
-    
-
 }
