@@ -24,14 +24,14 @@ public class SelectGoods : MonoBehaviour
     int counta = 0;//‘I‘ğŒÂ”
     bool max;
     public int sum;
-
     
     public int index = 0;
-    List<int> imageindex = new List<int>();//ƒCƒ[ƒW—p
 
 
     void Start()
     {
+        priceset();
+
         ui.gameObject.SetActive(false);
 
 
@@ -40,8 +40,6 @@ public class SelectGoods : MonoBehaviour
 
 
         Price();
-
-        //Goods(); 
         max = false;
         
 
@@ -67,40 +65,56 @@ public class SelectGoods : MonoBehaviour
     //¤•i‰¿Ši.‰æ‘œ
     private void Price()
     {
-        priceset();
-        List<int> prices = select.dataList.Select(d=>d.price).ToList();
+        int usecount = Random.Range(2, 6);
 
-        List<int> total = new List<int>();
+        List<int> ans = new List<int>();
+        int sum = 0;
 
-        int n = prices.Count;
+        List<int> registered = select.dataList.Select(x=>x.price).ToList();
 
-        for(int m =1;m<(1<<n);m++)
+        while(true)
         {
-            int sum = 0;
-            for(int i=0;i<n;i++)
+            for (int i = 0; i < usecount - 1; i++)
             {
-                if((m&(1<<i))!=0)
-                {
-                    sum += prices[i];
-                }
+                int v = registered[Random.Range(0, registered.Count)];
+                ans.Add(v);
+                sum += v;
             }
-            total.Add(sum);
+
+            int last = select.target - sum;
+            if (last <= 0 || !registered.Contains(last))
+            {
+                Price();
+                break;
+            }
+            ans.Add(last);
         }
-        total = total.Distinct().ToList();
+        
 
+        List<int> temp = new List<int>(ans);
 
-        select.target = total[Random.Range(0,total.Count)];
-        targettext.text = select.target.ToString() + "‰~‚ğ–Úw‚¹!";
-
-        var shuffled = select.dataList.OrderBy(a => Random.value).ToList();
-        for(int i=0;i<6;i++)
+        while (temp.Count < 6)
         {
-            currentgood[i] = shuffled[i];
-            pricetext[i].text = shuffled[i].price + "‰~";
-            image[i].sprite = shuffled[i].image;
-        }
+            int dummy = registered[Random.Range(0,registered.Count)];
 
+            if (dummy == select.target || ans.Contains(dummy))
+            {
+                continue;
+            }
+            temp.Add(dummy);
+        }
+        for (int i = 0; i < temp.Count; i++)
+        {
+            int r = Random.Range(i, temp.Count);
+            (temp[i], temp[r]) = (temp[r], temp[i]);
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            select.dataList[i].price = temp[i];
+            pricetext[i].text = select.dataList[i].price.ToString() + "‰~";
+        }
     }
+    
     //¤•i‚Ì‰¿Šiİ’è
     private void priceset()
     {
