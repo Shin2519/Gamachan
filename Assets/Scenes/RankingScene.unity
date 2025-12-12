@@ -1063,16 +1063,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1674070640}
-        m_TargetAssemblyTypeName: SE_BGM, Assembly-CSharp
-        m_MethodName: OnBackButtonPressed
+      - m_Target: {fileID: 950444232}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: sceneChange_Tl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TitleScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &796176980
@@ -1205,6 +1205,7 @@ GameObject:
   - component: {fileID: 950444228}
   - component: {fileID: 950444231}
   - component: {fileID: 950444227}
+  - component: {fileID: 950444232}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1333,6 +1334,20 @@ MonoBehaviour:
   - {fileID: 553738257}
   - {fileID: 77577330}
   - {fileID: 405102004}
+--- !u!114 &950444232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950444226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7511587b8fceb0144803b6ccbe6a4a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeout: {fileID: 950444226}
+  fadeCanvas: {fileID: 8159325672042629256, guid: 5cf50cde9280ca642880a8fec9faebb1, type: 3}
 --- !u!1001 &982732940
 PrefabInstance:
   m_ObjectHideFlags: 0

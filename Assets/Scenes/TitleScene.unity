@@ -1512,7 +1512,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1590923109}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: sceneChange_ST
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1865,7 +1865,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1590923109}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: sceneChange_Rk
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 1762405772}
   - component: {fileID: 1762405773}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FadeSetting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2263,8 +2263,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1590923109}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: sceneChange
-        m_Mode: 5
+        m_MethodName: sceneChange_Rl
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

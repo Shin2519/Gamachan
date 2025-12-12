@@ -23,25 +23,32 @@ public class SceneController : MonoBehaviour
         fadeCanvas.GetComponent<FadeManager>().fadeIn();
     }
 
-    public async void sceneChange_Rl(string RuleCheckScene)
+    public async void sceneChange_Rl()
     {
         fadeCanvas.GetComponent<FadeManager>().fadeOut();
         await Task.Delay(200);//ˆÃ“]‚·‚é‚Ü‚Å‘Ò‚Â
         SceneManager.LoadScene("RuleCheckScene");
     }
 
-    public async void sceneChange_ST(string RuleCheckScene)
+    public async void sceneChange_ST()
     {
         fadeCanvas.GetComponent<FadeManager>().fadeOut();
         await Task.Delay(200);//ˆÃ“]‚·‚é‚Ü‚Å‘Ò‚Â
         SceneManager.LoadScene("OptionScene");
     }
 
-    public async void sceneChange_Rk(string RuleCheckScene)
+    public async void sceneChange_Rk()
     {
         fadeCanvas.GetComponent<FadeManager>().fadeOut();
         await Task.Delay(200);//ˆÃ“]‚·‚é‚Ü‚Å‘Ò‚Â
         SceneManager.LoadScene("RankingScene");
+    }
+
+    public async void sceneChange_Tl()
+    {
+        fadeCanvas.GetComponent<FadeManager>().fadeOut();
+        await Task.Delay(200);//ˆÃ“]‚·‚é‚Ü‚Å‘Ò‚Â
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void EndGame()
