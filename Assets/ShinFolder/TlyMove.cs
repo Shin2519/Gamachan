@@ -28,6 +28,9 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
+            Vector2 Dir = (other.gameObject.transform.position - transform.position).normalized;
+            float Dot = Vector2.Dot(Dir, transform.up);
+            if (Dot < 0.6f) return;
             UIManagement.instance.gauge();
             if (other.gameObject.name=="500yen(Clone)")
             {
