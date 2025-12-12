@@ -20,7 +20,6 @@ public class SE_BGM: MonoBehaviour
         bgmSource.volume = bgmVolume;
         seSource.volume = seVolume;
 
-        // 戻るボタンにイベント登録
         backButton.onClick.AddListener(OnBackButtonPressed);
     }
 
