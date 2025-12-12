@@ -878,7 +878,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
   - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
   combo: 0
-  Cross: {fileID: 0}
+  Cross: {fileID: 586108009}
+  Cross_Ren:
+  - {fileID: 1996895622}
+  - {fileID: 475330962}
+  - {fileID: 511645961}
+  Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   image: []
 --- !u!1001 &979029463
 PrefabInstance:

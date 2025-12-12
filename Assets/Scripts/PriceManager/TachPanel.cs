@@ -37,8 +37,13 @@ public class TachPanel : MonoBehaviour
     [SerializeField]
     private int combo = 0;
     GameObject comboobject;
-    [SerializeField, Header("")]
+    [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
     private GameObject Cross;
+    [SerializeField]
+    private Image[] Cross_Ren;
+    [SerializeField]
+    private Sprite Out_count;
+    int Gameover_count = 0;
     [SerializeField] private Image[] image;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     void Awake()
@@ -51,6 +56,7 @@ public class TachPanel : MonoBehaviour
     void Start()
     {
         rndyentext();
+        Cross.SetActive(false);
     }
     void Update()
     {
@@ -148,6 +154,12 @@ public class TachPanel : MonoBehaviour
             else
             {
                 Combo();
+                if (!Cross.activeSelf)
+                {
+                    Cross.SetActive(true);
+                }
+                Cross_Ren[Gameover_count].sprite = Out_count;
+                Gameover_count++;
                 hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];
@@ -155,6 +167,16 @@ public class TachPanel : MonoBehaviour
         }
         else
         {
+            if(!Cross.activeSelf)
+            {
+                Cross.SetActive(true);
+            }
+            int Count = 3 - Gameover_count;
+            for(int i = 0;i < Count;i++)
+            {
+                Gameover_count++;
+                Cross_Ren[Gameover_count -1].sprite = Out_count;
+            }
             hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
             Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
             Grade_Ren.sprite = Grade_Sp[0];
