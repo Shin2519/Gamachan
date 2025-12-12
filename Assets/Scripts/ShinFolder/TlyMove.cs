@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class TlyMove : MonoBehaviour
 {
-    [SerializeField, Header("Gama")]
-    GameObject Gama;
-    [SerializeField, Header("GamaÇÃä¥èÓ")]
-    Sprite KindofEmotion;
-    Sprite GamaEmo;
     public float moveDistance = 200f;
     public float Speed = 2f;
 
@@ -16,7 +11,7 @@ public class TlyMove : MonoBehaviour
 
     void Awake()
     {
-        GamaEmo = Gama.GetComponent<Sprite>();
+        
     }
     void Start()
     {
@@ -33,7 +28,6 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
-            GamaEmo = KindofEmotion;
             UIManagement.instance.gauge();
             if (other.gameObject.name=="500yen(Clone)")
             {
