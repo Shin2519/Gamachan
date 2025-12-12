@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ModeSelectScene.unity
     guid: 7d8c458fa58640e4a9ae799e3d983fc5
   - enabled: 1
+    path: Assets/Scenes/ChallengeModeScene.unity
+    guid: 75c241e7044c70449a5c713ffa8a9ac1
+  - enabled: 1
     path: Assets/Scenes/InputNameScene.unity
     guid: 4cee54f39b17cc640be68cf8db6df5d4
   - enabled: 1
