@@ -765,6 +765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a013b885b24fb34da7d4f32fc8b7812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gama: {fileID: 0}
+  KindofEmotion: {fileID: 0}
   moveDistance: 200
   Speed: 2
 --- !u!114 &724876976 stripped
@@ -1780,7 +1782,7 @@ PrefabInstance:
       objectReference: {fileID: 1455468048}
     - target: {fileID: 6297209144966166188, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

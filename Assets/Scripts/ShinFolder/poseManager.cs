@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -48,6 +49,11 @@ public class poseManager : MonoBehaviour
         {
             TogglePause();
         }
+    }
+
+    public void OnClick()
+    {
+        pauseGame();
     }
 
     public void TogglePause()
