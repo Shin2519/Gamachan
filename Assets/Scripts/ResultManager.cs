@@ -22,6 +22,13 @@ public class ResultManager : MonoBehaviour
     [Header("シーン遷移ボタン")]
     [SerializeField] private GameObject[] sceneButtons; // Ranking/Title/ModeSelectボタンをInspectorでセット
 
+    [Header("スコア表示用テキスト (10項目)")]
+    [SerializeField] private Text[] scoreTexts;
+    // Inspectorで10個のTextを順番にセットしておく
+    // 順番: Perfect, Great, Good, Bad, おつりボーナス, ゴールデンボーナス, コンボボーナス, スピードボーナス, おつり合計, 最終スコア
+
+    private int[] scoreValues = new int[10]; // 受け取ったスコア値を保持
+
     private void Start()
     {
         // 全項目を最初に透明にしておく
@@ -105,10 +112,31 @@ public class ResultManager : MonoBehaviour
             }
         }
 
-        // 演出終了後にボタンを表示
+        // 演出終了後にスコア値を表示
+        UpdateScoreTexts();
+
+        // ボタンを表示
         foreach (var btn in sceneButtons)
         {
             btn.SetActive(true);
+        }
+    }
+
+    // 外部からスコア値を受け取る
+    public void SetScores(int[] values)
+    {
+        if (values.Length == scoreValues.Length)
+        {
+            scoreValues = values;
+        }
+    }
+
+    // スコア値をUIに反映
+    private void UpdateScoreTexts()
+    {
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            scoreTexts[i].text = scoreValues[i].ToString();
         }
     }
 
