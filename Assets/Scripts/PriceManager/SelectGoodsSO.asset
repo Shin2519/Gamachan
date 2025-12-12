@@ -14,34 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataList:
   - image: {fileID: 21300000, guid: 88e94775a6e5afb4b91c2d0aa2286a0f, type: 3}
-    price: 100
-    count: 0
-  - image: {fileID: 21300000, guid: ca975d25378c3d140a0799f87ec3abb4, type: 3}
-    price: 200
-    count: 0
-  - image: {fileID: 21300000, guid: 6417364b8fad9364b884094038570bff, type: 3}
     price: 3
-    count: 0
-  - image: {fileID: 21300000, guid: 978d505e9291e65429f51684812ed08c, type: 3}
-    price: 280
-    count: 0
+    count: 1
+  - image: {fileID: 21300000, guid: ca975d25378c3d140a0799f87ec3abb4, type: 3}
+    price: 180
+    count: 1
+  - image: {fileID: 21300000, guid: 02edd67e6aaded94296abf9b9836a2d5, type: 3}
+    price: 150
+    count: 1
+  - image: {fileID: 21300000, guid: 1b36bce32dd76194d9bef6cc103ae746, type: 3}
+    price: 290
+    count: 1
   - image: {fileID: 21300000, guid: b4cc6bf388490a842a9752d9748d68ad, type: 3}
-    price: 120
-    count: 0
+    price: 570
+    count: 1
   - image: {fileID: 21300000, guid: 0fc9d6db216b344459546db92c0ffd84, type: 3}
-    price: -420
+    price: 190
+    count: 1
+  - image: {fileID: 21300000, guid: 2076f30231daf79498168fa0c274e15e, type: 3}
+    price: 80
     count: 0
-  - image: {fileID: 21300000, guid: 089bd5aa3db99ad47a95da416b5ad7a8, type: 3}
-    price: 100
-    count: 0
-  - image: {fileID: 21300000, guid: 5372eab87e7c5584390e238a778e90a7, type: 3}
-    price: 120
+  - image: {fileID: 21300000, guid: 689502d9008fe984aaa1269d3e8e2144, type: 3}
+    price: 150
     count: 0
   - image: {fileID: 21300000, guid: 41e7ccc0f33f79b4dab6b07bb4582437, type: 3}
-    price: 140
+    price: 90
     count: 0
   - image: {fileID: 21300000, guid: 83137d68c06315141a953fc414deb67d, type: 3}
-    price: 200
+    price: 260
     count: 0
-  total: 0
-  target: 0
+  total: 1403
+  target: 1043

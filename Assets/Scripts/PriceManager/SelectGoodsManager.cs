@@ -3,7 +3,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class SelectGoodsManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class SelectGoodsManager : MonoBehaviour
 
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
-    [SerializeField] private TextMeshProUGUI sa;
+    
     [SerializeField] SelectGoods so;
 
     int index;
@@ -29,7 +28,7 @@ public class SelectGoodsManager : MonoBehaviour
     void Update()
     {
 
-        sa.text = selectgoodsso.total.ToString();
+        
         if (timer>=0)
         timetext.text = "TIME:" + timer.ToString("F0");
 
@@ -47,10 +46,10 @@ public class SelectGoodsManager : MonoBehaviour
             Debug.Log("gameover");
         }
        
-        if(selectgoodsso.total>selectgoodsso.target)
-        {
-            StartCoroutine(Butto());
-        }
+        //if(selectgoodsso.total>selectgoodsso.target)
+        //{
+        //    StartCoroutine(Butto());
+        //}
     }
     private void FixedUpdate()
     {
@@ -66,14 +65,14 @@ public class SelectGoodsManager : MonoBehaviour
         }
     }
 
-    IEnumerator Butto()
-    {
-        for(int i=0;i<6;i++)
-        {
-            button.position = new Vector3(5,0,0);
-            button.position = new Vector3(-5, 0, 0);
-            yield return null;
-        }
-        so.priceset();
-    }
+    //IEnumerator Butto()
+    //{
+    //    for(int i=0;i<6;i++)
+    //    {
+    //        button.position = new Vector3(5,0,0);
+    //        button.position = new Vector3(-5, 0, 0);
+    //        yield return null;
+    //    }
+    //    so.priceset();
+    //}
 }
