@@ -765,6 +765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a013b885b24fb34da7d4f32fc8b7812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gama: {fileID: 0}
+  KindofEmotion: {fileID: 0}
   moveDistance: 200
   Speed: 2
 --- !u!114 &724876976 stripped
@@ -1481,6 +1483,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2089986167}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: poseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4198793620346678221, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1580,7 +1610,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 138675784951866583, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2089986167}
   m_SourcePrefab: {fileID: 100100000, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
 --- !u!1 &1551677189 stripped
 GameObject:
@@ -1780,7 +1813,7 @@ PrefabInstance:
       objectReference: {fileID: 1455468048}
     - target: {fileID: 6297209144966166188, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2051,6 +2084,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976752330}
   m_CullTransparentMesh: 1
+--- !u!1 &2089986166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 138675784951866583, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
+  m_PrefabInstance: {fileID: 1551388459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089986167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089986166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e907cf20298f84bb184d2986eaf883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
+  ResumeButton: {fileID: 0}
+  TitleButton: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  seSlider: {fileID: 0}
+  backButton: {fileID: 0}
+  bgmSource: {fileID: 0}
+  seSource: {fileID: 0}
+  backSE: {fileID: 0}
 --- !u!1001 &3278317263202093610
 PrefabInstance:
   m_ObjectHideFlags: 0
