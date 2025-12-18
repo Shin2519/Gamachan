@@ -576,17 +576,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250280726}
   m_CullTransparentMesh: 1
---- !u!114 &265989000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &281631242
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,18 +864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8fd3f4430ab9a4b97722ce89c94c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &475196681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137705219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29086960818b0cc4aa669c6475e47735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &475196685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,37 +876,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodscount:
+  countTexts:
   - {fileID: 1632386188}
   - {fileID: 124866098}
   - {fileID: 191317304}
   - {fileID: 1368133252}
   - {fileID: 1065398905}
   - {fileID: 1207533395}
-  pricetext:
+  priceTexts:
   - {fileID: 205698910}
   - {fileID: 945494793}
   - {fileID: 822359378}
   - {fileID: 2118086332}
   - {fileID: 890440006}
   - {fileID: 1461967767}
-  image:
+  images:
   - {fileID: 1789991978}
   - {fileID: 1486376300}
   - {fileID: 1323200085}
   - {fileID: 1780334822}
   - {fileID: 1517268981}
   - {fileID: 1542084351}
-  ui:
+  plusMinusUI:
   - {fileID: 1235208768}
   - {fileID: 882074946}
   - {fileID: 1397099319}
   - {fileID: 1555517665}
   - {fileID: 1304245657}
   - {fileID: 1288210884}
-  select: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
-  targettext: {fileID: 1277628939}
-  sa: {fileID: 940609640}
+  totalText: {fileID: 940609640}
+  targetText: {fileID: 1277628939}
+  selectSO: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
 --- !u!1 &532498131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,17 +1991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1224390836 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1234132056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,17 +2734,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1860946037086070518, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
   m_PrefabInstance: {fileID: 6124940871215124197}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1486376297 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2787890239426272106, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1486376300 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2785501608440785785, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
@@ -2992,17 +2947,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487470232}
   m_CullTransparentMesh: 1
---- !u!114 &1517268978 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8102748215367006306, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1517268981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 684244489324102300, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
@@ -3150,17 +3094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534514029}
   m_CullTransparentMesh: 1
---- !u!114 &1542084348 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7775373817179039723, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1542084351 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8455092699951931218, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
@@ -3399,17 +3332,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690663210}
   m_CullTransparentMesh: 1
---- !u!114 &1780334819 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9055992220522381282, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1780334822 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6406853174336401153, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
@@ -3893,6 +3815,26 @@ PrefabInstance:
       propertyPath: 'goodscount.Array.data[5]'
       value: 
       objectReference: {fileID: 1207533395}
+    - target: {fileID: 308988758003913583, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 308988758003913583, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 308988758003913583, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 308988758003913583, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 308988758003913583, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: sa
       value: 
@@ -3997,6 +3939,22 @@ PrefabInstance:
       propertyPath: 'goodscount.Array.data[5]'
       value: 
       objectReference: {fileID: 1207533395}
+    - target: {fileID: 1926888137568031838, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926888137568031838, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 1926888137568031838, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926888137568031838, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2069151340944234771, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4008,6 +3966,26 @@ PrefabInstance:
     - target: {fileID: 2069151340944234771, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SelectGoodsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2787890239426272106, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: sa
@@ -4117,6 +4095,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3106480272932015028, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106480272932015028, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 3106480272932015028, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106480272932015028, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106480272932015028, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3167034684453587324, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4197,9 +4195,165 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3723109816114842910, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723109816114842910, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 3723109816114842910, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723109816114842910, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723109816114842910, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3794220278860788905, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341531968921920403, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341531968921920403, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 4341531968921920403, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341531968921920403, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364034092829975631, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364034092829975631, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 4364034092829975631, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364034092829975631, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364034092829975631, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002387682541038885, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002387682541038885, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 5002387682541038885, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002387682541038885, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002387682541038885, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256699457540077450, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256699457540077450, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 5256699457540077450, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256699457540077450, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256699457540077450, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347270834154594940, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347270834154594940, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 5347270834154594940, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347270834154594940, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347270834154594940, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048116223302979743, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048116223302979743, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 6048116223302979743, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048116223302979743, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048116223302979743, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065888989622274087, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065888989622274087, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 6065888989622274087, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065888989622274087, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065888989622274087, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110701421819716372, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_Material
@@ -4212,7 +4366,7 @@ PrefabInstance:
     - target: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: so
       value: 
-      objectReference: {fileID: 265989000}
+      objectReference: {fileID: 475196685}
     - target: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: button
       value: 
@@ -4225,6 +4379,82 @@ PrefabInstance:
       propertyPath: targettext
       value: 
       objectReference: {fileID: 1277628939}
+    - target: {fileID: 6383006490415538441, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383006490415538441, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 6383006490415538441, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383006490415538441, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383006490415538441, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684354790993921364, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684354790993921364, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 6684354790993921364, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684354790993921364, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684354790993921364, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055728688785500400, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055728688785500400, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 7055728688785500400, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055728688785500400, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055728688785500400, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705819597315693909, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705819597315693909, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 7705819597315693909, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGoodsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705819597315693909, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7775373817179039723, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: sa
       value: 
@@ -4549,16 +4779,59 @@ PrefabInstance:
       propertyPath: 'goodscount.Array.data[5]'
       value: 
       objectReference: {fileID: 1207533395}
-    m_RemovedComponents: []
+    - target: {fileID: 9089293258253828655, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089293258253828655, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 9089293258253828655, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMinusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089293258253828655, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089293258253828655, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132481285936947111, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132481285936947111, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 475196685}
+    - target: {fileID: 9132481285936947111, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlusButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132481285936947111, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectGoods, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132481285936947111, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7775373817179039723, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+    - {fileID: 8102748215367006306, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+    - {fileID: 9055992220522381282, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+    - {fileID: 556234042008094820, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+    - {fileID: 2787890239426272106, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+    - {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3167034684453587324, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 940609639}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8712311229515320275, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 475196681}
     - targetCorrespondingSourceObject: {fileID: 8712311229515320275, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 475196685}
@@ -4899,7 +5172,7 @@ PrefabInstance:
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: selectgoods
       value: 
-      objectReference: {fileID: 265989000}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: image.Array.size
       value: 6
@@ -4935,27 +5208,27 @@ PrefabInstance:
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[0]'
       value: 
-      objectReference: {fileID: 265989000}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[1]'
       value: 
-      objectReference: {fileID: 1486376297}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[2]'
       value: 
-      objectReference: {fileID: 1224390836}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[3]'
       value: 
-      objectReference: {fileID: 1780334819}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[4]'
       value: 
-      objectReference: {fileID: 1517268978}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: 'selectgoods.Array.data[5]'
       value: 
-      objectReference: {fileID: 1542084348}
+      objectReference: {fileID: 0}
     - target: {fileID: 9118476889527704294, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: m_Name
       value: ura

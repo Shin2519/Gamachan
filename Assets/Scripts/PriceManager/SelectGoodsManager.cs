@@ -63,6 +63,13 @@ public class SelectGoodsManager : MonoBehaviour
             tachpanel.SetActive(true);
             this.gameObject.SetActive(false);
         }
+        else if(selectgoodsso.total>selectgoodsso.target)
+        {
+            so.InitCounts();
+            so.SetPrices();
+            so.CreateDisplayGoods();
+            so.UpdateUI();
+        }
     }
 
     //IEnumerator Butto()

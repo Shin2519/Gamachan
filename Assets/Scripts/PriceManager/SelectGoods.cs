@@ -1,129 +1,131 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Linq;
 using System.Collections.Generic;
-
+using System.Linq;
 
 public class SelectGoods : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] goodscount;//¤•iŒÂ”‚ÌƒeƒLƒXƒg
-    [SerializeField] private TextMeshProUGUI[] pricetext;//¤•i’P‰¿‚ÌƒeƒLƒXƒg
-    [SerializeField] public Image[] image;//¤•i‰æ‘œ
-    [SerializeField] private GameObject[] ui;//ƒ{ƒ^ƒ“•\¦—p
-    [SerializeField] private SelectGoodsSO select;
-    [SerializeField] private TextMeshProUGUI targettext;//–Ú•W‹àŠz
+    private  int displaycount = 6;//æœ€å¤§è¡¨ç¤º
+    private  int max = 6;//æœ€å¤§é¸æŠå€‹æ•°
 
-    int counta = 0;//‘I‘ğŒÂ”
-    bool max;
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI[] countTexts;//å„å•†å“ã®å€‹æ•°
+    [SerializeField] private TextMeshProUGUI[] priceTexts;//å„å•†å“ã®å€¤æ®µ
+    [SerializeField] private Image[] images;//å•†å“ã®ç”»åƒ
+    [SerializeField] private GameObject[] plusMinusUI;//å„å•†å“ã®+-ãƒœã‚¿ãƒ³ã®è¡¨ç¤ºã€éè¡¨ç¤º
+    [SerializeField] private TextMeshProUGUI totalText;//ç¾åœ¨ã®é‡‘é¡
+    [SerializeField] private TextMeshProUGUI targetText;//ç›®æ¨™é‡‘é¡
 
+    [SerializeField] private SelectGoodsSO selectSO;
 
-    List<data> selectdata;
+    // è¡¨ç¤ºï¼†æ“ä½œå¯¾è±¡ã®å•†å“
+    private List<data> displayData = new();
 
-    [SerializeField] private TextMeshProUGUI sa;
     void Start()
     {
-        
-
-        for (int i = 0; i < 6; i++)
-        {
-            select.dataList[i].count = 0;
-            ui[i].gameObject.SetActive(false);
-        }
-        select.total = 0;
-        select.target = 0;
-
-        priceset();
-        Price();
-
-        max = false;
-    }
-    void Update()
-    {
-        Total();
-        counta = select.dataList.Sum(data => data.count);
-
-        //Å‘å‘I‘ğ”6
-        if (counta > 5)
-        {
-            max = true;
-        }
-        else
-        {
-            max = false;
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            goodscount[i].text = select.dataList[i].count.ToString();
-        }
-        sa.text = select.total.ToString();
-
-    }
-    //¤•i‰¿Ši.‰æ‘œ
-    public void Price()
-    {
-        List<data> temp = new List<data>(select.dataList);
-        //–Ú•W‹àŠz‚Ìì¬
-        for (int i = 0; i < temp.Count; i++)
-        {
-            int rand = Random.Range(i, temp.Count);
-            (temp[i], temp[rand]) = (temp[rand], temp[i]);
-        }
-        selectdata = temp.GetRange(0, 6);
-        for (int i = 0; i < 6; i++)
-        {
-            pricetext[i].text = selectdata[i].price.ToString() + "‰~";
-            image[i].sprite = selectdata[i].image;
-        }
-        select.target = selectdata.Sum(d => d.price);
-        targettext.text = select.target.ToString() + "‚ğ–Úw‚¹!";
+        InitCounts();
+        SetPrices();
+        CreateDisplayGoods();
+        UpdateUI();
     }
 
-    //¤•i‚Ì‰¿Šiİ’è
-    public void priceset()
+    // åˆæœŸåŒ–
+    public void InitCounts()
     {
-        //¤•i‚Ì‰¿Ši
-        select.dataList[0].price = Random.Range(3, 5) * 1;//‘Ü
-        select.dataList[1].price = Random.Range(10, 20) * 10;//ƒpƒ“
-        select.dataList[2].price = Random.Range(10, 25) * 10;//‚¨‚É‚¬‚è
-        select.dataList[3].price = Random.Range(20, 35) * 10;//ƒTƒ“ƒhƒCƒbƒ`
-        select.dataList[4].price = Random.Range(40, 60) * 10;//‚¨•Ù“–
-        select.dataList[5].price = Random.Range(15, 25) * 10;//ƒ`ƒLƒ“
-        select.dataList[6].price = Random.Range(8, 11) * 10;//‚¨’ƒ
-        select.dataList[7].price = Random.Range(11, 16) * 10;//ƒ|ƒeƒgƒ`ƒbƒvƒX
-        select.dataList[8].price = Random.Range(8, 15) * 10;//ƒAƒCƒXƒNƒŠ[ƒ€
-        select.dataList[9].price = Random.Range(15, 32) * 10;//ƒ‰[ƒƒ“
+        foreach (var d in selectSO.dataList)
+            d.count = 0;
+
+        foreach (var ui in plusMinusUI)
+            ui.SetActive(false);
+
+        selectSO.total = 0;
+        selectSO.target = 0;
     }
 
-    //‡Œv‹àŠz
-    private void Total()
+    // å•†å“ä¾¡æ ¼è¨­å®š
+    public void SetPrices()
     {
-        int total = 0;
-        foreach (var item in select.dataList)
-        {
-            total += item.price * item.count;
-        }
-        select.total = total;
+        selectSO.dataList[0].price = Random.Range(3, 6);         // è¢‹
+        selectSO.dataList[1].price = Random.Range(10, 20) * 10; // ãƒ‘ãƒ³
+        selectSO.dataList[2].price = Random.Range(10, 25) * 10; // ãŠã«ãã‚Š
+        selectSO.dataList[3].price = Random.Range(20, 35) * 10; // ã‚µãƒ³ãƒ‰
+        selectSO.dataList[4].price = Random.Range(40, 60) * 10; // å¼å½“
+        selectSO.dataList[5].price = Random.Range(15, 25) * 10; // ãƒã‚­ãƒ³
+        selectSO.dataList[6].price = Random.Range(8, 11) * 10;  // ãŠèŒ¶
+        selectSO.dataList[7].price = Random.Range(11, 16) * 10; // ãƒãƒ†ãƒ
+        selectSO.dataList[8].price = Random.Range(8, 15) * 10;  // ã‚¢ã‚¤ã‚¹
+        selectSO.dataList[9].price = Random.Range(15, 32) * 10; // ãƒ©ãƒ¼ãƒ¡ãƒ³
     }
-    //¤•iƒvƒ‰ƒX
-    public void OnPlusButton(int i)
-    {
-        if (!max)
-        {
-            select.dataList[i].count += 1;
-        }
-    }
-    //¤•iƒ}ƒCƒiƒX
-    public void OnMinusButton(int i)
-    {
-        if (select.dataList[i].count > 0)
-            select.dataList[i].count -= 1;
-    }
-    //ƒvƒ‰ƒXƒ}ƒCƒiƒXƒ{ƒ^ƒ“‚Ì•\¦
-    public void OnGoodsButton(int i)
-    {
-        ui[i].gameObject.SetActive(true);
 
+    // è¡¨ç¤ºã™ã‚‹6å•†å“ã‚’æ±ºå®š
+    public void CreateDisplayGoods()
+    {
+        displayData = selectSO.dataList
+            .OrderBy(_ => Random.value)
+            .Take(displaycount)
+            .ToList();
+
+        for (int i = 0; i < displaycount; i++)
+        {
+            priceTexts[i].text = displayData[i].price + "å††";
+            images[i].sprite = displayData[i].image;
+        }
+
+        int usecount = Random.Range(2,6);
+        var targetgoods = displayData
+            .OrderBy(_ => Random.value)
+            .Take(usecount);
+
+        selectSO.target = targetgoods.Sum(d => d.price);
+        targetText.text = selectSO.target + " å††ã‚’ç›®æŒ‡ã›";
+    }
+
+    // ï¼‹ãƒœã‚¿ãƒ³
+    public void OnPlusButton(int index)
+    {
+        if (GetTotalCount() >= max) return;
+
+        displayData[index].count++;
+        Recalculate();
+    }
+
+    // âˆ’ãƒœã‚¿ãƒ³
+    public void OnMinusButton(int index)
+    {
+        if (displayData[index].count <= 0) return;
+
+        displayData[index].count--;
+        Recalculate();
+    }
+
+    // å•†å“é¸æŠæ™‚ï¼ˆÂ±è¡¨ç¤ºï¼‰
+    public void OnGoodsButton(int index)
+    {
+        plusMinusUI[index].SetActive(true);
+    }
+
+    // å†è¨ˆç®—
+    private void Recalculate()
+    {
+        selectSO.total = displayData.Sum(d => d.price * d.count);
+        UpdateUI();
+    }
+
+    // UIæ›´æ–°
+    public void UpdateUI()
+    {
+        for (int i = 0; i < displaycount; i++)
+        {
+            countTexts[i].text = displayData[i].count.ToString();
+        }
+
+        totalText.text = selectSO.total.ToString();
+    }
+
+    // åˆè¨ˆ
+    private int GetTotalCount()
+    {
+        return displayData.Sum(d => d.count);
     }
 }
