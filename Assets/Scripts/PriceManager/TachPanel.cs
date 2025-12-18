@@ -6,6 +6,7 @@ using System.Collections;
 public class TachPanel : MonoBehaviour
 {
     int rnd;
+    public static int combo;
     public static TachPanel instance;
     [SerializeField,Header("–Ú•W‹àŠz")] private TextMeshProUGUI amounttext;//¤•i‚Ì‹àŠzƒeƒLƒXƒg
     [SerializeField,Header("“Š“ü‹àŠz")] private TextMeshProUGUI inputamounttext;//“Š“ü‹àŠz(‰¼)ƒeƒLƒXƒg
@@ -18,39 +19,22 @@ public class TachPanel : MonoBehaviour
     private int inputamount = 0;
     private float sumamount;//‡Œv‹àŠz
     [SerializeField] SelectGoods selectgoods;
-    [SerializeField]
-    private Sprite[] Grade_Sp;
-    [SerializeField]
-    private GameObject Grade;
-    SpriteRenderer Grade_Ren;
-    GameObject hyouka;
+    public static GameObject hyouka;
     [SerializeField, Header("Gama")]
-    GameObject Gama;
+    public GameObject Gama;
     Image Gama_Image;
     [SerializeField, Header("Gama‚ÌŠ´î")]
     Sprite[] KindofEmotion;
     [SerializeField]
-    private GameObject combo_image;
-    SpriteRenderer combo_Renderer;
-    [SerializeField]
     private Sprite[] Kindcombo;
-    [SerializeField]
-    private int combo = 0;
-    GameObject comboobject;
-    [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
-    private GameObject Cross;
-    [SerializeField]
-    private Image[] Cross_Ren;
-    [SerializeField]
-    private Sprite Out_count;
-    int Gameover_count = 0;
+    public static GameObject comboobject;
+    public GameObject Cross;
     [SerializeField] private Image[] image;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
+    public int Rnd => rnd;
     void Awake()
     {
         instance = this;
-        Grade_Ren = Grade.GetComponent<SpriteRenderer>();
-        Gama_Image = Gama.GetComponent<Image>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -107,7 +91,7 @@ public class TachPanel : MonoBehaviour
         }
         yield return new WaitForSeconds(2.0f);
 
-        GRADE();
+        GRADE.Instance.GRADE_(sumamount);
 
         yield return new WaitForSeconds(2.0f);
 
@@ -117,127 +101,5 @@ public class TachPanel : MonoBehaviour
         Gama_Image.sprite = KindofEmotion[0];
 
         rndyentext();
-        //if (sumamount < 0)
-        //{
-        //    sumamountyen.text = "‚¨’Þ‚è";
-        //    sumamounttext.text = Mathf.Abs(sumamount).ToString() + "‰~";
-        //    sumamounttext.color = Color.blue;
-        //}
-        //else
-        //{
-        //    sumamountyen.text = "Žx•¥ŽcŠz";
-        //    sumamounttext.text = "-"+ sumamount.ToString() + "‰~";
-        //    sumamounttext.color = Color.red;
-        //}
-    }
-
-    void GRADE()
-    {
-        if (sumamount >= 0)
-        {
-            if(sumamount==0)
-            {
-                Combo();
-                hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
-                Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[3];
-                Gama_Image.sprite = KindofEmotion[1];
-            }
-            else if(sumamount >=1&&sumamount<=10)
-            {
-                Combo();
-                hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
-                Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[2];
-                Gama_Image.sprite = KindofEmotion[1];
-            }
-            else
-            {
-                Combo();
-                if (!Cross.activeSelf)
-                {
-                    Cross.SetActive(true);
-                }
-                Cross_Ren[Gameover_count].sprite = Out_count;
-                Gameover_count++;
-                hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
-                Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[1];
-            }
-        }
-        else
-        {
-            if(!Cross.activeSelf)
-            {
-                Cross.SetActive(true);
-            }
-            int Count = 3 - Gameover_count;
-            for(int i = 0;i < Count;i++)
-            {
-                Gameover_count++;
-                Cross_Ren[Gameover_count -1].sprite = Out_count;
-            }
-            hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
-            Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
-            Grade_Ren.sprite = Grade_Sp[0];
-            Gama_Image.sprite = KindofEmotion[2];
-        }
-    }
-
-    void Combo()
-    {
-        switch (combo)
-        {
-            case 3:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[0];
-                break;
-            case 6:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[1];
-                break;
-            case 9:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[2];
-                break;
-            case 12:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[3];
-                break;
-            case 15:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[4];
-                break;
-            case 18:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[5];
-                break;
-            case 21:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[6];
-                break;
-            case 24:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[7];
-                break;
-            case 27:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[8];
-                break;
-            case 30:
-                comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[9];
-                break;
-        }
     }
 }

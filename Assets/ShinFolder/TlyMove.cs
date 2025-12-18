@@ -28,7 +28,6 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
-            UIManagement.instance.gauge();
             if (other.gameObject.name=="500yen(Clone)")
             {
                 TachPanel.instance.InputAmount += 500;
@@ -51,6 +50,10 @@ public class TlyMove : MonoBehaviour
                 TachPanel.instance.InputAmount += 1;
             }
             Destroy(other.gameObject);
+
+            if (TachPanel.instance.InputAmount >= TachPanel.instance.Rnd) return;
+
+            UIManagement.instance.gauge();
         }
     }
 }

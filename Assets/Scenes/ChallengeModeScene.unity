@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 963227299}
   - component: {fileID: 963227298}
   - component: {fileID: 963227302}
+  - component: {fileID: 963227303}
   m_Layer: 5
   m_Name: Register
   m_TagString: Untagged
@@ -854,18 +855,11 @@ MonoBehaviour:
   selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
   inputamount: 0
   selectgoods: {fileID: 0}
-  Grade_Sp:
-  - {fileID: 21300000, guid: c5021b8769aa455419200f4378bc9d05, type: 3}
-  - {fileID: 21300000, guid: f7a7adf7d25cc4c45ae65c9b72b5c1a1, type: 3}
-  - {fileID: 21300000, guid: 39e56ecec29b107428dfae3815847001, type: 3}
-  - {fileID: 21300000, guid: d68c7f27a3c50904aa6f933b5a759bb0, type: 3}
-  Grade: {fileID: 2322599763447614789, guid: 88709715ad60d6a4c8cdf03c6e3a6e83, type: 3}
   Gama: {fileID: 832412912}
   KindofEmotion:
   - {fileID: 21300000, guid: 771631831cf8c36468dc9033b776c979, type: 3}
   - {fileID: 21300000, guid: f734d8957fbf80f48bed470ce07944dd, type: 3}
   - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
-  combo_image: {fileID: 5902849029161964, guid: 9d71e0061cf76e44385ec5b8b3e47494, type: 3}
   Kindcombo:
   - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
   - {fileID: 21300000, guid: 55ca35f4314edb743b4d771a8db2ce09, type: 3}
@@ -877,14 +871,45 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d181cb9b0d18cb45ad823d78662f2e1, type: 3}
   - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
   - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
-  combo: 0
   Cross: {fileID: 586108009}
-  Cross_Ren:
-  - {fileID: 1996895622}
-  - {fileID: 475330962}
-  - {fileID: 511645961}
-  Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   image: []
+--- !u!114 &963227303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963227297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
+  Grade_Sp:
+  - {fileID: 21300000, guid: c5021b8769aa455419200f4378bc9d05, type: 3}
+  - {fileID: 21300000, guid: f7a7adf7d25cc4c45ae65c9b72b5c1a1, type: 3}
+  - {fileID: 21300000, guid: 39e56ecec29b107428dfae3815847001, type: 3}
+  - {fileID: 21300000, guid: d68c7f27a3c50904aa6f933b5a759bb0, type: 3}
+  KindofEmotion:
+  - {fileID: 21300000, guid: 771631831cf8c36468dc9033b776c979, type: 3}
+  - {fileID: 21300000, guid: f734d8957fbf80f48bed470ce07944dd, type: 3}
+  - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
+  Kindcombo:
+  - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
+  - {fileID: 21300000, guid: 55ca35f4314edb743b4d771a8db2ce09, type: 3}
+  - {fileID: 21300000, guid: 7fe9f21c053f368498f1e5d2ff8b1ab7, type: 3}
+  - {fileID: 21300000, guid: ad83a34ef125f954cb0d3f427141ddf3, type: 3}
+  - {fileID: 21300000, guid: 4ab6d5273da27354ca66eff74e59ea07, type: 3}
+  - {fileID: 21300000, guid: 49462fb6cbb8aae4f9465ae7c4363046, type: 3}
+  - {fileID: 21300000, guid: 1f4def04c9a7c5243a7ded6241a2ae52, type: 3}
+  - {fileID: 21300000, guid: 5d181cb9b0d18cb45ad823d78662f2e1, type: 3}
+  - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
+  - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
+  Cross_Ren: []
+  Grade: {fileID: 2322599763447614789, guid: 88709715ad60d6a4c8cdf03c6e3a6e83, type: 3}
+  combo_image: {fileID: 5902849029161964, guid: 9d71e0061cf76e44385ec5b8b3e47494, type: 3}
+  Cross: {fileID: 586108009}
 --- !u!1001 &979029463
 PrefabInstance:
   m_ObjectHideFlags: 0
