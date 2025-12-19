@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     private Sprite[] MouceCursorSprite;
     [SerializeField, Header("ƒNƒŠƒbƒN‚µ‚½‚©‚Ç‚¤‚©")]
     private bool IsInter;
+    [SerializeField] private CountDoune cd;
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
@@ -28,7 +29,7 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!UIManagement.instance.Finish.activeSelf)
+        if(!UIManagement.instance.Finish.activeSelf||cd.countdoun)
         {
             playercontroll.instance.DragAndDrop(IsInter);
         }
