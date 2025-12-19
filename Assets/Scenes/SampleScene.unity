@@ -601,6 +601,7 @@ MonoBehaviour:
   Gauge: {fileID: 1018512079}
   Gold: {fileID: 0}
   Current: 0
+  Finish: {fileID: 0}
 --- !u!4 &353026687
 Transform:
   m_ObjectHideFlags: 0
@@ -781,17 +782,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!114 &607193405 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 134978218376158101, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 946552137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &617862156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1350122333537995249, guid: c59082b480982054c8147034ac86a74b, type: 3}
@@ -811,21 +801,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 200
   Speed: 2
+  coinFall: {fileID: 0}
 --- !u!114 &724876976 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1305808529240372267, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
   m_PrefabInstance: {fileID: 6273127881489598726}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &777923154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1501977650896343123, guid: 6888cd699a41aea4bac181cf7d57bda3, type: 3}
-  m_PrefabInstance: {fileID: 1551388459}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1869,7 +1849,7 @@ PrefabInstance:
       objectReference: {fileID: 1455468048}
     - target: {fileID: 6297209144966166188, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2059,7 +2039,7 @@ PrefabInstance:
     - target: {fileID: 8844414848942930060, guid: 136719ef2046bb146b06e8399266c7aa, type: 3}
       propertyPath: selectgoods
       value: 
-      objectReference: {fileID: 607193405}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2500,7 +2480,7 @@ PrefabInstance:
     - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
       propertyPath: backButton
       value: 
-      objectReference: {fileID: 777923154}
+      objectReference: {fileID: 0}
     - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
       propertyPath: TitleButton
       value: 
