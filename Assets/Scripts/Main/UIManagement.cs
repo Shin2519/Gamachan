@@ -24,8 +24,8 @@ public class UIManagement : MonoBehaviour
     Color gauge_color;
     Color color;
 
-    [SerializeField, Header("Finish")]
-    GameObject Finish;
+    [Header("Finish")]
+    public GameObject Finish;
     public float Currentgauge {get{ return Current; }set { Current = Mathf.Clamp(value,Min,Max); } }
     void Awake()
     {

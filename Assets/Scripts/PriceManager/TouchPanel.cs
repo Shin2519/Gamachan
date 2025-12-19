@@ -32,7 +32,9 @@ public class TouchPanel : MonoBehaviour
 
     [SerializeField, Header("‰Ÿ‚µ‚½‚Æ‚«‚Ì‰¹")]
     AudioClip buttondown;
-    AudioSource audiosource;
+    [SerializeField, Header("I‚í‚è‚Ì‰¹")]
+    AudioClip SEofFinish;
+    public static AudioSource audiosource;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
     void Awake()
@@ -74,7 +76,7 @@ public class TouchPanel : MonoBehaviour
 
     IEnumerator kaikei()
     {
-        sumamount = selectgoodsso.total - inputamount;
+        sumamount = inputamount - selectgoodsso.total;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
 
@@ -100,6 +102,12 @@ public class TouchPanel : MonoBehaviour
 
         Destroy(hyouka);
         Destroy(comboobject);
+
+        if(GRADE.Instance.Gameover_count == 3)
+        {
+            UIManagement.instance.Finishistrue();
+            audiosource.PlayOneShot(SEofFinish);
+        }
 
         Gama_Image.sprite = KindofEmotion[0];
 

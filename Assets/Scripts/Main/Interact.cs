@@ -28,7 +28,10 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playercontroll.instance.DragAndDrop(IsInter);
+        if(!UIManagement.instance.Finish.activeSelf)
+        {
+            playercontroll.instance.DragAndDrop(IsInter);
+        }
         if(IsInter)
         {
             moucecursor.sprite = MouceCursorSprite[1];

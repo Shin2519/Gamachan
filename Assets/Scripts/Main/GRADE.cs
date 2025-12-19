@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GRADE : MonoBehaviour
 {
     public static GRADE Instance;
-    int Gameover_count = 0;
+    public int Gameover_count = 0;
     Image Gama_Image;
 
     [SerializeField]
@@ -30,6 +30,15 @@ public class GRADE : MonoBehaviour
     private GameObject combo_image;
     [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
     private GameObject Cross;
+
+    [SerializeField, Header("•]‰¿‚É‚æ‚é‰¹‚ÌŽí—Þ")]
+    AudioClip Perfect;
+    [SerializeField]
+    AudioClip Great;
+    [SerializeField]
+    AudioClip Good;
+    [SerializeField]
+    AudioClip Bad;
 
     void Awake()
     {
@@ -56,6 +65,7 @@ public class GRADE : MonoBehaviour
             if (SumAmount == 0)
             {
                 Combo();
+                TouchPanel.audiosource.PlayOneShot(Perfect);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[3];
@@ -64,6 +74,7 @@ public class GRADE : MonoBehaviour
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
                 Combo();
+                TouchPanel.audiosource.PlayOneShot(Great);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[2];
@@ -72,16 +83,13 @@ public class GRADE : MonoBehaviour
             else
             {
                 Combo();
+                TouchPanel.audiosource.PlayOneShot(Great);
                 if (!Cross.activeSelf)
                 {
                     Cross.SetActive(true);
                 }
-                int Count = 3 - Gameover_count;
-                for(int i = 0;i < Count;i++)
-                {
-                    Cross_Ren[Gameover_count - 1].sprite = Out_count;
-                    Gameover_count++;
-                }
+                Cross_Ren[Gameover_count].sprite = Out_count;
+                Gameover_count++;
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];
@@ -93,6 +101,7 @@ public class GRADE : MonoBehaviour
             {
                 Cross.SetActive(true);
             }
+            TouchPanel.audiosource.PlayOneShot(Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)
             {
