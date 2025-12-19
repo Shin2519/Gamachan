@@ -19,15 +19,15 @@ public class CountDoune : MonoBehaviour
         two.enabled = false;
         one.enabled = false;
         start.enabled = false;
-        countdoun = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer<=5&&timer>4)
+        countdoun = true;
+        if (timer<=5&&timer>4)
         {
-            countdoun=true;
             three.enabled=true;
         }
         else if(timer<=4&&timer>3)
@@ -52,6 +52,7 @@ public class CountDoune : MonoBehaviour
             countdoun=false;
             start.enabled=false;
             selectgoods.SetActive(true);
+            this.gameObject.SetActive(false);
         }
         
     }
