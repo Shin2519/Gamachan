@@ -802,6 +802,19 @@ MonoBehaviour:
   moveDistance: 200
   Speed: 2
   coinFall: {fileID: 0}
+--- !u!114 &617862164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617862156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e282b0b5ad4741749991f5323dc64899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 8061331820623351355, guid: b373cc0762428bc418c8982af5c1a83e, type: 3}
 --- !u!114 &724876976 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1305808529240372267, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
@@ -2266,6 +2279,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1350122333537995249, guid: c59082b480982054c8147034ac86a74b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 617862159}
+    - targetCorrespondingSourceObject: {fileID: 1350122333537995249, guid: c59082b480982054c8147034ac86a74b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617862164}
   m_SourcePrefab: {fileID: 100100000, guid: c59082b480982054c8147034ac86a74b, type: 3}
 --- !u!1001 &5789585853089775728
 PrefabInstance:
