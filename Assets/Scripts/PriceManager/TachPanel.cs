@@ -5,7 +5,6 @@ using System.Collections;
 
 public class TachPanel : MonoBehaviour
 {
-    int rnd;
     public static int combo;
     public static TachPanel instance;
     [SerializeField,Header("–Ú•W‹àŠz")] private TextMeshProUGUI amounttext;//¤•i‚Ì‹àŠzƒeƒLƒXƒg
@@ -35,7 +34,7 @@ public class TachPanel : MonoBehaviour
     AudioClip buttondown;
     AudioSource audiosource;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
-    public int Rnd => rnd;
+    public int Total => selectgoodsso.total;
     void Awake()
     {
         instance = this;
@@ -60,10 +59,8 @@ public class TachPanel : MonoBehaviour
 
     void rndyentext()
     {
-        rnd = Random.Range(500, 1000);
         //–Ú•W‹àŠz
-        //amounttext.text = selectgoodsso.total.ToString() + "‰~";
-        amounttext.text = rnd.ToString() + "‰~";
+        amounttext.text = selectgoodsso.total.ToString() + "‰~";
         //“Š“ü‹àŠz
         inputamount = 0;
         inputamounttext.text = inputamount.ToString() + "‰~";
@@ -77,8 +74,7 @@ public class TachPanel : MonoBehaviour
 
     IEnumerator kaikei()
     {
-        //sumamount = selectgoodsso.total - inputamount;
-        sumamount = inputamount - rnd;
+        sumamount = selectgoodsso.total - inputamount;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
 
