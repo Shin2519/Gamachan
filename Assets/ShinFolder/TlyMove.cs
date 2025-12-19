@@ -8,10 +8,13 @@ public class TlyMove : MonoBehaviour
     private Transform pos;
     private Vector2 startPos;
 
+    [SerializeField,Header("Œø‰Ê‰¹")]
+    private AudioClip coinFall;
 
+    AudioSource audioSource;
     void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -28,6 +31,7 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
+            audioSource.PlayOneShot(coinFall);
             if (other.gameObject.name=="500yen(Clone)")
             {
                 TachPanel.instance.InputAmount += 500;

@@ -33,6 +33,7 @@ public class GRADE : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         Grade_Ren = Grade.GetComponent<SpriteRenderer>();
         Gama_Image = TachPanel.instance.Gama.GetComponent<Image>();
     }

@@ -30,11 +30,17 @@ public class TachPanel : MonoBehaviour
     public static GameObject comboobject;
     public GameObject Cross;
     [SerializeField] private Image[] image;
+
+    [SerializeField, Header("‰Ÿ‚µ‚½‚Æ‚«‚Ì‰¹")]
+    AudioClip buttondown;
+    AudioSource audiosource;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Rnd => rnd;
     void Awake()
     {
         instance = this;
+        Gama_Image = Gama.GetComponent<Image>();
+        audiosource = GetComponent<AudioSource>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +55,7 @@ public class TachPanel : MonoBehaviour
     public void OnButton()
     {
         StartCoroutine(kaikei());
+        audiosource.PlayOneShot(buttondown);
     }
 
     void rndyentext()

@@ -10,6 +10,9 @@ public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
 
+    [SerializeField]
+    float timer;
+
     [SerializeField,Header("振れているかどうか判定する範囲")]
     private float judge;
 
@@ -66,7 +69,12 @@ public class playercontroll : MonoBehaviour
     {
         if(IsClick)
         {
-            Drag();
+            timer--;
+            if(timer<=0)
+            {
+                timer = 10;
+                Drag();
+            }
         }
         else
         {
