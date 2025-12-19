@@ -15,6 +15,8 @@ public class GRADE : MonoBehaviour
     private Sprite[] Grade_Sp;
     [SerializeField, Header("GamaÇÃä¥èÓ")]
     Sprite[] KindofEmotion;
+    [SerializeField, Header("GoldenGamaÇÃä¥èÓ")]
+    Sprite[] GoldenKindofEmotion;
     [SerializeField]
     private Sprite[] Kindcombo;
 
@@ -69,7 +71,14 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[3];
-                Gama_Image.sprite = KindofEmotion[1];
+                if (UIManagement.state == UIManagement.STATE.Normal)
+                {
+                    Gama_Image.sprite = KindofEmotion[1];
+                }
+                else
+                {
+                    Gama_Image.sprite = GoldenKindofEmotion[1];
+                }
             }
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
@@ -78,7 +87,14 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[2];
-                Gama_Image.sprite = KindofEmotion[1];
+                if(UIManagement.state==UIManagement.STATE.Normal)
+                {
+                    Gama_Image.sprite = KindofEmotion[1];
+                }
+                else
+                {
+                    Gama_Image.sprite = GoldenKindofEmotion[1];
+                }
             }
             else
             {
@@ -93,6 +109,14 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];
+                if (UIManagement.state == UIManagement.STATE.Normal)
+                {
+                    Gama_Image.sprite = KindofEmotion[0];
+                }
+                else
+                {
+                    Gama_Image.sprite = GoldenKindofEmotion[0];
+                }
             }
         }
         else
@@ -111,7 +135,14 @@ public class GRADE : MonoBehaviour
             TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
             Grade_Ren.sprite = Grade_Sp[0];
-            Gama_Image.sprite = KindofEmotion[2];
+            if (UIManagement.state == UIManagement.STATE.Normal)
+            {
+                Gama_Image.sprite = KindofEmotion[2];
+            }
+            else
+            {
+                Gama_Image.sprite = GoldenKindofEmotion[2];
+            }
         }
     }
     void Combo()

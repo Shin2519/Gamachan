@@ -21,7 +21,7 @@ public class TouchPanel : MonoBehaviour
     public static GameObject hyouka;
     [SerializeField, Header("Gama")]
     public GameObject Gama;
-    Image Gama_Image;
+    public static Image Gama_Image;
     [SerializeField, Header("Gama‚ÌŠ´î")]
     Sprite[] KindofEmotion;
     [SerializeField]

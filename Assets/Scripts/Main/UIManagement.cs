@@ -5,18 +5,19 @@ using Unity.VisualScripting;
 
 public class UIManagement : MonoBehaviour
 {
-    enum STATE
+    public enum STATE
     {
         Normal,
         Gold
     }
-    [SerializeField]
-    private STATE state;
+    public static STATE state;
     public static UIManagement instance;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
     [SerializeField]
     private Sprite Gold;
+    [SerializeField]
+    private Sprite normal;
     [SerializeField]
     float Current = 0;
     int Min = 0;
@@ -45,17 +46,19 @@ public class UIManagement : MonoBehaviour
         if(Current>=Max)
         {
             state = STATE.Gold;
+            TouchPanel.Gama_Image.sprite = Gold;
             StartCoroutine(GaugeDoun());
             StartCoroutine(ColorChange());
         }
         else
         {
+            state = STATE.Normal;
             Gauge.fillAmount = Current / Max;
         }
     }
     public void gauge()
     {
-        Currentgauge += 10 * Time.deltaTime;
+        Currentgauge += 100 * Time.deltaTime;
     }
 
     private IEnumerator GaugeDoun()
@@ -66,6 +69,7 @@ public class UIManagement : MonoBehaviour
             yield return null;
         }
         state = STATE.Normal;
+        TouchPanel.Gama_Image.sprite = normal;
         Gauge.color = color;
     }
 
