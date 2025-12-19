@@ -6,14 +6,17 @@ public class RuleCheckScene : MonoBehaviour
     [SerializeField] private AudioSource audiosource;
     [SerializeField] private AudioClip clip;
     [SerializeField] private AudioClip clip2;
+    [SerializeField] private GameObject Page;
 
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        Page.SetActive(false);
     }
     public void RuleYes()
     {
-        SceneManager.LoadScene("RuleScene");
+        this.gameObject.SetActive(false);
+        Page.SetActive(true);
         audiosource.PlayOneShot(clip);
     }
 

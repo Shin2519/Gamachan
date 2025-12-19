@@ -51,15 +51,7 @@ public class InputName : MonoBehaviour
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
 
-        //if(inputField.isFocused)
-        //{
-        //    if(Input.GetKeyDown(KeyCode.Return))
-        //    {
-        //        //マウスカーソルの表示
-
-        //        inputField.DeactivateInputField();
-        //    }
-        //}
+        
     }
 
     public void InputText()
@@ -102,7 +94,11 @@ public class InputName : MonoBehaviour
         {
             if(Mode.Instance.isMode)
             {
+<<<<<<< HEAD
                 FadeManager.Instance.LoadLevel("SampleScene", 1.0f);//チャレンジモード
+=======
+                SceneManager.LoadScene("ChallengeModeScene");//チャレンジモード
+>>>>>>> af7938f399ea491d8bc89415e9d22b3ede7d5527
             }
             else if(!Mode.Instance.isMode)
             {
@@ -121,7 +117,7 @@ public class InputName : MonoBehaviour
     {
         inputText.enabled = true;
         inputText_e.enabled = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         inputText.enabled = false;
         inputText_e.enabled = false;
 

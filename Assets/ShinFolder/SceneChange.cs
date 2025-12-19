@@ -21,7 +21,11 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_rc()
     {
+<<<<<<< HEAD
         FadeManager.Instance.LoadLevel("RuleCheckScene", 1.0f);
+=======
+        SceneManager.LoadScene("RuleScene");
+>>>>>>> af7938f399ea491d8bc89415e9d22b3ede7d5527
     }
 
     public void ChangeButton_Ti()

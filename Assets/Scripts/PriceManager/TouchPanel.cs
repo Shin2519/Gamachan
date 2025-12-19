@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class TachPanel : MonoBehaviour
+public class TouchPanel : MonoBehaviour
 {
     public static int combo;
-    public static TachPanel instance;
+    public static TouchPanel instance;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
