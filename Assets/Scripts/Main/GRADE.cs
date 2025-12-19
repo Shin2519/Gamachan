@@ -76,8 +76,12 @@ public class GRADE : MonoBehaviour
                 {
                     Cross.SetActive(true);
                 }
-                Cross_Ren[Gameover_count].sprite = Out_count;
-                Gameover_count++;
+                int Count = 3 - Gameover_count;
+                for(int i = 0;i < Count;i++)
+                {
+                    Cross_Ren[Gameover_count - 1].sprite = Out_count;
+                    Gameover_count++;
+                }
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];

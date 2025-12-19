@@ -94,11 +94,8 @@ public class InputName : MonoBehaviour
         {
             if(Mode.Instance.isMode)
             {
-<<<<<<< HEAD
                 FadeManager.Instance.LoadLevel("SampleScene", 1.0f);//チャレンジモード
-=======
                 SceneManager.LoadScene("ChallengeModeScene");//チャレンジモード
->>>>>>> af7938f399ea491d8bc89415e9d22b3ede7d5527
             }
             else if(!Mode.Instance.isMode)
             {
