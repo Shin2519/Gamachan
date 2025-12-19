@@ -19,6 +19,7 @@ public class SelectGoods : MonoBehaviour
 
     [SerializeField] private SelectGoodsSO selectSO;
 
+    public static SelectGoods selectGoods;
     // 表示＆操作対象の商品
     private List<data> displayData = new();
 
