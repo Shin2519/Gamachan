@@ -12,7 +12,7 @@ public class ModeSelectScene : MonoBehaviour
 
     public void CharengeButton()
     {
-        SceneManager.LoadScene("ChallengeModeScene");
+        SceneManager.LoadScene("InputNameScene");
         Mode.Instance.isMode = true;
     }
 
