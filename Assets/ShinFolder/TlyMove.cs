@@ -34,28 +34,28 @@ public class TlyMove : MonoBehaviour
             audioSource.PlayOneShot(coinFall);
             if (other.gameObject.name=="500yen(Clone)")
             {
-                TachPanel.instance.InputAmount += 500;
+                TouchPanel.instance.InputAmount += 500;
             }
             else if (other.gameObject.name == "100yen(Clone)")
             {
-                TachPanel.instance.InputAmount += 100;
+                TouchPanel.instance.InputAmount += 100;
             }
             else if (other.gameObject.name== "50yen(Clone)")
             {
-                TachPanel.instance.InputAmount += 50;
+                TouchPanel.instance.InputAmount += 50;
                 Destroy(other.gameObject);
             }
             else if (other.gameObject.name== "10yen(Clone)")
             {
-                TachPanel.instance. InputAmount += 10;
+                TouchPanel.instance. InputAmount += 10;
             }
             else if (other.gameObject.name== "1yen(Clone)")
             {
-                TachPanel.instance.InputAmount += 1;
+                TouchPanel.instance.InputAmount += 1;
             }
             Destroy(other.gameObject);
 
-            if (TachPanel.instance.InputAmount >= TachPanel.instance.Total) return;
+            if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total) return;
 
             UIManagement.instance.gauge();
         }
