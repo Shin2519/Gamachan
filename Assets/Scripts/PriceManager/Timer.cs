@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class SelectGoodsManager : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
@@ -13,28 +9,29 @@ public class SelectGoodsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer>=0)
-        timetext.text = "TIME:" + timer.ToString("F0");
+        int minuts = Mathf.FloorToInt(timer / 60);
+        int seconds = Mathf.FloorToInt(timer % 60);
+        timetext.text = string.Format("TIME:" +"{0:D2}:{1:D2}", minuts, seconds);
 
-        if(10< timer && timer<30)
+        if (10 < timer && timer < 30)
         {
             timetext.color = new Color32(255, 128, 0, 255);
         }
-        else if(timer<10)
+        else if (timer < 10)
         {
             timetext.color = new Color32(255, 0, 0, 255);
         }
 
-        if(timer<=0)
+        if (timer <= 0)
         {
             Debug.Log("gameover");
         }
-      
+
+        
+
     }
     private void FixedUpdate()
     {
         timer -= Time.fixedDeltaTime;
     }
-
-    
 }
