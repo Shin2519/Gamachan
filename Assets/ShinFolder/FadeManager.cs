@@ -1,62 +1,75 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
+using System;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
-public class FadeManager : MonoBehaviour
+public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleはどこのスクリプトからでも呼べるようにするため
 {
-    public static bool isFadeInstance = false;
+    private Texture2D blackTexture;//暗転用
+    private float fadeAlpha = 0;//フェード中の透明度
+    private bool isFadeing = false;//フェード中かどうか
 
-    public bool isFadein = false;
-    public bool isFadeout = false;
-
-    public float alpha = 0.0f;//透過率
-    public float fadeSpeed = 0.2f;
-
-    void Start()
+    public void Awake()
     {
-        if(!isFadeInstance)
+        if(this != Instance)
         {
-            DontDestroyOnLoad(this);
-            isFadeInstance = true;
+            Destroy(this.gameObject);
+            return;
         }
-        else
-        {
-            Destroy(this);
-        }
+
+        DontDestroyOnLoad(this.gameObject);
+
+        //黒テクスチャを作る
+        this.blackTexture = new Texture2D(1, 1);
+        this.blackTexture.SetPixel(0, 0, Color.black);
+        this.blackTexture.Apply();
+
     }
 
-    void Update()
+    public void OnGUI()
     {
-        if(isFadein)
-        {
-            alpha -= Time.deltaTime / fadeSpeed;
-            if(alpha<=0.0f)
-            {
-                isFadein = false;
-                alpha = 0.0f;
-            }
-            this.GetComponentInChildren<Image>().color = new Color(0.0f, 0.0f, 0.0f, alpha);
-        }
-        else if(isFadeout)
-        {
-            alpha += Time.deltaTime / fadeSpeed;
-            if(alpha>=1.0f)
-            {
-                isFadeout = false;
-                alpha = 1.0f;
-            }
-            this.GetComponentInChildren<Image>().color = new Color(0.0f, 0.0f, 0.0f, alpha);
-        }
+        if (!this.isFadeing) return;
+
+        GUI.color = new Color(0, 0, 0, this.fadeAlpha);
+        GUI.DrawTexture(
+            new Rect(0, 0, Screen.width, Screen.height),
+            this.blackTexture
+        );
     }
 
-    public void fadeIn()
+
+
+    public void LoadLevel(string scene,float interval)
     {
-        isFadein=true;
-        isFadeout=false;
+        StartCoroutine(TransScene(scene,interval));
     }
 
-    public void fadeOut()
+    private IEnumerator TransScene(string scene,float interval)
     {
-        isFadeout = true;
-        isFadein = false;
+        //だんだん暗く
+        this.isFadeing = true;
+        float time = 0;
+        while(time<=interval)
+        {
+            this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+            time += Time.deltaTime;
+            yield return 0;
+        }
+
+        //シーンの切り替え
+        SceneManager.LoadScene(scene);
+
+
+        //だんだん明るく
+        time = 0;
+        while(time<=interval)
+        {
+            this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+            time += Time.deltaTime;
+            yield return 0;
+        }
+
+        this.isFadeing = false;
     }
 }

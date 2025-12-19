@@ -8,24 +8,25 @@ public class SceneChange : MonoBehaviour
     [SerializeField] private string SettingScene;
     [SerializeField] private string RankingScene;
 
+
     public void ChangeButton_st()
     {
-        SceneManager.LoadScene("OptionScene");
+        FadeManager.Instance.LoadLevel("OptionScene", 1.0f);
     }
 
     public void ChangeButton_rk()
     {
-        SceneManager.LoadScene("RankingScene");
+        FadeManager.Instance.LoadLevel("RankingScene",1.0f);
     }
 
     public void ChangeButton_rc()
     {
-        SceneManager.LoadScene("RuleCheckScene");
+        FadeManager.Instance.LoadLevel("RuleCheckScene", 1.0f);
     }
 
     public void ChangeButton_Ti()
     {
-        SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
 
     public void EndGame()

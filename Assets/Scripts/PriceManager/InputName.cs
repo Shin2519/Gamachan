@@ -102,18 +102,18 @@ public class InputName : MonoBehaviour
         {
             if(Mode.Instance.isMode)
             {
-                SceneManager.LoadScene("SampleScene");//チャレンジモード
+                FadeManager.Instance.LoadLevel("SampleScene", 1.0f);//チャレンジモード
             }
             else if(!Mode.Instance.isMode)
             {
-                SceneManager.LoadScene("TitleScene");//タイムリミットモード
+                FadeManager.Instance.LoadLevel("TitleScene", 1.0f);//タイムリミットモード
             }
         }
         audioSource.PlayOneShot(Clip1);
     }
     public void OnButtonMode()
     {
-        SceneManager.LoadScene("ModeSelectScene");
+        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
         audioSource.PlayOneShot(Clip);
     }
 

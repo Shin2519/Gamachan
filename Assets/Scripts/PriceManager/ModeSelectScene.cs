@@ -12,18 +12,18 @@ public class ModeSelectScene : MonoBehaviour
 
     public void CharengeButton()
     {
-        SceneManager.LoadScene("ChallengeModeScene");
+        FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);
         Mode.Instance.isMode = true;
     }
 
     public void TimeLimitButton()
     {
-        SceneManager.LoadScene("InputNameScene");
+        FadeManager.Instance.LoadLevel("InputNameScene", 1.0f);
         Mode.Instance.isMode = false;
     }
 
     public void Title()
     {
-        SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
 }

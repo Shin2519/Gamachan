@@ -30,6 +30,6 @@ public class SE_BGM: MonoBehaviour
             seSource.PlayOneShot(backSE);
         }
 
-        SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
 }

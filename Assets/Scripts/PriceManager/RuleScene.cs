@@ -19,11 +19,11 @@ public class RuleScene : MonoBehaviour
 
     public void TitleButton()
     {
-       SceneManager.LoadScene("TitleScene");
+       FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
     public void ModeSelectButton()
     {
-       SceneManager.LoadScene("ModeSelectScene");
+       FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
     }
 
     public void Page1to2()

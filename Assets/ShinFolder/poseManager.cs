@@ -93,7 +93,7 @@ public class poseManager : MonoBehaviour
 
     public void ChangeScene_Ti()
     {
-        SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadLevel("TitleScene",1.0f);
     }
 
     //‰¹—Êİ’è—p

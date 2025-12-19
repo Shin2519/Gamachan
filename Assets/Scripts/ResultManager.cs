@@ -144,18 +144,18 @@ public class ResultManager : MonoBehaviour
     public void GoToRankingScene()
     {
         PlayClickSE();
-        SceneManager.LoadScene("RankingScene");
+        FadeManager.Instance.LoadLevel("RankingScene",1.0f);
     }
 
     public void GoToTitleScene()
     {
         PlayClickSE();
-        SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
 
     public void GoToModeSelectScene()
     {
         PlayClickSE();
-        SceneManager.LoadScene("ModeSelectScene");
+        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
     }
 }
