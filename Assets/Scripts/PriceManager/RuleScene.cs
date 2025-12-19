@@ -10,7 +10,7 @@ public class RuleScene : MonoBehaviour
 
     private void Start()
     {
-        Page1.SetActive(true);
+        Page1.SetActive(false);
         Page2.SetActive(false);
         Page3.SetActive(false);
         audiosource = GetComponent<AudioSource>();

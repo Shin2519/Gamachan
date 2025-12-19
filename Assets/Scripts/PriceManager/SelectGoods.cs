@@ -22,8 +22,11 @@ public class SelectGoods : MonoBehaviour
     // 表示＆操作対象の商品
     private List<data> displayData = new();
 
+    [SerializeField] private GameObject tachpanel;//シーン切り替え用
+
     void Start()
     {
+        tachpanel.SetActive(false);
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
@@ -127,5 +130,21 @@ public class SelectGoods : MonoBehaviour
     private int GetTotalCount()
     {
         return displayData.Sum(d => d.count);
+    }
+
+    public void OnPay()
+    {
+        if (selectSO.target == selectSO.total)
+        {
+            tachpanel.SetActive(true);
+            this.gameObject.SetActive(false);
+        }
+        else if (selectSO.total > selectSO.target)
+        {
+            InitCounts();
+            SetPrices();
+            CreateDisplayGoods();
+            UpdateUI();
+        }
     }
 }

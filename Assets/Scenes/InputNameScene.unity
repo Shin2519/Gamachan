@@ -853,17 +853,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411910971}
   m_CullTransparentMesh: 1
---- !u!114 &475196677 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6328828514052049072, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
-  m_PrefabInstance: {fileID: 2493267751698235839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137705219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d8fd3f4430ab9a4b97722ce89c94c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &475196685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +896,7 @@ MonoBehaviour:
   totalText: {fileID: 940609640}
   targetText: {fileID: 1277628939}
   selectSO: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
+  tachpanel: {fileID: 1484602541}
 --- !u!1 &532498131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3958,14 +3948,14 @@ PrefabInstance:
     - target: {fileID: 2069151340944234771, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 475196677}
+      objectReference: {fileID: 475196685}
     - target: {fileID: 2069151340944234771, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnPay
       objectReference: {fileID: 0}
     - target: {fileID: 2069151340944234771, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SelectGoodsManager, Assembly-CSharp
+      value: SelectGoods, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2414729588116107821, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

@@ -20,7 +20,7 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_rc()
     {
-        SceneManager.LoadScene("RuleCheckScene");
+        SceneManager.LoadScene("RuleScene");
     }
 
     public void ChangeButton_Ti()
