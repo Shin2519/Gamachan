@@ -684,7 +684,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 894082934530508436, guid: 9dec23d62bd488d4aaf9ac0077cc6fb6, type: 3}
   m_PrefabInstance: {fileID: 1729806526}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1979901308}
+=======
+  m_GameObject: {fileID: 0}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a092ee4111990942960bd1da16e2731, type: 3}

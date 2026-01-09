@@ -22,7 +22,6 @@ public class SceneChange : MonoBehaviour
     public void ChangeButton_rc()
     {
         FadeManager.Instance.LoadLevel("RuleCheckScene", 1.0f);
-        SceneManager.LoadScene("RuleScene");
     }
 
     public void ChangeButton_Ti()
@@ -32,7 +31,6 @@ public class SceneChange : MonoBehaviour
 
     public void EndGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }

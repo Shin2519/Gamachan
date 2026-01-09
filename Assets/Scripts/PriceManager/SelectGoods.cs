@@ -23,8 +23,16 @@ public class SelectGoods : MonoBehaviour
     // 表示＆操作対象の商品
     private List<data> displayData = new();
 
+<<<<<<< Updated upstream
     void Start()
     {
+=======
+    //[SerializeField] private GameObject tachpanel;//シーン切り替え用
+
+    void Start()
+    {
+        //tachpanel.SetActive(false);
+>>>>>>> Stashed changes
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
@@ -134,6 +142,10 @@ public class SelectGoods : MonoBehaviour
     {
         if (selectSO.target == selectSO.total)
         {
+<<<<<<< Updated upstream
+=======
+            //tachpanel.SetActive(true);
+>>>>>>> Stashed changes
             this.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
         }
@@ -145,10 +157,13 @@ public class SelectGoods : MonoBehaviour
             UpdateUI();
         }
     }
+<<<<<<< Updated upstream
     private void OnEnable()
     {
         Reset();
     }
+=======
+>>>>>>> Stashed changes
 
     private void Reset()
     {

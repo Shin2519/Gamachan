@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using UnityEditorInternal;
 using System;
 
 public class playercontroll : MonoBehaviour

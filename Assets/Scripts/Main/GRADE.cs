@@ -84,7 +84,15 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[2];
+<<<<<<< Updated upstream
                 if(UIManagement.instance.state ==UIManagement.STATE.Gold)
+=======
+                if(UIManagement.instance.state ==UIManagement.STATE.Normal)
+                {
+                    Gama_Image.sprite = KindofEmotion[1];
+                }
+                else
+>>>>>>> Stashed changes
                 {
                     Gama_Image.sprite = GoldenKindofEmotion[1];
                 }
@@ -103,7 +111,15 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];
+<<<<<<< Updated upstream
                 if (UIManagement.instance.state == UIManagement.STATE.Gold)
+=======
+                if (UIManagement.instance.state == UIManagement.STATE.Normal)
+                {
+                    Gama_Image.sprite = KindofEmotion[0];
+                }
+                else
+>>>>>>> Stashed changes
                 {
                     Gama_Image.sprite = GoldenKindofEmotion[0];
                 }
@@ -128,9 +144,18 @@ public class GRADE : MonoBehaviour
             Grade_Ren.sprite = Grade_Sp[0];
             if (UIManagement.instance.state == UIManagement.STATE.Gold)
             {
+<<<<<<< Updated upstream
                 Gama_Image.sprite = GoldenKindofEmotion[2];
             }
             Gama_Image.sprite = KindofEmotion[2];
+=======
+                Gama_Image.sprite = GRADE.Instance.GoldenKindofEmotion[2];
+            }
+            else if (UIManagement.instance.state == UIManagement.STATE.Normal)
+            {
+                Gama_Image.sprite = KindofEmotion[2];
+            }
+>>>>>>> Stashed changes
         }
     }
     void Combo()

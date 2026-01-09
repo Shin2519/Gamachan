@@ -15,6 +15,7 @@ public class RuleCheckScene : MonoBehaviour
     }
     public void RuleYes()
     {
+        FadeManager.Instance.LoadLevel("RuleScene",1f);
         this.gameObject.SetActive(false);
         Page.SetActive(true);
         audiosource.PlayOneShot(clip);
