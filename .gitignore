@@ -23,6 +23,12 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
+#タイトルの動画が重くてpushできないため
+# Videos
+*.mp4
+*.mov
+*.avi
+
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
