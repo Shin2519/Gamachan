@@ -29,7 +29,7 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!UIManagement.instance.Finish.activeSelf||cd.countdoun)
+        if(!UIManagement.instance.Finish.activeSelf)
         {
             playercontroll.instance.DragAndDrop(IsInter);
         }
