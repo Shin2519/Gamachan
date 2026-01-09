@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TouchPanel : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TouchPanel : MonoBehaviour
     [SerializeField]
     private int inputamount = 0;
     private float sumamount;//‡Œv‹àŠz
-    [SerializeField] SelectGoods selectgoods;
+    [SerializeField] GameObject selectgoods;
     public static GameObject hyouka;
     [SerializeField, Header("Gama")]
     public GameObject Gama;
@@ -37,6 +38,7 @@ public class TouchPanel : MonoBehaviour
     public static AudioSource audiosource;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
+
     void Awake()
     {
         instance = this;
@@ -60,9 +62,10 @@ public class TouchPanel : MonoBehaviour
     {
         StartCoroutine(kaikei());
         audiosource.PlayOneShot(buttondown);
+        
     }
 
-    void rndyentext()
+    public void rndyentext()
     {
         //–Ú•W‹àŠz
         amounttext.text = selectgoodsso.total.ToString() + "‰~";
@@ -96,7 +99,7 @@ public class TouchPanel : MonoBehaviour
         {
             combo++;
             sumamountyen.text = "‚¨’Þ‚è";
-            sumamounttext.color = Color.red;
+            sumamounttext.color = Color.red;      
         }
         else
         {
@@ -109,15 +112,23 @@ public class TouchPanel : MonoBehaviour
         GRADE.Instance.GRADE_(sumamount);
 
         yield return new WaitForSeconds(2.0f);
-
+        if(GRADE.Instance.Gameover_count != 3)
+        {
+            selectgoods.SetActive(true);
+        }
         Destroy(hyouka);
         Destroy(comboobject);
 
         if (GRADE.Instance.Gameover_count == 3)
         {
+            Timer.Instance.stop = true;
             UIManagement.instance.Finishistrue();
             audiosource.PlayOneShot(SEofFinish);
+
+            yield return new WaitForSeconds(2.0f);
+            SceneManager.LoadScene("Resultpanel");
         }
             rndyentext();
+        
     }
 }

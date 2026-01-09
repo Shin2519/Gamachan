@@ -9,7 +9,6 @@ public class CountDoune : MonoBehaviour
     [SerializeField] private Image one;
     [SerializeField] private Image start;
     public float timer;
-    public bool countdoun;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,22 +24,21 @@ public class CountDoune : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdoun = true;
-        if (timer<=5&&timer>4)
+        if (timer <= 4 && timer >= 3)
         {
             three.enabled=true;
         }
-        else if(timer<=4&&timer>3)
+        else if(timer <= 3 && timer >= 2)
         {
             three.enabled = false;
             two.enabled=true;
         }
-        else if(timer<=3&&timer>2)
+        else if(timer <= 2 && timer >= 1)
         {
             two.enabled=false;
             one.enabled=true;
         }
-        else if(timer<=2&&timer>1)
+        else if(timer <= 1 && timer >= 0)
         {
             one.enabled=false;
             start.enabled=true;
@@ -49,7 +47,6 @@ public class CountDoune : MonoBehaviour
 
         if(timer<=0)
         {
-            countdoun=false;
             start.enabled=false;
             selectgoods.SetActive(true);
             this.gameObject.SetActive(false);
