@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae640c432971f74ea2a7ece332d1a52, type: 3}
+  m_Name: ScoreSettings
+  m_EditorClassIdentifier: 
+  oneItemScore: 20
+  threeItemScore: 60
+  diff0Score: 500
+  diff100Score: 100
+  diff250Score: 50
+  diff500Score: 10
+  diffOverScore: 0
+  coin1: 50
+  coin5: 30
+  coin10: 20
+  coin50: 10
+  coin100: 5
+  coin500: 2
+  evalPerfect: 300
+  evalGreat: 200
+  evalGood: 100
+  evalBad: -50
+  zeroYenBonus: 50
+  goldenBonus: 100
+  comboStepBonus: 100
+  comboMaxBonus: 500
+  speed15: 100
+  speed20: 50
+  challengePerfectDiff: 500
+  challengeDiff100: 100
+  challengeDiff250: 50
+  challengeDiff500: 10
