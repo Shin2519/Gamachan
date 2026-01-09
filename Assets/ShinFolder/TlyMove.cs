@@ -55,7 +55,7 @@ public class TlyMove : MonoBehaviour
             }
             Destroy(other.gameObject);
 
-            //if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total) return;
+            if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total||UIManagement.instance.state == UIManagement.STATE.Gold) return;
 
             UIManagement.instance.gauge();
         }

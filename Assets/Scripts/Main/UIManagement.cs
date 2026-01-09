@@ -10,7 +10,7 @@ public class UIManagement : MonoBehaviour
         Normal,
         Gold
     }
-    public static STATE state;
+    public STATE state;
     public static UIManagement instance;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
@@ -27,6 +27,8 @@ public class UIManagement : MonoBehaviour
 
     [Header("Finish")]
     public GameObject Finish;
+
+    bool isDown = false;
     public float Currentgauge {get{ return Current; }set { Current = Mathf.Clamp(value,Min,Max); } }
     void Awake()
     {
@@ -58,11 +60,16 @@ public class UIManagement : MonoBehaviour
     }
     public void gauge()
     {
-        Currentgauge += 100 * Time.deltaTime;
+        if(!isDown)
+        {
+            Currentgauge += 1000 * Time.deltaTime;
+        }
     }
+        
 
     private IEnumerator GaugeDoun()
     {
+        isDown = true;
         while(Gauge.fillAmount > 0)
         {
             Currentgauge -= 10 * Time.deltaTime;
@@ -71,6 +78,7 @@ public class UIManagement : MonoBehaviour
         state = STATE.Normal;
         TouchPanel.Gama_Image.sprite = normal;
         Gauge.color = color;
+        isDown = false;
     }
 
     private IEnumerator ColorChange()

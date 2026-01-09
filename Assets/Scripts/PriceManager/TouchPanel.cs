@@ -40,7 +40,10 @@ public class TouchPanel : MonoBehaviour
     void Awake()
     {
         instance = this;
-        Gama_Image = Gama.GetComponent<Image>();
+        if(Gama_Image==null)
+        {
+            Gama_Image = Gama.GetComponent<Image>();
+        }
         audiosource = GetComponent<AudioSource>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -72,6 +75,13 @@ public class TouchPanel : MonoBehaviour
 
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
+
+        Debug.Log(UIManagement.instance.state);
+
+        if (UIManagement.instance.state == UIManagement.STATE.Gold)
+        {
+            Gama_Image.sprite = GRADE.Instance.GoldenKindofEmotion[0];
+        }
     }
 
     IEnumerator kaikei()
@@ -103,14 +113,11 @@ public class TouchPanel : MonoBehaviour
         Destroy(hyouka);
         Destroy(comboobject);
 
-        if(GRADE.Instance.Gameover_count == 3)
+        if (GRADE.Instance.Gameover_count == 3)
         {
             UIManagement.instance.Finishistrue();
             audiosource.PlayOneShot(SEofFinish);
         }
-
-        Gama_Image.sprite = KindofEmotion[0];
-
-        rndyentext();
+            rndyentext();
     }
 }
