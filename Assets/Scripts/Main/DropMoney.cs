@@ -6,9 +6,11 @@ public class DropMoney : MonoBehaviour
     public static DropMoney instance;
     enum Speed
     {
+        TooFast,
         Fast,
         Soso,
-        Slow
+        Slow,
+        TooSlow
     }
     [SerializeField,Header("速さの判定")]
     private Speed speed;
@@ -35,95 +37,157 @@ public class DropMoney : MonoBehaviour
     public void KindofMoney(float Amount)
     {
         if (Amount <= 0) return;
-        if (Amount>=100)
+        if (Amount >= 200)
+        {
+            speed = Speed.TooFast;
+        }
+        else if (Amount>=160)
         {
             speed = Speed.Fast;
         }
-        else if(Amount>=50)
+        else if (Amount>=100)
         {
             speed = Speed.Soso;
         }
+        else if(Amount>=50)
+        {
+            speed = Speed.Slow;
+        }
         else if (Amount<=20)
         {
-             speed=Speed.Slow;
+             speed=Speed.TooSlow;
         }
         switch (speed)
         {
+
+            case Speed.TooFast:
+                if (Amount >= 200)
+                {
+                    //500円玉
+                    Instantiate(Mny[0], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                }
+                else if (Amount >= 180)
+                {
+                    int rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        //500円玉
+                        Instantiate(Mny[0], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        //100円玉
+                        Instantiate(Mny[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    //100円玉
+                    Instantiate(Mny[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                }
+                break;
             case Speed.Fast:
+                if (Amount >= 160)
+                {
+                    //100円玉
+                    Instantiate(Mny[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                }
+                else if (Amount >= 140)
+                {
+                    int rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        //100円玉
+                        Instantiate(Mny[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        //50円玉
+                        Instantiate(Mny[2], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    //50円玉
+                    Instantiate(Mny[2], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+                }
+                break;
+            case Speed.Soso:
                 if(Amount>=130)
                 {
-                    Instantiate(Mny[0],Gama.transform.position,Quaternion.identity);
+                    //50円玉
+                    Instantiate(Mny[2],Gama.transform.position - new Vector3(0.0f,10.0f,0.0f),Quaternion.identity);
                 }
                 else if(Amount>=120)
                 {
                     int rnd = Random.Range(0,2);
                     if(rnd==0)
                     {
-                        //500円玉
-                        Instantiate(Mny[0], Gama.transform.position, Quaternion.identity);
+                        //50円玉
+                        Instantiate(Mny[2], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                     else
                     {
-                        //100円玉
-                        Instantiate(Mny[1], Gama.transform.position, Quaternion.identity);
+                        //10円玉
+                        Instantiate(Mny[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                 }
                 else
                 {
-                    //100円玉
-                    Instantiate(Mny[1], Gama.transform.position, Quaternion.identity);
+                    //10円玉
+                    Instantiate(Mny[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                     break;
-            case Speed.Soso:
+            case Speed.Slow:
                 if(Amount>=80)
                 {
-                    //100円玉
-                    Instantiate(Mny[1], Gama.transform.position, Quaternion.identity);
-
-                    //Debug.Log(Speed.Soso);
+                    //10円玉
+                    Instantiate(Mny[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                 else if(Amount >= 70)
                 {
                     int rnd = Random.Range(0, 2);
                     if (rnd == 0)
                     {
-                        //100円玉
-                        Instantiate(Mny[1], Gama.transform.position, Quaternion.identity);
+                        //10円玉
+                        Instantiate(Mny[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                     else
                     {
-                        //50円玉
-                        Instantiate(Mny[2], Gama.transform.position, Quaternion.identity);
+                        //5円玉
+                        Instantiate(Mny[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                 }
                 else
                 {
-                    Instantiate(Mny[2], Gama.transform.position, Quaternion.identity);
+                    //5円玉
+                    Instantiate(Mny[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                     break;
-            case Speed.Slow:
+            case Speed.TooSlow:
                 if (Amount <= 20)
                 {
-                    //100円玉
-                    Instantiate(Mny[2], Gama.transform.position, Quaternion.identity);
+                    //5円玉
+                    Instantiate(Mny[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                 else if (Amount <= 10)
                 {
                     int rnd = Random.Range(0, 2);
                     if (rnd == 0)
                     {
-                        //100円玉
-                        Instantiate(Mny[2], Gama.transform.position, Quaternion.identity);
+                        //5円玉
+                        Instantiate(Mny[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                     else
                     {
-                        //50円玉
-                        Instantiate(Mny[3], Gama.transform.position, Quaternion.identity);
+                        //1円玉
+                        Instantiate(Mny[5], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                 }
                 else if(Amount <= 5)
                 {
-                    Instantiate(Mny[3], Gama.transform.position, Quaternion.identity);
+                    //1円玉
+                    Instantiate(Mny[5], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                 break;
         }

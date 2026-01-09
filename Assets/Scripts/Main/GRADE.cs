@@ -75,10 +75,7 @@ public class GRADE : MonoBehaviour
                 {
                     Gama_Image.sprite = KindofEmotion[1];
                 }
-                else
-                {
-                    Gama_Image.sprite = GoldenKindofEmotion[1];
-                }
+                Gama_Image.sprite = GoldenKindofEmotion[1];
             }
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
@@ -87,14 +84,11 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[2];
-                if(UIManagement.instance.state ==UIManagement.STATE.Normal)
-                {
-                    Gama_Image.sprite = KindofEmotion[1];
-                }
-                else
+                if(UIManagement.instance.state ==UIManagement.STATE.Gold)
                 {
                     Gama_Image.sprite = GoldenKindofEmotion[1];
                 }
+                Gama_Image.sprite = KindofEmotion[1];
             }
             else
             {
@@ -109,14 +103,11 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = Grade_Sp[1];
-                if (UIManagement.instance.state == UIManagement.STATE.Normal)
-                {
-                    Gama_Image.sprite = KindofEmotion[0];
-                }
-                else
+                if (UIManagement.instance.state == UIManagement.STATE.Gold)
                 {
                     Gama_Image.sprite = GoldenKindofEmotion[0];
                 }
+                Gama_Image.sprite = KindofEmotion[0];
             }
         }
         else
@@ -137,12 +128,9 @@ public class GRADE : MonoBehaviour
             Grade_Ren.sprite = Grade_Sp[0];
             if (UIManagement.instance.state == UIManagement.STATE.Gold)
             {
-                Gama_Image.sprite = GRADE.Instance.GoldenKindofEmotion[2];
+                Gama_Image.sprite = GoldenKindofEmotion[2];
             }
-            else if (UIManagement.instance.state == UIManagement.STATE.Normal)
-            {
-                Gama_Image.sprite = KindofEmotion[2];
-            }
+            Gama_Image.sprite = KindofEmotion[2];
         }
     }
     void Combo()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1421517025418689334}
   - component: {fileID: -249540701025318979}
   - component: {fileID: -4796147137976710472}
+  - component: {fileID: -5394454067144435748}
   m_Layer: 0
   m_Name: 50yen
   m_TagString: Coin
@@ -152,3 +153,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5394454067144435748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809218153978527842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc60e911ddaa7641ba4ee18c7eeaee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v0_: 200
