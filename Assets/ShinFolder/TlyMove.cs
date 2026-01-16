@@ -47,9 +47,13 @@ public class TlyMove : MonoBehaviour
             }
             else if (other.gameObject.name== "10yen(Clone)")
             {
-                TouchPanel.instance. InputAmount += 10;
+                TouchPanel.instance.InputAmount += 10;
             }
-            else if (other.gameObject.name== "1yen(Clone)")
+            else if(other.gameObject.name == "5yen(Clone)")
+            {
+                TouchPanel.instance.InputAmount += 5;
+            }
+            else if (other.gameObject.name == "1yen(Clone)")
             {
                 TouchPanel.instance.InputAmount += 1;
             }
