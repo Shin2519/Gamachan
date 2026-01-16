@@ -2,22 +2,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Timer : MonoBehaviour
+public class GoodsTimer : MonoBehaviour
 {
-    public static Timer Instance;
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 
     [SerializeField] GameObject one;
     [SerializeField] GameObject two;
     [SerializeField] GameObject three;
-    [SerializeField] GameObject countdown;
     public bool stop;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
+    [SerializeField] GameObject goods;
     private void Start()
     {
         stop = false;
@@ -29,7 +23,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (10 < timer && timer <= 30)
+        if (30>= timer && timer >10)
         {
             timetext.color = new Color32(255, 128, 0, 255);//オレンジ
         }
@@ -42,21 +36,21 @@ public class Timer : MonoBehaviour
 
         if (!stop)
         {
-            if (timer <= 4 && timer >= 3)
+            if (timer < 4 && timer >= 3)
             {
                 three.SetActive(true);
             }
-            else if (timer <= 3 && timer >= 2)
+            else if (timer < 3 && timer >= 2)
             {
                 three.SetActive(false);
                 two.SetActive(true);
             }
-            else if (timer <= 2 && timer >= 1)
+            else if (timer < 2 && timer >= 1)
             {
                 two.SetActive(false);
                 one.SetActive(true);
             }
-            else if (timer <= 1 && timer >= 0)
+            else if (timer < 1 && timer >= 0)
             {
                 one.SetActive(false);
                 UIManagement.instance.Finishistrue();
@@ -74,15 +68,20 @@ public class Timer : MonoBehaviour
     {
         int minuts = Mathf.FloorToInt(timer / 60);
         int seconds = Mathf.FloorToInt(timer % 60);
-        if(!countdown.activeSelf)
+
+        if (goods.activeSelf)
         {
             timer -= Time.fixedDeltaTime;
         }
-        
+
         if (timer>0&&!stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
         }
         
+    }
+    private void OnEnable()
+    {
+        timer = 30.0f;
     }
 }

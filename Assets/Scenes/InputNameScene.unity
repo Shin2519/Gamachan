@@ -1895,7 +1895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1419874873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3117,6 +3117,10 @@ PrefabInstance:
     - target: {fileID: 2101020640522586635, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_Name
       value: SelectGoods
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101020640522586635, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3748795369342886208, guid: b8b9ba46a8b476045972237fd2985dd1, type: 3}
       propertyPath: m_Pivot.x
