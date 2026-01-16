@@ -28,7 +28,7 @@ public class RuleScene : MonoBehaviour
 
     public void Page1to2()
     {
-        //audiosource.PlayOneShot(clip);
+        audiosource.PlayOneShot(clip);
         Page1.SetActive(false);
         Page2.SetActive(true);
         
@@ -36,7 +36,7 @@ public class RuleScene : MonoBehaviour
 
     public void Page2to1()
     {
-        //audiosource.PlayOneShot(clip);
+        audiosource.PlayOneShot(clip);
         Page1.SetActive(true);
         Page2.SetActive(false);
         
@@ -44,7 +44,7 @@ public class RuleScene : MonoBehaviour
 
     public void Page2to3()
     {
-        //audiosource.PlayOneShot(clip);
+        audiosource.PlayOneShot(clip);
         Page2.SetActive(false);
         Page3.SetActive(true);
         
@@ -52,7 +52,7 @@ public class RuleScene : MonoBehaviour
 
     public void Page3to2()
     {
-        //audiosource.PlayOneShot(clip);
+        audiosource.PlayOneShot(clip);
         Page2.SetActive(true);
         Page3.SetActive(false);
         
