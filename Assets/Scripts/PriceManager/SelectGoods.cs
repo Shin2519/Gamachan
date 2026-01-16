@@ -65,7 +65,7 @@ public class SelectGoods : MonoBehaviour
         selectSO.target = 0;
         gamachan.SetActive(false);
         tly.SetActive(false);
-        
+        reset.SetActive(true);
     }
 
     // 商品価格設定
@@ -180,6 +180,7 @@ public class SelectGoods : MonoBehaviour
         SetPrices();
         CreateDisplayGoods();
         UpdateUI();
+
     }
     public void OnReset()
     {
