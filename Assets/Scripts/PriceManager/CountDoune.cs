@@ -9,6 +9,8 @@ public class CountDoune : MonoBehaviour
     [SerializeField] private Image one;
     [SerializeField] private Image start;
     public float timer;
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
