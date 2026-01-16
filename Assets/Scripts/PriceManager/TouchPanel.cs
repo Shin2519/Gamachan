@@ -129,9 +129,5 @@ public class TouchPanel : MonoBehaviour
             SceneManager.LoadScene("Resultpanel");
         }
             rndyentext();
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
     }
 }

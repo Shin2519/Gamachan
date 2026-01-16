@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditorInternal.ReorderableList;
 
 public class SelectGoods : MonoBehaviour
 {
@@ -19,20 +21,23 @@ public class SelectGoods : MonoBehaviour
 
     [SerializeField] private SelectGoodsSO selectSO;
 
+    [SerializeField] GameObject thispanel;//商品選択画面
+
     public static SelectGoods selectGoods;
     // 表示＆操作対象の商品
     private List<data> displayData = new();
 
-<<<<<<< Updated upstream
+    [SerializeField] RectTransform rect;
+    Vector2 startpos;
+    [SerializeField,Header("振動継続時間")] float time;
+    [SerializeField,Header("振動強さ")] float power;
+    private void Awake()
+    {
+        rect = GetComponent<RectTransform>();
+        startpos = rect.anchoredPosition;
+    }
     void Start()
     {
-=======
-    //[SerializeField] private GameObject tachpanel;//シーン切り替え用
-
-    void Start()
-    {
-        //tachpanel.SetActive(false);
->>>>>>> Stashed changes
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
@@ -50,6 +55,7 @@ public class SelectGoods : MonoBehaviour
 
         selectSO.total = 0;
         selectSO.target = 0;
+        
     }
 
     // 商品価格設定
@@ -142,28 +148,18 @@ public class SelectGoods : MonoBehaviour
     {
         if (selectSO.target == selectSO.total)
         {
-<<<<<<< Updated upstream
-=======
-            //tachpanel.SetActive(true);
->>>>>>> Stashed changes
-            this.gameObject.SetActive(false);
+            thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
         }
         else if (selectSO.total > selectSO.target)
         {
-            InitCounts();
-            SetPrices();
-            CreateDisplayGoods();
-            UpdateUI();
+            StartCoroutine(PayOver());
         }
     }
-<<<<<<< Updated upstream
     private void OnEnable()
     {
         Reset();
     }
-=======
->>>>>>> Stashed changes
 
     private void Reset()
     {
@@ -171,5 +167,34 @@ public class SelectGoods : MonoBehaviour
         SetPrices();
         CreateDisplayGoods();
         UpdateUI();
+    }
+    IEnumerator PayOver()
+    {
+        yield return StartCoroutine(vibration());
+
+        yield return new WaitForSeconds(0.5f);
+
+        InitCounts();
+        SetPrices();
+        CreateDisplayGoods();
+        UpdateUI();
+    }
+
+    IEnumerator vibration()
+    {
+        float timer = 0;
+        while (timer < time)
+        {
+            float x = Mathf.Sin(timer * 60f) * power;
+            float y = Mathf.Sin(timer * 60f) * power;
+
+            rect.anchoredPosition = startpos + new Vector2(x, y);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        rect.anchoredPosition = startpos;
+
     }
 }
