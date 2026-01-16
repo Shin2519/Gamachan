@@ -29,8 +29,19 @@ public class ResultManager : MonoBehaviour
     // ランキング送信モード
     public string gameMode = "Challenge";
 
+    public static int modeId;
+
     private void Start()
     {
+
+
+        if (ResultManagerBridge.modeId == 0) 
+        { 
+            gameMode = "Challenge"; 
+        } else 
+        { 
+            gameMode = "TimeLimit"; 
+        }
         // 全項目を透明に
         foreach (var item in scoreItems)
         {
