@@ -12,19 +12,26 @@ public class TlyMove : MonoBehaviour
     private AudioClip coinFall;
 
     AudioSource audioSource;
+
+    [SerializeField, Header("位置調整")]
+    Vector2 offset;
+    [SerializeField, Header("サイズ調整")]
+    Vector2 offset2;
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
-        pos = GetComponent<Transform>();
-        startPos = pos.position;
+        //pos = GetComponent<Transform>();
+        transform.localPosition = offset;
+        transform.localScale = offset2;
+        //startPos = pos.position;
     }
     void Update()
     {
-        float x = Mathf.Sin(Time.time * Speed) * moveDistance;
-        pos.position = new Vector2(startPos.x+x,startPos.y);
+        //float x = Mathf.Sin(Time.time * Speed) * moveDistance;
+        //pos.position = new Vector2(startPos.x+x,startPos.y);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
