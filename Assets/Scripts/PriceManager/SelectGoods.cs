@@ -32,6 +32,7 @@ public class SelectGoods : MonoBehaviour
     [SerializeField,Header("振動継続時間")] float time;
     [SerializeField,Header("振動強さ")] float power;
     [Header("デバッグ")] public bool debug;
+    [SerializeField] private GameObject gamachan;
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -56,7 +57,7 @@ public class SelectGoods : MonoBehaviour
 
         selectSO.total = 0;
         selectSO.target = 0;
-        
+        gamachan.SetActive(false);
     }
 
     // 商品価格設定
@@ -151,6 +152,7 @@ public class SelectGoods : MonoBehaviour
         {
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
         }
         else if (selectSO.total > selectSO.target)
         {
