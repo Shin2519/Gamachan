@@ -7,7 +7,7 @@ public class SceneChange : MonoBehaviour
 {
     [SerializeField] private string SettingScene;
     [SerializeField] private string RankingScene;
-
+    [SerializeField] GameObject Pose;
 
     public void ChangeButton_st()
     {
@@ -27,6 +27,10 @@ public class SceneChange : MonoBehaviour
     public void ChangeButton_Ti()
     {
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+    }
+    public void OnPose()
+    {
+        Pose.SetActive(true);
     }
 
     public void EndGame()
