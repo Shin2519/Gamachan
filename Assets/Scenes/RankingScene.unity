@@ -1286,6 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingScene: 
   RankingScene: 
+  Pose: {fileID: 0}
 --- !u!1001 &982732940
 PrefabInstance:
   m_ObjectHideFlags: 0
