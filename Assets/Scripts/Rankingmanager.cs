@@ -19,6 +19,13 @@ public class RankingManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // 初回起動ならダミーデータを作成
+            if (!PlayerPrefs.HasKey("ChallengeName0"))
+            {
+                CreateDummyData();
+            }
+
             LoadRanking();
         }
         else
@@ -26,6 +33,34 @@ public class RankingManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //ダミーデータ
+    private void CreateDummyData()
+    {
+        // チャレンジ
+        challengeRanking = new List<RankEntry>()
+    {
+        
+        new RankEntry { playerName = "Bob", score = 950 },
+        new RankEntry { playerName = "Charlie", score = 800 },
+        new RankEntry { playerName = "Alice", score = 1200 },
+        new RankEntry { playerName = "Dave", score = 600 },
+        new RankEntry { playerName = "Eve", score = 500 }
+    };
+
+        // タイムリミット
+        timeLimitRanking = new List<RankEntry>()
+    {
+        new RankEntry { playerName = "Mika", score = 200 },
+        new RankEntry { playerName = "Taro", score = 300 },
+        new RankEntry { playerName = "Hanako", score = 280 },
+        new RankEntry { playerName = "Ken", score = 250 },
+        new RankEntry { playerName = "Sota", score = 150 }
+    };
+
+        SaveRanking();
+    }
+
 
     public void AddScore(string mode, string name, int score)
     {

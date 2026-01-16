@@ -31,6 +31,7 @@ public class SelectGoods : MonoBehaviour
     Vector2 startpos;
     [SerializeField,Header("振動継続時間")] float time;
     [SerializeField,Header("振動強さ")] float power;
+    [Header("デバッグ")] public bool debug;
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -146,7 +147,7 @@ public class SelectGoods : MonoBehaviour
 
     public void OnPay()
     {
-        if (selectSO.target == selectSO.total)
+        if (selectSO.target == selectSO.total||debug)
         {
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();

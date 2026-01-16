@@ -94,12 +94,14 @@ public class InputName : MonoBehaviour
         {
             if(Mode.Instance.isMode)
             {
-                FadeManager.Instance.LoadLevel("SampleScene", 1.0f);//チャレンジモード
+                FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
                 SceneManager.LoadScene("ChallengeModeScene");//チャレンジモード
             }
             else if(!Mode.Instance.isMode)
             {
-                FadeManager.Instance.LoadLevel("TitleScene", 1.0f);//タイムリミットモード
+                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
+                SceneManager.LoadScene("TimeLimitModeScene");//チャレンジモード
+
             }
         }
         audioSource.PlayOneShot(Clip1);
