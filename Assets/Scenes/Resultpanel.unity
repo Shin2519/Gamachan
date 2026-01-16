@@ -919,18 +919,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 847583479}
     m_Modifications:
     - target: {fileID: 97293511846095868, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 97293511846095868, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fdc75473414698847a00ee2c0ca48671, type: 3}
-    - target: {fileID: 97293511846095868, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c619efce46d14374485b13102f4510ff, type: 3}
-    - target: {fileID: 97293511846095868, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1801588947}
@@ -962,30 +950,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 365.1
       objectReference: {fileID: 0}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c1a5601eed2a1f5438e21bd314cb6b7d, type: 3}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a314e6137d0274b4e88849b51832b416, type: 3}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c1a5601eed2a1f5438e21bd314cb6b7d, type: 3}
-    - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a314e6137d0274b4e88849b51832b416, type: 3}
     - target: {fileID: 339814188218537810, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1099,18 +1063,6 @@ PrefabInstance:
       value: total
       objectReference: {fileID: 0}
     - target: {fileID: 3540212722163664812, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3540212722163664812, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 40527904a0d9f1740af3d005e0a88a11, type: 3}
-    - target: {fileID: 3540212722163664812, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c16a3120e0b856a4cbaa9d6262e4ee3c, type: 3}
-    - target: {fileID: 3540212722163664812, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1801588947}
@@ -1122,27 +1074,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     - target: {fileID: 4653145259642977663, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -84.3
       objectReference: {fileID: 0}
-=======
-=======
->>>>>>> Stashed changes
-    - target: {fileID: 4021873653905398320, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4021873653905398320, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c7f56f70ecd478142902a8b07d1ea7d9, type: 3}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     - target: {fileID: 5610407896509898775, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_Name
       value: Result Panel
@@ -1151,14 +1086,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6159710818654605804, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6159710818654605804, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d81c10bf3497fb4189809d4ec0c5782, type: 3}
     - target: {fileID: 6820063280737002972, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_Text
       value: 0
@@ -1215,23 +1142,12 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.20754719
       objectReference: {fileID: 0}
-    - target: {fileID: 7877609989531074520, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877609989531074520, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e70526ba741d5f14d838788e587cfb5e, type: 3}
     - target: {fileID: 7961349743599885978, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 9153818249147001643, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-    - {fileID: 975762611501181115, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-    - {fileID: 7962164934836167449, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4144557376072964664, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
