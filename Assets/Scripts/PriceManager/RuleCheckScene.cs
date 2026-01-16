@@ -23,7 +23,7 @@ public class RuleCheckScene : MonoBehaviour
 
     public void RuleNo()
     {
-        SceneManager.LoadScene("ModeSelectScene");
+        FadeManager.Instance.LoadLevel("ModeSelectScene",1f);
         audiosource.PlayOneShot(clip);
     }
 
