@@ -36,21 +36,21 @@ public class GoodsTimer : MonoBehaviour
 
         if (!stop)
         {
-            if (timer < 4 && timer >= 3)
+            if (timer <= 4 && timer >= 3)
             {
                 three.SetActive(true);
             }
-            else if (timer < 3 && timer >= 2)
+            else if (timer <= 3 && timer >= 2)
             {
                 three.SetActive(false);
                 two.SetActive(true);
             }
-            else if (timer < 2 && timer >= 1)
+            else if (timer <= 2 && timer >= 1)
             {
                 two.SetActive(false);
                 one.SetActive(true);
             }
-            else if (timer < 1 && timer >= 0)
+            else if (timer <= 1 && timer >= 0)
             {
                 one.SetActive(false);
                 UIManagement.instance.Finishistrue();
