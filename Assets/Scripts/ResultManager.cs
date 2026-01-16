@@ -64,11 +64,7 @@ public class ResultManager : MonoBehaviour
             skipImage.GetComponent<Button>().onClick.AddListener(SkipAnimation);
         }
 
-        // ★ ダミーデータ（確認でき次第消す）
-        SetScores(new int[]
-        {
-            1200, 800, 500, -100, 300, 200, 150, 100, -50, 3000
-        });
+     
 
         // 演出開始
         if (scoreItems != null && scoreItems.Length > 0)
@@ -145,8 +141,6 @@ public class ResultManager : MonoBehaviour
     // ランキングへスコア送信
     public void GoToRankingScene()
     {
-        RankingManager.Instance.AddScore(gameMode, "Player", finalScore);
-
         FadeManager.Instance.LoadLevel("RankingScene", 1.0f);
     }
 
