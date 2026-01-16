@@ -32,6 +32,13 @@ public class SelectGoods : MonoBehaviour
     [SerializeField,Header("振動継続時間")] float time;
     [SerializeField,Header("振動強さ")] float power;
     [Header("デバッグ")] public bool debug;
+    [Header("リセットボタンの再表示時間")] public float cooltime;
+
+    [SerializeField] private GameObject gamachan;
+    [SerializeField] private GameObject tly;
+    [SerializeField] private GameObject reset;
+
+
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -56,22 +63,25 @@ public class SelectGoods : MonoBehaviour
 
         selectSO.total = 0;
         selectSO.target = 0;
+        gamachan.SetActive(false);
+        tly.SetActive(false);
         
     }
 
     // 商品価格設定
     public void SetPrices()
     {
-        selectSO.dataList[0].price = Random.Range(3, 6);         // 袋
-        selectSO.dataList[1].price = Random.Range(10, 20) * 10; // パン
-        selectSO.dataList[2].price = Random.Range(10, 25) * 10; // おにぎり
-        selectSO.dataList[3].price = Random.Range(20, 35) * 10; // サンド
-        selectSO.dataList[4].price = Random.Range(40, 60) * 10; // 弁当
-        selectSO.dataList[5].price = Random.Range(15, 25) * 10; // チキン
-        selectSO.dataList[6].price = Random.Range(8, 11) * 10;  // お茶
-        selectSO.dataList[7].price = Random.Range(11, 16) * 10; // ポテチ
-        selectSO.dataList[8].price = Random.Range(8, 15) * 10;  // アイス
-        selectSO.dataList[9].price = Random.Range(15, 32) * 10; // ラーメン
+        int[] numer = { 3, 5, 7 };
+        selectSO.dataList[0].price = numer[Random.Range(0,numer.Length)]*10;// 袋
+        selectSO.dataList[1].price = Random.Range(10, 20) * 100; // パン
+        selectSO.dataList[2].price = Random.Range(10, 25) * 100; // おにぎり
+        selectSO.dataList[3].price = Random.Range(20, 35) * 100; // サンド
+        selectSO.dataList[4].price = Random.Range(40, 60) * 100; // 弁当
+        selectSO.dataList[5].price = Random.Range(15, 25) * 100; // チキン
+        selectSO.dataList[6].price = Random.Range(8, 11) * 100;  // お茶
+        selectSO.dataList[7].price = Random.Range(11, 16) * 100; // ポテチ
+        selectSO.dataList[8].price = Random.Range(8, 15) * 100;  // アイス
+        selectSO.dataList[9].price = Random.Range(15, 32) * 100; // ラーメン
     }
 
     // 表示する6商品を決定
@@ -151,6 +161,8 @@ public class SelectGoods : MonoBehaviour
         {
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
+            tly.SetActive(true);
         }
         else if (selectSO.total > selectSO.target)
         {
@@ -162,12 +174,27 @@ public class SelectGoods : MonoBehaviour
         Reset();
     }
 
-    private void Reset()
+    public void Reset()
     {
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
         UpdateUI();
+    }
+    public void OnReset()
+    {
+        StartCoroutine(ResetGoods());
+    }
+    IEnumerator ResetGoods()
+    {
+        reset.SetActive(false);
+        InitCounts();
+        SetPrices();
+        CreateDisplayGoods();
+        UpdateUI();
+        yield return new WaitForSeconds(cooltime);
+        reset.SetActive(true);
+
     }
     IEnumerator PayOver()
     {
