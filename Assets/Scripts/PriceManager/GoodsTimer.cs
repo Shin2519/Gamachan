@@ -10,6 +10,8 @@ public class GoodsTimer : MonoBehaviour
     [SerializeField] GameObject one;
     [SerializeField] GameObject two;
     [SerializeField] GameObject three;
+    [SerializeField] GameObject finish;
+
     public bool stop;
     [SerializeField] GameObject goods;
     private void Start()
@@ -18,6 +20,7 @@ public class GoodsTimer : MonoBehaviour
         one.SetActive(false);
         two.SetActive(false);
         three.SetActive(false);
+        finish.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,7 +56,7 @@ public class GoodsTimer : MonoBehaviour
             else if (timer <= 1 && timer >= 0)
             {
                 one.SetActive(false);
-                UIManagement.instance.Finishistrue();
+                finish.SetActive(true);
             }
             else if (timer <= -2)
             {
