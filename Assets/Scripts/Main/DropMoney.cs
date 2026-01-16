@@ -37,23 +37,23 @@ public class DropMoney : MonoBehaviour
     public void KindofMoney(float Amount)
     {
         if (Amount <= 0) return;
-        if (Amount >= 200)
+        if (Amount >= 220)
         {
             speed = Speed.TooFast;
         }
-        else if (Amount>=160)
+        else if (Amount>=180)
         {
             speed = Speed.Fast;
         }
-        else if (Amount>=100)
+        else if (Amount>=120)
         {
             speed = Speed.Soso;
         }
-        else if(Amount>=50)
+        else if(Amount>=70)
         {
             speed = Speed.Slow;
         }
-        else if (Amount<=20)
+        else if (Amount<=40)
         {
              speed=Speed.TooSlow;
         }
@@ -61,12 +61,12 @@ public class DropMoney : MonoBehaviour
         {
 
             case Speed.TooFast:
-                if (Amount >= 200)
+                if (Amount >= 220)
                 {
                     //500円玉
                     Instantiate(Mny[0], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
-                else if (Amount >= 180)
+                else if (Amount >= 200)
                 {
                     int rnd = Random.Range(0, 2);
                     if (rnd == 0)
@@ -87,12 +87,12 @@ public class DropMoney : MonoBehaviour
                 }
                 break;
             case Speed.Fast:
-                if (Amount >= 160)
+                if (Amount >= 180)
                 {
                     //100円玉
                     Instantiate(Mny[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
-                else if (Amount >= 140)
+                else if (Amount >= 160)
                 {
                     int rnd = Random.Range(0, 2);
                     if (rnd == 0)
@@ -113,12 +113,12 @@ public class DropMoney : MonoBehaviour
                 }
                 break;
             case Speed.Soso:
-                if(Amount>=130)
+                if(Amount>=120)
                 {
                     //50円玉
                     Instantiate(Mny[2],Gama.transform.position - new Vector3(0.0f,10.0f,0.0f),Quaternion.identity);
                 }
-                else if(Amount>=120)
+                else if(Amount>=110)
                 {
                     int rnd = Random.Range(0,2);
                     if(rnd==0)
@@ -165,12 +165,12 @@ public class DropMoney : MonoBehaviour
                 }
                     break;
             case Speed.TooSlow:
-                if (Amount <= 20)
+                if (Amount <= 40)
                 {
                     //5円玉
                     Instantiate(Mny[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
-                else if (Amount <= 10)
+                else if (Amount <= 20)
                 {
                     int rnd = Random.Range(0, 2);
                     if (rnd == 0)
@@ -184,7 +184,7 @@ public class DropMoney : MonoBehaviour
                         Instantiate(Mny[5], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                     }
                 }
-                else if(Amount <= 5)
+                else
                 {
                     //1円玉
                     Instantiate(Mny[5], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
