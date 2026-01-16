@@ -1143,7 +1143,6 @@ GameObject:
   - component: {fileID: 950444228}
   - component: {fileID: 950444231}
   - component: {fileID: 950444227}
-  - component: {fileID: 950444232}
   - component: {fileID: 950444233}
   m_Layer: 5
   m_Name: Canvas
@@ -1273,18 +1272,6 @@ MonoBehaviour:
   - {fileID: 553738257}
   - {fileID: 77577330}
   - {fileID: 405102004}
---- !u!114 &950444232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950444226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7511587b8fceb0144803b6ccbe6a4a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &950444233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,14 +1362,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 315444053911593025, guid: c4b19f6633731d649a6d1f709b8b6e66, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4332811066353318198, guid: c4b19f6633731d649a6d1f709b8b6e66, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1674070640}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b19f6633731d649a6d1f709b8b6e66, type: 3}
 --- !u!1 &1022859561
 GameObject:
@@ -1758,27 +1741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366541932}
   m_CullTransparentMesh: 1
---- !u!1 &1674070638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4332811066353318198, guid: c4b19f6633731d649a6d1f709b8b6e66, type: 3}
-  m_PrefabInstance: {fileID: 982732940}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1674070640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674070638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5614fed803d93754498e346bf75c0651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backButton: {fileID: 796176979}
-  bgmSource: {fileID: 0}
-  seSource: {fileID: 0}
-  backSE: {fileID: 8300000, guid: 4668a4dcb148de243b9569ee2ce6eacc, type: 3}
 --- !u!1 &1717955894
 GameObject:
   m_ObjectHideFlags: 0

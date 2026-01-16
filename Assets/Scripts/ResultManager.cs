@@ -5,10 +5,6 @@ using System.Collections;
 
 public class ResultManager : MonoBehaviour
 {
-    [Header("SE設定")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip clickSE;
-
     [Header("リザルト演出設定")]
     [SerializeField] private RectTransform[] scoreItems;
     [SerializeField] private float slideDuration = 0.5f;
@@ -26,6 +22,12 @@ public class ResultManager : MonoBehaviour
     [SerializeField] private Text[] scoreTexts;
 
     private int[] scoreValues = new int[10];
+
+    // 最終スコア
+    private int finalScore;
+
+    // ランキング送信モード
+    public string gameMode = "Challenge";
 
     private void Start()
     {
@@ -51,32 +53,16 @@ public class ResultManager : MonoBehaviour
             skipImage.GetComponent<Button>().onClick.AddListener(SkipAnimation);
         }
 
+        // ★ ダミーデータ（確認でき次第消す）
         SetScores(new int[]
         {
-            1200,
-            800,
-            500,
-            -100,
-            300,
-            200,
-            150,
-            100,
-            -50,
-            3000
+            1200, 800, 500, -100, 300, 200, 150, 100, -50, 3000
         });
 
         // 演出開始
         if (scoreItems != null && scoreItems.Length > 0)
         {
             StartCoroutine(PlaySlideIn());
-        }
-    }
-
-    private void PlayClickSE()
-    {
-        if (clickSE != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(clickSE);
         }
     }
 
@@ -125,13 +111,15 @@ public class ResultManager : MonoBehaviour
         }
     }
 
-    // ★ 修正：スコアを受け取った瞬間に UI に反映する
+    // スコア受け取り
     public void SetScores(int[] values)
     {
         if (values.Length == scoreValues.Length)
         {
             scoreValues = values;
-            UpdateScoreTexts();   // ← ここが重要
+            UpdateScoreTexts();
+
+            finalScore = values[9]; // 合計スコア
         }
     }
 
@@ -143,21 +131,21 @@ public class ResultManager : MonoBehaviour
         }
     }
 
+    // ランキングへスコア送信
     public void GoToRankingScene()
     {
-        PlayClickSE();
+        RankingManager.Instance.AddScore(gameMode, "Player", finalScore);
+
         FadeManager.Instance.LoadLevel("RankingScene", 1.0f);
     }
 
     public void GoToTitleScene()
     {
-        PlayClickSE();
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
 
     public void GoToModeSelectScene()
     {
-        PlayClickSE();
         FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
     }
 }

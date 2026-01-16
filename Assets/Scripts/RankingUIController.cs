@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; 
-
-
-//プロトタイプアタッチする場合ランキングのキャンバスに
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;  // ← 追加
 
 public class RankingUIController : MonoBehaviour
 {
     [Header("チャレンジモード用UI")]
-    public Text[] challengeRankTexts; 
+    public Text[] challengeRankTexts;
 
     [Header("タイムリミットモード用UI")]
-    public Text[] timeLimitRankTexts; 
+    public Text[] timeLimitRankTexts;
 
     private void Start()
     {
         RankingManager.Instance.LoadRanking();
-
         UpdateRankingUI();
     }
 
@@ -47,5 +43,11 @@ public class RankingUIController : MonoBehaviour
                 timeLimitRankTexts[i].text = $"{i + 1}位: ---";
             }
         }
+    }
+
+    // ★ 追加：タイトルシーンへ戻るボタン用
+    public void GoToTitleScene()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
