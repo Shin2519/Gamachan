@@ -37,6 +37,7 @@ public class UIManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        state = STATE.Normal;
         Gauge.fillAmount = Current / Max;
         color = Gauge.color;
         Finish.SetActive(false);
@@ -54,7 +55,6 @@ public class UIManagement : MonoBehaviour
         }
         else
         {
-            state = STATE.Normal;
             Gauge.fillAmount = Current / Max;
         }
     }
