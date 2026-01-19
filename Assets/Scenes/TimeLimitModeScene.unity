@@ -1793,7 +1793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac921efa4a76b3c428b13472b6849cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeId: 1
 --- !u!1 &1006344939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1350122333537995249, guid: c59082b480982054c8147034ac86a74b, type: 3}
@@ -1814,6 +1813,8 @@ MonoBehaviour:
   moveDistance: 200
   Speed: 2
   coinFall: {fileID: 8300000, guid: fffc5995dedbd264785cd211b9372041, type: 3}
+  offset: {x: 942.5, y: 114.6}
+  offset2: {x: 169.2, y: 94.4}
 --- !u!82 &1006344949
 AudioSource:
   m_ObjectHideFlags: 0
