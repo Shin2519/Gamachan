@@ -8,6 +8,7 @@ public class TouchPanel : MonoBehaviour
 {
     public static int combo;
     public static TouchPanel instance;
+    ScoreCalculator scoreCalculator;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -126,6 +127,9 @@ public class TouchPanel : MonoBehaviour
             audiosource.PlayOneShot(SEofFinish);
 
             yield return new WaitForSeconds(2.0f);
+
+
+
             SceneManager.LoadScene("Resultpanel");
         }
             rndyentext();

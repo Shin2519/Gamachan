@@ -1336,6 +1336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data:
+    Perfect_count: 0
+    Great_count: 0
+    Good_count: 0
+    Bad_count: 0
+    Combo_count: 0
   amounttext: {fileID: 1666803921}
   inputamounttext: {fileID: 2024189915}
   sumamounttext: {fileID: 1948405144}

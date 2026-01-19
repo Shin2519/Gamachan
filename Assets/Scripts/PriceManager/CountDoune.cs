@@ -53,7 +53,6 @@ public class CountDoune : MonoBehaviour
             selectgoods.SetActive(true);
             this.gameObject.SetActive(false);
         }
-        
     }
 
     private void FixedUpdate()
