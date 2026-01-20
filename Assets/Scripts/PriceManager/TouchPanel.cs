@@ -31,7 +31,6 @@ public class TouchPanel : MonoBehaviour
     private Sprite[] Kindcombo;
     public static GameObject comboobject;
     public GameObject Cross;
-    [SerializeField] private Image[] image;
 
     [SerializeField, Header("‰Ÿ‚µ‚½‚Æ‚«‚Ì‰¹")]
     AudioClip buttondown;

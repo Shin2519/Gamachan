@@ -1592,6 +1592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   amounttext: {fileID: 1666803921}
   inputamounttext: {fileID: 2024189915}
   sumamounttext: {fileID: 1948405144}
@@ -1601,8 +1602,8 @@ MonoBehaviour:
   selectgoods: {fileID: 607841533}
   Gama: {fileID: 832412912}
   KindofEmotion:
-  - {fileID: 21300000, guid: 771631831cf8c36468dc9033b776c979, type: 3}
-  - {fileID: 21300000, guid: f734d8957fbf80f48bed470ce07944dd, type: 3}
+  - {fileID: 21300000, guid: 5f3ccc92718afd646bed4a972204e205, type: 3}
+  - {fileID: 21300000, guid: 7c8c2f9c59d097447abe6fa5d104e593, type: 3}
   - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
   Kindcombo:
   - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
@@ -1616,7 +1617,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
   - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
   Cross: {fileID: 586108009}
-  image: []
   buttondown: {fileID: 8300000, guid: 659dce23053965e449b68c005f1fa212, type: 3}
   SEofFinish: {fileID: 8300000, guid: 8d16b43b4cc082948a1c3c23070210c6, type: 3}
 --- !u!114 &963227303
@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   Gameover_count: 0
   Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   Grade_Sp:
@@ -1643,9 +1644,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7c8c2f9c59d097447abe6fa5d104e593, type: 3}
   - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
   GoldenKindofEmotion:
-  - {fileID: 21300000, guid: 94ff437341c28bb4a94a9cc38939f8db, type: 3}
-  - {fileID: 21300000, guid: 428d81f380c0197459c254895f2d37f4, type: 3}
-  - {fileID: 21300000, guid: d0720193f9d84bb4e95a285e51ece68f, type: 3}
+  - {fileID: 21300000, guid: 1872e9cda850c934baba8ce1b26a2621, type: 3}
+  - {fileID: 21300000, guid: d80589d0969e1834bbbe1b588fd79eb2, type: 3}
+  - {fileID: 21300000, guid: 52f92fb28b89a6e4f96e8e51e633f49b, type: 3}
   Kindcombo:
   - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
   - {fileID: 21300000, guid: 55ca35f4314edb743b4d771a8db2ce09, type: 3}
