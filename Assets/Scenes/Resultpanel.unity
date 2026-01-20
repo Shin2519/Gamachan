@@ -1307,6 +1307,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6449537938588096232, guid: 879011dcef5552d4ea52fe6103c155e8, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449537938588096232, guid: 879011dcef5552d4ea52fe6103c155e8, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449537938588096232, guid: 879011dcef5552d4ea52fe6103c155e8, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 540170556108428736, guid: 879011dcef5552d4ea52fe6103c155e8, type: 3}

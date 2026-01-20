@@ -765,6 +765,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5926582660633575835, guid: 77e70e5c2c864df4885ed37b1f22a6c6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926582660633575835, guid: 77e70e5c2c864df4885ed37b1f22a6c6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926582660633575835, guid: 77e70e5c2c864df4885ed37b1f22a6c6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6688401749377283611, guid: 77e70e5c2c864df4885ed37b1f22a6c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
