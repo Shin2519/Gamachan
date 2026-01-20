@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 public class WalletMove : MonoBehaviour
 {
@@ -14,6 +13,8 @@ public class WalletMove : MonoBehaviour
     GraphicRaycaster G_raycast;
     [SerializeField]
     RectTransform ParentCanvas;
+
+    List<RaycastResult> Past_Result = new List<RaycastResult>();
 
     [SerializeField, Header("êUÇÍÇƒÇ¢ÇÈÇ©Ç«Ç§Ç©îªíËÇ∑ÇÈîÕàÕ")]
     private float judge;
@@ -33,17 +34,29 @@ public class WalletMove : MonoBehaviour
         
     }
 
-    public void Drag(GameObject UI_)
+    public void Drag()
     {
+        GameObject UI_ = null;
         PointerEventData data = new PointerEventData(E_System);
         data.position = playercontroll.MovInput;
         List<RaycastResult> results = new List<RaycastResult>();
 
-        G_raycast.Raycast(data, results);
-
-        if (results.Count > 0)
+        if(playercontroll.Past_Result.Count>=1)
         {
+            results = playercontroll.Past_Result;
             UI_ = results[0].gameObject;
+        }
+        if(results.Count==0)
+        {
+            if (G_raycast == null) return;
+            G_raycast.Raycast(data, results);
+
+            if (results.Count > 0)
+            {
+                UI_ = results[0].gameObject;
+                if (playercontroll.Past_Result.Count == 0 && results[0].gameObject.GetComponent<UnityEngine.UI.Button>()==null) 
+                    playercontroll.Past_Result.Add(results[0]);
+            }
         }
         if (UI_ != null)
         {

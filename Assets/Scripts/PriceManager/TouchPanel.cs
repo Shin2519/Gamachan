@@ -8,7 +8,8 @@ public class TouchPanel : MonoBehaviour
 {
     public static int combo;
     public static TouchPanel instance;
-    ScoreCalculator scoreCalculator;
+    [SerializeField]
+    SendData Data;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -18,7 +19,7 @@ public class TouchPanel : MonoBehaviour
     [SerializeField] SelectGoodsSO selectgoodsso;
     [SerializeField]
     private int inputamount = 0;
-    private float sumamount;//合計金額
+    private int sumamount;//合計金額
     [SerializeField] GameObject selectgoods;
     public static GameObject hyouka;
     [SerializeField, Header("Gama")]
@@ -100,7 +101,8 @@ public class TouchPanel : MonoBehaviour
         {
             combo++;
             sumamountyen.text = "お釣り";
-            sumamounttext.color = Color.red;      
+            sumamounttext.color = Color.red;
+            Data.TotalSumAmount += sumamount;
         }
         else
         {
@@ -128,7 +130,7 @@ public class TouchPanel : MonoBehaviour
 
             yield return new WaitForSeconds(2.0f);
 
-
+            Data.Combo_count = combo;
 
             SceneManager.LoadScene("Resultpanel");
         }

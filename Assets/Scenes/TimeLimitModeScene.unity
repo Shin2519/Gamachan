@@ -194,6 +194,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20244226}
   m_CullTransparentMesh: 1
+--- !u!114 &37445905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1059387879554528580, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+  m_PrefabInstance: {fileID: 1599733113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &59594726
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +945,10 @@ PrefabInstance:
       propertyPath: Gama
       value: 
       objectReference: {fileID: 832412912}
+    - target: {fileID: 2772874995299134825, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3266594401484854487, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
       propertyPath: m_Name
       value: Kind of Small money
@@ -983,6 +998,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
+--- !u!1001 &719177071
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1489178120579493550, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_Name
+      value: InteractManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427803613071701176, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680423020334060073, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: E_System
+      value: 
+      objectReference: {fileID: 995700647}
+    - target: {fileID: 7680423020334060073, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: G_raycast
+      value: 
+      objectReference: {fileID: 1452022848}
+    - target: {fileID: 7680423020334060073, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
+      propertyPath: ParentCanvas
+      value: 
+      objectReference: {fileID: 1452022851}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c978cff40aa02b4599091397df1b9a1, type: 3}
 --- !u!1 &766982761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   amounttext: {fileID: 1666803921}
   inputamounttext: {fileID: 2024189915}
   sumamounttext: {fileID: 1948405144}
@@ -1478,6 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   Gameover_count: 0
   Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   Grade_Sp:
@@ -1490,9 +1576,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7c8c2f9c59d097447abe6fa5d104e593, type: 3}
   - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
   GoldenKindofEmotion:
-  - {fileID: 21300000, guid: 94ff437341c28bb4a94a9cc38939f8db, type: 3}
-  - {fileID: 21300000, guid: 428d81f380c0197459c254895f2d37f4, type: 3}
-  - {fileID: 21300000, guid: d0720193f9d84bb4e95a285e51ece68f, type: 3}
+  - {fileID: 21300000, guid: 1872e9cda850c934baba8ce1b26a2621, type: 3}
+  - {fileID: 21300000, guid: d80589d0969e1834bbbe1b588fd79eb2, type: 3}
+  - {fileID: 21300000, guid: 52f92fb28b89a6e4f96e8e51e633f49b, type: 3}
   Kindcombo:
   - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
   - {fileID: 21300000, guid: 55ca35f4314edb743b4d771a8db2ce09, type: 3}
@@ -3149,9 +3235,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: moucecursor
+      value: 
+      objectReference: {fileID: 37445905}
+    - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: ParentCanvas
       value: 
       objectReference: {fileID: 1452022851}
+    - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: MouceCursorSprite.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: 'MouceCursorSprite.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 6417364b8fad9364b884094038570bff, type: 3}
+    - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: 'MouceCursorSprite.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 978d505e9291e65429f51684812ed08c, type: 3}
     - target: {fileID: 6297209144966166188, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3184,6 +3286,10 @@ PrefabInstance:
       propertyPath: cd
       value: 
       objectReference: {fileID: 581665202}
+    - target: {fileID: 7976093147233718073, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5361,6 +5467,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7226086112089213825, guid: c59082b480982054c8147034ac86a74b, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5533,3 +5643,4 @@ SceneRoots:
   - {fileID: 1509111016}
   - {fileID: 1933315535}
   - {fileID: 368915221}
+  - {fileID: 719177071}

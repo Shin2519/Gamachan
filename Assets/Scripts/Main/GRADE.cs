@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GRADE : MonoBehaviour
 {
+    [SerializeField]
+    SendData Data;
     public static GRADE Instance;
     public int Gameover_count = 0;
     Image Gama_Image;
@@ -76,6 +78,8 @@ public class GRADE : MonoBehaviour
                     Gama_Image.sprite = KindofEmotion[1];
                 }
                 Gama_Image.sprite = GoldenKindofEmotion[1];
+                Data.Perfect_count+=1;
+                Data.JustSumAmount_Bonus += 1;
             }
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
@@ -93,6 +97,7 @@ public class GRADE : MonoBehaviour
                 {
                     Gama_Image.sprite = GoldenKindofEmotion[1];
                 }
+                Data.Great_count += 1;
             }
             else
             {
@@ -116,6 +121,7 @@ public class GRADE : MonoBehaviour
                     Gama_Image.sprite = GoldenKindofEmotion[0];
                 }
                 Gama_Image.sprite = KindofEmotion[0];
+                Data.Good_count += 1;
             }
         }
         else
@@ -142,6 +148,7 @@ public class GRADE : MonoBehaviour
             {
                 Gama_Image.sprite = KindofEmotion[2];
             }
+            Data.Bad_count += 1;
         }
     }
     void Combo()

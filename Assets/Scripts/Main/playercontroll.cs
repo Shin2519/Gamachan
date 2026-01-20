@@ -29,6 +29,9 @@ public class playercontroll : MonoBehaviour
 
     [SerializeField]
     GameObject cursor;
+
+    public static List<RaycastResult> Past_Result = new List<RaycastResult>();
+
     [SerializeField] private CountDoune cd;
     private void OnMove(InputValue val)
     {
@@ -55,10 +58,7 @@ public class playercontroll : MonoBehaviour
     void Update()
     {
         MouceCursor();
-        if (!UIManagement.instance.Finish.activeSelf)
-        {
-            DragAndDrop();
-        }
+        DragAndDrop();
         if (IsInter)
         {
             moucecursor.sprite = MouceCursorSprite[1];
@@ -78,19 +78,18 @@ public class playercontroll : MonoBehaviour
 
     private void DragAndDrop()//物をつかんで離す
     {
-        GameObject ui = null;
         if(IsInter)
         {
             timer--;
             if(timer<=0)
             {
                 timer = 10;
-                WalletMove.Instance.Drag(ui);
+                WalletMove.Instance.Drag();
             }
         }
         else
         {
-            ui = null;
+            Past_Result.Clear();
         }
     }
 }

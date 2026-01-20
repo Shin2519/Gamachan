@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664d6da10fe947747922d86d4774fd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendTotalData: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   Result_Text:
   - {fileID: 1102248880}
   - {fileID: 2071291851}
