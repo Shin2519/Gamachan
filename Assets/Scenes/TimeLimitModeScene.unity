@@ -1598,7 +1598,7 @@ MonoBehaviour:
   sumamountyen: {fileID: 2070662371}
   selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
   inputamount: 0
-  selectgoods: {fileID: 0}
+  selectgoods: {fileID: 607841533}
   Gama: {fileID: 832412912}
   KindofEmotion:
   - {fileID: 21300000, guid: 771631831cf8c36468dc9033b776c979, type: 3}
