@@ -1883,6 +1883,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7772871155647331691, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772871155647331691, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772871155647331691, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2404,6 +2416,18 @@ PrefabInstance:
     - target: {fileID: 1803648519175641433, guid: 4e982ec556deff04aa3609b84da398dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482982017259969458, guid: 4e982ec556deff04aa3609b84da398dd, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482982017259969458, guid: 4e982ec556deff04aa3609b84da398dd, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482982017259969458, guid: 4e982ec556deff04aa3609b84da398dd, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 5468962648822258269, guid: 4e982ec556deff04aa3609b84da398dd, type: 3}
       propertyPath: m_Name
