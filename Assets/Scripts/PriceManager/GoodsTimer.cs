@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GoodsTimer : MonoBehaviour
-{
+{ 
     [SerializeField] float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 

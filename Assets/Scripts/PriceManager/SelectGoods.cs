@@ -36,6 +36,8 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] private GameObject gamachan;
     [SerializeField] private GameObject tly;
     [SerializeField] private GameObject reset;
+    [SerializeField] private GameObject gametext;
+
 
 
     private void Awake()
@@ -64,7 +66,8 @@ public class SelectGoods : MonoBehaviour
         selectSO.target = 0;
         gamachan.SetActive(false);
         tly.SetActive(false);
-        reset.SetActive(true);
+        gametext.SetActive(false);
+
     }
 
     // 商品価格設定
@@ -162,6 +165,8 @@ public class SelectGoods : MonoBehaviour
             TouchPanel.instance.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
+            gametext.SetActive(true);
+
         }
         else if (selectSO.total > selectSO.target)
         {
@@ -170,16 +175,10 @@ public class SelectGoods : MonoBehaviour
     }
     private void OnEnable()
     {
-        Reset();
-    }
-
-    public void Reset()
-    {
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
         UpdateUI();
-
     }
     public void OnReset()
     {
