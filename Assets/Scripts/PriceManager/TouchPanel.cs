@@ -32,6 +32,9 @@ public class TouchPanel : MonoBehaviour
     public static GameObject comboobject;
     public GameObject Cross;
 
+    [SerializeField]
+    private GameObject Result;
+
     [SerializeField, Header("‰Ÿ‚µ‚½‚Æ‚«‚Ì‰¹")]
     AudioClip buttondown;
     [SerializeField, Header("I‚í‚è‚Ì‰¹")]
