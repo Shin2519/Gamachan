@@ -4239,6 +4239,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
+      propertyPath: timer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841376577651741423, guid: bdc0ddaae87cdab4fbf2637c77f6d308, type: 3}
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1599733114}
