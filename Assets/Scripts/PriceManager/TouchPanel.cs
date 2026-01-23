@@ -19,7 +19,7 @@ public class TouchPanel : MonoBehaviour
     [SerializeField] SelectGoodsSO selectgoodsso;
     [SerializeField]
     private int inputamount = 0;
-    private int sumamount;//çáåvã‡äz
+    public int sumamount;//çáåvã‡äz
     [SerializeField] GameObject selectgoods;
     public static GameObject hyouka;
     [SerializeField, Header("Gama")]
@@ -102,6 +102,10 @@ public class TouchPanel : MonoBehaviour
             sumamountyen.text = "Ç®íﬁÇË";
             sumamounttext.color = Color.red;
             Data.TotalSumAmount += sumamount;
+            if (sumamount==0)
+            {
+                Timer.Instance.timer += 15;
+            }
         }
         else
         {

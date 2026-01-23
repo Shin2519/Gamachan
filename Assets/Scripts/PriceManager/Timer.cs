@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     public static Timer Instance;
-    [SerializeField] float timer;//時間制限用
+    public float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 
     [SerializeField] GameObject one;
@@ -78,7 +78,7 @@ public class Timer : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-        
+
         if (timer>0&&!stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
