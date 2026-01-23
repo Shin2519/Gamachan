@@ -3398,7 +3398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 357}
+  m_AnchoredPosition: {x: -0.000061035156, y: 357}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3289895185473157365
@@ -4151,7 +4151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -796, y: 0}
+  m_AnchoredPosition: {x: -795.99994, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1192891823883681776
@@ -6039,6 +6039,7 @@ MonoBehaviour:
   gamachan: {fileID: 0}
   tly: {fileID: 0}
   reset: {fileID: 7198223491279761959}
+  gametext: {fileID: 0}
 --- !u!1 &8151033565259681978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,7 +6601,7 @@ MonoBehaviour:
   three: {fileID: 0}
   finish: {fileID: 0}
   stop: 0
-  goods: {fileID: 5468962648822258269}
+  countdown: {fileID: 0}
 --- !u!1 &8868130466596289866
 GameObject:
   m_ObjectHideFlags: 0

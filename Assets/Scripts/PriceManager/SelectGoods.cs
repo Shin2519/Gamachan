@@ -131,6 +131,8 @@ public class SelectGoods : MonoBehaviour
     public void OnGoodsButton(int index)
     {
         plusMinusUI[index].SetActive(true);
+        displayData[index].count++;
+        Recalculate();
     }
 
     // 再計算

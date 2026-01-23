@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class InputName : MonoBehaviour
 {
@@ -51,7 +52,32 @@ public class InputName : MonoBehaviour
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
 
-        
+        if (Input.GetKey(KeyCode.Return))
+        {
+            Debug.Log("aaa");
+            if (inputField.text == "")
+            {
+                StartCoroutine(stay());
+
+            }
+            else if (ngtext.enabled)
+            {
+
+            }
+            else
+            {
+                if (Mode.Instance.isMode)
+                {
+                    FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
+                }
+                else if (!Mode.Instance.isMode)
+                {
+                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
+
+                }
+            }
+            audioSource.PlayOneShot(Clip1);
+        }
     }
 
     public void InputText()
