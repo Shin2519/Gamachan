@@ -138,7 +138,8 @@ public class TouchPanel : MonoBehaviour
 
             Data.Combo_count = combo;
 
-            SceneManager.LoadScene("Resultpanel");
+            //SceneManager.LoadScene("Resultpanel");
+            Result.SetActive(true);
         }
             rndyentext();
     }
