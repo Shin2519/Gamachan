@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GoodsTimer : MonoBehaviour
 { 
-    [SerializeField] float timer;//時間制限用
+    public static GoodsTimer instance;
+    public float timer;//時間制限用
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 
     [SerializeField] GameObject one;
@@ -13,7 +14,12 @@ public class GoodsTimer : MonoBehaviour
     [SerializeField] GameObject finish;
 
     public bool stop;
-    [SerializeField] GameObject goods;
+    [SerializeField] private GameObject countdown;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         stop = false;
@@ -72,19 +78,16 @@ public class GoodsTimer : MonoBehaviour
         int minuts = Mathf.FloorToInt(timer / 60);
         int seconds = Mathf.FloorToInt(timer % 60);
 
-        if (goods.activeSelf)
+        if(!countdown)
         {
             timer -= Time.fixedDeltaTime;
         }
-
+        
+        
         if (timer>0&&!stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
         }
         
-    }
-    private void OnEnable()
-    {
-        timer = 30.0f;
     }
 }
