@@ -51,15 +51,10 @@ public class InputName : MonoBehaviour
     void Update()
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//•¶š”§ŒÀ
-
-<<<<<<< HEAD
-        if(Input.GetKey(KeyCode.Return))
-        {
-=======
+        
         if (Input.GetKey(KeyCode.Return))
         {
             Debug.Log("aaa");
->>>>>>> origin/challengeã®èª¿æ•´
             if (inputField.text == "")
             {
                 StartCoroutine(stay());
