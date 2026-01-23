@@ -13,7 +13,6 @@ public class WalletMove : MonoBehaviour
     GraphicRaycaster G_raycast;
     [SerializeField]
     RectTransform ParentCanvas;
-
     List<RaycastResult> Past_Result = new List<RaycastResult>();
 
     [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ")]
