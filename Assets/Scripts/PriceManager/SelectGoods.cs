@@ -39,7 +39,7 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] private GameObject gametext;
 
 
-
+    [SerializeField]private Slider slider;
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -67,7 +67,7 @@ public class SelectGoods : MonoBehaviour
         gamachan.SetActive(false);
         tly.SetActive(false);
         gametext.SetActive(false);
-
+        //reset.SetActive(false);
     }
 
     // 商品価格設定
@@ -172,7 +172,20 @@ public class SelectGoods : MonoBehaviour
         }
         else if (selectSO.total > selectSO.target)
         {
-            StartCoroutine(PayOver());
+            //StartCoroutine(PayOver());
+            thispanel.gameObject.SetActive(false);
+            TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
+            tly.SetActive(true);
+            gametext.SetActive(true);
+        }
+        else if (selectSO.total < selectSO.target)
+        {
+            thispanel.gameObject.SetActive(false);
+            TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
+            tly.SetActive(true);
+            gametext.SetActive(true);
         }
     }
     private void OnEnable()
@@ -193,9 +206,11 @@ public class SelectGoods : MonoBehaviour
         SetPrices();
         CreateDisplayGoods();
         UpdateUI();
+        //slider.value = 1;
         yield return new WaitForSeconds(cooltime);
+        //slider.value = 0;
+        
         reset.SetActive(true);
-
     }
     IEnumerator PayOver()
     {
