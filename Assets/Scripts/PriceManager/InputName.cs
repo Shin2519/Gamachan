@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class InputName : MonoBehaviour
 {
@@ -51,8 +52,14 @@ public class InputName : MonoBehaviour
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//•¶š”§ŒÀ
 
+<<<<<<< HEAD
         if(Input.GetKey(KeyCode.Return))
         {
+=======
+        if (Input.GetKey(KeyCode.Return))
+        {
+            Debug.Log("aaa");
+>>>>>>> origin/challengeã®èª¿æ•´
             if (inputField.text == "")
             {
                 StartCoroutine(stay());

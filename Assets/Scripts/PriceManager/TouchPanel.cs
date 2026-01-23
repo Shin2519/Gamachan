@@ -32,6 +32,9 @@ public class TouchPanel : MonoBehaviour
     public static GameObject comboobject;
     public GameObject Cross;
 
+    [SerializeField]
+    private GameObject Result;
+
     [SerializeField, Header("âüÇµÇΩÇ∆Ç´ÇÃâπ")]
     AudioClip buttondown;
     [SerializeField, Header("èIÇÌÇËÇÃâπ")]
@@ -102,7 +105,6 @@ public class TouchPanel : MonoBehaviour
             sumamountyen.text = "Ç®íﬁÇË";
             sumamounttext.color = Color.red;
             Data.TotalSumAmount += sumamount;
-            GoodsTimer.instance.timer = 30;
             if (sumamount==0)
             {
                 Timer.Instance.timer += 15;
@@ -110,7 +112,6 @@ public class TouchPanel : MonoBehaviour
         }
         else
         {
-            GoodsTimer.instance.timer = 30;
             combo = 0;
             sumamountyen.text = "éxï•écäz";
             sumamounttext.color = Color.blue;
@@ -137,7 +138,8 @@ public class TouchPanel : MonoBehaviour
 
             Data.Combo_count = combo;
 
-            SceneManager.LoadScene("Resultpanel");
+            //SceneManager.LoadScene("Resultpanel");
+            Result.SetActive(true);
         }
             rndyentext();
     }
