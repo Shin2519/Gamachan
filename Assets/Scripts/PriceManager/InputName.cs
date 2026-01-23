@@ -95,12 +95,10 @@ public class InputName : MonoBehaviour
             if(Mode.Instance.isMode)
             {
                 FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
-                SceneManager.LoadScene("ChallengeModeScene");//チャレンジモード
             }
             else if(!Mode.Instance.isMode)
             {
                 FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
-                SceneManager.LoadScene("TimeLimitModeScene");//チャレンジモード
 
             }
         }
