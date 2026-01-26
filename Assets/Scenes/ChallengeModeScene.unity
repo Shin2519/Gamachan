@@ -1769,6 +1769,10 @@ PrefabInstance:
       propertyPath: Gama
       value: 
       objectReference: {fileID: 832412912}
+    - target: {fileID: 2772874995299134825, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3266594401484854487, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
       propertyPath: m_Name
       value: Kind of Small money
@@ -2341,6 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
+  Gama_Emotion: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
   amounttext: {fileID: 1666803921}
   inputamounttext: {fileID: 2024189915}
   sumamounttext: {fileID: 1948405144}
@@ -2350,10 +2355,6 @@ MonoBehaviour:
   sumamount: 0
   selectgoods: {fileID: 557387904}
   Gama: {fileID: 832412912}
-  KindofEmotion:
-  - {fileID: 21300000, guid: 5f3ccc92718afd646bed4a972204e205, type: 3}
-  - {fileID: 21300000, guid: 7c8c2f9c59d097447abe6fa5d104e593, type: 3}
-  - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
   Kindcombo:
   - {fileID: 21300000, guid: 6cb71e8522fe6824081827bea5c37f4e, type: 3}
   - {fileID: 21300000, guid: 55ca35f4314edb743b4d771a8db2ce09, type: 3}
@@ -2382,6 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
+  ui: {fileID: 0}
   Gameover_count: 0
   Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   Grade_Sp:
