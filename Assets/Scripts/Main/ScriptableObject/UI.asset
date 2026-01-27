@@ -43,3 +43,6 @@ MonoBehaviour:
   - {fileID: 6100890142348136656, guid: 002fb2da42c88e84993eccb85e190e8f, type: 3}
   - {fileID: 2468698493702330222, guid: 7388848fe0615d24b86693f2885333f6, type: 3}
   - {fileID: 8577934718105567996, guid: 3fc450be385b28f469aa3e75b2c98aaf, type: 3}
+  mouse:
+  - {fileID: 2800000, guid: 3fbf6bb11c66bc845adf261539f950cf, type: 3}
+  - {fileID: 2800000, guid: 978d505e9291e65429f51684812ed08c, type: 3}

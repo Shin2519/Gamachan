@@ -4,16 +4,8 @@ using UnityEngine.UI;
 public class DropMoney : MonoBehaviour
 {
     public static DropMoney instance;
-    enum Speed
-    {
-        TooFast,
-        Fast,
-        Soso,
-        Slow,
-        TooSlow
-    }
-    [SerializeField,Header("速さの判定")]
-    private Speed speed;
+    [SerializeField]
+    private Somethings_State Speed_State;
     [SerializeField, Header("小銭の種類")]
     private UI Kindofsmallmoney;
     [SerializeField, Header("ガマちゃん")]
@@ -39,28 +31,27 @@ public class DropMoney : MonoBehaviour
         if (Amount <= 0) return;
         if (Amount >= 220)
         {
-            speed = Speed.TooFast;
+            Speed_State.speed = Somethings_State.Speed.TooFast;
         }
         else if (Amount>=180)
         {
-            speed = Speed.Fast;
+            Speed_State.speed = Somethings_State.Speed.Fast;
         }
         else if (Amount>=120)
         {
-            speed = Speed.Soso;
+            Speed_State.speed = Somethings_State.Speed.Soso;
         }
         else if(Amount>=70)
         {
-            speed = Speed.Slow;
+            Speed_State.speed = Somethings_State.Speed.Slow;
         }
         else if (Amount<=40)
         {
-             speed=Speed.TooSlow;
+             Speed_State.speed = Somethings_State.Speed.TooSlow;
         }
-        switch (speed)
+        switch (Speed_State.speed)
         {
-
-            case Speed.TooFast:
+            case Somethings_State.Speed.TooFast:
                 if (Amount >= 220)
                 {
                     //500円玉
@@ -86,7 +77,7 @@ public class DropMoney : MonoBehaviour
                     Instantiate(Kindofsmallmoney.Kindofsmallmoney[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                 break;
-            case Speed.Fast:
+            case Somethings_State.Speed.Fast:
                 if (Amount >= 180)
                 {
                     //100円玉
@@ -112,7 +103,7 @@ public class DropMoney : MonoBehaviour
                     Instantiate(Kindofsmallmoney.Kindofsmallmoney[2], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                 break;
-            case Speed.Soso:
+            case Somethings_State.Speed.Soso:
                 if(Amount>=120)
                 {
                     //50円玉
@@ -138,7 +129,7 @@ public class DropMoney : MonoBehaviour
                     Instantiate(Kindofsmallmoney.Kindofsmallmoney[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                     break;
-            case Speed.Slow:
+            case Somethings_State.Speed.Slow:
                 if(Amount>=80)
                 {
                     //10円玉
@@ -164,7 +155,7 @@ public class DropMoney : MonoBehaviour
                     Instantiate(Kindofsmallmoney.Kindofsmallmoney[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
                 }
                     break;
-            case Speed.TooSlow:
+            case Somethings_State.Speed.TooSlow:
                 if (Amount <= 40)
                 {
                     //5円玉

@@ -9,6 +9,10 @@ public class GRADE : MonoBehaviour
     SendData Data;
     [SerializeField]
     private UI ui;
+    [SerializeField]
+    private Somethings_State Gauge_State;
+    [SerializeField]
+    private Sound SE;
     public static GRADE Instance;
     public int Gameover_count = 0;
     Image Gama_Image;
@@ -27,16 +31,6 @@ public class GRADE : MonoBehaviour
     private GameObject combo_image;
     [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
     private GameObject Cross;
-
-    [SerializeField, Header("•]‰¿‚É‚æ‚é‰¹‚ÌŽí—Þ")]
-    AudioClip Perfect;
-    [SerializeField]
-    AudioClip Great;
-    [SerializeField]
-    AudioClip Good;
-    [SerializeField]
-    AudioClip Bad;
-
     void Awake()
     {
         Instance = this;
@@ -62,11 +56,11 @@ public class GRADE : MonoBehaviour
             if (SumAmount == 0)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Perfect);
+                TouchPanel.audiosource.PlayOneShot(SE.Perfect);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[3];
-                if (UIManagement.instance.state == UIManagement.STATE.Gold)
+                if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
                     Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
@@ -77,12 +71,12 @@ public class GRADE : MonoBehaviour
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Great);
+                TouchPanel.audiosource.PlayOneShot(SE.Great);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[2];
 
-                if(UIManagement.instance.state ==UIManagement.STATE.Gold)
+                if(Gauge_State.gauge_state ==Somethings_State.Gauge_State.Gold)
                 {
                     Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
@@ -95,7 +89,7 @@ public class GRADE : MonoBehaviour
             else
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Good);
+                TouchPanel.audiosource.PlayOneShot(SE.Good);
                 if (!Cross.activeSelf)
                 {
                     Cross.SetActive(true);
@@ -105,7 +99,7 @@ public class GRADE : MonoBehaviour
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[1];
-                if (UIManagement.instance.state == UIManagement.STATE.Gold)
+                if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
                     Gama_Image.sprite = ui.GoldenKindofemotion[0];
                 }
@@ -122,7 +116,7 @@ public class GRADE : MonoBehaviour
             {
                 Cross.SetActive(true);
             }
-            TouchPanel.audiosource.PlayOneShot(Bad);
+            TouchPanel.audiosource.PlayOneShot(SE.Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)
             {
@@ -132,7 +126,7 @@ public class GRADE : MonoBehaviour
             TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
             Grade_Ren.sprite = ui.Grade[0];
-            if (UIManagement.instance.state == UIManagement.STATE.Gold)
+            if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
             {
                 Gama_Image.sprite = ui.GoldenKindofemotion[2];
             }

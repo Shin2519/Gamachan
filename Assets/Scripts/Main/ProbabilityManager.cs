@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class ProbabilityManager : MonoBehaviour
+public class ProbabilityManager 
 {
-    public static ProbabilityManager instance;
-
-    void Awake()
-    {
-        instance = this;
-    }
     public void Normal(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);

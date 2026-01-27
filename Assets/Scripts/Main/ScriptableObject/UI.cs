@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "UI", menuName = "Scriptable Objects/UI")]
@@ -14,4 +15,7 @@ public class UI : ScriptableObject
     public Sprite[] Grade;
     [Header("小銭の種類")]
     public GameObject[] Kindofsmallmoney;
+
+    [Header("マウスカーソルに使うテクスチャ")]
+    public Texture2D[] mouse;
 }

@@ -11,21 +11,13 @@ public class playercontroll : MonoBehaviour
 
     [SerializeField]
     float timer;
-
-    [SerializeField, Header("マウスカーソルとなるUI")]
-    private Image moucecursor;
-    [SerializeField, Header("マウスカーソルの種類")]
-    private Sprite[] MouceCursorSprite;
+    [SerializeField]
+    private UI mouse;
     [SerializeField, Header("クリックしたかどうか")]
     private bool IsInter;
-
-    [SerializeField,Header("振れているかどうか判定する範囲")]
-    private float judge;
-
-    [SerializeField,Header("マウスカーソルのポジション")]
-    private RectTransform cursor_position;
-
     public static Vector2 MovInput;
+    [SerializeField]
+    private Vector2 HotSpot;
 
     [SerializeField]
     GameObject cursor;
@@ -50,32 +42,22 @@ public class playercontroll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;//マウスカーソルを非表示にする
-        moucecursor.sprite = MouceCursorSprite[0];
+        Cursor.SetCursor(mouse.mouse[0],HotSpot,CursorMode.Auto);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        MouceCursor();
         DragAndDrop();
         if (IsInter)
         {
-            moucecursor.sprite = MouceCursorSprite[1];
+            Cursor.SetCursor(mouse.mouse[1], HotSpot, CursorMode.Auto);
         }
         else
         {
-            moucecursor.sprite = MouceCursorSprite[0];
+            Cursor.SetCursor(mouse.mouse[0], HotSpot, CursorMode.Auto);
         }
     }
-
-    private void MouceCursor()
-    {
-        Vector2 pos;
-        pos = MovInput;
-        cursor_position.position = pos;
-    }
-
     private void DragAndDrop()//物をつかんで離す
     {
         if(IsInter)
