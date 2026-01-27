@@ -27,8 +27,6 @@ public class TouchPanel : MonoBehaviour
     [SerializeField, Header("Gama")]
     public GameObject Gama;
     public static Image Gama_Image;
-    [SerializeField]
-    private Sprite[] Kindcombo;
     public static GameObject comboobject;
     public GameObject Cross;
 
@@ -57,6 +55,7 @@ public class TouchPanel : MonoBehaviour
     {
         rndyentext();
         Cross.SetActive(false);
+        Result.SetActive(false);
     }
     void Update()
     {

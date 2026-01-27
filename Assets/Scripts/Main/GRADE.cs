@@ -15,15 +15,6 @@ public class GRADE : MonoBehaviour
 
     [SerializeField]
     private Sprite Out_count;
-    [SerializeField]
-    private Sprite[] Grade_Sp;
-    [SerializeField, Header("GamaÇÃä¥èÓ")]
-    Sprite[] KindofEmotion;
-    [Header("GoldenGamaÇÃä¥èÓ")]
-    public Sprite[] GoldenKindofEmotion;
-    [SerializeField]
-    private Sprite[] Kindcombo;
-
     SpriteRenderer Grade_Ren;
     SpriteRenderer combo_Renderer;
 
@@ -74,7 +65,7 @@ public class GRADE : MonoBehaviour
                 TouchPanel.audiosource.PlayOneShot(Perfect);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[3];
+                Grade_Ren.sprite = ui.Grade[3];
                 if (UIManagement.instance.state == UIManagement.STATE.Gold)
                 {
                     Gama_Image.sprite = ui.GoldenKindofemotion[1];
@@ -89,7 +80,7 @@ public class GRADE : MonoBehaviour
                 TouchPanel.audiosource.PlayOneShot(Great);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[2];
+                Grade_Ren.sprite = ui.Grade[2];
 
                 if(UIManagement.instance.state ==UIManagement.STATE.Gold)
                 {
@@ -113,7 +104,7 @@ public class GRADE : MonoBehaviour
                 Gameover_count++;
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[1];
+                Grade_Ren.sprite = ui.Grade[1];
                 if (UIManagement.instance.state == UIManagement.STATE.Gold)
                 {
                     Gama_Image.sprite = ui.GoldenKindofemotion[0];
@@ -140,7 +131,7 @@ public class GRADE : MonoBehaviour
             }
             TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-            Grade_Ren.sprite = Grade_Sp[0];
+            Grade_Ren.sprite = ui.Grade[0];
             if (UIManagement.instance.state == UIManagement.STATE.Gold)
             {
                 Gama_Image.sprite = ui.GoldenKindofemotion[2];

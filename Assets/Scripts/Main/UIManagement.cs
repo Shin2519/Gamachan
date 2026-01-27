@@ -11,13 +11,11 @@ public class UIManagement : MonoBehaviour
         Gold
     }
     public STATE state;
+    [SerializeField]
+    private UI Gama_State;
     public static UIManagement instance;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
-    [SerializeField]
-    private Sprite Gold;
-    [SerializeField]
-    private Sprite normal;
     [SerializeField]
     float Current = 0;
     int Min = 0;
@@ -49,7 +47,7 @@ public class UIManagement : MonoBehaviour
         if(Current>=Max)
         {
             state = STATE.Gold;
-            TouchPanel.Gama_Image.sprite = Gold;
+            TouchPanel.Gama_Image.sprite = Gama_State.GoldenKindofemotion[0];
             StartCoroutine(GaugeDoun());
             StartCoroutine(ColorChange());
         }
@@ -76,7 +74,7 @@ public class UIManagement : MonoBehaviour
             yield return null;
         }
         state = STATE.Normal;
-        TouchPanel.Gama_Image.sprite = normal;
+        TouchPanel.Gama_Image.sprite = Gama_State.Kindofemotion[0];
         Gauge.color = color;
         isDown = false;
     }

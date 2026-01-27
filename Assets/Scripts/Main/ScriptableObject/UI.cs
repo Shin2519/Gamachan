@@ -10,4 +10,8 @@ public class UI : ScriptableObject
     public Sprite[] GoldenKindofemotion;
     [Header("ƒRƒ“ƒ{‚Ìí—Ş")]
     public Sprite[] Kindofcombo;
+    [Header("•]‰¿‚Ìí—Ş")]
+    public Sprite[] Grade;
+    [Header("¬‘K‚Ìí—Ş")]
+    public GameObject[] Kindofsmallmoney;
 }
