@@ -51,7 +51,7 @@ public class InputName : MonoBehaviour
     void Update()
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//•¶š”§ŒÀ
-
+        
         if (Input.GetKey(KeyCode.Return))
         {
             Debug.Log("aaa");
