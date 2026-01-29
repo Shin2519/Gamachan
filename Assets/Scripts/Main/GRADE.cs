@@ -7,21 +7,18 @@ public class GRADE : MonoBehaviour
 {
     [SerializeField]
     SendData Data;
+    [SerializeField]
+    private UI ui;
+    [SerializeField]
+    private Somethings_State Gauge_State;
+    [SerializeField]
+    private Sound SE;
     public static GRADE Instance;
     public int Gameover_count = 0;
     Image Gama_Image;
 
     [SerializeField]
     private Sprite Out_count;
-    [SerializeField]
-    private Sprite[] Grade_Sp;
-    [SerializeField, Header("GamaÇÃä¥èÓ")]
-    Sprite[] KindofEmotion;
-    [Header("GoldenGamaÇÃä¥èÓ")]
-    public Sprite[] GoldenKindofEmotion;
-    [SerializeField]
-    private Sprite[] Kindcombo;
-
     SpriteRenderer Grade_Ren;
     SpriteRenderer combo_Renderer;
 
@@ -34,16 +31,6 @@ public class GRADE : MonoBehaviour
     private GameObject combo_image;
     [SerializeField, Header("GameoverÇ‹Ç≈ÇÃÉJÉEÉìÉg")]
     private GameObject Cross;
-
-    [SerializeField, Header("ï]âøÇ…ÇÊÇÈâπÇÃéÌóﬁ")]
-    AudioClip Perfect;
-    [SerializeField]
-    AudioClip Great;
-    [SerializeField]
-    AudioClip Good;
-    [SerializeField]
-    AudioClip Bad;
-
     void Awake()
     {
         Instance = this;
@@ -69,40 +56,40 @@ public class GRADE : MonoBehaviour
             if (SumAmount == 0)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Perfect);
+                TouchPanel.audiosource.PlayOneShot(SE.Perfect);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[3];
-                if (UIManagement.instance.state == UIManagement.STATE.Gold)
+                Grade_Ren.sprite = ui.Grade[3];
+                if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = KindofEmotion[1];
+                    Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
-                Gama_Image.sprite = GoldenKindofEmotion[1];
+                Gama_Image.sprite = ui.Kindofemotion[1];
                 Data.Perfect_count+=1;
                 Data.JustSumAmount_Bonus += 1;
             }
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Great);
+                TouchPanel.audiosource.PlayOneShot(SE.Great);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[2];
+                Grade_Ren.sprite = ui.Grade[2];
 
-                if(UIManagement.instance.state ==UIManagement.STATE.Normal)
+                if(Gauge_State.gauge_state ==Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = KindofEmotion[1];
+                    Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
                 else
                 {
-                    Gama_Image.sprite = GoldenKindofEmotion[1];
+                    Gama_Image.sprite = ui.Kindofemotion[1];
                 }
                 Data.Great_count += 1;
             }
             else
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(Good);
+                TouchPanel.audiosource.PlayOneShot(SE.Good);
                 if (!Cross.activeSelf)
                 {
                     Cross.SetActive(true);
@@ -111,16 +98,15 @@ public class GRADE : MonoBehaviour
                 Gameover_count++;
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = Grade_Sp[1];
-                if (UIManagement.instance.state == UIManagement.STATE.Normal)
+                Grade_Ren.sprite = ui.Grade[1];
+                if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = KindofEmotion[0];
+                    Gama_Image.sprite = ui.GoldenKindofemotion[0];
                 }
                 else
                 {
-                    Gama_Image.sprite = GoldenKindofEmotion[0];
+                    Gama_Image.sprite = ui.Kindofemotion[0];
                 }
-                Gama_Image.sprite = KindofEmotion[0];
                 Data.Good_count += 1;
             }
         }
@@ -130,7 +116,7 @@ public class GRADE : MonoBehaviour
             {
                 Cross.SetActive(true);
             }
-            TouchPanel.audiosource.PlayOneShot(Bad);
+            TouchPanel.audiosource.PlayOneShot(SE.Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)
             {
@@ -139,14 +125,14 @@ public class GRADE : MonoBehaviour
             }
             TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-            Grade_Ren.sprite = Grade_Sp[0];
-            if (UIManagement.instance.state == UIManagement.STATE.Gold)
+            Grade_Ren.sprite = ui.Grade[0];
+            if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
             {
-                Gama_Image.sprite = GoldenKindofEmotion[2];
+                Gama_Image.sprite = ui.GoldenKindofemotion[2];
             }
             else
             {
-                Gama_Image.sprite = KindofEmotion[2];
+                Gama_Image.sprite = ui.Kindofemotion[2];
             }
             Data.Bad_count += 1;
         }
@@ -158,52 +144,52 @@ public class GRADE : MonoBehaviour
             case 3:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[0];
+                combo_Renderer.sprite = ui.Kindofcombo[0];
                 break;
             case 6:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[1];
+                combo_Renderer.sprite = ui.Kindofcombo[1];
                 break;
             case 9:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[2];
+                combo_Renderer.sprite = ui.Kindofcombo[2];
                 break;
             case 12:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[3];
+                combo_Renderer.sprite = ui.Kindofcombo[3];
                 break;
             case 15:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[4];
+                combo_Renderer.sprite = ui.Kindofcombo[4];
                 break;
             case 18:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[5];
+                combo_Renderer.sprite = ui.Kindofcombo[5];
                 break;
             case 21:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[6];
+                combo_Renderer.sprite = ui.Kindofcombo[6];
                 break;
             case 24:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[7];
+                combo_Renderer.sprite = ui.Kindofcombo[7];
                 break;
             case 27:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[8];
+                combo_Renderer.sprite = ui.Kindofcombo[8];
                 break;
             case 30:
                 TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
                 combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = Kindcombo[9];
+                combo_Renderer.sprite = ui.Kindofcombo[9];
                 break;
         }
     }

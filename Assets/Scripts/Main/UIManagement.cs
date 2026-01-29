@@ -1,23 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class UIManagement : MonoBehaviour
 {
-    public enum STATE
-    {
-        Normal,
-        Gold
-    }
-    public STATE state;
     public static UIManagement instance;
+    [SerializeField]
+    private UI Gama_State;
+    [SerializeField]
+    private Somethings_State Gauge_State;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
-    [SerializeField]
-    private Sprite Gold;
-    [SerializeField]
-    private Sprite normal;
     [SerializeField]
     float Current = 0;
     int Min = 0;
@@ -37,7 +30,7 @@ public class UIManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        state = STATE.Normal;
+        Gauge_State.gauge_state = Somethings_State.Gauge_State.Normal;
         Gauge.fillAmount = Current / Max;
         color = Gauge.color;
         Finish.SetActive(false);
@@ -48,8 +41,8 @@ public class UIManagement : MonoBehaviour
     {
         if(Current>=Max)
         {
-            state = STATE.Gold;
-            TouchPanel.Gama_Image.sprite = Gold;
+            Gauge_State.gauge_state = Somethings_State.Gauge_State.Gold;
+            TouchPanel.Gama_Image.sprite = Gama_State.GoldenKindofemotion[0];
             StartCoroutine(GaugeDoun());
             StartCoroutine(ColorChange());
         }
@@ -75,8 +68,8 @@ public class UIManagement : MonoBehaviour
             Currentgauge -= 10 * Time.deltaTime;
             yield return null;
         }
-        state = STATE.Normal;
-        TouchPanel.Gama_Image.sprite = normal;
+        Gauge_State.gauge_state = Somethings_State.Gauge_State.Normal;
+        TouchPanel.Gama_Image.sprite = Gama_State.Kindofemotion[0];
         Gauge.color = color;
         isDown = false;
     }

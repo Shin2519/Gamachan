@@ -10,6 +10,12 @@ public class TouchPanel : MonoBehaviour
     public static TouchPanel instance;
     [SerializeField]
     SendData Data;
+    [SerializeField]
+    UI Gama_Emotion;
+    [SerializeField]
+    Somethings_State Gauge_State;
+    [SerializeField]
+    private Sound SE;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -25,20 +31,10 @@ public class TouchPanel : MonoBehaviour
     [SerializeField, Header("Gama")]
     public GameObject Gama;
     public static Image Gama_Image;
-    [SerializeField, Header("Gamaの感情")]
-    Sprite[] KindofEmotion;
-    [SerializeField]
-    private Sprite[] Kindcombo;
     public static GameObject comboobject;
     public GameObject Cross;
-
     [SerializeField]
     private GameObject Result;
-
-    [SerializeField, Header("押したときの音")]
-    AudioClip buttondown;
-    [SerializeField, Header("終わりの音")]
-    AudioClip SEofFinish;
     public static AudioSource audiosource;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
@@ -57,6 +53,7 @@ public class TouchPanel : MonoBehaviour
     {
         rndyentext();
         Cross.SetActive(false);
+        Result.SetActive(false);
     }
     void Update()
     {
@@ -65,7 +62,7 @@ public class TouchPanel : MonoBehaviour
     public void OnButton()
     {
         StartCoroutine(kaikei());
-        audiosource.PlayOneShot(buttondown);
+        audiosource.PlayOneShot(SE.Buttondown);
         
     }
 
@@ -83,11 +80,11 @@ public class TouchPanel : MonoBehaviour
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
 
-        Debug.Log(UIManagement.instance.state);
+        Debug.Log(Gauge_State);
 
-        if (UIManagement.instance.state == UIManagement.STATE.Gold)
+        if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
         {
-            Gama_Image.sprite = GRADE.Instance.GoldenKindofEmotion[0];
+            Gama_Image.sprite = Gama_Emotion.GoldenKindofemotion[0];
         }
     }
 
@@ -132,7 +129,7 @@ public class TouchPanel : MonoBehaviour
         {
             Timer.Instance.stop = true;
             UIManagement.instance.Finishistrue();
-            audiosource.PlayOneShot(SEofFinish);
+            audiosource.PlayOneShot(SE.SEofFinish);
 
             yield return new WaitForSeconds(2.0f);
 

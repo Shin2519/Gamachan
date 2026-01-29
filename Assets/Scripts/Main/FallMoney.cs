@@ -16,10 +16,4 @@ public class FallMoney : MonoBehaviour
     {
         rd2D.linearVelocity = Vector3.down * v0_;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

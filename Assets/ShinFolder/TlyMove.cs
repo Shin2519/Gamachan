@@ -4,7 +4,8 @@ public class TlyMove : MonoBehaviour
 {
     public float moveDistance = 200f;
     public float Speed = 2f;
-
+    [SerializeField]
+    private Somethings_State Gauge_State;
     private Transform pos;
     private Vector2 startPos;
 
@@ -66,7 +67,7 @@ public class TlyMove : MonoBehaviour
             }
             Destroy(other.gameObject);
 
-            if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total||UIManagement.instance.state == UIManagement.STATE.Gold) return;
+            if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
 
             UIManagement.instance.gauge();
         }

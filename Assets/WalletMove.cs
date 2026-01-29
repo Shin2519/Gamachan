@@ -7,6 +7,8 @@ public class WalletMove : MonoBehaviour
 {
     public static WalletMove Instance;
 
+    private ProbabilityManager probability = new ProbabilityManager();
+
     [SerializeField]
     EventSystem E_System;
     [SerializeField]
@@ -78,11 +80,11 @@ public class WalletMove : MonoBehaviour
             {
                 if (UIManagement.instance.Currentgauge >= 100)
                 {
-                    ProbabilityManager.instance.Gold(Speed);
+                    probability.Gold(Speed);
                 }
                 else
                 {
-                    ProbabilityManager.instance.Normal(Speed);
+                    probability.Normal(Speed);
                 }
             }
             WasSwiping = isSwiping;

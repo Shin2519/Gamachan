@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: gama
-  defaultCursor: {fileID: 2800000, guid: 3fbf6bb11c66bc845adf261539f950cf, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 6417364b8fad9364b884094038570bff, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
