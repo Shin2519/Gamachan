@@ -63,7 +63,6 @@ public class TouchPanel : MonoBehaviour
     {
         StartCoroutine(kaikei());
         audiosource.PlayOneShot(SE.Buttondown);
-        
     }
 
     public void rndyentext()
@@ -101,7 +100,7 @@ public class TouchPanel : MonoBehaviour
             combo++;
             sumamountyen.text = "‚¨’Þ‚è";
             sumamounttext.color = Color.red;
-            Data.TotalSumAmount += sumamount;
+            Data.total_Data.Total_Change_Amount += sumamount;
             if (sumamount==0)
             {
                 Timer.Instance.timer += 15;
@@ -133,7 +132,9 @@ public class TouchPanel : MonoBehaviour
 
             yield return new WaitForSeconds(2.0f);
 
-            Data.Combo_count = combo;
+            Data.total_Data.Combo_Count = combo;
+
+            //ResultManager.Instance.SetScores(ScoreCalculator.Instance.CalculateChallenge(Data.total_Data.Perfect_Count, Data.total_Data.Great_Count, Data.total_Data.Good_Count, Data.total_Data.Bad_Count, Data.total_Data.Zero_Count, 0, Data.total_Data.Combo_Count, 0, 0, 0, Data.total_Data.Total_Change_Amount));
 
             //SceneManager.LoadScene("Resultpanel");
             Result.SetActive(true);

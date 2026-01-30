@@ -12,11 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8993875109256a48b08de203ab9d007, type: 3}
   m_Name: SendData
   m_EditorClassIdentifier: 
-  Perfect_count: 0
-  Great_count: 0
-  Good_count: 0
-  Bad_count: 0
-  JustSumAmount_Bonus: 0
-  Golden_Bonus: 0
-  Combo_count: 0
-  TotalSumAmount: 0

@@ -65,8 +65,8 @@ public class GRADE : MonoBehaviour
                     Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
                 Gama_Image.sprite = ui.Kindofemotion[1];
-                Data.Perfect_count+=1;
-                Data.JustSumAmount_Bonus += 1;
+                Data.total_Data.Perfect_Count += 1;
+                Data.total_Data.Zero_Count += 1;
             }
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
@@ -84,7 +84,7 @@ public class GRADE : MonoBehaviour
                 {
                     Gama_Image.sprite = ui.Kindofemotion[1];
                 }
-                Data.Great_count += 1;
+                Data.total_Data.Great_Count += 1;
             }
             else
             {
@@ -107,7 +107,7 @@ public class GRADE : MonoBehaviour
                 {
                     Gama_Image.sprite = ui.Kindofemotion[0];
                 }
-                Data.Good_count += 1;
+                Data.total_Data.Good_Count += 1;
             }
         }
         else
@@ -134,7 +134,7 @@ public class GRADE : MonoBehaviour
             {
                 Gama_Image.sprite = ui.Kindofemotion[2];
             }
-            Data.Bad_count += 1;
+            Data.total_Data.Bad_Count += 1;
         }
     }
     void Combo()

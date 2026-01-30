@@ -5,6 +5,7 @@ using System.Collections;
 
 public class ResultManager : MonoBehaviour
 {
+    public static ResultManager Instance;
     [Header("ƒŠƒUƒ‹ƒg‰‰oİ’è")]
     [SerializeField] private RectTransform[] scoreItems;
     [SerializeField] private float slideDuration = 0.5f;
@@ -31,6 +32,10 @@ public class ResultManager : MonoBehaviour
 
     public static int modeId;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
 
