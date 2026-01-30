@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class SelectGoods : MonoBehaviour
 {
-    private  int displaycount = 6;//最大表示
+    private  int displaycount;//最大表示
     private  int max = 6;//最大選択個数
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI[] countTexts;//各商品の個数
     [SerializeField] private TextMeshProUGUI[] priceTexts;//各商品の値段
     [SerializeField] private Image[] images;//商品の画像
-    [SerializeField] private GameObject[] plusMinusUI;//各商品の+-ボタンの表示、非表示
+    //[SerializeField] private GameObject[] plusMinusUI;//各商品の+-ボタンの表示、非表示
     [SerializeField] private TextMeshProUGUI totalText;//現在の金額
     [SerializeField] private TextMeshProUGUI targetText;//目標金額
 
@@ -39,7 +39,7 @@ public class SelectGoods : MonoBehaviour
     [SerializeField] private GameObject gametext;
 
 
-    [SerializeField]private Slider slider;
+    //[SerializeField]private Slider slider;
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -47,6 +47,7 @@ public class SelectGoods : MonoBehaviour
     }
     void Start()
     {
+        displaycount = 6;
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
@@ -59,36 +60,52 @@ public class SelectGoods : MonoBehaviour
         foreach (var d in selectSO.dataList)
             d.count = 0;
 
-        foreach (var ui in plusMinusUI)
-            ui.SetActive(false);
+        //foreach (var ui in plusMinusUI)
+        //    ui.SetActive(false);
+
+        //displaycount = 6;
 
         selectSO.total = 0;
         selectSO.target = 0;
         gamachan.SetActive(false);
         tly.SetActive(false);
         gametext.SetActive(false);
-        //reset.SetActive(false);
     }
 
     // 商品価格設定
     public void SetPrices()
     {
-        int[] numer = { 3, 5, 7 };
-        selectSO.dataList[0].price = numer[Random.Range(0,numer.Length)]*10;// 袋
-        selectSO.dataList[1].price = Random.Range(10, 20) * 100; // パン
-        selectSO.dataList[2].price = Random.Range(10, 25) * 100; // おにぎり
-        selectSO.dataList[3].price = Random.Range(20, 35) * 100; // サンド
-        selectSO.dataList[4].price = Random.Range(40, 60) * 100; // 弁当
-        selectSO.dataList[5].price = Random.Range(15, 25) * 100; // チキン
-        selectSO.dataList[6].price = Random.Range(8, 11) * 100;  // お茶
-        selectSO.dataList[7].price = Random.Range(11, 16) * 100; // ポテチ
-        selectSO.dataList[8].price = Random.Range(8, 15) * 100;  // アイス
-        selectSO.dataList[9].price = Random.Range(15, 32) * 100; // ラーメン
+        int[] fukuro = { 30, 50, 70 };
+        selectSO.dataList[0].price = fukuro[Random.Range(0,fukuro.Length)];// 袋
+        int[] pan = { 2000, 2600, 3400 };
+        selectSO.dataList[1].price = pan[Random.Range(0, pan.Length) ]; // パン
+        int[] onigiri = { 2700, 3380, 4420 };
+        selectSO.dataList[2].price = onigiri[Random.Range(0, onigiri.Length)]   ; // おにぎり
+        int[] sand = { 4100, 5300, 6900 };
+        selectSO.dataList[3].price = sand[Random.Range(0, sand.Length)]; // サンド
+        int[] bentou = { 7100, 9230, 12070 };
+        selectSO.dataList[4].price = bentou[Random.Range(0, bentou.Length)]; // 弁当
+        int[] chikin = { 6000, 7800, 10200 };
+        selectSO.dataList[5].price = chikin[Random.Range(0, chikin.Length)]; // チキン
+        int[] ocha = { 700, 910, 1190 };
+        selectSO.dataList[6].price = ocha[Random.Range(0, ocha.Length)];  // お茶
+        int[] poteti = { 1600, 2080, 2720 };
+        selectSO.dataList[7].price = poteti[Random.Range(0, poteti.Length)]; // ポテチ
+        int[] ice = { 1100, 1430, 1870 };
+        selectSO.dataList[8].price = ice[Random.Range(0, ice.Length)];  // アイス
+        int[] ramen = { 3100, 4030, 5270 };
+        selectSO.dataList[9].price = ramen[Random.Range(0, ramen.Length)]; // ラーメン
     }
 
     // 表示する6商品を決定
     public void CreateDisplayGoods()
     {
+        for (int i = 0; i < images.Length; i++)
+        {
+            images[i].gameObject.SetActive(false);
+            priceTexts[i].gameObject.SetActive(false);
+            countTexts[i].gameObject.SetActive(false);
+        }
         displayData = selectSO.dataList
             .OrderBy(_ => Random.value)
             .Take(displaycount)
@@ -96,11 +113,14 @@ public class SelectGoods : MonoBehaviour
 
         for (int i = 0; i < displaycount; i++)
         {
+            images[i].gameObject.SetActive(true);
+            priceTexts[i].gameObject.SetActive(true);
+            countTexts[i].gameObject.SetActive(true);
             priceTexts[i].text = displayData[i].price + "円";
             images[i].sprite = displayData[i].image;
         }
+        int usecount = 3;
 
-        int usecount = Random.Range(2,6);
         var targetgoods = displayData
             .OrderBy(_ => Random.value)
             .Take(usecount);
@@ -130,7 +150,7 @@ public class SelectGoods : MonoBehaviour
     // 商品選択時（±表示）
     public void OnGoodsButton(int index)
     {
-        plusMinusUI[index].SetActive(true);
+        //plusMinusUI[index].SetActive(true);
         displayData[index].count++;
         Recalculate();
     }
@@ -190,6 +210,8 @@ public class SelectGoods : MonoBehaviour
     }
     private void OnEnable()
     {
+        displaycount = 6;
+
         InitCounts();
         SetPrices();
         CreateDisplayGoods();
@@ -201,6 +223,9 @@ public class SelectGoods : MonoBehaviour
     }
     IEnumerator ResetGoods()
     {
+        if (displaycount <= 3)
+            yield break;
+            displaycount--;
         reset.SetActive(false);
         InitCounts();
         SetPrices();
