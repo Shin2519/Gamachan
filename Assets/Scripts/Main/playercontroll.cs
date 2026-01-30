@@ -18,6 +18,8 @@ public class playercontroll : MonoBehaviour
     public static Vector2 MovInput;
     [SerializeField]
     private Vector2 HotSpot;
+    [SerializeField]
+    private Vector2 HotSpot2;
 
     [SerializeField]
     GameObject cursor;
@@ -36,8 +38,14 @@ public class playercontroll : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(cursor);
+        if(instance!=null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
+
+        DontDestroyOnLoad(cursor);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,7 +59,7 @@ public class playercontroll : MonoBehaviour
         DragAndDrop();
         if (IsInter)
         {
-            Cursor.SetCursor(mouse.mouse[1], HotSpot, CursorMode.Auto);
+            Cursor.SetCursor(mouse.mouse[1], HotSpot2, CursorMode.Auto);
         }
         else
         {
