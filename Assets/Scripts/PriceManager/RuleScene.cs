@@ -5,6 +5,7 @@ public class RuleScene : MonoBehaviour
     [SerializeField] private GameObject Page1;
     [SerializeField] private GameObject Page2;
     [SerializeField] private GameObject Page3;
+    [SerializeField] private GameObject Page4;
     private AudioSource audiosource;
     [SerializeField] private AudioClip clip;
 
@@ -13,6 +14,7 @@ public class RuleScene : MonoBehaviour
         Page1.SetActive(false);
         Page2.SetActive(false);
         Page3.SetActive(false);
+        Page4.SetActive(false);
         audiosource = GetComponent<AudioSource>();
     }
 
@@ -56,5 +58,19 @@ public class RuleScene : MonoBehaviour
         Page2.SetActive(true);
         Page3.SetActive(false);
         
+    }
+
+    public void Page3to4()
+    {
+        audiosource.PlayOneShot(clip);
+        Page4.SetActive(true);
+        Page3.SetActive(false);
+    }
+
+    public void Page4to3()
+    {
+        audiosource.PlayOneShot(clip);
+        Page3.SetActive(true);
+        Page4.SetActive(false);
     }
 }
