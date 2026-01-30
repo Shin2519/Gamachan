@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 [CreateAssetMenu(fileName = "SendData", menuName = "Scriptable Objects/SendData")]
 public class SendData : ScriptableObject
@@ -20,4 +22,6 @@ public class SendData : ScriptableObject
         public int Combo_Count;
     }
     public Total_data total_Data;
+
+    public List<GameObject> Money;
 }

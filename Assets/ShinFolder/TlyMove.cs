@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TlyMove : MonoBehaviour
 {
+    [SerializeField]
+    SendData SendData;
     public float moveDistance = 200f;
     public float Speed = 2f;
     [SerializeField]
@@ -65,7 +67,8 @@ public class TlyMove : MonoBehaviour
             {
                 TouchPanel.instance.InputAmount += 1;
             }
-            Destroy(other.gameObject);
+            SendData.Money.Add(other.gameObject);
+            other.gameObject.SetActive(false);
 
             if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
 

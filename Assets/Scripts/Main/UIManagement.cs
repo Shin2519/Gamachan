@@ -55,7 +55,7 @@ public class UIManagement : MonoBehaviour
     {
         if(!isDown)
         {
-            Currentgauge += 10 * Time.deltaTime;
+            Currentgauge += 100 * Time.deltaTime;
         }
     }
         
