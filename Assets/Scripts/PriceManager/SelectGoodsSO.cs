@@ -18,8 +18,11 @@ public class SelectGoodsSO : ScriptableObject
     /// –Ú•W‹àŠz
     /// </summary>
     public int target;
+    public int targetLeft;
+    public int targetRight;
 
-   
+
+
 }
 
 [Serializable]
