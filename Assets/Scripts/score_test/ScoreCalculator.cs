@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
+    public static ScoreCalculator Instance;
     [Header("ï]âøÉXÉRÉA")]
     [SerializeField] private int evalPerfect = 100;
     [SerializeField] private int evalGreat = 70;

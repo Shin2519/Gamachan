@@ -1,22 +1,27 @@
 using UnityEngine;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 [CreateAssetMenu(fileName = "SendData", menuName = "Scriptable Objects/SendData")]
 public class SendData : ScriptableObject
 {
-    public int Perfect_count;
+    public struct Total_data
+    {
+        public int Perfect_Count;
 
-    public int Great_count;
+        public int Great_Count;
 
-    public int Good_count;
+        public int Good_Count;
 
-    public int Bad_count;
+        public int Bad_Count;
 
-    public int JustSumAmount_Bonus;
+        public int Zero_Count;
 
-    public int Golden_Bonus;
+        public int Total_Change_Amount;
 
-    public int Combo_count;
+        public int Combo_Count;
+    }
+    public Total_data total_Data;
 
-    public int TotalSumAmount;
+    public List<GameObject> Money;
 }
