@@ -51,7 +51,6 @@ public class TlyMove : MonoBehaviour
             else if (other.gameObject.name== "50yen(Clone)")
             {
                 TouchPanel.instance.InputAmount += 50;
-                Destroy(other.gameObject);
             }
             else if (other.gameObject.name== "10yen(Clone)")
             {
@@ -65,7 +64,7 @@ public class TlyMove : MonoBehaviour
             {
                 TouchPanel.instance.InputAmount += 1;
             }
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
 
             if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
 

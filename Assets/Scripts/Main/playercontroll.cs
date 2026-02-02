@@ -36,8 +36,13 @@ public class playercontroll : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(cursor);
+        if(instance!=null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +53,6 @@ public class playercontroll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        DragAndDrop();
         if (IsInter)
         {
             Cursor.SetCursor(mouse.mouse[1], HotSpot, CursorMode.Auto);
@@ -57,6 +61,9 @@ public class playercontroll : MonoBehaviour
         {
             Cursor.SetCursor(mouse.mouse[0], HotSpot, CursorMode.Auto);
         }
+        GameObject obj = GameObject.Find("InteractManager");
+        if (obj == null) return;
+        DragAndDrop();
     }
     private void DragAndDrop()//物をつかんで離す
     {

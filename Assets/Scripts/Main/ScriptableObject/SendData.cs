@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "SendData", menuName = "Scriptable Objects/SendData")]
 public class SendData : ScriptableObject
