@@ -5765,7 +5765,6 @@ GameObject:
   - component: {fileID: 4646121563589826842}
   - component: {fileID: 5577547126498854462}
   - component: {fileID: 7649366252575966018}
-  - component: {fileID: 2465878748114409541}
   m_Layer: 5
   m_Name: SelectGoodsChalengeMode
   m_TagString: Untagged
@@ -5868,53 +5867,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2465878748114409541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712634930139567586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8d3c50e59060d49840ce5fa5f838b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countTexts:
-  - {fileID: 4954096940347327957}
-  - {fileID: 2784386260504844908}
-  - {fileID: 3524152089967766648}
-  - {fileID: 6111451848381423578}
-  - {fileID: 4714388959744175013}
-  - {fileID: 238828697117835650}
-  priceTexts:
-  - {fileID: 5785661635681013296}
-  - {fileID: 4422185095107886731}
-  - {fileID: 1122108626420863748}
-  - {fileID: 1152163788590142887}
-  - {fileID: 8212658706711996922}
-  - {fileID: 1800658783539096169}
-  images:
-  - {fileID: 2062274678001125769}
-  - {fileID: 1077637382518257491}
-  - {fileID: 2053428824955671711}
-  - {fileID: 8539155472467714257}
-  - {fileID: 5029906757698968494}
-  - {fileID: 801679716595193473}
-  totalText: {fileID: 407299796865330601}
-  targetText: {fileID: 6882931741986222814}
-  selectSO: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
-  thispanel: {fileID: 7712634930139567586}
-  rect: {fileID: 2121308877520348123}
-  time: 0
-  power: 0
-  debug: 0
-  cooltime: 7
-  gamachan: {fileID: 0}
-  tly: {fileID: 0}
-  reset: {fileID: 0}
-  gametext: {fileID: 0}
-  slider: {fileID: 0}
 --- !u!1 &7879242304446347921
 GameObject:
   m_ObjectHideFlags: 0
