@@ -7,9 +7,9 @@ public class DropMoney : MonoBehaviour
     public static DropMoney instance;
     [SerializeField]
     private Somethings_State Speed_State;
-    [SerializeField, Header("小銭の種類")]
+    [Header("小銭の種類")]
     private UI Kindofsmallmoney;
-    [SerializeField, Header("ガマちゃん")]
+    [Header("ガマちゃん")]
     private GameObject Gama;
 
     GameObject[] smallmoney_500 = new GameObject[20];
@@ -25,7 +25,7 @@ public class DropMoney : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 0;i < 20;i++)
+        for (int i = 0; i < 20; i++)
         {
             smallmoney_500[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[0], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
             smallmoney_500[i].SetActive(false);
@@ -74,358 +74,236 @@ public class DropMoney : MonoBehaviour
         switch (Speed_State.speed)
         {
             case Somethings_State.Speed.TooFast:
-                if (Amount >= 220)
-                {
-                    //500円玉
-                    for (int i = 0;i < 20;i++)
-                    {
-                        if (!smallmoney_500[i].activeInHierarchy)
-                        {
-                            smallmoney_500[i].SetActive(true);
-                            smallmoney_500[i].transform.position = Gama.transform.position - new Vector3(0.0f,-10.0f,0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else if (Amount >= 200)
-                {
-                    int rnd = Random.Range(0, 2);
-                    if (rnd == 0)
-                    {
-                        //500円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_500[i].activeInHierarchy)
-                            {
-                                smallmoney_500[i].SetActive(true);
-                                smallmoney_500[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //100円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_100[i].activeInHierarchy)
-                            {
-                                smallmoney_100[i].SetActive(true);
-                                smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //100円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_100[i].activeInHierarchy)
-                        {
-                            smallmoney_100[i].SetActive(true);
-                            smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
+                TOOFAST(Amount);
                 break;
             case Somethings_State.Speed.Fast:
-                if (Amount >= 180)
-                {
-                    //100円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_100[i].activeInHierarchy)
-                        {
-                            smallmoney_100[i].SetActive(true);
-                            smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else if (Amount >= 160)
-                {
-                    int rnd = Random.Range(0, 2);
-                    if (rnd == 0)
-                    {
-                        //100円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_100[i].activeInHierarchy)
-                            {
-                                smallmoney_100[i].SetActive(true);
-                                smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //50円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_50[i].activeInHierarchy)
-                            {
-                                smallmoney_50[i].SetActive(true);
-                                smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //50円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_50[i].activeInHierarchy)
-                        {
-                            smallmoney_50[i].SetActive(true);
-                            smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
+                FAST(Amount);
                 break;
             case Somethings_State.Speed.Soso:
-                if(Amount>=120)
-                {
-                    //50円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_50[i].activeInHierarchy)
-                        {
-                            smallmoney_50[i].SetActive(true);
-                            smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else if(Amount>=110)
-                {
-                    int rnd = Random.Range(0,2);
-                    if(rnd==0)
-                    {
-                        //50円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_50[i].activeInHierarchy)
-                            {
-                                smallmoney_50[i].SetActive(true);
-                                smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //10円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_10[i].activeInHierarchy)
-                            {
-                                smallmoney_10[i].SetActive(true);
-                                smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //10円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_10[i].activeInHierarchy)
-                        {
-                            smallmoney_10[i].SetActive(true);
-                            smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                    break;
+                SOSO(Amount);
+                break;
             case Somethings_State.Speed.Slow:
-                if(Amount>=80)
-                {
-                    //10円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_10[i].activeInHierarchy)
-                        {
-                            smallmoney_10[i].SetActive(true);
-                            smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else if(Amount >= 70)
-                {
-                    int rnd = Random.Range(0, 2);
-                    if (rnd == 0)
-                    {
-                        //10円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_10[i].activeInHierarchy)
-                            {
-                                smallmoney_10[i].SetActive(true);
-                                smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //5円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_5[i].activeInHierarchy)
-                            {
-                                smallmoney_5[i].SetActive(true);
-                                smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //5円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_5[i].activeInHierarchy)
-                        {
-                            smallmoney_5[i].SetActive(true);
-                            smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                    break;
+                SLOW(Amount);
+                break;
             case Somethings_State.Speed.TooSlow:
-                if (Amount <= 40)
-                {
-                    //5円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_5[i].activeInHierarchy)
-                        {
-                            smallmoney_5[i].SetActive(true);
-                            smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else if (Amount <= 20)
-                {
-                    int rnd = Random.Range(0, 2);
-                    if (rnd == 0)
-                    {
-                        //5円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_5[i].activeInHierarchy)
-                            {
-                                smallmoney_5[i].SetActive(true);
-                                smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //1円玉
-                        for (int i = 0; i < 20; i++)
-                        {
-                            if (!smallmoney_1[i].activeInHierarchy)
-                            {
-                                smallmoney_1[i].SetActive(true);
-                                smallmoney_1[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //1円玉
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (!smallmoney_1[i].activeInHierarchy)
-                        {
-                            smallmoney_1[i].SetActive(true);
-                            smallmoney_1[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
+                TOOSLOW(Amount);
                 break;
         }
+    }
 
+    void Money_500()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_500[i].activeInHierarchy)
+            {
+                smallmoney_500[i].SetActive(true);
+                smallmoney_500[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void Money_100()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_100[i].activeInHierarchy)
+            {
+                smallmoney_100[i].SetActive(true);
+                smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void Money_50()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_50[i].activeInHierarchy)
+            {
+                smallmoney_50[i].SetActive(true);
+                smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void Money_10()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_10[i].activeInHierarchy)
+            {
+                smallmoney_10[i].SetActive(true);
+                smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void Money_5()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_5[i].activeInHierarchy)
+            {
+                smallmoney_5[i].SetActive(true);
+                smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void Money_1()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (!smallmoney_1[i].activeInHierarchy)
+            {
+                smallmoney_1[i].SetActive(true);
+                smallmoney_1[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void TOOFAST(float Amount)
+    {
+        if (Amount >= 220)
+        {
+            Money_500();
+        }
+        else if (Amount >= 200)
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0)
+            {
+                Money_500();
+            }
+            else
+            {
+                Money_100();
+            }
+        }
+        else
+        {
+            Money_100();
+        }
+    }
+
+    void FAST(float Amount)
+    {
+        if (Amount >= 180)
+        {
+            Money_100();
+        }
+        else if (Amount >= 160)
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0)
+            {
+                Money_100();
+            }
+            else
+            {
+                Money_50();
+            }
+        }
+        else
+        {
+            Money_50();
+        }
+    }
+
+    void SOSO(float Amount)
+    {
+        if (Amount >= 120)
+        {
+            Money_50();
+        }
+        else if (Amount >= 110)
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0)
+            {
+                Money_50();
+            }
+            else
+            {
+                Money_10();
+            }
+        }
+        else
+        {
+            Money_10();
+        }
+    }
+
+    void SLOW(float Amount)
+    {
+        if (Amount >= 80)
+        {
+            Money_10();
+        }
+        else if (Amount >= 70)
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0)
+            {
+                Money_10();
+            }
+            else
+            {
+                Money_5();
+            }
+        }
+        else
+        {
+            Money_5();
+        }
+    }
+
+    void TOOSLOW(float Amount)
+    {
+        if (Amount <= 40)
+        {
+            Money_5();
+        }
+        else if (Amount <= 20)
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0)
+            {
+                Money_5();
+            }
+            else
+            {
+                Money_1();
+            }
+        }
+        else
+        {
+            Money_1();
+        }
     }
 }
