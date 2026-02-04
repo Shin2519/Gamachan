@@ -23,12 +23,11 @@ public class TouchPanel : MonoBehaviour
     // 合計金額が+か-で表示するテキストが変わるため
     [SerializeField] private TextMeshProUGUI sumamountyen;//合計金額テキスト(お釣り、支払残額)
     [SerializeField] SelectGoodsSO selectgoodsso;
-    [SerializeField]
     private int inputamount = 0;
     public int sumamount;//合計金額
     [SerializeField] GameObject selectgoods;
     public static GameObject hyouka;
-    [SerializeField, Header("Gama")]
+    [Header("Gama")]
     public GameObject Gama;
     public static Image Gama_Image;
     public static GameObject comboobject;
@@ -36,6 +35,8 @@ public class TouchPanel : MonoBehaviour
     [SerializeField]
     private GameObject Result;
     public static AudioSource audiosource;
+
+    public bool Onpay;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
 
@@ -78,9 +79,6 @@ public class TouchPanel : MonoBehaviour
 
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
-
-        Debug.Log(Gauge_State);
-
         if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
         {
             Gama_Image.sprite = Gama_Emotion.GoldenKindofemotion[0];
@@ -89,6 +87,7 @@ public class TouchPanel : MonoBehaviour
 
     IEnumerator kaikei()
     {
+        Onpay = true;
         sumamount = inputamount - selectgoodsso.total;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
@@ -101,6 +100,12 @@ public class TouchPanel : MonoBehaviour
             sumamountyen.text = "お釣り";
             sumamounttext.color = Color.red;
             Data.total_Data.Total_Change_Amount += sumamount;
+
+            if(Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
+            {
+                Data.total_Data.Golden_Count += 1;
+            }
+            
             if (sumamount==0)
             {
                 Timer.Instance.timer += 15;
@@ -140,5 +145,6 @@ public class TouchPanel : MonoBehaviour
             Result.SetActive(true);
         }
             rndyentext();
+        Onpay = false;
     }
 }

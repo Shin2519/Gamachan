@@ -43,7 +43,7 @@ public class UIManagement : MonoBehaviour
         {
             Gauge_State.gauge_state = Somethings_State.Gauge_State.Gold;
             TouchPanel.Gama_Image.sprite = Gama_State.GoldenKindofemotion[0];
-            StartCoroutine(GaugeDoun());
+            StartCoroutine(GaugeDown());
             StartCoroutine(ColorChange());
         }
         else
@@ -60,11 +60,12 @@ public class UIManagement : MonoBehaviour
     }
         
 
-    private IEnumerator GaugeDoun()
+    private IEnumerator GaugeDown()
     {
         isDown = true;
         while(Gauge.fillAmount > 0)
         {
+            yield return new WaitUntil(() => TouchPanel.instance.Onpay = false);
             Currentgauge -= 10 * Time.deltaTime;
             yield return null;
         }

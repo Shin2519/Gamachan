@@ -35,7 +35,6 @@ public class GRADE : MonoBehaviour
     {
         Instance = this;
         Grade_Ren = Grade.GetComponent<SpriteRenderer>();
-        Gama_Image = TouchPanel.instance.Gama.GetComponent<Image>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

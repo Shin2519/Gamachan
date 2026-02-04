@@ -15,13 +15,25 @@ public class SendData : ScriptableObject
 
         public int Bad_Count;
 
+        public int c1_count;
+
+        public int c5_count;
+
+        public int c10_count;
+
+        public int c50_count;
+
+        public int c100_count;
+
+        public int c500_count;
+
         public int Zero_Count;
+
+        public int Golden_Count;
 
         public int Total_Change_Amount;
 
         public int Combo_Count;
     }
     public Total_data total_Data;
-
-    public List<GameObject> Money;
 }

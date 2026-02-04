@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class TlyMove : MonoBehaviour
 {
-    [SerializeField]
-    SendData SendData;
     public float moveDistance = 200f;
     public float Speed = 2f;
+    [SerializeField]
+    private SendData total_deta;
     [SerializeField]
     private Somethings_State Gauge_State;
     private Transform pos;
@@ -44,30 +44,40 @@ public class TlyMove : MonoBehaviour
             audioSource.PlayOneShot(coinFall);
             if (other.gameObject.name=="500yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 500;
+                total_deta.total_Data.c500_count += 1;
             }
             else if (other.gameObject.name == "100yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 100;
+                total_deta.total_Data.c100_count += 1;
             }
             else if (other.gameObject.name== "50yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 50;
-                Destroy(other.gameObject);
+                total_deta.total_Data.c50_count += 1;
             }
             else if (other.gameObject.name== "10yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 10;
+                total_deta.total_Data.c10_count += 1;
             }
             else if(other.gameObject.name == "5yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 5;
+                total_deta.total_Data.c5_count += 1;
             }
             else if (other.gameObject.name == "1yen(Clone)")
             {
+                if (TouchPanel.instance.Onpay == true) return;
                 TouchPanel.instance.InputAmount += 1;
+                total_deta.total_Data.c1_count += 1;
             }
-            SendData.Money.Add(other.gameObject);
             other.gameObject.SetActive(false);
 
             if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
