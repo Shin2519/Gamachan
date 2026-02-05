@@ -9,10 +9,6 @@ public class ProbabilityManager
         {
             DropMoney.instance.KindofMoney(Shakespeed);
         }
-        else
-        {
-
-        }
         Debug.Log(rnd);
     }
     public void Gold(float Shakespeed)
@@ -21,10 +17,6 @@ public class ProbabilityManager
         if (rnd >= 0 && rnd <= 59)
         {
             DropMoney.instance.KindofMoney(Shakespeed);
-        }
-        else
-        {
-
         }
         Debug.Log(rnd);
     }

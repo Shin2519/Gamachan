@@ -17,7 +17,8 @@ public class MoneyDestroy : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Coin"))
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
+            col.gameObject.GetComponent<Collider2D>().enabled = false;
         }
     }
 }

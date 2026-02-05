@@ -79,6 +79,7 @@ public class TlyMove : MonoBehaviour
                 total_deta.total_Data.c1_count += 1;
             }
             other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<Collider2D>().enabled = false;
 
             if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
 

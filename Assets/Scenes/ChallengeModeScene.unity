@@ -1432,6 +1432,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511645959}
   m_CullTransparentMesh: 1
+--- !u!1 &543537688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8532386231573553524, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
+  m_PrefabInstance: {fileID: 620227970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &570564951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4565,6 +4570,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
     - target: {fileID: 336955757930102853, guid: 2172f8e8b14bcd141b64502596dc7dcb, type: 3}
+      propertyPath: timer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 336955757930102853, guid: 2172f8e8b14bcd141b64502596dc7dcb, type: 3}
       propertyPath: HotSpot.x
       value: 30
       objectReference: {fileID: 0}
@@ -4682,7 +4691,7 @@ PrefabInstance:
     - target: {fileID: 894082934530508436, guid: 9dec23d62bd488d4aaf9ac0077cc6fb6, type: 3}
       propertyPath: selectgoods
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 543537688}
     - target: {fileID: 1022894658775842376, guid: 9dec23d62bd488d4aaf9ac0077cc6fb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0

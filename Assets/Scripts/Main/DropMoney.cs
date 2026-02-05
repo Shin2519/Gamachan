@@ -27,17 +27,23 @@ public class DropMoney : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            smallmoney_500[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[0], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_500[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[0],new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_500[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_500[i].SetActive(false);
-            smallmoney_100[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[1], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_100[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[1], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_100[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_100[i].SetActive(false);
-            smallmoney_50[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[2], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_50[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[2], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_50[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_50[i].SetActive(false);
-            smallmoney_10[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[3], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_10[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[3], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_10[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_10[i].SetActive(false);
-            smallmoney_5[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[4], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_5[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[4], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_5[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_5[i].SetActive(false);
-            smallmoney_1[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[5], Gama.transform.position - new Vector3(0.0f, 10.0f, 0.0f), Quaternion.identity);
+            smallmoney_1[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[5], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
+            smallmoney_1[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_1[i].SetActive(false);
         }
     }
@@ -98,6 +104,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_500[i].activeInHierarchy)
             {
                 smallmoney_500[i].SetActive(true);
+                smallmoney_500[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_500[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }
@@ -111,6 +118,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_100[i].activeInHierarchy)
             {
                 smallmoney_100[i].SetActive(true);
+                smallmoney_100[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }
@@ -124,6 +132,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_50[i].activeInHierarchy)
             {
                 smallmoney_50[i].SetActive(true);
+                smallmoney_50[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }
@@ -137,6 +146,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_10[i].activeInHierarchy)
             {
                 smallmoney_10[i].SetActive(true);
+                smallmoney_10[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }
@@ -150,6 +160,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_5[i].activeInHierarchy)
             {
                 smallmoney_5[i].SetActive(true);
+                smallmoney_5[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }
@@ -163,6 +174,7 @@ public class DropMoney : MonoBehaviour
             if (!smallmoney_1[i].activeInHierarchy)
             {
                 smallmoney_1[i].SetActive(true);
+                smallmoney_1[i].GetComponent<Collider2D>().enabled = true;
                 smallmoney_1[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
                 return;
             }

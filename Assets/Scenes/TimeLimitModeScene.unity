@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gama_State: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge_State: {fileID: 0}
+  Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
   Gauge: {fileID: 2033541686}
   Current: 0
   Finish: {fileID: 766982761}
@@ -1465,6 +1465,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2772874995299134825, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
+      propertyPath: Speed_State
+      value: 
+      objectReference: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
+    - target: {fileID: 2772874995299134825, guid: 82aa51cf63eda3d41aaed43e569e0cf2, type: 3}
       propertyPath: Kindofsmallmoney
       value: 
       objectReference: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
@@ -1982,12 +1986,12 @@ MonoBehaviour:
   sumamounttext: {fileID: 1948405144}
   sumamountyen: {fileID: 2070662371}
   selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
-  inputamount: 0
   sumamount: 0
   selectgoods: {fileID: 607841533}
   Gama: {fileID: 832412912}
   Cross: {fileID: 586108009}
   Result: {fileID: 187217540}
+  Onpay: 0
 --- !u!114 &963227303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2310,6 +2314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 200
   Speed: 2
+  total_deta: {fileID: 0}
   Gauge_State: {fileID: 0}
   coinFall: {fileID: 8300000, guid: fffc5995dedbd264785cd211b9372041, type: 3}
   offset: {x: 942.5, y: 114.6}
