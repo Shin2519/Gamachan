@@ -139,7 +139,7 @@ public class TouchPanel : MonoBehaviour
 
             Data.total_Data.Combo_Count = combo;
 
-            //ResultManager.Instance.SetScores(ScoreCalculator.Instance.CalculateChallenge(Data.total_Data.Perfect_Count, Data.total_Data.Great_Count, Data.total_Data.Good_Count, Data.total_Data.Bad_Count, Data.total_Data.Zero_Count, 0, Data.total_Data.Combo_Count, 0, 0, 0, Data.total_Data.Total_Change_Amount));
+            //ResultManager.Instance.SetScores(ScoreCalculator.Instance.CalculateChallenge(Data));
 
             //SceneManager.LoadScene("Resultpanel");
             Result.SetActive(true);

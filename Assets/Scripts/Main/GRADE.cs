@@ -138,58 +138,55 @@ public class GRADE : MonoBehaviour
     }
     void Combo()
     {
+        int i = 0;
         switch (TouchPanel.combo)
         {
             case 3:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[0];
+                ComboObjects(i);
                 break;
             case 6:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[1];
+                i = 1;
+                ComboObjects(i);
                 break;
             case 9:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[2];
+                i = 2;
+                ComboObjects(i);
                 break;
             case 12:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[3];
+                i = 3;
+                ComboObjects(i);
                 break;
             case 15:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[4];
+                i = 4;
+                ComboObjects(i);
                 break;
             case 18:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[5];
+                i = 5;
+                ComboObjects(i);
                 break;
             case 21:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[6];
+                i = 6;
+                ComboObjects(i);
                 break;
             case 24:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[7];
+                i = 7;
+                ComboObjects(i);
                 break;
             case 27:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[8];
+                i = 8;
+                ComboObjects(i);
                 break;
             case 30:
-                TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
-                combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-                combo_Renderer.sprite = ui.Kindofcombo[9];
+                i = 9;
+                ComboObjects(i);
                 break;
         }
+    }
+
+    void ComboObjects(int i)
+    {
+        TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
+        combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
+        combo_Renderer.sprite = ui.Kindofcombo[i];
     }
 }
