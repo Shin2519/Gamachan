@@ -55,7 +55,7 @@ public class UIManagement : MonoBehaviour
     {
         if(!isDown)
         {
-            Currentgauge += 100 * Time.deltaTime;
+            Currentgauge += 10 * Time.deltaTime;
         }
     }
         
@@ -65,7 +65,7 @@ public class UIManagement : MonoBehaviour
         isDown = true;
         while(Gauge.fillAmount > 0)
         {
-            yield return new WaitUntil(() => TouchPanel.instance.Onpay = false);
+            yield return new WaitUntil(() => TouchPanel.instance.Onpay = true);
             Currentgauge -= 10 * Time.deltaTime;
             yield return null;
         }

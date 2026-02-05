@@ -36,7 +36,7 @@ public class TouchPanel : MonoBehaviour
     private GameObject Result;
     public static AudioSource audiosource;
 
-    public bool Onpay;
+    public bool Onpay = false;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
 

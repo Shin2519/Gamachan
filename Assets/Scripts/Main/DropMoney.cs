@@ -7,17 +7,17 @@ public class DropMoney : MonoBehaviour
     public static DropMoney instance;
     [SerializeField]
     private Somethings_State Speed_State;
-    [Header("小銭の種類")]
+    [SerializeField,Header("小銭の種類")]
     private UI Kindofsmallmoney;
-    [Header("ガマちゃん")]
+    [SerializeField,Header("ガマちゃん")]
     private GameObject Gama;
 
-    GameObject[] smallmoney_500 = new GameObject[20];
-    GameObject[] smallmoney_100 = new GameObject[20];
-    GameObject[] smallmoney_50 = new GameObject[20];
-    GameObject[] smallmoney_10 = new GameObject[20];
-    GameObject[] smallmoney_5 = new GameObject[20];
-    GameObject[] smallmoney_1 = new GameObject[20];
+    GameObject[] smallmoney_500 = new GameObject[10];
+    GameObject[] smallmoney_100 = new GameObject[10];
+    GameObject[] smallmoney_50 = new GameObject[10];
+    GameObject[] smallmoney_10 = new GameObject[10];
+    GameObject[] smallmoney_5 = new GameObject[10];
+    GameObject[] smallmoney_1 = new GameObject[10];
     void Awake()
     {
         instance = this;
@@ -93,15 +93,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_500()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_500.Length; i++)
         {
             if (!smallmoney_500[i].activeInHierarchy)
             {
                 smallmoney_500[i].SetActive(true);
                 smallmoney_500[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
@@ -109,15 +106,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_100()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_100.Length; i++)
         {
             if (!smallmoney_100[i].activeInHierarchy)
             {
                 smallmoney_100[i].SetActive(true);
                 smallmoney_100[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
@@ -125,15 +119,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_50()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_50.Length; i++)
         {
             if (!smallmoney_50[i].activeInHierarchy)
             {
                 smallmoney_50[i].SetActive(true);
                 smallmoney_50[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
@@ -141,15 +132,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_10()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_10.Length; i++)
         {
             if (!smallmoney_10[i].activeInHierarchy)
             {
                 smallmoney_10[i].SetActive(true);
                 smallmoney_10[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
@@ -157,15 +145,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_5()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_5.Length; i++)
         {
             if (!smallmoney_5[i].activeInHierarchy)
             {
                 smallmoney_5[i].SetActive(true);
                 smallmoney_5[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
@@ -173,15 +158,12 @@ public class DropMoney : MonoBehaviour
 
     void Money_1()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < smallmoney_1.Length; i++)
         {
             if (!smallmoney_1[i].activeInHierarchy)
             {
                 smallmoney_1[i].SetActive(true);
                 smallmoney_1[i].transform.position = Gama.transform.position - new Vector3(0.0f, -10.0f, 0.0f);
-            }
-            else
-            {
                 return;
             }
         }
