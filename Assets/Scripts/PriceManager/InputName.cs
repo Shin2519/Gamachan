@@ -79,6 +79,33 @@ public class InputName : MonoBehaviour
             audioSource.PlayOneShot(Clip1);
         }
     }
+    //Inputsystemでの入力(時間があれば)
+    //public void OnNext(InputValue value)
+    //{
+    //    Debug.Log("aaa");
+    //    if (inputField.text == "")
+    //    {
+    //        StartCoroutine(stay());
+
+    //    }
+    //    else if (ngtext.enabled)
+    //    {
+
+    //    }
+    //    else
+    //    {
+    //        if (Mode.Instance.isMode)
+    //        {
+    //            FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
+    //        }
+    //        else if (!Mode.Instance.isMode)
+    //        {
+    //            FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
+
+    //        }
+    //    }
+    //    audioSource.PlayOneShot(Clip1);
+    //}
 
     public void InputText()
     {

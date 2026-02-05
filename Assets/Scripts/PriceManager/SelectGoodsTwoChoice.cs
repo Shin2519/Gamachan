@@ -35,6 +35,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private Image resetImage;
 
     [SerializeField] private Sprite[] resetSprit;
+    [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
+    [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
+
 
     void Start()
     {
@@ -48,6 +51,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     // 初期化
     public void InitCounts()
     {
+        jageImage[0].enabled=false;
+        jageImage[1].enabled = false;
         selectSO.total = 0;
         selectSO.targetLeft = 0;
         selectSO.targetRight = 0;
@@ -131,6 +136,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
             gametext.SetActive(true);
             Debug.Log("ok");
+            jageImage[0].sprite = jageSprit[0];
+            jageImage[0].enabled = true;
         }
         else
         {
@@ -140,6 +147,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
             gametext.SetActive(true);
             Debug.Log("miss");
+            jageImage[0].sprite = jageSprit[1];
+            jageImage[0].enabled = true;
+
         }
     }
     //右側の商品の正誤判定(成功時のスコア加算の追加予定)
@@ -153,6 +163,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
             gametext.SetActive(true);
             Debug.Log("ok");
+            jageImage[1].sprite = jageSprit[0];
+            jageImage[1].enabled = true;
         }
         else
         {
@@ -162,6 +174,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
             gametext.SetActive(true);
             Debug.Log("miss");
+            jageImage[1].sprite = jageSprit[1];
+            jageImage[1].enabled = true;
         }
     }
 
