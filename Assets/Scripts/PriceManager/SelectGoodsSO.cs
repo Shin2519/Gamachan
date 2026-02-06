@@ -21,7 +21,7 @@ public class SelectGoodsSO : ScriptableObject
     public int targetLeft;
     public int targetRight;
 
-
+    public bool judgement;
 
 }
 

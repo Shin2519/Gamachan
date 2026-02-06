@@ -39,6 +39,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private AudioClip circle;
     [SerializeField] private AudioClip cross;
 
+    
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -144,6 +145,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     {
         if (selectSO.targetLeft == selectSO.total)
         {
+            selectSO.judgement = true;
             audioSource.PlayOneShot(circle);
             jageImage[0].sprite = jageSprit[0];
             jageImage[0].enabled = true;
@@ -158,6 +160,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         }
         else
         {
+            selectSO.judgement = false;
             audioSource.PlayOneShot(cross);
             jageImage[0].sprite = jageSprit[1];
             jageImage[0].enabled = true;
@@ -176,6 +179,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     {
         if (selectSO.targetRight == selectSO.total)
         {
+            selectSO.judgement = true;
             audioSource.PlayOneShot(circle);
             jageImage[1].sprite = jageSprit[0];
             jageImage[1].enabled = true;
@@ -190,6 +194,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         }
         else
         {
+            selectSO.judgement = false;
             audioSource.PlayOneShot(cross);
             jageImage[1].sprite = jageSprit[1];
             jageImage[1].enabled = true;
@@ -221,7 +226,6 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     IEnumerator ResetGoods()
     {
         resetImage.sprite = resetSprit[0];
-        //reset.SetActive(false);
         InitCounts();
         SetPrices();
         CreateDisplayGoodsLeft();

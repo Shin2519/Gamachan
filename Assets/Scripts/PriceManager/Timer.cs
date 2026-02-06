@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject two;
     [SerializeField] GameObject three;
     [SerializeField] GameObject countdown;
+    [SerializeField] GameObject resultpanel;
+
     public bool stop;
 
     private void Awake()
@@ -63,7 +65,7 @@ public class Timer : MonoBehaviour
             }
             else if (timer <= -2)
             {
-                SceneManager.LoadScene("Resultpanel");
+                resultpanel.SetActive(true);
             }
         }
 
