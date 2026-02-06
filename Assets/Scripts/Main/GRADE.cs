@@ -15,7 +15,7 @@ public class GRADE : MonoBehaviour
     private Sound SE;
     public static GRADE Instance;
     public int Gameover_count = 0;
-    Image Gama_Image;
+    public Image Gama_Image;
 
     [SerializeField]
     private Sprite Out_count;
