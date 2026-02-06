@@ -30,9 +30,6 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private GameObject tly;
     [SerializeField] private GameObject reset;
     [SerializeField] private GameObject gametext;
-    [SerializeField] private Image resetImage;
-
-    [SerializeField] private Sprite[] resetSprit;
     [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
     [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
     [SerializeField] private AudioSource audioSource;
@@ -229,15 +226,12 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     //リセットボタン
     IEnumerator ResetGoods()
     {
-        resetImage.sprite = resetSprit[0];
         InitCounts();
         SetPrices();
         CreateDisplayGoodsLeft();
         CreateDisplayGoodsRight();
         SetTargetText();
         yield return new WaitForSeconds(cooltime);
-        resetImage.sprite = resetSprit[1];
-
         reset.SetActive(true);
     }
 }

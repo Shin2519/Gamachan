@@ -2064,6 +2064,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2420412295382192993, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 4273085908346926509, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2104,13 +2108,25 @@ PrefabInstance:
       propertyPath: 'jageSprit.Array.data[1]'
       value: 
       objectReference: {fileID: 21300000, guid: 1f87056f88e478444936454ea2f69019, type: 3}
+    - target: {fileID: 6392116718956566117, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392116718956566117, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b1d2aaf385aeee04cbc265a83d087289, type: 3}
+    - target: {fileID: 6392116718956566117, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc7ea12c788122147aabd9cdc03ae867, type: 3}
     - target: {fileID: 8532386231573553524, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
       propertyPath: m_Name
       value: SelectGoodsChalengeModeTwoChoice
       objectReference: {fileID: 0}
     - target: {fileID: 8532386231573553524, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8683873699583676478, guid: 478dc44f6659f9d4da9f78383a67034c, type: 3}
       propertyPath: m_SizeDelta.x
