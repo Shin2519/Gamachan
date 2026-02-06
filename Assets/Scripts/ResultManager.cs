@@ -40,12 +40,11 @@ public class ResultManager : MonoBehaviour
     }
     private void Start()
     {
-
-
         if (ResultManagerBridge.modeId == 0) 
         { 
             gameMode = "Challenge"; 
-        } else 
+        } 
+        else 
         { 
             gameMode = "TimeLimit"; 
         }

@@ -9,6 +9,7 @@ public class RankingManager : MonoBehaviour
     public List<RankEntry> challengeRanking = new List<RankEntry>();
     public List<RankEntry> timeLimitRanking = new List<RankEntry>();
 
+    [SerializeField] private Playername pl;
     private void Awake()
     {
         if (Instance == null)
@@ -22,10 +23,15 @@ public class RankingManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        
+    }
 
     // ÉXÉRÉAí«â¡
     public void AddScore(string mode, string name, int score)
     {
+        name = pl.name;
         RankEntry entry = new RankEntry { playerName = name, score = score };
 
         if (mode == "Challenge")

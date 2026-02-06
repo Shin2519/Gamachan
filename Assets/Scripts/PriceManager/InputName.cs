@@ -52,7 +52,8 @@ public class InputName : MonoBehaviour
     void Update()
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
-        
+
+        pl.playername = inputField.text.ToString();
         if (Input.GetKey(KeyCode.Return))
         {
             Debug.Log("aaa");
@@ -69,7 +70,7 @@ public class InputName : MonoBehaviour
                 if (Mode.Instance.isMode)
                 {
                     FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
-                    pl.playername = inputField.text.ToString();
+                    
                 }
                 else if (!Mode.Instance.isMode)
                 {

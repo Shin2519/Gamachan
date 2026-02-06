@@ -34,15 +34,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private GameObject gametext;
     [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
     [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip circle;
     [SerializeField] private AudioClip cross;
 
-    
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     void Start()
     {
