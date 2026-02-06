@@ -7,6 +7,7 @@ public class WalletMove : MonoBehaviour
 {
     public static WalletMove Instance;
 
+    [SerializeField]
     private ProbabilityManager probability = new ProbabilityManager();
 
     [SerializeField]

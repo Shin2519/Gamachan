@@ -1992,6 +1992,7 @@ MonoBehaviour:
   Cross: {fileID: 586108009}
   Result: {fileID: 187217540}
   Onpay: 0
+  gametext: {fileID: 0}
 --- !u!114 &963227303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2316,6 +2317,8 @@ MonoBehaviour:
   Speed: 2
   total_deta: {fileID: 0}
   Gauge_State: {fileID: 0}
+  sendtotaldata:
+    TotalData: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   coinFall: {fileID: 8300000, guid: fffc5995dedbd264785cd211b9372041, type: 3}
   offset: {x: 942.5, y: 114.6}
   offset2: {x: 169.2, y: 94.4}
@@ -2460,6 +2463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01202a648a788dc4a9ce106d95a5aa7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  probability:
+    NormalRange: 0
+    GoldRange: 0
   E_System: {fileID: 995700647}
   G_raycast: {fileID: 1452022848}
   ParentCanvas: {fileID: 1452022851}

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class SelectGoodsTwoChoice: MonoBehaviour
 {
+    [SerializeField, Header("音をまとめてるオブジェクト")]
+    private Sound sound;
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI[] priceTextsLeft;//各商品の値段
     [SerializeField] private TextMeshProUGUI[] priceTextsRight;//各商品の値段
@@ -143,7 +145,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         if (selectSO.targetLeft == selectSO.total)
         {
             selectSO.judgement = true;
-            audioSource.PlayOneShot(circle);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Circle);
             jageImage[0].enabled = true;
             jageImage[0].sprite = jageSprit[0];
             
@@ -159,7 +161,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         else
         {
             selectSO.judgement = false;
-            audioSource.PlayOneShot(cross);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Cross);
             jageImage[0].enabled = true;
             jageImage[0].sprite = jageSprit[1];
             
@@ -179,7 +181,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         if (selectSO.targetRight == selectSO.total)
         {
             selectSO.judgement = true;
-            audioSource.PlayOneShot(circle);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Circle);
             jageImage[1].enabled = true;
             jageImage[1].sprite = jageSprit[0];
            
@@ -195,7 +197,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         else
         {
             selectSO.judgement = false;
-            audioSource.PlayOneShot(cross);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Cross);
             jageImage[1].enabled = true;
             jageImage[1].sprite = jageSprit[1];
             

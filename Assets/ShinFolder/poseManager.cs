@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class poseManager : MonoBehaviour
 {
+    [SerializeField] private Sound sound;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button TitleButton;
@@ -115,7 +116,7 @@ public class poseManager : MonoBehaviour
     {
         if (backSE != null)
         {
-            seSource.PlayOneShot(backSE);
+            AudioManager.Instance.seSource.PlayOneShot(backSE);
         }
 
         SceneManager.LoadScene("TitleScene");

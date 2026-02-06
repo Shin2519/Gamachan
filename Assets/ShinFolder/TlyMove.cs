@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TlyMove : MonoBehaviour
 {
+    [SerializeField]
+    private Sound sound;
     public float moveDistance = 200f;
     public float Speed = 2f;
     [SerializeField]
@@ -43,7 +45,7 @@ public class TlyMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coin"))
         {
-            audioSource.PlayOneShot(coinFall);
+            AudioManager.Instance.seSource.PlayOneShot(sound.CoinFall);
             if (other.gameObject.name=="500yen(Clone)")
             {
                 if (TouchPanel.instance.Onpay == true) return;

@@ -1,11 +1,13 @@
 using UnityEngine;
-
+[System.Serializable]
 public class ProbabilityManager 
 {
+    public int NormalRange;
+    public int GoldRange;
     public void Normal(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);
-        if (rnd >= 0 && rnd <= 49)
+        if (rnd >= 0 && rnd <= NormalRange)
         {
             DropMoney.instance.KindofMoney(Shakespeed);
         }
@@ -14,7 +16,7 @@ public class ProbabilityManager
     public void Gold(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);
-        if (rnd >= 0 && rnd <= 59)
+        if (rnd >= 0 && rnd <= GoldRange)
         {
             DropMoney.instance.KindofMoney(Shakespeed);
         }
