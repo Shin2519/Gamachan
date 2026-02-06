@@ -26,7 +26,7 @@ public class poseManager : MonoBehaviour
 
         //ボタンにリスナーを追加
         ResumeButton.onClick.AddListener(ResumeGame);
-        TitleButton.onClick.AddListener(ChangeScene_Ti);
+        //TitleButton.onClick.AddListener(ChangeScene_Ti);
 
         //音量設定用
         float bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);

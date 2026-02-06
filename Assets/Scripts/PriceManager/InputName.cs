@@ -14,7 +14,8 @@ public class InputName : MonoBehaviour
 
     [Header("名前入力スペース")]
     [SerializeField] private TMP_InputField inputField;//プレイヤーの名前を入力
-    [SerializeField] private TextMeshProUGUI playername;//プレイヤーの名前を記憶
+    //[SerializeField] private TextMeshProUGUI playername;
+    public string playernamea;//プレイヤーの名前を記憶
 
     [SerializeField] private TextMeshProUGUI namecount;//文字数制限テキスト
 
@@ -58,7 +59,6 @@ public class InputName : MonoBehaviour
             if (inputField.text == "")
             {
                 StartCoroutine(stay());
-
             }
             else if (ngtext.enabled)
             {
@@ -109,13 +109,12 @@ public class InputName : MonoBehaviour
 
     public void InputText()
     {
-        playername.text = inputField.text;//変更予定
-
+        playernamea = inputField.text;
         bool isNg = false;
 
         foreach (string n in ngword)
         {
-            if (playername.text.Contains(n))
+            if (playernamea.Contains(n))
             {
                 isNg = true;
                 break;
@@ -125,7 +124,7 @@ public class InputName : MonoBehaviour
         ngtext.enabled = isNg;
         ngtext_e.enabled = isNg;
 
-        if(isNg )
+        if(isNg)
         {
             inputText.enabled = false;
             inputText_e.enabled = false;
@@ -152,7 +151,6 @@ public class InputName : MonoBehaviour
             else if(!Mode.Instance.isMode)
             {
                 FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
-
             }
         }
         audioSource.PlayOneShot(Clip1);

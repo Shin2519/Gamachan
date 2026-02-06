@@ -13,12 +13,12 @@ public class DropMoney : MonoBehaviour
     [SerializeField,Header("ガマちゃん")]
     private GameObject Gama;
 
-    GameObject[] smallmoney_500 = new GameObject[10];
-    GameObject[] smallmoney_100 = new GameObject[10];
-    GameObject[] smallmoney_50 = new GameObject[10];
-    GameObject[] smallmoney_10 = new GameObject[10];
-    GameObject[] smallmoney_5 = new GameObject[10];
-    GameObject[] smallmoney_1 = new GameObject[10];
+    GameObject[] smallmoney_500 = new GameObject[20];
+    GameObject[] smallmoney_100 = new GameObject[20];
+    GameObject[] smallmoney_50 = new GameObject[20];
+    GameObject[] smallmoney_10 = new GameObject[20];
+    GameObject[] smallmoney_5 = new GameObject[20];
+    GameObject[] smallmoney_1 = new GameObject[20];
     void Awake()
     {
         instance = this;

@@ -43,6 +43,7 @@ public class TouchPanel : MonoBehaviour
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
 
+    [SerializeField] private GameObject gametext;
     void Awake()
     {
         instance = this;
@@ -91,6 +92,7 @@ public class TouchPanel : MonoBehaviour
 
     IEnumerator kaikei()
     {
+        gametext.SetActive(false);
         Onpay = true;
         sumamount = inputamount - selectgoodsso.total;
         sumamounttext.enabled = true;
