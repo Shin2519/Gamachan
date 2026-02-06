@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Collections;
 using UnityEngine.InputSystem;
 
@@ -15,7 +13,6 @@ public class InputName : MonoBehaviour
     [Header("名前入力スペース")]
     [SerializeField] private TMP_InputField inputField;//プレイヤーの名前を入力
     //[SerializeField] private TextMeshProUGUI playername;
-    public string playernamea;//プレイヤーの名前を記憶
 
     [SerializeField] private TextMeshProUGUI namecount;//文字数制限テキスト
 
@@ -29,6 +26,7 @@ public class InputName : MonoBehaviour
     [SerializeField] private AudioClip Clip;
     [SerializeField] private AudioClip Clip1;
 
+    [SerializeField] private Playername pl;//プレイヤーの名前を記憶
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +67,7 @@ public class InputName : MonoBehaviour
                 if (Mode.Instance.isMode)
                 {
                     FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
+                    pl.playername = inputField.text.ToString();
                 }
                 else if (!Mode.Instance.isMode)
                 {
@@ -109,12 +108,11 @@ public class InputName : MonoBehaviour
 
     public void InputText()
     {
-        playernamea = inputField.text;
         bool isNg = false;
 
         foreach (string n in ngword)
         {
-            if (playernamea.Contains(n))
+            if (pl.playername.Contains(n))
             {
                 isNg = true;
                 break;
@@ -129,6 +127,7 @@ public class InputName : MonoBehaviour
             inputText.enabled = false;
             inputText_e.enabled = false;
         }
+        
     }
 
     public void OnButtonGame()

@@ -1820,19 +1820,18 @@ MonoBehaviour:
   inputText: {fileID: 411910973}
   inputText_e: {fileID: 1534514031}
   inputField: {fileID: 1487470234}
-  playernamea: 
   namecount: {fileID: 1116266086}
   ngword:
   - aa
   - "\u3057\u306D"
   - "\u3042\u307B"
   - www
-  - ' '
   ngtext: {fileID: 236511616}
   ngtext_e: {fileID: 2000829391}
   audioSource: {fileID: 1419874878}
   Clip: {fileID: 8300000, guid: 4668a4dcb148de243b9569ee2ce6eacc, type: 3}
   Clip1: {fileID: 8300000, guid: f13bf02c97cc49c4bbc665e56cf0208c, type: 3}
+  pl: {fileID: 11400000, guid: 31242d17fb8c3724daaa2ecee5aed3d5, type: 2}
 --- !u!82 &1419874878
 AudioSource:
   m_ObjectHideFlags: 0

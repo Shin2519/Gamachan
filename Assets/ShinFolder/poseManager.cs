@@ -118,6 +118,6 @@ public class poseManager : MonoBehaviour
             seSource.PlayOneShot(backSE);
         }
 
-        SceneManager.LoadScene("TitleScene");
+        //SceneManager.LoadScene("TitleScene");
     }
 }

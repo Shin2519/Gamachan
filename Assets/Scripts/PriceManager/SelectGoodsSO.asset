@@ -22,7 +22,7 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: 2fccc68c1fa80cc489b8183941b647c8, type: 3}
     price: 3380
     count: 1
-  - image: {fileID: 21300000, guid: 12dc47f89f3067742943ef444354bce4, type: 3}
+  - image: {fileID: 21300000, guid: 9330b672a28adf849a96fc5db6d846e4, type: 3}
     price: 4100
     count: 0
   - image: {fileID: 21300000, guid: b4cc6bf388490a842a9752d9748d68ad, type: 3}
