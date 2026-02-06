@@ -3,48 +3,7 @@ using UnityEngine;
 public class ScoreCalculator : MonoBehaviour
 {
     public static ScoreCalculator Instance;
-    //[Header("評価スコア")]
-    //[SerializeField] private int evalPerfect = 100;
-    //[SerializeField] private int evalGreat = 70;
-    //[SerializeField] private int evalGood = 40;
-    //[SerializeField] private int evalBad = -50;
-
-    //[Header("ボーナス")]
-    //[SerializeField] private int zeroYenBonus = 200;
-    //[SerializeField] private int goldenBonus = 300;
-
-    //[Header("コンボボーナス")]
-    //[SerializeField] private int comboStepBonus = 20;
-    //[SerializeField] private int comboMaxBonus = 300;
-
-    //[Header("スピードボーナス")]
-    //[SerializeField] private int speed15 = 200;
-    //[SerializeField] private int speed20 = 100;
-
-    //[Header("タイムリミット：商品数ボーナス")]
-    //[SerializeField] private int threeItemScore = 300;
-    //[SerializeField] private int oneItemScore = 100;
-
-    //[Header("タイムリミット：誤差スコア")]
-    //[SerializeField] private int diff0Score = 300;
-    //[SerializeField] private int diff100Score = 200;
-    //[SerializeField] private int diff250Score = 100;
-    //[SerializeField] private int diff500Score = 50;
-    //[SerializeField] private int diffOverScore = 0;
-
-    //[Header("硬貨スコア")]
-    //[SerializeField] private int coin1 = 1;
-    //[SerializeField] private int coin5 = 5;
-    //[SerializeField] private int coin10 = 10;
-    //[SerializeField] private int coin50 = 50;
-    //[SerializeField] private int coin100 = 100;
-    //[SerializeField] private int coin500 = 500;
-
-    //[Header("チャレンジ：誤差スコア")]
-    //[SerializeField] private int challengePerfectDiff = 300;
-    //[SerializeField] private int challengeDiff100 = 200;
-    //[SerializeField] private int challengeDiff250 = 100;
-    //[SerializeField] private int challengeDiff500 = 50;
+    
     [SerializeField]
     private ScoreSettings setdata;
     // 評価タイプ
@@ -145,7 +104,6 @@ public class ScoreCalculator : MonoBehaviour
         r.greatScore = data.total_Data.Great_Count * setdata.evalGreat;
         r.goodScore = data.total_Data.Good_Count * setdata.evalGood;
         r.badScore = data.total_Data.Bad_Count * setdata.evalBad;
-
         r.zeroYenBonus = data.total_Data.Zero_Count * setdata.zeroYenBonus;
         r.goldenBonus = data.total_Data.Golden_Count * setdata.goldenBonus;
         r.comboBonus = GetComboBonus(data.total_Data.Combo_Count);
@@ -171,6 +129,26 @@ public class ScoreCalculator : MonoBehaviour
 
         return r;
     }
+
+    public int[] ScoreData(SendData senddata)
+    {
+        int[] data = new int[11];
+
+        data[0] = senddata.total_Data.Perfect_Count * setdata.evalPerfect;
+        data[1] = senddata.total_Data.Great_Count * setdata.evalGreat;
+        data[2] = senddata.total_Data.Good_Count * setdata.evalGood;
+        data[3] = senddata.total_Data.Bad_Count * setdata.evalBad;
+        data[4] = senddata.total_Data.Bad_Count * setdata.evalBad;
+        data[5] = GetCoinScore(senddata.total_Data.c500_count, senddata.total_Data.c100_count, senddata.total_Data.c50_count, senddata.total_Data.c10_count, senddata.total_Data.c5_count, senddata.total_Data.c1_count);
+        data[6] = senddata.total_Data.Zero_Count * setdata.zeroYenBonus;
+        data[7] = senddata.total_Data.Golden_Count * setdata.goldenBonus;
+        data[8] = GetComboBonus(senddata.total_Data.Combo_Count);
+        data[9] = senddata.total_Data.Total_Change_Amount;
+        data[10] = data[0] + data[1] + data[2] + data[3] + data[4] + data[5] + data[6] + data[7] + data[8] + data[9];
+
+        return data;
+    }
+
 
     // タイムリミット最終スコア
     public TimeLimitScoreResult CalculateTimeLimit(int itemCount,int target, int result,int speedBonusTotal,SendData data)

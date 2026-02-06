@@ -8,6 +8,8 @@ public class GRADE : MonoBehaviour
     [SerializeField]
     SendData Data;
     [SerializeField]
+    SendTotalData totaldata = new SendTotalData();
+    [SerializeField]
     private UI ui;
     [SerializeField]
     private Somethings_State Gauge_State;
@@ -15,7 +17,6 @@ public class GRADE : MonoBehaviour
     private Sound SE;
     public static GRADE Instance;
     public int Gameover_count = 0;
-    Image Gama_Image;
 
     [SerializeField]
     private Sprite Out_count;
@@ -34,7 +35,6 @@ public class GRADE : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        Grade_Ren = Grade.GetComponent<SpriteRenderer>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,9 +61,12 @@ public class GRADE : MonoBehaviour
                 Grade_Ren.sprite = ui.Grade[3];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = ui.GoldenKindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
-                Gama_Image.sprite = ui.Kindofemotion[1];
+                else
+                {
+                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[1];
+                }
                 Data.total_Data.Perfect_Count += 1;
                 Data.total_Data.Zero_Count += 1;
             }
@@ -77,11 +80,11 @@ public class GRADE : MonoBehaviour
 
                 if(Gauge_State.gauge_state ==Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = ui.GoldenKindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[1];
                 }
                 else
                 {
-                    Gama_Image.sprite = ui.Kindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[1];
                 }
                 Data.total_Data.Great_Count += 1;
             }
@@ -100,11 +103,11 @@ public class GRADE : MonoBehaviour
                 Grade_Ren.sprite = ui.Grade[1];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    Gama_Image.sprite = ui.GoldenKindofemotion[0];
+                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[0];
                 }
                 else
                 {
-                    Gama_Image.sprite = ui.Kindofemotion[0];
+                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[0];
                 }
                 Data.total_Data.Good_Count += 1;
             }
@@ -127,11 +130,11 @@ public class GRADE : MonoBehaviour
             Grade_Ren.sprite = ui.Grade[0];
             if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
             {
-                Gama_Image.sprite = ui.GoldenKindofemotion[2];
+                TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[2];
             }
             else
             {
-                Gama_Image.sprite = ui.Kindofemotion[2];
+                TouchPanel.Gama_Image.sprite = ui.Kindofemotion[2];
             }
             Data.total_Data.Bad_Count += 1;
         }

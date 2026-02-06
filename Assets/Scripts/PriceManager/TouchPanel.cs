@@ -1,21 +1,24 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
+using static SendData;
 
 public class TouchPanel : MonoBehaviour
 {
     public static int combo;
     public static TouchPanel instance;
+    ChallengeScoreResult CS;
     [SerializeField]
     SendData Data;
+    [SerializeField]
+    SendTotalData TotalData;
     [SerializeField]
     UI Gama_Emotion;
     [SerializeField]
     Somethings_State Gauge_State;
     [SerializeField]
-    private Sound SE;
+    Sound SE;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -55,6 +58,7 @@ public class TouchPanel : MonoBehaviour
         rndyentext();
         Cross.SetActive(false);
         Result.SetActive(false);
+        ResultManager.Instance.SetScores(CS.ToArray());
     }
     void Update()
     {
@@ -101,7 +105,7 @@ public class TouchPanel : MonoBehaviour
             sumamounttext.color = Color.red;
             Data.total_Data.Total_Change_Amount += sumamount;
 
-            if(Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
+            if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
             {
                 Data.total_Data.Golden_Count += 1;
             }
@@ -139,7 +143,7 @@ public class TouchPanel : MonoBehaviour
 
             Data.total_Data.Combo_Count = combo;
 
-            //ResultManager.Instance.SetScores(ScoreCalculator.Instance.CalculateChallenge(Data));
+            ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
 
             //SceneManager.LoadScene("Resultpanel");
             Result.SetActive(true);

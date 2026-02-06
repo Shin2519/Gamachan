@@ -8,6 +8,8 @@ public class TlyMove : MonoBehaviour
     private SendData total_deta;
     [SerializeField]
     private Somethings_State Gauge_State;
+    [SerializeField]
+    SendTotalData sendtotaldata;
     private Transform pos;
     private Vector2 startPos;
 

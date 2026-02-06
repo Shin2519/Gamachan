@@ -22,7 +22,7 @@ public class ResultManager : MonoBehaviour
     [Header("スコア表示用テキスト (10項目)")]
     [SerializeField] private Text[] scoreTexts;
 
-    private int[] scoreValues = new int[10];
+    private int[] scoreValues = new int[11];
 
     // 最終スコア
     private int finalScore;
@@ -131,7 +131,7 @@ public class ResultManager : MonoBehaviour
             scoreValues = values;
             UpdateScoreTexts();
 
-            finalScore = values[9]; // 合計スコア
+            finalScore = values[10]; // 合計スコア
         }
     }
 
