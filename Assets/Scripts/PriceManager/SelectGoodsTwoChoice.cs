@@ -24,8 +24,6 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     public static SelectGoods selectGoods;
     // 表示＆操作対象の商品
     private List<data> displayData = new();
-
-    [Header("デバッグ")] public bool debug;
     [Header("リセットボタンの再表示時間")] public float cooltime;
 
     [SerializeField] private GameObject gamachan;
@@ -37,7 +35,14 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private Sprite[] resetSprit;
     [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
     [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip circle;
+    [SerializeField] private AudioClip cross;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -128,54 +133,74 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     //左側の商品の正誤判定(成功時のスコア加算の追加予定)
     public void PayLeft()
     {
-        if (selectSO.targetLeft == selectSO.total)
-        {
-            thispanel.gameObject.SetActive(false);
-            TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
-            tly.SetActive(true);
-            gametext.SetActive(true);
-            Debug.Log("ok");
-            jageImage[0].sprite = jageSprit[0];
-            jageImage[0].enabled = true;
-        }
-        else
-        {
-            thispanel.gameObject.SetActive(false);
-            TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
-            tly.SetActive(true);
-            gametext.SetActive(true);
-            Debug.Log("miss");
-            jageImage[0].sprite = jageSprit[1];
-            jageImage[0].enabled = true;
-
-        }
+        StartCoroutine(PayJageLeft());
     }
     //右側の商品の正誤判定(成功時のスコア加算の追加予定)
     public void PayRight()
     {
-        if (selectSO.targetRight == selectSO.total)
+        StartCoroutine (PayJageRight());
+    }
+    IEnumerator PayJageLeft()
+    {
+        if (selectSO.targetLeft == selectSO.total)
         {
+            audioSource.PlayOneShot(circle);
+            jageImage[0].sprite = jageSprit[0];
+            jageImage[0].enabled = true;
+            
+            yield return new WaitForSeconds(1.5f);
+            
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
-            Debug.Log("ok");
-            jageImage[1].sprite = jageSprit[0];
-            jageImage[1].enabled = true;
         }
         else
         {
+            audioSource.PlayOneShot(cross);
+            jageImage[0].sprite = jageSprit[1];
+            jageImage[0].enabled = true;
+
+            yield return new WaitForSeconds(1.5f);
+
+            gametext.SetActive(true);
+            thispanel.gameObject.SetActive(false);
+            TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
+            tly.SetActive(true);
+        }
+    }
+
+    IEnumerator PayJageRight()
+    {
+        if (selectSO.targetRight == selectSO.total)
+        {
+            audioSource.PlayOneShot(circle);
+            jageImage[1].sprite = jageSprit[0];
+            jageImage[1].enabled = true;
+
+            yield return new WaitForSeconds(1.5f);
+            
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
-            Debug.Log("miss");
+        }
+        else
+        {
+            audioSource.PlayOneShot(cross);
             jageImage[1].sprite = jageSprit[1];
             jageImage[1].enabled = true;
+            
+            yield return new WaitForSeconds(1.5f);
+            
+            thispanel.gameObject.SetActive(false);
+            TouchPanel.instance.rndyentext();
+            gamachan.SetActive(true);
+            tly.SetActive(true);
+            gametext.SetActive(true);
         }
     }
 
@@ -192,6 +217,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     {
         StartCoroutine(ResetGoods());
     }
+    //リセットボタン
     IEnumerator ResetGoods()
     {
         resetImage.sprite = resetSprit[0];
@@ -201,11 +227,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         CreateDisplayGoodsLeft();
         CreateDisplayGoodsRight();
         SetTargetText();
-        //slider.value = 1;
         yield return new WaitForSeconds(cooltime);
         resetImage.sprite = resetSprit[1];
-
-        //slider.value = 0;
 
         reset.SetActive(true);
     }
