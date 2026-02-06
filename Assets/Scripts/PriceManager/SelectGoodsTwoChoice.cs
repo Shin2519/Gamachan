@@ -147,8 +147,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = true;
             audioSource.PlayOneShot(circle);
-            jageImage[0].sprite = jageSprit[0];
             jageImage[0].enabled = true;
+            jageImage[0].sprite = jageSprit[0];
+            
             
             yield return new WaitForSeconds(1.5f);
             
@@ -162,8 +163,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = false;
             audioSource.PlayOneShot(cross);
-            jageImage[0].sprite = jageSprit[1];
             jageImage[0].enabled = true;
+            jageImage[0].sprite = jageSprit[1];
+            
 
             yield return new WaitForSeconds(1.5f);
 
@@ -181,8 +183,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = true;
             audioSource.PlayOneShot(circle);
-            jageImage[1].sprite = jageSprit[0];
             jageImage[1].enabled = true;
+            jageImage[1].sprite = jageSprit[0];
+           
 
             yield return new WaitForSeconds(1.5f);
             
@@ -196,8 +199,9 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = false;
             audioSource.PlayOneShot(cross);
-            jageImage[1].sprite = jageSprit[1];
             jageImage[1].enabled = true;
+            jageImage[1].sprite = jageSprit[1];
+            
             
             yield return new WaitForSeconds(1.5f);
             
