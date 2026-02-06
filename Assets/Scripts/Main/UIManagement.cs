@@ -14,7 +14,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField]
     float Current = 0;
     int Min = 0;
-    int Max = 100;
+    int Max = 15;
     Color gauge_color;
     Color color;
 
@@ -55,7 +55,7 @@ public class UIManagement : MonoBehaviour
     {
         if(!isDown)
         {
-            Currentgauge += 10 * Time.deltaTime;
+            Currentgauge += 5 * Time.deltaTime;
         }
     }
         
@@ -65,7 +65,7 @@ public class UIManagement : MonoBehaviour
         isDown = true;
         while(Gauge.fillAmount > 0)
         {
-            Currentgauge -= 10 * Time.deltaTime;
+            Currentgauge -= 1 * Time.deltaTime;
             yield return null;
         }
         Gauge_State.gauge_state = Somethings_State.Gauge_State.Normal;
