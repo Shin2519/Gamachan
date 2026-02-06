@@ -2753,6 +2753,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
+    - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
       propertyPath: seSlider
       value: 
       objectReference: {fileID: 1127361806}

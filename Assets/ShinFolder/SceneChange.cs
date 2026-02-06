@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    [SerializeField] private string SettingScene;
-    [SerializeField] private string RankingScene;
+    [SerializeField]
+    private Sound sound;
     [SerializeField] GameObject Pose;
 
     public void ChangeButton_st()
@@ -21,6 +21,7 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_rc()
     {
+        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
         FadeManager.Instance.LoadLevel("RuleScene", 1.0f);
     }
 

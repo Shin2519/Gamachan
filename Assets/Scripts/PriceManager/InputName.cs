@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class InputName : MonoBehaviour
 {
+    [SerializeField]
+    private Sound sound;
     [Header("非表示テキスト(入力してください)")]
     [SerializeField] private TextMeshProUGUI inputText;
     [SerializeField] private TextMeshProUGUI inputText_e;
@@ -76,6 +78,7 @@ public class InputName : MonoBehaviour
                 }
             }
             audioSource.PlayOneShot(Clip1);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Click);
         }
     }
     //Inputsystemでの入力(時間があれば)
