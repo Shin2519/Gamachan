@@ -12,8 +12,6 @@ public class TouchPanel : MonoBehaviour
     [SerializeField]
     SendData Data;
     [SerializeField]
-    SendTotalData TotalData;
-    [SerializeField]
     UI Gama_Emotion;
     [SerializeField]
     Somethings_State Gauge_State;
@@ -145,12 +143,11 @@ public class TouchPanel : MonoBehaviour
 
             Data.total_Data.Combo_Count = combo;
 
-            ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
-
-            //SceneManager.LoadScene("Resultpanel");
             Result.SetActive(true);
+
+            ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
         }
-            rndyentext();
+        rndyentext();
         Onpay = false;
     }
 }

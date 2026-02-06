@@ -8,8 +8,6 @@ public class GRADE : MonoBehaviour
     [SerializeField]
     SendData Data;
     [SerializeField]
-    SendTotalData totaldata = new SendTotalData();
-    [SerializeField]
     private UI ui;
     [SerializeField]
     private Somethings_State Gauge_State;

@@ -9,6 +9,10 @@ public class ScoreCalculator : MonoBehaviour
     // •]‰¿ƒ^ƒCƒv
     public enum EvalType { Perfect, Great, Good, Bad }
 
+    void Awake()
+    {
+        Instance = this;
+    }
     // •]‰¿”»’è
     public EvalType GetEvaluation(int target, int result)
     {
