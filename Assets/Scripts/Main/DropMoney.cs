@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class DropMoney : MonoBehaviour
@@ -23,28 +24,34 @@ public class DropMoney : MonoBehaviour
         instance = this;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    IEnumerator Start()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             smallmoney_500[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[0],new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_500[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_500[i].SetActive(false);
+            yield return null;
             smallmoney_100[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[1], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_100[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_100[i].SetActive(false);
+            yield return null;
             smallmoney_50[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[2], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_50[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_50[i].SetActive(false);
+            yield return null;
             smallmoney_10[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[3], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_10[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_10[i].SetActive(false);
+            yield return null;
             smallmoney_5[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[4], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_5[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_5[i].SetActive(false);
+            yield return null;
             smallmoney_1[i] = Instantiate(Kindofsmallmoney.Kindofsmallmoney[5], new Vector3(1000.0f, 1000.0f, 0.0f), Quaternion.identity);
             smallmoney_1[i].GetComponent<Collider2D>().enabled = false;
             smallmoney_1[i].SetActive(false);
+            yield return null;
         }
     }
 
