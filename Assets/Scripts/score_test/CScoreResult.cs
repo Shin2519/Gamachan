@@ -28,6 +28,8 @@ public struct ChallengeScoreResult
             goldenBonus,
             comboBonus,
             speedBonus,
+            diffScore,
+            coinScore,
             totalChange,
             totalScore
         };

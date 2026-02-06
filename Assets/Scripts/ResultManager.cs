@@ -26,6 +26,8 @@ public class ResultManager : MonoBehaviour
 
     // 最終スコア
     private int finalScore;
+    public SendData data; 
+
 
     // ランキング送信モード
     public string gameMode = "Challenge";
