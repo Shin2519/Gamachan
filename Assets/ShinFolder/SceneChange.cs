@@ -28,9 +28,21 @@ public class SceneChange : MonoBehaviour
     {
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }
+    public void ChangeButton_This()
+    {
+        FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);
+    }
     public void OnPose()
     {
-        Pose.SetActive(true);
+        if (!Pose.activeSelf)
+        {
+            Pose.SetActive(true);
+        }
+        else
+        {
+            Pose.SetActive(false);
+        }
+        
     }
 
     public void EndGame()

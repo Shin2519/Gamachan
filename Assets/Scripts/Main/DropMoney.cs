@@ -190,11 +190,11 @@ public class DropMoney : MonoBehaviour
 
     void TOOFAST(float Amount)
     {
-        if (Amount >= 220)
+        if (Amount >= 30.7)
         {
             Money_500();
         }
-        else if (Amount >= 200)
+        else if (Amount >= 30.6)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -214,11 +214,11 @@ public class DropMoney : MonoBehaviour
 
     void FAST(float Amount)
     {
-        if (Amount >= 180)
+        if (Amount >= 30.5)
         {
             Money_100();
         }
-        else if (Amount >= 160)
+        else if (Amount >= 30.3)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -238,11 +238,11 @@ public class DropMoney : MonoBehaviour
 
     void SOSO(float Amount)
     {
-        if (Amount >= 120)
+        if (Amount >= 30.1)
         {
             Money_50();
         }
-        else if (Amount >= 110)
+        else if (Amount >= 29.6)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -262,11 +262,11 @@ public class DropMoney : MonoBehaviour
 
     void SLOW(float Amount)
     {
-        if (Amount >= 80)
+        if (Amount >= 29.5)
         {
             Money_10();
         }
-        else if (Amount >= 70)
+        else if (Amount >= 29)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -286,11 +286,11 @@ public class DropMoney : MonoBehaviour
 
     void TOOSLOW(float Amount)
     {
-        if (Amount <= 40)
+        if (Amount <= 28)
         {
             Money_5();
         }
-        else if (Amount <= 20)
+        else if (Amount <= 26)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)

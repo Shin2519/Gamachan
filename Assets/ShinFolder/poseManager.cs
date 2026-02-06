@@ -119,6 +119,6 @@ public class poseManager : MonoBehaviour
             AudioManager.Instance.seSource.PlayOneShot(backSE);
         }
 
-        SceneManager.LoadScene("TitleScene");
+        //SceneManager.LoadScene("TitleScene");
     }
 }
