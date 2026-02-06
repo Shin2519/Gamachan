@@ -9,26 +9,27 @@ public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
 
-    [SerializeField]
-    float timer;
-    [SerializeField]
-    private UI mouse;
+    [SerializeField] float timer;
+    [SerializeField] private UI mouse;
     [SerializeField, Header("クリックしたかどうか")]
     private bool IsInter;
     public static Vector2 MovInput;
-    [SerializeField]
-    private Vector2 HotSpot;
+    [SerializeField] private Vector2 HotSpot;
 
-    [SerializeField]
-    GameObject cursor;
+    [SerializeField] GameObject cursor;
 
     public static List<RaycastResult> Past_Result = new List<RaycastResult>();
 
     [SerializeField] private CountDoune cd;
+
+    // カーソル最適化用
+    private Texture2D currentCursor;
+
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
     }
+
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
@@ -36,7 +37,7 @@ public class playercontroll : MonoBehaviour
 
     void Awake()
     {
-        if(instance!=null)
+        if (instance != null)
         {
             Destroy(this.gameObject);
             return;
@@ -44,33 +45,42 @@ public class playercontroll : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        Cursor.SetCursor(mouse.mouse[0],HotSpot,CursorMode.Auto);
+        // 初期カーソル設定
+        currentCursor = mouse.mouse[0];
+        Cursor.SetCursor(currentCursor, HotSpot, CursorMode.Auto);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (IsInter)
+        UpdateCursor();   // カーソル処理は Update に移動
+        DragAndDrop();    // 入力処理も Update に移動
+    }
+
+    // カーソル最適化
+    private void UpdateCursor()
+    {
+        Texture2D nextCursor = IsInter ? mouse.mouse[1] : mouse.mouse[0];
+
+        // カーソルが変わる時だけ SetCursor を呼ぶ
+        if (currentCursor != nextCursor)
         {
-            Cursor.SetCursor(mouse.mouse[1], HotSpot, CursorMode.Auto);
+            Cursor.SetCursor(nextCursor, HotSpot, CursorMode.Auto);
+            currentCursor = nextCursor;
         }
-        else
-        {
-            Cursor.SetCursor(mouse.mouse[0], HotSpot, CursorMode.Auto);
-        }
+    }
+
+    private void DragAndDrop()
+    {
         GameObject obj = GameObject.Find("InteractManager");
         if (obj == null) return;
-        DragAndDrop();
-    }
-    private void DragAndDrop()//物をつかんで離す
-    {
-        if(IsInter)
+
+        if (IsInter)
         {
             timer--;
-            if(timer<=0)
+            if (timer <= 0)
             {
                 timer = 10;
                 WalletMove.Instance.Drag();
