@@ -152,7 +152,6 @@ public class InputName : MonoBehaviour
             else if(!Mode.Instance.isMode)
             {
                 FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
-
             }
         }
         audioSource.PlayOneShot(Clip1);
