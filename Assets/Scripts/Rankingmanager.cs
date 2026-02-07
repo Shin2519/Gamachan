@@ -32,6 +32,7 @@ public class RankingManager : MonoBehaviour
     public void AddScore(string mode, string name, int score)
     {
         name = pl.name;
+        score = pl.playerscor;
         RankEntry entry = new RankEntry { playerName = name, score = score };
 
         if (mode == "Challenge")
@@ -114,4 +115,23 @@ public class RankingManager : MonoBehaviour
             .OrderByDescending(e => e.score)
             .ToList();
     }
+    //public void ResetRanking()
+    //{
+    //    for (int i = 0; i < 5; i++)
+    //    {
+    //        PlayerPrefs.DeleteKey("ChallengeName" + i);
+    //        PlayerPrefs.DeleteKey("ChallengeScore" + i);
+    //    }
+
+    //    for (int i = 0; i < 5; i++)
+    //    {
+    //        PlayerPrefs.DeleteKey("TimeLimitName" + i);
+    //        PlayerPrefs.DeleteKey("TimeLimitScore" + i);
+    //    }
+
+    //    PlayerPrefs.Save();
+
+    //    challengeRanking.Clear();
+    //    timeLimitRanking.Clear();
+    //}
 }

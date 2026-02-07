@@ -4,4 +4,5 @@ using UnityEngine;
 public class Playername : ScriptableObject
 {
     public string playername;
+    public int playerscor;
 }

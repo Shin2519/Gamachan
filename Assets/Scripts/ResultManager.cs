@@ -34,6 +34,8 @@ public class ResultManager : MonoBehaviour
 
     public static int modeId;
 
+    [SerializeField] private Playername pl;
+
     private void Awake()
     {
         Instance = this;
@@ -133,6 +135,7 @@ public class ResultManager : MonoBehaviour
             UpdateScoreTexts();
 
             finalScore = values[10]; // 合計スコア
+            pl.playerscor = finalScore;
         }
     }
 

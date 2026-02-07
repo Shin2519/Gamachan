@@ -74,10 +74,12 @@ public class poseManager : MonoBehaviour
         //ゲーム時間停止
         Time.timeScale = 0f;
         //UI表示
+ 
         pauseMenuUI.SetActive(true);
-
+  
         //ポーズ状態を更新
         isPaused = true;
+
     }
 
     public void ResumeGame()
