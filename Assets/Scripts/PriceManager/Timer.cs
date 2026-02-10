@@ -11,10 +11,14 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject one;
     [SerializeField] GameObject two;
     [SerializeField] GameObject three;
+    [SerializeField] GameObject finish;
+
     [SerializeField] GameObject countdown;
     [SerializeField] GameObject resultpanel;
 
     public bool stop;
+
+    public bool send;
 
     private void Awake()
     {
@@ -22,10 +26,13 @@ public class Timer : MonoBehaviour
     }
     private void Start()
     {
+        send = false;
         stop = false;
         one.SetActive(false);
         two.SetActive(false);
         three.SetActive(false);
+        finish.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -61,16 +68,15 @@ public class Timer : MonoBehaviour
             else if (timer <= 1 && timer >= 0)
             {
                 one.SetActive(false);
-                UIManagement.instance.Finishistrue();
+                finish.SetActive(true);
             }
             else if (timer <= -2)
             {
-                resultpanel.SetActive(true);
+                send = true;
+                finish.SetActive(false);
+                resultpanel.SetActive(true);               
             }
         }
-
-        
-
     }
     private void FixedUpdate()
     {
@@ -80,7 +86,7 @@ public class Timer : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-
+        
         if (timer>0&&!stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);

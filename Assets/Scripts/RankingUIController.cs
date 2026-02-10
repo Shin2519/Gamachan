@@ -10,8 +10,11 @@ public class RankingUIController : MonoBehaviour
     [Header("タイムリミットモード用UI")]
     public Text[] timeLimitRankTexts;
 
+    [SerializeField]private Playername pl;
+
     private void Start()
     {
+        //RankingManager.Instance.ResetRanking();
         RankingManager.Instance.LoadRanking();
         UpdateRankingUI();
     }
@@ -50,4 +53,5 @@ public class RankingUIController : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
     }
+
 }

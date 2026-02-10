@@ -23,6 +23,6 @@ public class AudioManager : MonoBehaviour
     {
         bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
         seSource.volume = PlayerPrefs.GetFloat("SEVolume", 0.5f);
-        bgmSource.resource = sound.resource;
+        //bgmSource.resource = sound.resource;
     }
 }
