@@ -16,14 +16,15 @@ public class RnkingData : MonoBehaviour
         if (RankingManager.Instance == null) return;
         if (pl == null) return;
 
-        RankingManager.Instance.AddScore(
+        
+
+        if (Timer.Instance.send)
+        {
+            RankingManager.Instance.AddScore(
             "Challenge",
             pl.playername,
             pl.playerscor
         );
-
-        if (Timer.Instance.send)
-        {
             isRegistered = true;
         }
         
