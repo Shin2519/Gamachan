@@ -11,7 +11,6 @@ public class UIManagement : MonoBehaviour
     private Somethings_State Gauge_State;
     [SerializeField, Header("ゲージイメージ")]
     private Image Gauge;
-    [SerializeField]
     float Current = 0;
     int Min = 0;
     int Max = 15;

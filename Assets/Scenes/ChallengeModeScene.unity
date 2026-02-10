@@ -1281,7 +1281,6 @@ MonoBehaviour:
   Gama_State: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
   Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
   Gauge: {fileID: 2033541686}
-  Current: 0
   Finish: {fileID: 766982761}
 --- !u!1 &418199558
 GameObject:
@@ -2574,8 +2573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   probability:
-    NormalRange: 0
-    GoldRange: 0
+    NormalRange: 49
+    GoldRange: 59
   E_System: {fileID: 995700647}
   G_raycast: {fileID: 1452022848}
   ParentCanvas: {fileID: 1452022851}
