@@ -105,20 +105,52 @@ public class TouchPanel : MonoBehaviour
 
             if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
             {
-                Data.total_Data.Golden_Count += 1;
+                if(selectgoodsso.judgement)
+                {
+                    Data.total_Data.Golden_Count += 1*2;
+                }
+                else
+                {
+                    Data.total_Data.Golden_Count += 1;
+                }
+                
             }
             if(SentTimer==15)
             {
-                Data.total_Data.Speed_Bonus15 += 1;
+                if (selectgoodsso.judgement)
+                {
+                    Data.total_Data.Speed_Bonus15 += 1*2;
+                }
+                else
+                {
+                    Data.total_Data.Speed_Bonus15 += 1;
+                }
+                    
             }
             else if(SentTimer == 20)
             {
-                Data.total_Data.Speed_Bonus20 += 1;
+                if (selectgoodsso.judgement)
+                {
+                    Data.total_Data.Speed_Bonus20 += 1*2;
+                }
+                else
+                {
+                    Data.total_Data.Speed_Bonus20 += 1;
+                }
+                
             }
 
             if (sumamount == 0)
             {
-                Timer.Instance.timer += 15;
+                if (!selectgoodsso.judgement)
+                {
+                    Timer.Instance.timer += 15*2;
+                }
+                else
+                {
+                    Timer.Instance.timer += 15;
+                }
+                
             }
         }
         else
@@ -140,7 +172,7 @@ public class TouchPanel : MonoBehaviour
         Destroy(comboobject);
 
         if (GRADE.Instance.Gameover_count == 3)
-        {
+        {            
             Timer.Instance.stop = true;
             UIManagement.instance.Finishistrue();
             AudioManager.Instance.seSource.PlayOneShot(SE.SEofFinish); ;
@@ -148,13 +180,14 @@ public class TouchPanel : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
 
             Data.total_Data.Combo_Count = combo;
-
+            
             Result.SetActive(true);
 
             ResultManager.Instance.ActiveAndSlide();
 
             ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
             Gama.SetActive(false);
+            RnkingData.instance.Register();
         }
         rndyentext();
         Onpay = false;

@@ -5,28 +5,26 @@ public class RnkingData : MonoBehaviour
     [SerializeField] private Playername pl;
     private bool isRegistered = false;
 
-    private void Start()
+    public static RnkingData instance;
+    private void Awake()
     {
-        pl.playerscor = 10000;
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    void Update()
+    public void Register()
     {
         if (isRegistered) return;
         if (RankingManager.Instance == null) return;
         if (pl == null) return;
 
-        
-
-        if (Timer.Instance.send)
-        {
-            RankingManager.Instance.AddScore(
+        RankingManager.Instance.AddScore(
             "Challenge",
             pl.playername,
-            pl.playerscor
-        );
-            isRegistered = true;
-        }
-        
+            pl.playerscor);
+
+        isRegistered = true;
     }
 }

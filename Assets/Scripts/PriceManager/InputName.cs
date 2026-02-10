@@ -33,7 +33,6 @@ public class InputName : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
         inputText.enabled = false;
         inputText_e.enabled = false;
         namecount.enabled = false;

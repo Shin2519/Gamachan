@@ -15,10 +15,9 @@ public class Timer : MonoBehaviour
 
     [SerializeField] GameObject countdown;
     [SerializeField] GameObject resultpanel;
-
+    [SerializeField]
+    SendData Data;
     public bool stop;
-
-    public bool send;
 
     private void Awake()
     {
@@ -26,7 +25,6 @@ public class Timer : MonoBehaviour
     }
     private void Start()
     {
-        send = false;
         stop = false;
         one.SetActive(false);
         two.SetActive(false);
@@ -70,9 +68,13 @@ public class Timer : MonoBehaviour
                 one.SetActive(false);
                 finish.SetActive(true);
             }
-            else if (timer <= -2)
+            else if(timer<=-1)
             {
-                send = true;
+                ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
+                RnkingData.instance.Register();
+            }
+            else if (timer <= -2)
+            {  
                 finish.SetActive(false);
                 resultpanel.SetActive(true);               
             }
