@@ -20,6 +20,9 @@ public class UIManagement : MonoBehaviour
     [Header("Finish")]
     public GameObject Finish;
 
+    [SerializeField]
+    private GameObject Panel;
+
     bool isDown = false;
     public float Currentgauge {get{ return Current; }set { Current = Mathf.Clamp(value,Min,Max); } }
     void Awake()
@@ -62,8 +65,11 @@ public class UIManagement : MonoBehaviour
     private IEnumerator GaugeDown()
     {
         isDown = true;
+
         while(Gauge.fillAmount > 0)
         {
+            if (Panel.activeSelf) break;
+            yield return new WaitUntil(() => !TouchPanel.instance.Onpay);
             Currentgauge -= 1 * Time.deltaTime;
             yield return null;
         }

@@ -42,13 +42,18 @@ public class ResultManager : MonoBehaviour
     }
     private void Start()
     {
-        if (ResultManagerBridge.modeId == 0) 
-        { 
-            gameMode = "Challenge"; 
-        } 
-        else 
-        { 
-            gameMode = "TimeLimit"; 
+        
+    }
+
+    public void ActiveAndSlide()
+    {
+        if (ResultManagerBridge.modeId == 0)
+        {
+            gameMode = "Challenge";
+        }
+        else
+        {
+            gameMode = "TimeLimit";
         }
         // 全項目を透明に
         foreach (var item in scoreItems)
@@ -72,7 +77,7 @@ public class ResultManager : MonoBehaviour
             skipImage.GetComponent<Button>().onClick.AddListener(SkipAnimation);
         }
 
-     
+
 
         // 演出開始
         if (scoreItems != null && scoreItems.Length > 0)

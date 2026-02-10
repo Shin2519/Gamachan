@@ -18,7 +18,6 @@ public class poseManager : MonoBehaviour
     public Button backButton;
     public AudioSource bgmSource;
     public AudioSource seSource;
-    public AudioClip backSE; // 戻るボタン用の効果音
 
     private void Start()
     {
@@ -76,6 +75,7 @@ public class poseManager : MonoBehaviour
         //UI表示
  
         pauseMenuUI.SetActive(true);
+        TouchPanel.instance.Gama.SetActive(false);
   
         //ポーズ状態を更新
         isPaused = true;
@@ -89,6 +89,7 @@ public class poseManager : MonoBehaviour
 
         //UI非表示
         pauseMenuUI.SetActive(false);
+        TouchPanel.instance.Gama.SetActive(true);
 
         //ポーズ状態を更新
         isPaused = false;
@@ -116,10 +117,7 @@ public class poseManager : MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        if (backSE != null)
-        {
-            AudioManager.Instance.seSource.PlayOneShot(backSE);
-        }
+        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
         //SceneManager.LoadScene("TitleScene");
     }

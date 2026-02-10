@@ -53,8 +53,8 @@ public class GRADE : MonoBehaviour
             if (SumAmount == 0)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(SE.Perfect);
-                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
+                AudioManager.Instance.seSource.PlayOneShot(SE.Perfect);
+                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[3];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
@@ -71,8 +71,8 @@ public class GRADE : MonoBehaviour
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(SE.Great);
-                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
+                AudioManager.Instance.seSource.PlayOneShot(SE.Great);
+                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[2];
 
@@ -89,14 +89,14 @@ public class GRADE : MonoBehaviour
             else
             {
                 Combo();
-                TouchPanel.audiosource.PlayOneShot(SE.Good);
+                AudioManager.Instance.seSource.PlayOneShot(SE.Good);
                 if (!Cross.activeSelf)
                 {
                     Cross.SetActive(true);
                 }
                 Cross_Ren[Gameover_count].sprite = Out_count;
                 Gameover_count++;
-                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
+                TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
                 Grade_Ren.sprite = ui.Grade[1];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
@@ -116,14 +116,14 @@ public class GRADE : MonoBehaviour
             {
                 Cross.SetActive(true);
             }
-            TouchPanel.audiosource.PlayOneShot(SE.Bad);
+            AudioManager.Instance.seSource.PlayOneShot(SE.Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)
             {
                 Gameover_count++;
                 Cross_Ren[Gameover_count - 1].sprite = Out_count;
             }
-            TouchPanel.hyouka = Instantiate(Grade, new Vector3(1175, 886, 0), Quaternion.identity);
+            TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
             Grade_Ren.sprite = ui.Grade[0];
             if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)

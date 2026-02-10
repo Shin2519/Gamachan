@@ -35,8 +35,6 @@ public class TouchPanel : MonoBehaviour
     public GameObject Cross;
     [SerializeField]
     private GameObject Result;
-    public static AudioSource audiosource;
-
     public bool Onpay = false;
     public int InputAmount {  get { return inputamount; } set { inputamount = value; } }
     public int Total => selectgoodsso.total;
@@ -49,7 +47,6 @@ public class TouchPanel : MonoBehaviour
         {
             Gama_Image = Gama.GetComponent<Image>();
         }
-        audiosource = GetComponent<AudioSource>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,7 +63,7 @@ public class TouchPanel : MonoBehaviour
     public void OnButton()
     {
         StartCoroutine(kaikei());
-        audiosource.PlayOneShot(SE.Buttondown);
+        AudioManager.Instance.seSource.PlayOneShot(SE.Buttondown);
     }
 
     public void rndyentext()
@@ -146,7 +143,7 @@ public class TouchPanel : MonoBehaviour
         {
             Timer.Instance.stop = true;
             UIManagement.instance.Finishistrue();
-            audiosource.PlayOneShot(SE.SEofFinish);
+            AudioManager.Instance.seSource.PlayOneShot(SE.SEofFinish); ;
 
             yield return new WaitForSeconds(2.0f);
 
@@ -154,7 +151,10 @@ public class TouchPanel : MonoBehaviour
 
             Result.SetActive(true);
 
+            ResultManager.Instance.ActiveAndSlide();
+
             ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
+            Gama.SetActive(false);
         }
         rndyentext();
         Onpay = false;

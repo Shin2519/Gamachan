@@ -34,8 +34,6 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private GameObject gametext;
     [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
     [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
-    [SerializeField] private AudioClip circle;
-    [SerializeField] private AudioClip cross;
 
 
     void Start()
@@ -168,6 +166,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             gamachan.SetActive(true);
             tly.SetActive(true);
         }
+        TouchPanel.instance.Gama.SetActive(true);
     }
 
     IEnumerator PayJageRight()
@@ -204,6 +203,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
             gametext.SetActive(true);
         }
+        TouchPanel.instance.Gama.SetActive(true);
     }
 
 

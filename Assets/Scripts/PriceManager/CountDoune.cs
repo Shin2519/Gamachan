@@ -15,6 +15,7 @@ public class CountDoune : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        TouchPanel.instance.Gama.SetActive(false);
         selectgoods.SetActive(false);
         three.enabled = false;
         two.enabled = false;
