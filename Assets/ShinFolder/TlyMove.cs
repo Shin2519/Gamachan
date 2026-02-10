@@ -24,6 +24,9 @@ public class TlyMove : MonoBehaviour
     Vector2 offset;
     [SerializeField, Header("ÉTÉCÉYí≤êÆ")]
     Vector2 offset2;
+
+    [SerializeField]
+    private GameObject Panel;
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -43,51 +46,38 @@ public class TlyMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Coin"))
+        other.gameObject.SetActive(false);
+        other.gameObject.GetComponent<Collider2D>().enabled = false;
+        if (TouchPanel.instance.Onpay||Panel.activeSelf) return;
+        int itsMoney = other.gameObject.GetComponent<FallMoney>().MyMoney;
+        AudioManager.Instance.seSource.PlayOneShot(sound.CoinFall);
+        if (itsMoney==500|| itsMoney == 100|| itsMoney == 50|| itsMoney == 10|| itsMoney == 5|| itsMoney == 1)
         {
-            AudioManager.Instance.seSource.PlayOneShot(sound.CoinFall);
-            if (other.gameObject.name=="500yen(Clone)")
+            TouchPanel.instance.InputAmount += itsMoney;
+            switch(itsMoney)
             {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 500;
-                total_deta.total_Data.c500_count += 1;
+                case 1:
+                    total_deta.total_Data.c1_count += 1;
+                    break;
+                case 5:
+                    total_deta.total_Data.c5_count += 1;
+                    break;
+                case 10:
+                    total_deta.total_Data.c10_count += 1;
+                    break;
+                case 50:
+                    total_deta.total_Data.c50_count += 1;
+                    break;
+                case 100:
+                    total_deta.total_Data.c100_count += 1;
+                    break;
+                case 500:
+                    total_deta.total_Data.c500_count += 1;
+                    break;
             }
-            else if (other.gameObject.name == "100yen(Clone)")
-            {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 100;
-                total_deta.total_Data.c100_count += 1;
-            }
-            else if (other.gameObject.name== "50yen(Clone)")
-            {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 50;
-                total_deta.total_Data.c50_count += 1;
-            }
-            else if (other.gameObject.name== "10yen(Clone)")
-            {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 10;
-                total_deta.total_Data.c10_count += 1;
-            }
-            else if(other.gameObject.name == "5yen(Clone)")
-            {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 5;
-                total_deta.total_Data.c5_count += 1;
-            }
-            else if (other.gameObject.name == "1yen(Clone)")
-            {
-                if (TouchPanel.instance.Onpay == true) return;
-                TouchPanel.instance.InputAmount += 1;
-                total_deta.total_Data.c1_count += 1;
-            }
-            other.gameObject.SetActive(false);
-            other.gameObject.GetComponent<Collider2D>().enabled = false;
-
-            if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total|| Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
-
-            UIManagement.instance.gauge();
         }
+        if (TouchPanel.instance.InputAmount >= TouchPanel.instance.Total || Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold) return;
+
+        UIManagement.instance.gauge();
     }
 }

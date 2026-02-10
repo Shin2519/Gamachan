@@ -4,6 +4,8 @@ public class FallMoney : MonoBehaviour
 {
     Rigidbody2D rd2D;
 
+    public int MyMoney;
+
     [SerializeField, Header("‰‘¬“x")]
     float v0_;
 
