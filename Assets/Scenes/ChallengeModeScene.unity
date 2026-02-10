@@ -1301,7 +1301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &418199559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2967,7 +2967,6 @@ MonoBehaviour:
   Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
   sendtotaldata:
     TotalData: 
-  coinFall: {fileID: 8300000, guid: fffc5995dedbd264785cd211b9372041, type: 3}
   offset: {x: 942.5, y: 114.6}
   offset2: {x: 169.2, y: 94.4}
   Panel: {fileID: 418199558}
@@ -3165,7 +3164,7 @@ PrefabInstance:
       objectReference: {fileID: 1933315531}
     - target: {fileID: 5912721015076218477, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: timer
-      value: 5
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5912721015076218477, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: finish

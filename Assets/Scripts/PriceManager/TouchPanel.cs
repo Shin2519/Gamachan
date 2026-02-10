@@ -90,8 +90,8 @@ public class TouchPanel : MonoBehaviour
 
     IEnumerator kaikei()
     {
-        gametext.SetActive(false);
         Onpay = true;
+        gametext.SetActive(false);
         sumamount = inputamount - selectgoodsso.total;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
@@ -100,6 +100,7 @@ public class TouchPanel : MonoBehaviour
 
         if (sumamount >= 0)
         {
+            float SentTimer = Timer.Instance.timer;
             combo++;
             sumamountyen.text = "‚¨’Þ‚è";
             sumamounttext.color = Color.red;
@@ -109,8 +110,16 @@ public class TouchPanel : MonoBehaviour
             {
                 Data.total_Data.Golden_Count += 1;
             }
-            
-            if (sumamount==0)
+            if(SentTimer==15)
+            {
+                Data.total_Data.Speed_Bonus15 += 1;
+            }
+            else if(SentTimer == 20)
+            {
+                Data.total_Data.Speed_Bonus20 += 1;
+            }
+
+            if (sumamount == 0)
             {
                 Timer.Instance.timer += 15;
             }

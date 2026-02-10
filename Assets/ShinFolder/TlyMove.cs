@@ -15,11 +15,6 @@ public class TlyMove : MonoBehaviour
     private Transform pos;
     private Vector2 startPos;
 
-    [SerializeField,Header("効果音")]
-    private AudioClip coinFall;
-
-    AudioSource audioSource;
-
     [SerializeField, Header("位置調整")]
     Vector2 offset;
     [SerializeField, Header("サイズ調整")]
@@ -27,10 +22,6 @@ public class TlyMove : MonoBehaviour
 
     [SerializeField]
     private GameObject Panel;
-    void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
     void Start()
     {
         //pos = GetComponent<Transform>();

@@ -31,6 +31,10 @@ public class SendData : ScriptableObject
 
         public int Golden_Count;
 
+        public int Speed_Bonus15;
+
+        public int Speed_Bonus20;
+
         public int Total_Change_Amount;
 
         public int Combo_Count;

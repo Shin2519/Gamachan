@@ -136,19 +136,18 @@ public class ScoreCalculator : MonoBehaviour
 
     public int[] ScoreData(SendData senddata)
     {
-        int[] data = new int[11];
+        int[] data = new int[10];
 
         data[0] = senddata.total_Data.Perfect_Count * setdata.evalPerfect;
         data[1] = senddata.total_Data.Great_Count * setdata.evalGreat;
         data[2] = senddata.total_Data.Good_Count * setdata.evalGood;
         data[3] = senddata.total_Data.Bad_Count * setdata.evalBad;
-        data[4] = senddata.total_Data.Bad_Count * setdata.evalBad;
-        data[5] = GetCoinScore(senddata.total_Data.c500_count, senddata.total_Data.c100_count, senddata.total_Data.c50_count, senddata.total_Data.c10_count, senddata.total_Data.c5_count, senddata.total_Data.c1_count);
-        data[6] = senddata.total_Data.Zero_Count * setdata.zeroYenBonus;
-        data[7] = senddata.total_Data.Golden_Count * setdata.goldenBonus;
-        data[8] = GetComboBonus(senddata.total_Data.Combo_Count);
-        data[9] = senddata.total_Data.Total_Change_Amount;
-        data[10] = data[0] + data[1] + data[2] + data[3] + data[4] + data[5] + data[6] + data[7] + data[8] + data[9];
+        data[4] = senddata.total_Data.Zero_Count * setdata.zeroYenBonus;
+        data[5] = senddata.total_Data.Golden_Count * setdata.goldenBonus;
+        data[6] = GetComboBonus(senddata.total_Data.Combo_Count);
+        data[7] = (senddata.total_Data.Speed_Bonus15 * setdata.speed15) + (senddata.total_Data.Speed_Bonus20 * setdata.speed20);
+        data[8] = senddata.total_Data.Total_Change_Amount;
+        data[9] = data[0] + data[1] + data[2] + data[3] + data[4] + data[5] + data[6] + data[7] + data[8] + GetCoinScore(senddata.total_Data.c500_count, senddata.total_Data.c100_count, senddata.total_Data.c50_count, senddata.total_Data.c10_count, senddata.total_Data.c5_count, senddata.total_Data.c1_count);
 
         return data;
     }
