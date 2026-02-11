@@ -3,14 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class RuleCheckScene : MonoBehaviour
 {
-    [SerializeField] private AudioSource audiosource;
-    [SerializeField] private AudioClip clip;
-    [SerializeField] private AudioClip clip2;
+    [SerializeField] private Sound sound;
     [SerializeField] private GameObject Page;
 
     private void Start()
     {
-        audiosource = GetComponent<AudioSource>();
         Page.SetActive(false);
     }
     public void RuleYes()
@@ -18,18 +15,18 @@ public class RuleCheckScene : MonoBehaviour
         //FadeManager.Instance.LoadLevel("RuleScene",1f);
         this.gameObject.SetActive(false);
         Page.SetActive(true);
-        audiosource.PlayOneShot(clip);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     }
 
     public void RuleNo()
     {
         SceneManager.LoadScene("ModeSelectScene");
-        audiosource.PlayOneShot(clip);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     }
 
     public void Title()
     {
         SceneManager.LoadScene("TitleScene");
-        audiosource.PlayOneShot(clip2);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
     }
 }

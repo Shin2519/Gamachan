@@ -1847,7 +1847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d641956e1fad8444186f6fed02dc7f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   inputText: {fileID: 411910973}
   inputText_e: {fileID: 1534514031}
   inputField: {fileID: 1487470234}
@@ -1890,9 +1890,6 @@ MonoBehaviour:
   - "\u3076\u3059"
   ngtext: {fileID: 236511616}
   ngtext_e: {fileID: 2000829391}
-  audioSource: {fileID: 0}
-  Clip: {fileID: 8300000, guid: 4668a4dcb148de243b9569ee2ce6eacc, type: 3}
-  Clip1: {fileID: 8300000, guid: f13bf02c97cc49c4bbc665e56cf0208c, type: 3}
   pl: {fileID: 11400000, guid: 31242d17fb8c3724daaa2ecee5aed3d5, type: 2}
 --- !u!114 &1419874879
 MonoBehaviour:

@@ -2801,6 +2801,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2094750544}
     - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
+      propertyPath: Resultpanel
+      value: 
+      objectReference: {fileID: 418199558}
+    - target: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
       propertyPath: TitleButton
       value: 
       objectReference: {fileID: 1127361803}

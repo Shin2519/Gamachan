@@ -6,11 +6,12 @@ public class SE_BGM: MonoBehaviour
 {
     [Header("UI")]
     public Button backButton;
+    [SerializeField]
+    private Sound sound;
 
     [Header("Audio")]
     public AudioSource bgmSource;
     public AudioSource seSource;
-    public AudioClip backSE; 
 
     void Start()
     {
@@ -25,10 +26,7 @@ public class SE_BGM: MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        if (backSE != null && seSource != null)
-        {
-            seSource.PlayOneShot(backSE);
-        }
+        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
     }

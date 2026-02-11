@@ -23,16 +23,10 @@ public class InputName : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ngtext_e;
 
     Mode mode;
-
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip Clip;
-    [SerializeField] private AudioClip Clip1;
-
     [SerializeField] private Playername pl;//プレイヤーの名前を記憶
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         inputText.enabled = false;
         inputText_e.enabled = false;
         namecount.enabled = false;
@@ -77,7 +71,6 @@ public class InputName : MonoBehaviour
 
                 }
             }
-            audioSource.PlayOneShot(Clip1);
             AudioManager.Instance.seSource.PlayOneShot(sound.Click);
         }
     }
@@ -155,12 +148,12 @@ public class InputName : MonoBehaviour
                 FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
             }
         }
-        audioSource.PlayOneShot(Clip1);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     }
     public void OnButtonMode()
     {
         FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
-        audioSource.PlayOneShot(Clip);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
     }
 
     IEnumerator stay()
