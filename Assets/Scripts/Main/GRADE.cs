@@ -186,7 +186,7 @@ public class GRADE : MonoBehaviour
 
     void ComboObjects(int i)
     {
-        TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1628, 926, 0), Quaternion.identity);
+        TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1750, 1000, 0), Quaternion.identity);
         combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
         combo_Renderer.sprite = ui.Kindofcombo[i];
     }

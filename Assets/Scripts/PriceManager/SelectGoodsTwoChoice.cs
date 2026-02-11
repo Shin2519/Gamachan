@@ -34,6 +34,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private GameObject gametext;
     //[SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
     //[SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
+    bool Onleft;
+    bool Onright;
 
 
     void Start()
@@ -125,15 +127,18 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     //左側の商品の正誤判定(成功時のスコア加算の追加予定)
     public void PayLeft()
     {
+        if (Onleft) return;
         StartCoroutine(PayJageLeft());
     }
     //右側の商品の正誤判定(成功時のスコア加算の追加予定)
     public void PayRight()
     {
+        if (Onright) return;
         StartCoroutine (PayJageRight());
     }
     IEnumerator PayJageLeft()
     {
+        Onleft = true;
         if (selectSO.targetLeft == selectSO.total)
         {
             selectSO.judgement = true;
@@ -167,10 +172,12 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             tly.SetActive(true);
         }
         TouchPanel.instance.Gama.SetActive(true);
+        Onleft = false;
     }
 
     IEnumerator PayJageRight()
     {
+        Onright = true;
         if (selectSO.targetRight == selectSO.total)
         {
             selectSO.judgement = true;
@@ -204,6 +211,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             gametext.SetActive(true);
         }
         TouchPanel.instance.Gama.SetActive(true);
+        Onright = false;
     }
 
 

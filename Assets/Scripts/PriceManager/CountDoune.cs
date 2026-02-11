@@ -21,7 +21,6 @@ public class CountDoune : MonoBehaviour
         two.enabled = false;
         one.enabled = false;
         start.enabled = false;
-        
     }
 
     // Update is called once per frame

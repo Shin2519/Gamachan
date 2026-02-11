@@ -51,6 +51,7 @@ public class TouchPanel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        combo = 0;
         rndyentext();
         Cross.SetActive(false);
         Result.SetActive(false);
@@ -62,6 +63,7 @@ public class TouchPanel : MonoBehaviour
     }
     public void OnButton()
     {
+        if (Onpay) return;
         StartCoroutine(kaikei());
         AudioManager.Instance.seSource.PlayOneShot(SE.Buttondown);
     }

@@ -9,6 +9,9 @@ public class poseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button TitleButton;
+    [SerializeField] private GameObject TwoChoose;
+    [SerializeField] private GameObject CountDown;
+    [SerializeField] private GameObject Resultpanel;
 
     private bool isPaused = false;
 
@@ -70,6 +73,7 @@ public class poseManager : MonoBehaviour
 
     public void pauseGame()
     {
+        if (Resultpanel.activeSelf) return;
         //ゲーム時間停止
         Time.timeScale = 0f;
         //UI表示
@@ -84,12 +88,16 @@ public class poseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (Resultpanel.activeSelf) return;
         //ゲーム時間を通常に戻す
         Time.timeScale = 1f;
 
         //UI非表示
         pauseMenuUI.SetActive(false);
-        TouchPanel.instance.Gama.SetActive(true);
+        if(!TwoChoose.activeSelf&&!CountDown.activeSelf)
+        {
+            TouchPanel.instance.Gama.SetActive(true);
+        }
 
         //ポーズ状態を更新
         isPaused = false;

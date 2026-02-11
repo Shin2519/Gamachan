@@ -70,13 +70,17 @@ public class Timer : MonoBehaviour
             }
             else if(timer<=-1)
             {
-                ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
+                if(!resultpanel.activeSelf)
+                {
+                    resultpanel.SetActive(true);
+                    ResultManager.Instance.ActiveAndSlide();
+                    ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
+                }
                 RnkingData.instance.Register();
             }
             else if (timer <= -2)
             {  
                 finish.SetActive(false);
-                resultpanel.SetActive(true);               
             }
         }
     }
