@@ -3182,7 +3182,7 @@ PrefabInstance:
       objectReference: {fileID: 1933315531}
     - target: {fileID: 5912721015076218477, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: timer
-      value: 120
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5912721015076218477, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: finish
