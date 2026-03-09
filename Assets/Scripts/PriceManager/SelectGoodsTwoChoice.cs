@@ -32,8 +32,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     [SerializeField] private GameObject tly;
     [SerializeField] private GameObject reset;
     [SerializeField] private GameObject gametext;
-    //[SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
-    //[SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
+    [SerializeField,Header("0左,1右")] private Image[] jageImage;//0左,1右
+    [SerializeField,Header("0〇,1×")] private Sprite[] jageSprit;//0〇,1×
     bool Onleft;
     bool Onright;
 
@@ -50,8 +50,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     // 初期化
     public void InitCounts()
     {
-        //jageImage[0].enabled=false;
-        //jageImage[1].enabled = false;
+        jageImage[0].enabled=false;
+        jageImage[1].enabled = false;
         selectSO.total = 0;
         selectSO.targetLeft = 0;
         selectSO.targetRight = 0;
@@ -143,8 +143,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = true;
             AudioManager.Instance.seSource.PlayOneShot(sound.Circle);
-            //jageImage[0].enabled = true;
-            //jageImage[0].sprite = jageSprit[0];
+            jageImage[0].enabled = true;
+            jageImage[0].sprite = jageSprit[0];
             
             
             yield return new WaitForSeconds(1.5f);
@@ -159,8 +159,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = false;
             AudioManager.Instance.seSource.PlayOneShot(sound.Cross);
-            //jageImage[0].enabled = true;
-            //jageImage[0].sprite = jageSprit[1];
+            jageImage[0].enabled = true;
+            jageImage[0].sprite = jageSprit[1];
             
 
             yield return new WaitForSeconds(1.5f);
@@ -182,8 +182,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = true;
             AudioManager.Instance.seSource.PlayOneShot(sound.Circle);
-            //jageImage[1].enabled = true;
-            //jageImage[1].sprite = jageSprit[0];
+            jageImage[1].enabled = true;
+            jageImage[1].sprite = jageSprit[0];
            
 
             yield return new WaitForSeconds(1.5f);
@@ -198,8 +198,8 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         {
             selectSO.judgement = false;
             AudioManager.Instance.seSource.PlayOneShot(sound.Cross);
-            //jageImage[1].enabled = true;
-            //jageImage[1].sprite = jageSprit[1];
+            jageImage[1].enabled = true;
+            jageImage[1].sprite = jageSprit[1];
             
             
             yield return new WaitForSeconds(1.5f);
