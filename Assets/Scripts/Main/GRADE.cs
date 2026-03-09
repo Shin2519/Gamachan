@@ -3,16 +3,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GRADE : MonoBehaviour
+public class GRADE : MasterCode
 {
     [SerializeField]
-    SendData Data;
-    [SerializeField]
-    private UI ui;
-    [SerializeField]
     private Somethings_State Gauge_State;
-    [SerializeField]
-    private Sound SE;
     public static GRADE Instance;
     public int Gameover_count = 0;
 
@@ -53,17 +47,17 @@ public class GRADE : MonoBehaviour
             if (SumAmount == 0)
             {
                 Combo();
-                AudioManager.Instance.seSource.PlayOneShot(SE.Perfect);
+                AudioManager.Instance.seSource.PlayOneShot(sound.Perfect);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = ui.Grade[3];
+                Grade_Ren.sprite = about_ui.Grade[3];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = about_ui.GoldenKindofemotion[1];
                 }
                 else
                 {
-                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = about_ui.Kindofemotion[1];
                 }
                 Data.total_Data.Perfect_Count += 1;
                 Data.total_Data.Zero_Count += 1;
@@ -71,25 +65,25 @@ public class GRADE : MonoBehaviour
             else if (SumAmount >= 1 && SumAmount <= 10)
             {
                 Combo();
-                AudioManager.Instance.seSource.PlayOneShot(SE.Great);
+                AudioManager.Instance.seSource.PlayOneShot(sound.Great);
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = ui.Grade[2];
+                Grade_Ren.sprite = about_ui.Grade[2];
 
                 if(Gauge_State.gauge_state ==Somethings_State.Gauge_State.Gold)
                 {
-                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = about_ui.GoldenKindofemotion[1];
                 }
                 else
                 {
-                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[1];
+                    TouchPanel.Gama_Image.sprite = about_ui.Kindofemotion[1];
                 }
                 Data.total_Data.Great_Count += 1;
             }
             else
             {
                 Combo();
-                AudioManager.Instance.seSource.PlayOneShot(SE.Good);
+                AudioManager.Instance.seSource.PlayOneShot(sound.Good);
                 if (!Cross.activeSelf)
                 {
                     Cross.SetActive(true);
@@ -98,14 +92,14 @@ public class GRADE : MonoBehaviour
                 Gameover_count++;
                 TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = ui.Grade[1];
+                Grade_Ren.sprite = about_ui.Grade[1];
                 if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
                 {
-                    TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[0];
+                    TouchPanel.Gama_Image.sprite = about_ui.GoldenKindofemotion[0];
                 }
                 else
                 {
-                    TouchPanel.Gama_Image.sprite = ui.Kindofemotion[0];
+                    TouchPanel.Gama_Image.sprite = about_ui.Kindofemotion[0];
                 }
                 Data.total_Data.Good_Count += 1;
             }
@@ -116,7 +110,7 @@ public class GRADE : MonoBehaviour
             {
                 Cross.SetActive(true);
             }
-            AudioManager.Instance.seSource.PlayOneShot(SE.Bad);
+            AudioManager.Instance.seSource.PlayOneShot(sound.Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)
             {
@@ -125,14 +119,14 @@ public class GRADE : MonoBehaviour
             }
             TouchPanel.hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
             Grade_Ren = TouchPanel.hyouka.GetComponent<SpriteRenderer>();
-            Grade_Ren.sprite = ui.Grade[0];
+            Grade_Ren.sprite = about_ui.Grade[0];
             if (Gauge_State.gauge_state == Somethings_State.Gauge_State.Gold)
             {
-                TouchPanel.Gama_Image.sprite = ui.GoldenKindofemotion[2];
+                TouchPanel.Gama_Image.sprite = about_ui.GoldenKindofemotion[2];
             }
             else
             {
-                TouchPanel.Gama_Image.sprite = ui.Kindofemotion[2];
+                TouchPanel.Gama_Image.sprite = about_ui.Kindofemotion[2];
             }
             Data.total_Data.Bad_Count += 1;
         }
@@ -140,7 +134,7 @@ public class GRADE : MonoBehaviour
     void Combo()
     {
         int i = 0;
-        switch (TouchPanel.combo)
+        switch (combo)
         {
             case 3:
                 ComboObjects(i);
@@ -188,6 +182,6 @@ public class GRADE : MonoBehaviour
     {
         TouchPanel.comboobject = Instantiate(combo_image, new Vector3(1750, 1000, 0), Quaternion.identity);
         combo_Renderer = TouchPanel.comboobject.GetComponent<SpriteRenderer>();
-        combo_Renderer.sprite = ui.Kindofcombo[i];
+        combo_Renderer.sprite = about_ui.Kindofcombo[i];
     }
 }

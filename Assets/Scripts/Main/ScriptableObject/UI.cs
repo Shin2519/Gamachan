@@ -18,4 +18,11 @@ public class UI : ScriptableObject
 
     [Header("マウスカーソルに使うテクスチャ")]
     public Texture2D[] mouse;
+
+    [Header("ゲージの最大値、最小値、上昇値")]
+    public float Current;
+
+    public int Min;
+
+    public int Max;
 }

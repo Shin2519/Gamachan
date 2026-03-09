@@ -2,21 +2,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static SendData;
 
-public class TouchPanel : MonoBehaviour
+public class TouchPanel : MasterCode
 {
-    public static int combo;
     public static TouchPanel instance;
     ChallengeScoreResult CS;
-    [SerializeField]
-    SendData Data;
-    [SerializeField]
-    UI Gama_Emotion;
-    [SerializeField]
-    Somethings_State Gauge_State;
-    [SerializeField]
-    Sound SE;
     [SerializeField,Header("目標金額")] private TextMeshProUGUI amounttext;//商品の金額テキスト
     [SerializeField,Header("投入金額")] private TextMeshProUGUI inputamounttext;//投入金額(仮)テキスト
     [SerializeField,Header("合計金額")] private TextMeshProUGUI sumamounttext;//合計金額テキスト(円)
@@ -65,7 +55,7 @@ public class TouchPanel : MonoBehaviour
     {
         if (Onpay) return;
         StartCoroutine(kaikei());
-        AudioManager.Instance.seSource.PlayOneShot(SE.Buttondown);
+        AudioManager.Instance.seSource.PlayOneShot(sound.Buttondown);
     }
 
     public void rndyentext()
@@ -81,9 +71,9 @@ public class TouchPanel : MonoBehaviour
 
         sumamounttext.enabled = false;
         sumamountyen.enabled = false;
-        if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
+        if (gauge_state==State.Gauge.Gold)
         {
-            Gama_Image.sprite = Gama_Emotion.GoldenKindofemotion[0];
+            Gama_Image.sprite = about_ui.GoldenKindofemotion[0];
         }
     }
 
@@ -105,7 +95,7 @@ public class TouchPanel : MonoBehaviour
             sumamounttext.color = Color.red;
             Data.total_Data.Total_Change_Amount += sumamount;
 
-            if (Gauge_State.gauge_state==Somethings_State.Gauge_State.Gold)
+            if (gauge_state== State.Gauge.Gold)
             {
                 if(selectgoodsso.judgement)
                 {
@@ -164,7 +154,7 @@ public class TouchPanel : MonoBehaviour
         {            
             Timer.Instance.stop = true;
             UIManagement.instance.Finishistrue();
-            AudioManager.Instance.seSource.PlayOneShot(SE.SEofFinish); ;
+            AudioManager.Instance.seSource.PlayOneShot(sound.SEofFinish); ;
 
             yield return new WaitForSeconds(2.0f);
 
