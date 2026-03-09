@@ -46,3 +46,6 @@ MonoBehaviour:
   mouse:
   - {fileID: 2800000, guid: 3fbf6bb11c66bc845adf261539f950cf, type: 3}
   - {fileID: 2800000, guid: 978d505e9291e65429f51684812ed08c, type: 3}
+  Current: 0
+  Min: 0
+  Max: 15

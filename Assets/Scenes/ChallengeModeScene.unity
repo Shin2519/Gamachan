@@ -1286,8 +1286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ba904c19d121f4e8ebc3aa0b49d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gama_State: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
+  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
+  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
+  about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
   Gauge: {fileID: 2033541686}
   Finish: {fileID: 766982761}
   Panel: {fileID: 418199558}
@@ -2719,10 +2720,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
-  Gama_Emotion: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
-  SE: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
+  about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
+  Gauge: {fileID: 0}
+  Finish: {fileID: 0}
+  Panel: {fileID: 0}
   amounttext: {fileID: 1666803921}
   inputamounttext: {fileID: 2024189915}
   sumamounttext: {fileID: 1948405144}
@@ -2747,10 +2750,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
-  ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
+  about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
+  Gauge: {fileID: 0}
+  Finish: {fileID: 0}
+  Panel: {fileID: 0}
   Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
-  SE: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Gameover_count: 0
   Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   Cross_Ren:
