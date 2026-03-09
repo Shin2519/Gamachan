@@ -99,7 +99,7 @@ public class TouchPanel : MonoBehaviour
 
         if (sumamount >= 0)
         {
-            float SentTimer = Timer.Instance.timer;
+            //float SentTimer = Timer.Instance.timer;
             combo++;
             sumamountyen.text = "‚¨’Þ‚è";
             sumamounttext.color = Color.red;
@@ -117,43 +117,30 @@ public class TouchPanel : MonoBehaviour
                 }
                 
             }
-            if(SentTimer==15)
-            {
-                if (selectgoodsso.judgement)
-                {
-                    Data.total_Data.Speed_Bonus15 += 1*2;
-                }
-                else
-                {
-                    Data.total_Data.Speed_Bonus15 += 1;
-                }
+            //if(SentTimer==15)
+            //{
+            //    if (selectgoodsso.judgement)
+            //    {
+            //        Data.total_Data.Speed_Bonus15 += 1*2;
+            //    }
+            //    else
+            //    {
+            //        Data.total_Data.Speed_Bonus15 += 1;
+            //    }
                     
-            }
-            else if(SentTimer == 20)
-            {
-                if (selectgoodsso.judgement)
-                {
-                    Data.total_Data.Speed_Bonus20 += 1*2;
-                }
-                else
-                {
-                    Data.total_Data.Speed_Bonus20 += 1;
-                }
+            //}
+            //else if(SentTimer == 20)
+            //{
+            //    if (selectgoodsso.judgement)
+            //    {
+            //        Data.total_Data.Speed_Bonus20 += 1*2;
+            //    }
+            //    else
+            //    {
+            //        Data.total_Data.Speed_Bonus20 += 1;
+            //    }
                 
-            }
-
-            if (sumamount == 0)
-            {
-                if (!selectgoodsso.judgement)
-                {
-                    Timer.Instance.timer += 15*2;
-                }
-                else
-                {
-                    Timer.Instance.timer += 15;
-                }
-                
-            }
+            //}
         }
         else
         {
