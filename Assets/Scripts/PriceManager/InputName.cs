@@ -123,6 +123,7 @@ public class InputName : MonoBehaviour
             inputText.enabled = false;
             inputText_e.enabled = false;
         }
+
         
     }
 
