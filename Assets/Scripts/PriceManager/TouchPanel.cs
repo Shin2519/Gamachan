@@ -93,18 +93,6 @@ public class TouchPanel : MasterCode
             sumamounttext.color = Color.red;
             Data.total_Data.Total_Change_Amount += sumamount;
 
-            if (gauge_state== State.Gauge.Gold)
-            {
-                if(selectgoodsso.judgement)
-                {
-                    Data.total_Data.Golden_Count += 1*2;
-                }
-                else
-                {
-                    Data.total_Data.Golden_Count += 1;
-                }
-                
-            }
             //if(SentTimer==15)
             //{
             //    if (selectgoodsso.judgement)

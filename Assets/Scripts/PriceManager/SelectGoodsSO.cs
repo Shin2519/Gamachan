@@ -18,11 +18,6 @@ public class SelectGoodsSO : ScriptableObject
     /// 目標金額
     /// </summary>
     public int target;
-    public int targetLeft;
-    public int targetRight;
-
-    public bool judgement;
-
 }
 
 [Serializable]
@@ -31,7 +26,7 @@ public class data
     /// <summary>
     /// 商品の画像
     /// </summary>
-    [SerializeField] public Sprite image;
+    public Sprite image;
 
     /// <summary>
     /// 商品の単価

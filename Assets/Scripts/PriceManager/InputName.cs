@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System.Text.RegularExpressions;
 
 public class InputName : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class InputName : MonoBehaviour
 
     [Header("名前入力スペース")]
     [SerializeField] private TMP_InputField inputField;//プレイヤーの名前を入力
-    //[SerializeField] private TextMeshProUGUI playername;
 
     [SerializeField] private TextMeshProUGUI namecount;//文字数制限テキスト
 
@@ -35,21 +35,28 @@ public class InputName : MonoBehaviour
 
         inputField.onValueChanged.AddListener(delegate { InputText(); });
 
-        if(inputField != null )
-        {
-            inputField.Select();
-            inputField.ActivateInputField();
-        }
     }
 
     void Update()
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
-
+        inputField.ActivateInputField();
         pl.playername = inputField.text.ToString();
+        inputField.text = inputField.text.ToUpper();
+
+        if(inputField.isFocused)
+        {
+            Input.imeCompositionMode = IMECompositionMode.Off;
+        }
+
+        if(inputField.text!= Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
+        {
+            return;
+        }
+        InputText();
+
         if (Input.GetKey(KeyCode.Return))
         {
-            Debug.Log("aaa");
             if (inputField.text == "")
             {
                 StartCoroutine(stay());
@@ -77,7 +84,6 @@ public class InputName : MonoBehaviour
     //Inputsystemでの入力(時間があれば)
     //public void OnNext(InputValue value)
     //{
-    //    Debug.Log("aaa");
     //    if (inputField.text == "")
     //    {
     //        StartCoroutine(stay());
@@ -164,6 +170,5 @@ public class InputName : MonoBehaviour
         yield return new WaitForSeconds(1);
         inputText.enabled = false;
         inputText_e.enabled = false;
-
     }
 }

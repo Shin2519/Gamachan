@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MasterCode
 {
-    public static Timer Instance;
+    //public static Timer Instance;
 
     [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
     [SerializeField] GameObject one;
@@ -20,10 +20,10 @@ public class Timer : MasterCode
 
 
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //}
     private void Start()
     {
         stop = false;

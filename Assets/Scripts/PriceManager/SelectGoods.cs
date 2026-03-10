@@ -65,8 +65,7 @@ public class SelectGoods : MonoBehaviour
 
         //displaycount = 6;
 
-        selectSO.total = 0;
-        selectSO.target = 0;
+        
         gamachan.SetActive(false);
         tly.SetActive(false);
         gametext.SetActive(false);

@@ -79,7 +79,7 @@ public class poseManager : MonoBehaviour
         //UI表示
  
         pauseMenuUI.SetActive(true);
-        TouchPanel.instance.Gama.SetActive(false);
+        //TouchPanel.instance.Gama.SetActive(false);
   
         //ポーズ状態を更新
         isPaused = true;
@@ -96,7 +96,7 @@ public class poseManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         if(!TwoChoose.activeSelf&&!CountDown.activeSelf)
         {
-            TouchPanel.instance.Gama.SetActive(true);
+            //TouchPanel.instance.Gama.SetActive(true);
         }
 
         //ポーズ状態を更新
