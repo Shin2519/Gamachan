@@ -141,28 +141,10 @@ public class TouchPanel : MasterCode
         GRADE.Instance.GRADE_(sumamount);
 
         yield return new WaitForSeconds(2.0f);
-        //if (GradeAndCombo.Instance.Gameover_count != 3)
-        //{
-        //    selectgoods.SetActive(true);
-        //}
-        //Destroy(hyouka);
-        //Destroy(comboobject);
-
-        //if (GRADE.Instance.Gameover_count == 3)
-        //{
-        //    Action finish = () =>
-        //    {
-        //        bool a = Finish.activeSelf;
-        //        Finish.SetActive(!a);
-        //    };
-        //    finish();
-        //    AudioManager.Instance.seSource.PlayOneShot(sound.SEofFinish); ;
-
-        //    yield return new WaitForSeconds(2.0f);
-
-        //    Data.total_Data.Combo_Count = combo;
-        //}
-        //rndyentext();
-        //Onpay = false;
+        selectgoods.SetActive(true);
+        Destroy(hyouka);
+        Destroy(comboobject);
+        rndyentext();
+        Onpay = false;
     }
 }

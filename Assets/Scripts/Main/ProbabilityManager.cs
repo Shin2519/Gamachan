@@ -1,6 +1,6 @@
 using UnityEngine;
 [System.Serializable]
-public class ProbabilityManager 
+public class ProbabilityManager : GAMACHAN
 {
     public int NormalRange;
     public int GoldRange;
@@ -9,7 +9,7 @@ public class ProbabilityManager
         int rnd = Random.Range(0, 100);
         if (rnd >= 0 && rnd <= NormalRange)
         {
-            DropMoney.instance.KindofMoney(Shakespeed);
+            KindofMoney(Shakespeed);
         }
         Debug.Log(rnd);
     }
@@ -18,7 +18,7 @@ public class ProbabilityManager
         int rnd = Random.Range(0, 100);
         if (rnd >= 0 && rnd <= GoldRange)
         {
-            DropMoney.instance.KindofMoney(Shakespeed);
+            KindofMoney(Shakespeed);
         }
         Debug.Log(rnd);
     }

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectGoodsTwoChoice: MonoBehaviour
+public class SelectGoodsTwoChoice: GAMACHAN
 {
     [SerializeField, Header("音をまとめてるオブジェクト")]
     private Sound sound;
@@ -27,8 +27,6 @@ public class SelectGoodsTwoChoice: MonoBehaviour
     // 表示＆操作対象の商品
     private List<data> displayData = new();
     [Header("リセットボタンの再表示時間")] public float cooltime;
-
-    [SerializeField] private GameObject gamachan;
     [SerializeField] private GameObject tly;
     [SerializeField] private GameObject reset;
     [SerializeField] private GameObject gametext;
@@ -55,7 +53,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
         selectSO.total = 0;
         selectSO.targetLeft = 0;
         selectSO.targetRight = 0;
-        gamachan.SetActive(false);
+        Gama.SetActive(false);
         tly.SetActive(false);
         gametext.SetActive(false);
     }
@@ -151,7 +149,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
+            Gama.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
         }
@@ -168,10 +166,10 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             gametext.SetActive(true);
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
+            Gama.SetActive(true);
             tly.SetActive(true);
         }
-        TouchPanel.instance.Gama.SetActive(true);
+        Gama.SetActive(true);
         Onleft = false;
     }
 
@@ -190,7 +188,7 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
+            Gama.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
         }
@@ -206,11 +204,11 @@ public class SelectGoodsTwoChoice: MonoBehaviour
             
             thispanel.gameObject.SetActive(false);
             TouchPanel.instance.rndyentext();
-            gamachan.SetActive(true);
+            Gama.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
         }
-        TouchPanel.instance.Gama.SetActive(true);
+        Gama.SetActive(true);
         Onright = false;
     }
 

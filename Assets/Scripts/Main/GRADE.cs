@@ -13,9 +13,6 @@ public class GRADE : GradeAndCombo
 
     [SerializeField]
     private Image[] Cross_Ren;
-
-    [SerializeField]
-    private GameObject Grade;
     
     [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
     private GameObject Cross;
