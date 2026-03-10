@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -17,11 +18,8 @@ public class TouchPanel : MasterCode
     private int inputamount = 0;
     public int sumamount;//‡Œv‹àŠz
     [SerializeField] GameObject selectgoods;
-    public static GameObject hyouka;
-    [Header("Gama")]
-    public GameObject Gama;
-    public static Image Gama_Image;
-    public static GameObject comboobject;
+    [SerializeField]
+    private GameObject Gama;
     public GameObject Cross;
     [SerializeField]
     private GameObject Result;
@@ -143,32 +141,37 @@ public class TouchPanel : MasterCode
         GRADE.Instance.GRADE_(sumamount);
 
         yield return new WaitForSeconds(2.0f);
-        if(GRADE.Instance.Gameover_count != 3)
-        {
-            selectgoods.SetActive(true);
-        }
-        Destroy(hyouka);
-        Destroy(comboobject);
+        //if (GradeAndCombo.Instance.Gameover_count != 3)
+        //{
+        //    selectgoods.SetActive(true);
+        //}
+        //Destroy(hyouka);
+        //Destroy(comboobject);
 
-        if (GRADE.Instance.Gameover_count == 3)
-        {            
-            Timer.Instance.stop = true;
-            UIManagement.instance.Finishistrue();
-            AudioManager.Instance.seSource.PlayOneShot(sound.SEofFinish); ;
+        //if (GRADE.Instance.Gameover_count == 3)
+        //{
+        //    Timer.Instance.stop = true;
+        //    Action finish = () =>
+        //    {
+        //        bool a = Finish.activeSelf;
+        //        Finish.SetActive(!a);
+        //    };
+        //    finish();
+        //    AudioManager.Instance.seSource.PlayOneShot(sound.SEofFinish); ;
 
-            yield return new WaitForSeconds(2.0f);
+        //    yield return new WaitForSeconds(2.0f);
 
-            Data.total_Data.Combo_Count = combo;
-            
-            Result.SetActive(true);
+        //    Data.total_Data.Combo_Count = combo;
 
-            ResultManager.Instance.ActiveAndSlide();
+        //    Result.SetActive(true);
 
-            ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
-            Gama.SetActive(false);
-            RnkingData.instance.Register();
-        }
-        rndyentext();
-        Onpay = false;
+        //    ResultManager.Instance.ActiveAndSlide();
+
+        //    ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
+        //    Gama.SetActive(false);
+        //    RnkingData.instance.Register();
+        //}
+        //rndyentext();
+        //Onpay = false;
     }
 }

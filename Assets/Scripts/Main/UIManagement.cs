@@ -2,13 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIManagement : MasterCode
+public class UIManagement : GAUGE
 {
-    public static UIManagement instance;
-    void Awake()
-    {
-        instance = this;
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +19,7 @@ public class UIManagement : MasterCode
         if(about_ui.Current >=about_ui.Max)
         {
             gauge_state = State.Gauge.Gold;
-            TouchPanel.Gama_Image.sprite = about_ui.GoldenKindofemotion[0];
+            Gama_Image.sprite = about_ui.GoldenKindofemotion[0];
             StartCoroutine(GaugeDown());
             StartCoroutine(ColorChange());
         }
@@ -32,16 +27,5 @@ public class UIManagement : MasterCode
         {
             Gauge.fillAmount = about_ui.Current / about_ui.Max;
         }
-    }
-    public void gauge()
-    {
-        if(!isDown)
-        {
-            Currentgauge += 5 * Time.deltaTime;
-        }
-    }
-    public void Finishistrue()
-    {
-        Finish.SetActive(true);
     }
 }
