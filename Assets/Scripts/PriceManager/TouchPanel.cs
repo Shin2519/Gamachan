@@ -150,7 +150,6 @@ public class TouchPanel : MasterCode
 
         //if (GRADE.Instance.Gameover_count == 3)
         //{
-        //    Timer.Instance.stop = true;
         //    Action finish = () =>
         //    {
         //        bool a = Finish.activeSelf;
@@ -162,14 +161,6 @@ public class TouchPanel : MasterCode
         //    yield return new WaitForSeconds(2.0f);
 
         //    Data.total_Data.Combo_Count = combo;
-
-        //    Result.SetActive(true);
-
-        //    ResultManager.Instance.ActiveAndSlide();
-
-        //    ResultManager.Instance.SetScores(ScoreCalculator.Instance.ScoreData(Data));
-        //    Gama.SetActive(false);
-        //    RnkingData.instance.Register();
         //}
         //rndyentext();
         //Onpay = false;
