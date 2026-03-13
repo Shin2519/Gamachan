@@ -77,7 +77,7 @@ public class WalletMove : MonoBehaviour
             }
             if (!WasSwiping && isSwiping)
             {
-                if (MasterCode.instance.Currentgauge >= 100)
+                if (UIManagement.uimanagement.Currentgauge >= 100)
                 {
                     probability.Gold(Speed);
                 }

@@ -5,10 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectGoodsTwoChoice: GAMACHAN
+public class SelectGoodsTwoChoice: MasterCode
 {
-    [SerializeField, Header("音をまとめてるオブジェクト")]
-    private Sound sound;
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI[] priceTextsLeft;//各商品の値段
     [SerializeField] private TextMeshProUGUI[] priceTextsRight;//各商品の値段

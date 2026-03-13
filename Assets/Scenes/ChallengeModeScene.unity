@@ -1289,9 +1289,10 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge: {fileID: 2033541686}
   Finish: {fileID: 766982761}
-  Panel: {fileID: 418199558}
+  Gama: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  Gauge: {fileID: 2033541686}
 --- !u!1 &418199558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,9 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01202a648a788dc4a9ce106d95a5aa7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability:
-    NormalRange: 49
-    GoldRange: 59
+  probability: {fileID: 0}
   E_System: {fileID: 995700647}
   G_raycast: {fileID: 1452022848}
   ParentCanvas: {fileID: 1452022851}
@@ -2723,21 +2722,16 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge: {fileID: 0}
   Finish: {fileID: 0}
-  Panel: {fileID: 0}
-  amounttext: {fileID: 1666803921}
-  inputamounttext: {fileID: 2024189915}
+  Gama: {fileID: 832412912}
+  ResultPanel: {fileID: 0}
+  gametext: {fileID: 274824932}
+  selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
   sumamounttext: {fileID: 1948405144}
   sumamountyen: {fileID: 2070662371}
-  selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
-  sumamount: 0
   selectgoods: {fileID: 543537688}
-  Gama: {fileID: 832412912}
-  Cross: {fileID: 586108009}
-  Result: {fileID: 418199558}
-  Onpay: 0
-  gametext: {fileID: 274824932}
+  amounttext: {fileID: 1666803921}
+  inputamounttext: {fileID: 2024189915}
 --- !u!114 &963227303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,18 +2747,16 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gauge: {fileID: 0}
   Finish: {fileID: 0}
-  Panel: {fileID: 0}
-  Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
-  Gameover_count: 0
+  Gama: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  Grade: {fileID: 7453550722881035992, guid: c79c55b3c24ef52489ea33b08e6e2613, type: 3}
+  combo_image: {fileID: 5902849029161964, guid: 9d71e0061cf76e44385ec5b8b3e47494, type: 3}
   Out_count: {fileID: 21300000, guid: 142a82bcc1cb6e140a4ced81b8e46e1b, type: 3}
   Cross_Ren:
   - {fileID: 1996895622}
   - {fileID: 475330962}
   - {fileID: 511645961}
-  Grade: {fileID: 7453550722881035992, guid: c79c55b3c24ef52489ea33b08e6e2613, type: 3}
-  combo_image: {fileID: 5902849029161964, guid: 9d71e0061cf76e44385ec5b8b3e47494, type: 3}
   Cross: {fileID: 586108009}
 --- !u!1001 &979029463
 PrefabInstance:
@@ -2981,15 +2973,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
+  Data: {fileID: 0}
+  about_ui: {fileID: 0}
+  Finish: {fileID: 0}
+  Gama: {fileID: 0}
+  ResultPanel: {fileID: 0}
   moveDistance: 200
   Speed: 2
-  total_deta: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
-  Gauge_State: {fileID: 11400000, guid: 58c005802d343934daa2c62155ebe19e, type: 2}
-  sendtotaldata:
-    TotalData: 
   offset: {x: 942.5, y: 114.6}
   offset2: {x: 169.2, y: 94.4}
-  Panel: {fileID: 418199558}
 --- !u!1 &1013549193
 GameObject:
   m_ObjectHideFlags: 0

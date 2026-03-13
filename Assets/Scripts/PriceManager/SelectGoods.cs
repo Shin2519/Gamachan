@@ -183,7 +183,7 @@ public class SelectGoods : MonoBehaviour
         if (selectSO.target == selectSO.total||debug)
         {
             thispanel.gameObject.SetActive(false);
-            TouchPanel.instance.rndyentext();
+            Register.register.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
@@ -193,7 +193,7 @@ public class SelectGoods : MonoBehaviour
         {
             //StartCoroutine(PayOver());
             thispanel.gameObject.SetActive(false);
-            TouchPanel.instance.rndyentext();
+            Register.register.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);
@@ -201,7 +201,7 @@ public class SelectGoods : MonoBehaviour
         else if (selectSO.total < selectSO.target)
         {
             thispanel.gameObject.SetActive(false);
-            TouchPanel.instance.rndyentext();
+            Register.register.rndyentext();
             gamachan.SetActive(true);
             tly.SetActive(true);
             gametext.SetActive(true);

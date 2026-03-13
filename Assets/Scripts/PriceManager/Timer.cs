@@ -14,8 +14,6 @@ public class Timer : MasterCode
 
     [SerializeField] GameObject countdown;
     [SerializeField] GameObject resultpanel;
-    [SerializeField]
-    SendData Data;
     public bool stop;
 
 
