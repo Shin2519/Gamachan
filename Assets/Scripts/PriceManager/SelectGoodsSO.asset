@@ -15,36 +15,62 @@ MonoBehaviour:
   dataList:
   - image: {fileID: 21300000, guid: 88e94775a6e5afb4b91c2d0aa2286a0f, type: 3}
     price: 50
-    count: 1
   - image: {fileID: 21300000, guid: ca975d25378c3d140a0799f87ec3abb4, type: 3}
     price: 2600
-    count: 0
   - image: {fileID: 21300000, guid: 2fccc68c1fa80cc489b8183941b647c8, type: 3}
     price: 3380
-    count: 1
   - image: {fileID: 21300000, guid: 9330b672a28adf849a96fc5db6d846e4, type: 3}
     price: 4100
-    count: 0
   - image: {fileID: 21300000, guid: b4cc6bf388490a842a9752d9748d68ad, type: 3}
     price: 7100
-    count: 0
   - image: {fileID: 21300000, guid: 0fc9d6db216b344459546db92c0ffd84, type: 3}
     price: 10200
-    count: 0
   - image: {fileID: 21300000, guid: c5ea393a94cdded41a45a873f4ad4af3, type: 3}
     price: 700
-    count: 0
   - image: {fileID: 21300000, guid: a731a21b96fc7ff49a017da8bf22f89c, type: 3}
     price: 2080
-    count: 0
   - image: {fileID: 21300000, guid: 41e7ccc0f33f79b4dab6b07bb4582437, type: 3}
     price: 1430
-    count: 1
   - image: {fileID: 21300000, guid: eee7aa2ad8918db4f8978dce3becbf8a, type: 3}
     price: 5270
-    count: 0
+  chooseDatas:
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
+  - image:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    price: 0
   total: 11500
   target: 0
-  targetLeft: 13260
-  targetRight: 11500
-  judgement: 1
