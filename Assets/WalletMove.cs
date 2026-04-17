@@ -8,7 +8,7 @@ public class WalletMove : MonoBehaviour
     public static WalletMove Instance;
 
     [SerializeField]
-    private ProbabilityManager probability = new ProbabilityManager();
+    ProbabilityManager probability = new ProbabilityManager();
 
     [SerializeField]
     EventSystem E_System;
@@ -16,7 +16,7 @@ public class WalletMove : MonoBehaviour
     GraphicRaycaster G_raycast;
     [SerializeField]
     RectTransform ParentCanvas;
-    [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ")]
+    [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ"),Range(0,50)]
     private float judge;
     void Awake()
     {

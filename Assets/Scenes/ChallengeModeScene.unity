@@ -2591,7 +2591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01202a648a788dc4a9ce106d95a5aa7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability: {fileID: 0}
+  probability:
+    NormalRange: 0
+    GoldRange: 0
   E_System: {fileID: 995700647}
   G_raycast: {fileID: 1452022848}
   ParentCanvas: {fileID: 1452022851}

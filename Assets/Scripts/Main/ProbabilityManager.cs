@@ -1,8 +1,10 @@
 using UnityEngine;
 [System.Serializable]
-public class ProbabilityManager : MasterCode
+public class ProbabilityManager
 {
+    [Range(0,999)]
     public int NormalRange;
+    [Range(0,999)]
     public int GoldRange;
     public void Normal(float Shakespeed)
     {

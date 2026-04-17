@@ -9,7 +9,7 @@ public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
 
-    [SerializeField] float timer;
+    [SerializeField,Range(0,999)] float timer;
     [SerializeField] private UI mouse;
     [SerializeField, Header("クリックしたかどうか")]
     private bool IsInter;
