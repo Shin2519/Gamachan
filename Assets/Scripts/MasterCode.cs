@@ -20,6 +20,7 @@ namespace State
         TooSlow
     }
 }
+
 public class MasterCode : MonoBehaviour
 {
     public static MasterCode mastercode;
