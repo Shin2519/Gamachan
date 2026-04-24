@@ -20,7 +20,7 @@ public class playercontroll : MonoBehaviour
 
     public static List<RaycastResult> Past_Result = new List<RaycastResult>();
 
-    [SerializeField] private CountDoune cd;
+    //[SerializeField] private CountDoune cd;
 
     // カーソル最適化用
     private Texture2D currentCursor;

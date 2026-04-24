@@ -2,26 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Timer : MasterCode
+public class Timer : CountDownManager
 {
     //public static Timer Instance;
 
-    [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
-    [SerializeField] GameObject one;
-    [SerializeField] GameObject two;
-    [SerializeField] GameObject three;
-    [SerializeField] GameObject finish;
-
-    [SerializeField] GameObject countdown;
-    [SerializeField] GameObject resultpanel;
-    public bool stop;
+   
 
 
-
-    //private void Awake()
-    //{
-    //    Instance = this;
-    //}
     private void Start()
     {
         stop = false;
@@ -38,6 +25,7 @@ public class Timer : MasterCode
     }
     private void FixedUpdate()
     {
+        gameTimer -= Time.deltaTime;
         base.DownTimer(countdown, timetext,stop);
     }
 }
