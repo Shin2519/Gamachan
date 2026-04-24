@@ -83,12 +83,13 @@ public class playercontroll : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 10;
-                WalletMove.Instance.Drag();
+                WalletMove.Instance.Drag2();
             }
         }
         else
         {
             Past_Result.Clear();
+            WalletMove.Instance.gama = null;
         }
     }
 }

@@ -8,16 +8,16 @@ public class WalletMove : MonoBehaviour
     public static WalletMove Instance;
 
     [SerializeField]
-    ProbabilityManager probability = new ProbabilityManager();
+    Camera _camera;
 
     [SerializeField]
-    EventSystem E_System;
-    [SerializeField]
-    GraphicRaycaster G_raycast;
-    [SerializeField]
-    RectTransform ParentCanvas;
+    ProbabilityManager probability = new ProbabilityManager();
+    public GameObject gama;
     [SerializeField, Header("êUÇÍÇƒÇ¢ÇÈÇ©Ç«Ç§Ç©îªíËÇ∑ÇÈîÕàÕ"),Range(0,50)]
     private float judge;
+
+    [SerializeField]
+    LayerMask gamalayer;
     void Awake()
     {
         Instance = this;
@@ -34,84 +34,119 @@ public class WalletMove : MonoBehaviour
         
     }
 
-    public void Drag()
+    //public void Drag()
+    //{
+    //    GameObject UI_ = null;
+    //    PointerEventData data = new PointerEventData(E_System);
+    //    data.position = playercontroll.MovInput;
+    //    List<RaycastResult> results = new List<RaycastResult>();
+
+    //    if(playercontroll.Past_Result.Count>=1)
+    //    {
+    //        results = playercontroll.Past_Result;
+    //        UI_ = results[0].gameObject;
+    //    }
+    //    if(results.Count==0)
+    //    {
+    //        if (G_raycast == null) return;
+    //        G_raycast.Raycast(data, results);
+
+    //        if (results.Count > 0)
+    //        {
+    //            UI_ = results[0].gameObject;
+    //            if (playercontroll.Past_Result.Count == 0 && results[0].gameObject.GetComponent<UnityEngine.UI.Button>()==null) 
+    //                playercontroll.Past_Result.Add(results[0]);
+    //        }
+    //    }
+    //    if (UI_ != null)
+    //    {
+    //        bool isSwiping = false;
+    //        bool WasSwiping = false;
+
+    //        RectTransform ui_Pos = UI_.GetComponent<RectTransform>();
+
+    //        float Speed = Mathf.Pow(SpeedMath(ui_Pos), 0.5f);
+
+    //        if (Speed > judge)
+    //        {
+    //            isSwiping = true;
+    //        }
+    //        else if (Speed < 0.1f)
+    //        {
+    //            isSwiping = false;
+    //        }
+    //        if (!WasSwiping && isSwiping)
+    //        {
+    //            if (UIManagement.uimanagement.Currentgauge >= 100)
+    //            {
+    //                probability.Gold(Speed);
+    //            }
+    //            else
+    //            {
+    //                probability.Normal(Speed);
+    //            }
+    //        }
+    //        WasSwiping = isSwiping;
+    //    }
+    //}
+
+    public void Drag2()
     {
-        GameObject UI_ = null;
-        PointerEventData data = new PointerEventData(E_System);
-        data.position = playercontroll.MovInput;
-        List<RaycastResult> results = new List<RaycastResult>();
+        bool IsSwiping = false;
 
-        if(playercontroll.Past_Result.Count>=1)
+        bool WasSwiping = false;
+
+        Vector2 CurrntPos = new Vector2();
+
+        Vector2 AfterPos = new Vector2();
+
+        Vector3 input = new Vector3(playercontroll.MovInput.x,playercontroll.MovInput.y,Camera.main.nearClipPlane);
+
+        Vector2 MouceWorldPos = Camera.main.WorldToScreenPoint(input);
+
+        if(gama==null)
         {
-            results = playercontroll.Past_Result;
-            UI_ = results[0].gameObject;
+            RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector2.zero, gamalayer);
+            gama = hit.collider.gameObject;
+
+            CurrntPos = gama.transform.position;
         }
-        if(results.Count==0)
+        gama.transform.position = input;
+
+        AfterPos = gama.transform.position;
+
+        float Dis = (AfterPos - CurrntPos).magnitude;
+        Debug.Log(Dis);
+        float Speed = Mathf.Pow(Dis,0.5f);
+
+        if(Speed > judge)
         {
-            if (G_raycast == null) return;
-            G_raycast.Raycast(data, results);
 
-            if (results.Count > 0)
-            {
-                UI_ = results[0].gameObject;
-                if (playercontroll.Past_Result.Count == 0 && results[0].gameObject.GetComponent<UnityEngine.UI.Button>()==null) 
-                    playercontroll.Past_Result.Add(results[0]);
-            }
-        }
-        if (UI_ != null)
-        {
-            bool isSwiping = false;
-            bool WasSwiping = false;
-
-            RectTransform ui_Pos = UI_.GetComponent<RectTransform>();
-
-            float Speed = Mathf.Pow(SpeedMath(ui_Pos), 0.5f);
-
-            if (Speed > judge)
-            {
-                isSwiping = true;
-            }
-            else if (Speed < 0.1f)
-            {
-                isSwiping = false;
-            }
-            if (!WasSwiping && isSwiping)
-            {
-                if (UIManagement.uimanagement.Currentgauge >= 100)
-                {
-                    probability.Gold(Speed);
-                }
-                else
-                {
-                    probability.Normal(Speed);
-                }
-            }
-            WasSwiping = isSwiping;
         }
     }
-    private float SpeedMath(RectTransform UIPosition)
-    {
-        Vector2 CurrentPos = UIPosition.anchoredPosition;
+    //private float SpeedMath(RectTransform UIPosition)
+    //{
+    //    Vector2 CurrentPos = UIPosition.anchoredPosition;
 
-        Vector2 localPoint;
+    //    Vector2 localPoint;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, playercontroll.MovInput, null, out localPoint);
+    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas, playercontroll.MovInput, null, out localPoint);
 
-        Vector2 MinPos = new Vector2(-860, 130);
-        Vector2 MaxPos = new Vector2(960, 540);
+    //    Vector2 MinPos = new Vector2(-860, 130);
+    //    Vector2 MaxPos = new Vector2(960, 540);
 
-        float Clamped_x = Mathf.Clamp(localPoint.x, MinPos.x, MaxPos.x);
+    //    float Clamped_x = Mathf.Clamp(localPoint.x, MinPos.x, MaxPos.x);
 
-        float Clamped_y = Mathf.Clamp(localPoint.y, MinPos.y, MaxPos.y);
+    //    float Clamped_y = Mathf.Clamp(localPoint.y, MinPos.y, MaxPos.y);
 
-        Vector2 ClampedlocalPoint = new Vector2(Clamped_x, Clamped_y);
+    //    Vector2 ClampedlocalPoint = new Vector2(Clamped_x, Clamped_y);
 
-        UIPosition.anchoredPosition = ClampedlocalPoint;
+    //    UIPosition.anchoredPosition = ClampedlocalPoint;
 
-        Vector2 AfterPos = UIPosition.anchoredPosition;
+    //    Vector2 AfterPos = UIPosition.anchoredPosition;
 
-        Vector2 Dis = AfterPos - CurrentPos;
+    //    Vector2 Dis = AfterPos - CurrentPos;
 
-        return Dis.magnitude / Time.deltaTime;
-    }
+    //    return Dis.magnitude / Time.deltaTime;
+    //}
 }
