@@ -4,28 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class Timer : CountDownManager
 {
-    //public static Timer Instance;
 
-   
-
-
-    private void Start()
-    {
-        stop = false;
-        one.SetActive(false);
-        two.SetActive(false);
-        three.SetActive(false);
-        finish.SetActive(false);
-
-    }
 
     void Update()
     {
-        base.CountDownUI(one, two, three, finish);
+        base.StartUI(one, two, three, start);
+        base.FinishUI(one, two, three, finish);
+
     }
     private void FixedUpdate()
-    {
-        gameTimer -= Time.deltaTime;
-        base.DownTimer(countdown, timetext,stop);
+    { 
+        
+
+        if (StartUI(one, two, three, start))
+        {
+            base.DownTimer(countdown, timetext, stop);
+        }
+        
+        
     }
 }

@@ -8,9 +8,12 @@ public class CountDownManager : MonoBehaviour
     [SerializeField] protected GameObject two;
     [SerializeField] protected GameObject three;
     [SerializeField] protected GameObject finish;
+    [SerializeField] protected GameObject start;
+
 
     [SerializeField] protected float gameTimer;
-     protected float startTimer;
+    protected float startTimer = 4;
+
 
 
     [SerializeField] protected TextMeshProUGUI timetext;//時間テキスト
@@ -20,14 +23,8 @@ public class CountDownManager : MonoBehaviour
     [SerializeField] protected GameObject resultpanel;
     protected bool stop;
 
-    private void StartCountDown()
-    {
-        int a = 0;
-        float b = (float)a;
-    }
-
     
-    public void CountDownUI(GameObject one, GameObject two, GameObject three, GameObject finish)
+    public void FinishUI(GameObject one, GameObject two, GameObject three, GameObject finish)
     {
         switch (gameTimer)
         {
@@ -50,6 +47,36 @@ public class CountDownManager : MonoBehaviour
                 three.SetActive(true);
                 break;
         }
+    }
+
+    public bool StartUI( GameObject one, GameObject two, GameObject three, GameObject start)
+    {
+        if (startTimer >= 0) startTimer -= Time.deltaTime;
+
+        switch (startTimer)
+        {
+            case < 0:
+                start.SetActive(false);
+                break;
+            case < 1:
+                one.SetActive(false);
+                start.SetActive(true);
+                break;
+            case < 2:
+                two.SetActive(false);
+                one.SetActive(true);
+                break;
+            case < 3:
+                three.SetActive(false);
+                two.SetActive(true);
+                break;
+            case <= 4:
+                three.SetActive(true);
+                break;
+        }
+        if (startTimer >= 0) return false;
+
+        return true;
     }
     public void DownTimer(GameObject countdown, TextMeshProUGUI timetext, bool stop)
     {
