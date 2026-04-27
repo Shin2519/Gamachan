@@ -1,34 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "ScoreSettings", menuName = "Game/Score Settings")]
 public class ScoreSettings : ScriptableObject
 {
-    [Header("ğŒ1F¤•i”ƒ{[ƒiƒXiƒ^ƒCƒ€ƒŠƒ~ƒbƒgj")]
-    public int oneItemScore = 20;
-    public int threeItemScore = 60;
+    [Header("è©•ä¾¡ã‚¹ã‚³ã‚¢ï¼ˆæ–°ä»•æ§˜ï¼‰")]
+    public int evalExcellent = 5000;  // èª¤å·®0
+    public int evalPerfect = 1000;    // èª¤å·®1ã€œ500
+    public int evalGreat = 300;       // èª¤å·®501ã€œ1000
+    public int evalGood = 100;        // èª¤å·®1001ä»¥ä¸Š
+    public int evalBad = -100;        // æŒ‡å®šé‡‘é¡æœªæº€
 
-    [Header("ğŒ2FŒë·ƒXƒRƒAiƒ^ƒCƒ€ƒŠƒ~ƒbƒgj")]
-    public int diff0Score = 500;
-    public int diff100Score = 100;
-    public int diff250Score = 50;
-    public int diff500Score = 10;
-    public int diffOverScore = 0;
-
-    [Header("ğŒ3Fd‰İƒXƒRƒAiƒ^ƒCƒ€ƒŠƒ~ƒbƒgj")]
-    public int coin1 = 50;
-    public int coin5 = 30;
-    public int coin10 = 20;
-    public int coin50 = 10;
-    public int coin100 = 5;
-    public int coin500 = 2;
-
-    [Header("•]‰¿ƒXƒRƒAi‹¤’Êj")]
-    public int evalPerfect = 300;
-    public int evalGreat = 200;
-    public int evalGood = 100;
-    public int evalBad = -50;
-
-    [Header("ƒ{[ƒiƒXi‹¤’Êj")]
+    [Header("ãƒœãƒ¼ãƒŠã‚¹ï¼ˆå…±é€šï¼‰")]
     public int zeroYenBonus = 50;
     public int goldenBonus = 100;
     public int comboStepBonus = 100;
@@ -36,9 +18,15 @@ public class ScoreSettings : ScriptableObject
     public int speed15 = 100;
     public int speed20 = 50;
 
-    [Header("ƒ`ƒƒƒŒƒ“ƒWF·ƒXƒRƒA")]
-    public int challengePerfectDiff = 500;
-    public int challengeDiff100 = 100;
-    public int challengeDiff250 = 50;
-    public int challengeDiff500 = 10;
+    [Header("ã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆï¼šå•†å“æ•°ãƒœãƒ¼ãƒŠã‚¹")]
+    public int oneItemScore = 20;
+    public int threeItemScore = 60;
+
+    [Header("ç¡¬è²¨ã‚¹ã‚³ã‚¢ï¼ˆã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆï¼‰")]
+    public int coin1 = 50;
+    public int coin5 = 30;
+    public int coin10 = 20;
+    public int coin50 = 10;
+    public int coin100 = 5;
+    public int coin500 = 2;
 }
