@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 738915993}
   - component: {fileID: 738915992}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,6 +889,7 @@ MonoBehaviour:
   two: {fileID: 335606096}
   three: {fileID: 1626301393}
   finish: {fileID: 542137788}
+  start: {fileID: 1735811274}
   gameTimer: 180
   timetext: {fileID: 2042908842}
   countdown: {fileID: 738915991}
