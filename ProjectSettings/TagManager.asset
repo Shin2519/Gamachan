@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wallet
+    uniqueID: 3401829135
+    locked: 0
+  - name: Register
+    uniqueID: 4290301133
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

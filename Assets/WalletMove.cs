@@ -116,13 +116,28 @@ public class WalletMove : MonoBehaviour
         AfterPos = gama.transform.position;
 
         float Dis = (AfterPos - CurrntPos).magnitude;
-        Debug.Log(Dis);
         float Speed = Mathf.Pow(Dis,0.5f);
-
+        Debug.Log(Speed);
         if(Speed > judge)
         {
-
+            IsSwiping =true;
         }
+        else if (Speed < 0.1f)
+        {
+            IsSwiping = false;
+        }
+        if (!WasSwiping && IsSwiping)
+        {
+            if (UIManagement.uimanagement.Currentgauge >= 100)
+            {
+                probability.Gold(Speed);
+            }
+            else
+            {
+                probability.Normal(Speed);
+            }
+        }
+        WasSwiping = IsSwiping;
     }
     //private float SpeedMath(RectTransform UIPosition)
     //{

@@ -9,6 +9,8 @@ public class playercontroll : MonoBehaviour
 {
     public static playercontroll instance;
 
+    const int GamaNum_ = 1;
+
     [SerializeField,Range(0,999)] float timer;
     [SerializeField] private UI mouse;
     [SerializeField, Header("クリックしたかどうか")]
@@ -19,6 +21,8 @@ public class playercontroll : MonoBehaviour
     [SerializeField] GameObject cursor;
 
     public static List<RaycastResult> Past_Result = new List<RaycastResult>();
+
+    public int GamaNum => GamaNum_;
 
     //[SerializeField] private CountDoune cd;
 

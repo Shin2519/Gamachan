@@ -26,9 +26,9 @@ public class MasterCode : MonoBehaviour
     public static MasterCode mastercode;
 
     protected int combo;
-
+    [SerializeField]
     protected State.Gauge gauge_state;
-
+    [SerializeField]
     protected State.Speed speed_state;
 
     [SerializeField]

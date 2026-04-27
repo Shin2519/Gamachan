@@ -26,6 +26,8 @@ public class TlyMove : MasterCode
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        int GamaGuti = other.gameObject.GetComponent<playercontroll>().GamaNum;
+        if(GamaGuti==1)return;
         other.gameObject.SetActive(false);
         other.gameObject.GetComponent<Collider2D>().enabled = false;
         if (Onpay||ResultPanel.activeSelf) return;
