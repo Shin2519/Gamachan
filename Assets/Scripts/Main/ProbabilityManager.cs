@@ -6,6 +6,14 @@ public class ProbabilityManager
     public int NormalRange;
     [Range(0,999)]
     public int GoldRange;
+
+    bool IsSwiping = false;
+
+    bool WasSwiping = false;
+    public float Shake()
+    {
+        
+    }
     public void Normal(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);

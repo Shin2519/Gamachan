@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Actions",
     "maps": [
         {
@@ -223,10 +224,10 @@
                 {
                     "name": "",
                     "id": "4ffdeb9d-5533-4121-ba15-9785a15e3187",
-                    "path": "<Mouse>/position",
+                    "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -468,7 +469,7 @@
                     "path": "<Mouse>/press",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
