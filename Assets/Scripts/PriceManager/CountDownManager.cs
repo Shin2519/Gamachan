@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CountDownManager : MonoBehaviour
 {
-    [SerializeField] protected GameObject selectgoods;
     [SerializeField] protected GameObject one;
     [SerializeField] protected GameObject two;
     [SerializeField] protected GameObject three;
@@ -20,7 +19,6 @@ public class CountDownManager : MonoBehaviour
 
 
     [SerializeField] protected GameObject countdown;
-    [SerializeField] protected GameObject resultpanel;
     protected bool stop;
 
     
