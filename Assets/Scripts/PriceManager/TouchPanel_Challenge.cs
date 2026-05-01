@@ -35,7 +35,6 @@ public class TouchPanel_Challenge : Register
     protected override IEnumerator kaikei()
     {
         Onpay = true;
-        gametext.SetActive(false);
         sumamount = inputamount - selectgoodsso.total;
         sumamounttext.enabled = true;
         sumamountyen.enabled = true;
