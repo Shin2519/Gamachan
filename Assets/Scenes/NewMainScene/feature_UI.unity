@@ -246,12 +246,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
 --- !u!1 &337819024 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5577581414286287114, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
   m_PrefabInstance: {fileID: 1756868634}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &680826304
+=======
+--- !u!1 &406026812
+>>>>>>> origin/FeatureUI
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,15 +263,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 680826305}
   - component: {fileID: 680826306}
   m_Layer: 0
   m_Name: UIManager
+=======
+  - component: {fileID: 406026814}
+  - component: {fileID: 406026813}
+  m_Layer: 5
+  m_Name: UIDocument
+>>>>>>> origin/FeatureUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &680826305
 Transform:
   m_ObjectHideFlags: 0
@@ -284,11 +296,15 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &680826306
+=======
+--- !u!114 &406026813
+>>>>>>> origin/FeatureUI
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 680826304}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -307,6 +323,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1479136274498636662, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
   m_PrefabInstance: {fileID: 1756868634}
   m_PrefabAsset: {fileID: 0}
+=======
+  m_GameObject: {fileID: 406026812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: f4da1dd80d464ca43bba894b07367a8e, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: daa3b1e25e218414b81ede19cd0a02cc, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &406026814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406026812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> origin/FeatureUI
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,5 +639,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 961739753}
   - {fileID: 203844589}
+<<<<<<< HEAD
   - {fileID: 1756868634}
   - {fileID: 680826305}
+=======
+  - {fileID: 406026814}
+>>>>>>> origin/FeatureUI
