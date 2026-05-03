@@ -14,9 +14,8 @@ public class GamaChanControll : MonoBehaviour
     [SerializeField] private UI mouse;
     [SerializeField]
     ProbabilityManager probability = new ProbabilityManager();
-    [SerializeField]
     GameObject gama;
-    [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ"), Range(0, 50)]
+    [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ"), Range(0, 20)]
     private float judge;
     [SerializeField]
     LayerMask gamalayer;
@@ -24,6 +23,10 @@ public class GamaChanControll : MonoBehaviour
     bool IsSwiping = false;
 
     bool WasSwiping = false;
+
+    Vector3 CurrentPos = new Vector3();
+
+    Vector3 AfterPos = new Vector3();
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -62,45 +65,40 @@ public class GamaChanControll : MonoBehaviour
     {
         if(IsInter)
         {
-            Vector3 CurrentPos = new Vector3();
-
-            Vector3 AfterPos = new Vector3();
-
             Vector3 MousePos = new Vector3(MovInput.x,MovInput.y,-Camera.main.transform.position.z);
 
             Vector3 MouceWorldPos = Camera.main.ScreenToWorldPoint(MousePos);
-            Debug.Log(MouceWorldPos);
             if (gama == null)
             {
-                RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector2.zero, Mathf.Infinity,gamalayer);
+                RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector2.zero, Mathf.Infinity, gamalayer);
                 if (hit)
                 {
                     gama = hit.collider.gameObject;
-                    CurrentPos = gama.transform.position;
                 }
                 else
                 {
                     gama = null;
                 }
             }
+            CurrentPos = gama.transform.position;
             gama.transform.position = MouceWorldPos;
 
             AfterPos = gama.transform.position;
 
-            float Dis = (AfterPos - CurrentPos).magnitude;
-            float Speed = Mathf.Pow(Dis, 0.5f);
-            Debug.Log(Speed);
+            float Dis = (AfterPos - CurrentPos).sqrMagnitude;
+            float Speed = Dis;
             if (Speed > judge)
             {
                 IsSwiping = true;
             }
-            else if (Speed < 0.1f)
+            else
             {
                 IsSwiping = false;
             }
             if (!WasSwiping && IsSwiping)
             {
-                Debug.Log("ƒtƒ‹ƒtƒ‹");
+                Debug.Log(Speed);
+                probability.Normal(Speed);
             }
             WasSwiping = IsSwiping;
         }
