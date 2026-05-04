@@ -22,7 +22,6 @@ public class UIManagement : MasterCode
         gauge_state = State.Gauge.Normal;
         Gauge.fillAmount = Current / about_ui.Max;
         color = Gauge.color;
-        Finish.SetActive(false);
     }
 
     // Update is called once per frame

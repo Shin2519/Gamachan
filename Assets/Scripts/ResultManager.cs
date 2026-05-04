@@ -1,37 +1,35 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class ResultManager : MonoBehaviour
 {
     public static ResultManager Instance;
-    [Header("ƒŠƒUƒ‹ƒg‰‰oİ’è")]
+
+    [Header("ãƒªã‚¶ãƒ«ãƒˆæ¼”å‡ºè¨­å®š")]
     [SerializeField] private RectTransform[] scoreItems;
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float delayBetweenItems = 0.2f;
     [SerializeField] private float startOffsetY = -200f;
 
-    [Header("‰‰oƒXƒLƒbƒv—p")]
+    [Header("æ¼”å‡ºã‚¹ã‚­ãƒƒãƒ—ç”¨")]
     [SerializeField] private Image skipImage;
     private bool skipRequested = false;
 
-    [Header("ƒV[ƒ“‘JˆÚƒ{ƒ^ƒ“")]
+    [Header("ã‚·ãƒ¼ãƒ³é·ç§»ãƒœã‚¿ãƒ³")]
     [SerializeField] private GameObject[] sceneButtons;
 
-    [Header("ƒXƒRƒA•\¦—pƒeƒLƒXƒg (10€–Ú)")]
+    [Header("ã‚¹ã‚³ã‚¢è¡¨ç¤ºç”¨ãƒ†ã‚­ã‚¹ãƒˆ (11é …ç›®)")]
     [SerializeField] private Text[] scoreTexts;
 
-    private int[] scoreValues = new int[10];
+    // 0ã€œ9: å„é …ç›® / 10: åˆè¨ˆã‚¹ã‚³ã‚¢ï¼ˆæœ€çµ‚å€¤ï¼‰
+    private int[] scoreValues = new int[11];
 
-    // ÅIƒXƒRƒA
-    private int finalScore;
-    public SendData data; 
+    private int currentTotalScore = 0;
+    private int targetTotalScore = 0;
 
-
-    // ƒ‰ƒ“ƒLƒ“ƒO‘—Mƒ‚[ƒh
+    public SendData data;
     public string gameMode = "Challenge";
-
     public static int modeId;
 
     [SerializeField] private Playername pl;
@@ -40,22 +38,11 @@ public class ResultManager : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
-    {
-        
-    }
 
     public void ActiveAndSlide()
     {
-        if (ResultManagerBridge.modeId == 0)
-        {
-            gameMode = "Challenge";
-        }
-        else
-        {
-            gameMode = "TimeLimit";
-        }
-        // ‘S€–Ú‚ğ“§–¾‚É
+        gameMode = (ResultManagerBridge.modeId == 0) ? "Challenge" : "TimeLimit";
+
         foreach (var item in scoreItems)
         {
             var cg = item.GetComponent<CanvasGroup>();
@@ -65,25 +52,20 @@ public class ResultManager : MonoBehaviour
             cg.blocksRaycasts = false;
         }
 
-        // ƒ{ƒ^ƒ“”ñ•\¦
         foreach (var btn in sceneButtons)
         {
             btn.SetActive(false);
         }
 
-        // ƒXƒLƒbƒvİ’è
+        skipRequested = false;
         if (skipImage != null)
         {
-            skipImage.GetComponent<Button>().onClick.AddListener(SkipAnimation);
+            var btn = skipImage.GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(SkipAnimation);
         }
 
-
-
-        // ‰‰oŠJn
-        if (scoreItems != null && scoreItems.Length > 0)
-        {
-            StartCoroutine(PlaySlideIn());
-        }
+        StartCoroutine(PlaySlideIn());
     }
 
     private void SkipAnimation()
@@ -91,10 +73,35 @@ public class ResultManager : MonoBehaviour
         skipRequested = true;
     }
 
+    private IEnumerator AddToTotalScore(int addValue)
+    {
+        int start = currentTotalScore;
+        int end = currentTotalScore + addValue;
+        float duration = 0.25f;
+        float elapsed = 0f;
+
+        while (elapsed < duration && !skipRequested)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            int current = (int)Mathf.Lerp(start, end, t);
+            scoreTexts[10].text = current.ToString();
+            yield return null;
+        }
+
+        currentTotalScore = end;
+        scoreTexts[10].text = currentTotalScore.ToString();
+    }
+
     private IEnumerator PlaySlideIn()
     {
-        foreach (var item in scoreItems)
+        // ãƒˆãƒ¼ã‚¿ãƒ«ã¯æœ€åˆ 0 è¡¨ç¤º
+        currentTotalScore = 0;
+        scoreTexts[10].text = "0";
+
+        for (int i = 0; i < scoreItems.Length; i++)
         {
+            var item = scoreItems[i];
             var cg = item.GetComponent<CanvasGroup>();
 
             Vector2 startPos = item.anchoredPosition + new Vector2(0, startOffsetY);
@@ -118,41 +125,74 @@ public class ResultManager : MonoBehaviour
             cg.interactable = true;
             cg.blocksRaycasts = true;
 
+            // ãƒˆãƒ¼ã‚¿ãƒ«åŠ ç®—ï¼ˆæœ€å¾Œã® index 10 ã¯é™¤å¤–ï¼‰
+            if (i < scoreValues.Length - 1)
+            {
+                int addValue = scoreValues[i];
+                StartCoroutine(AddToTotalScore(addValue));
+            }
+
             if (!skipRequested)
             {
                 yield return new WaitForSeconds(delayBetweenItems);
             }
+            else
+            {
+                break;
+            }
         }
 
-        // ‰‰oI—¹Œã‚Éƒ{ƒ^ƒ“•\¦
+        // ã‚¹ã‚­ãƒƒãƒ—ã•ã‚ŒãŸå ´åˆã¯ä¸€æ°—ã«æœ€çµ‚å€¤ã¸
+        if (skipRequested)
+        {
+            currentTotalScore = targetTotalScore;
+            scoreTexts[10].text = targetTotalScore.ToString();
+
+            for (int i = 0; i < scoreItems.Length; i++)
+            {
+                var item = scoreItems[i];
+                var cg = item.GetComponent<CanvasGroup>();
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
+        }
+
         foreach (var btn in sceneButtons)
         {
             btn.SetActive(true);
         }
     }
 
-    // ƒXƒRƒAó‚¯æ‚è
     public void SetScores(int[] values)
     {
         if (values.Length == scoreValues.Length)
         {
             scoreValues = values;
-            UpdateScoreTexts();
 
-            finalScore = values[9]; // ‡ŒvƒXƒRƒA
-            pl.playerscor = finalScore;
+            // 0ã€œ9 ã®é …ç›®ã‚’ãã®ã¾ã¾è¡¨ç¤º
+            for (int i = 0; i < scoreTexts.Length - 1; i++)
+            {
+                scoreTexts[i].text = scoreValues[i].ToString();
+            }
+
+            // ãƒˆãƒ¼ã‚¿ãƒ«ã¯æ¼”å‡ºã§åŠ ç®—ã™ã‚‹ã®ã§ 0 ã«ã—ã¦ãŠã
+            targetTotalScore = scoreValues[10];
+            currentTotalScore = 0;
+            scoreTexts[10].text = "0";
+
+            // ãƒ©ãƒ³ã‚­ãƒ³ã‚°é€ä¿¡ç”¨
+            pl.playerscor = targetTotalScore;
         }
     }
 
-    private void UpdateScoreTexts()
+    public void ReceiveGameData(SendData sendData)
     {
-        for (int i = 0; i < scoreTexts.Length; i++)
-        {
-            scoreTexts[i].text = scoreValues[i].ToString();
-        }
+        int[] scoreArray = ScoreCalculator.Instance.ScoreData(sendData);
+        SetScores(scoreArray);
+        ActiveAndSlide();
     }
 
-    // ƒ‰ƒ“ƒLƒ“ƒO‚ÖƒXƒRƒA‘—M
     public void GoToRankingScene()
     {
         FadeManager.Instance.LoadLevel("RankingScene", 1.0f);
