@@ -14,6 +14,16 @@ namespace state
 [System.Serializable]
 public class ProbabilityManager
 {
+    public struct Coin
+    {
+        public int OneYenCoins;
+        public int FiveYenCoins;
+        public int TenYenCoins;
+        public int FiftyYenCoins;
+        public int OnehundredYenCoins;
+        public int FivehundredYenCoins;
+    }
+    public static Coin coin = new Coin();
     [Range(0,999)]
     public int NormalRange;
     [Range(0,999)]
@@ -41,7 +51,7 @@ public class ProbabilityManager
     {
         int SpeedNum = 0;
         if (Amount <= 0) return;
-        if (Amount >= 2)
+        if (Amount >= 3)
         {
             SpeedNum = (int)state.Speed.TooFast;
         }
@@ -82,11 +92,11 @@ public class ProbabilityManager
     }
     void TOOFAST(float Amount)
     {
-        if (Amount >= 2.9)
+        if (Amount >= 3.9)
         {
             PoolManagement.Instance.Money_500();
         }
-        else if (Amount >= 2.5)
+        else if (Amount >= 3.5)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -106,11 +116,11 @@ public class ProbabilityManager
 
     void FAST(float Amount)
     {
-        if (Amount >= 1.9)
+        if (Amount >= 2.9)
         {
             PoolManagement.Instance.Money_100();
         }
-        else if (Amount >= 1.5)
+        else if (Amount >= 2.5)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
@@ -198,5 +208,11 @@ public class ProbabilityManager
         {
             PoolManagement.Instance.Money_1();
         }
+    }
+    public static int TotalMoney(Coin coin_)
+    {
+        int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) * (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
+
+        return Total;
     }
 }

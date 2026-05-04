@@ -6,6 +6,8 @@ public class GamaChanControll : MonoBehaviour
 {
     [SerializeField, Header("ƒNƒŠƒbƒN‚µ‚½‚©‚Ç‚¤‚©")]
     private bool IsInter;
+    [SerializeField]
+    bool IsLight;
     Vector2 MovInput;
     [SerializeField] 
     private Vector2 HotSpot;
@@ -36,6 +38,10 @@ public class GamaChanControll : MonoBehaviour
     {
         IsInter = val.isPressed;
     }
+    void OnInteractL(InputValue val)
+    {
+        IsLight = val.isPressed;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,6 +54,19 @@ public class GamaChanControll : MonoBehaviour
     {
         UpdateCursor();
         DragAndDrop();
+        if(IsLight)
+        {
+            GameObject LightHand = GameObject.Find("hand");
+            GameObject TargetPos = GameObject.Find("TargetPosition");
+            if(LightHand != null)
+            {
+                LightHand.SetActive(true);
+                Vector3 Pos = (TargetPos.transform.position - LightHand.transform.position);
+                if (Pos.x <= 2.5f) return;
+                Vector3 Tar_P = Pos.normalized;
+                LightHand.transform.position = Tar_P * 2;
+            }
+        }
     }
     void UpdateCursor()
     {

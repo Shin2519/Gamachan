@@ -6,7 +6,6 @@ public class FiveYenPool : MonoBehaviour
 
     [SerializeField, Header("èâë¨ìx")]
     float v0_;
-
     public ObjectPool<FiveYenPool> FiveYen { get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,5 +17,14 @@ public class FiveYenPool : MonoBehaviour
     void Update()
     {
 
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        int num = col.gameObject.GetComponent<PoolManagement>().Tray_;
+        if (num == 1)
+        {
+            FiveYen.Return(this);
+            ProbabilityManager.coin.FiveYenCoins++;
+        }
     }
 }

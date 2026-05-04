@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 {
+    const int Tray = 1;
+    public int Tray_ => Tray;
     [SerializeField]
     OneYenPool OnePrefab;
     [SerializeField]
