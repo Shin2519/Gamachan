@@ -1,6 +1,7 @@
-using State;
+using Statestate;
 using UnityEngine;
-namespace state
+using UnityEngine.Rendering.Universal;
+namespace Statestate
 {
     public enum Speed
     {
@@ -10,6 +11,16 @@ namespace state
         Slow = 1,
         TooSlow = 0
     }
+
+    public enum Grade
+    { 
+        Perfect = 5,
+        Great = 4,
+        Good = 3,
+        Bad = 2,
+        Miss = 1
+    }
+
 }
 [System.Serializable]
 public class ProbabilityManager
@@ -23,7 +34,31 @@ public class ProbabilityManager
         public int OnehundredYenCoins;
         public int FivehundredYenCoins;
     }
+
+    public struct AboutMoney
+    {
+        public int TargetAmount;
+
+        public int InputMoney;
+
+        public int ChangeMoney;
+    }
+
+    public struct GradeCount
+    {
+        public int MissCount;
+
+        public int BadCount;
+
+        public int GoodCount;
+
+        public int GreatCount;
+
+        public int PerfectCount;
+    }
+    public static GradeCount gradecount = new GradeCount();
     public static Coin coin = new Coin();
+    public static AboutMoney AM = new AboutMoney();
     [Range(0,999)]
     public int NormalRange;
     [Range(0,999)]
@@ -53,23 +88,23 @@ public class ProbabilityManager
         if (Amount <= 0) return;
         if (Amount >= 3)
         {
-            SpeedNum = (int)state.Speed.TooFast;
+            SpeedNum = (int)State.Speed.TooFast;
         }
         else if (Amount >= 2)
         {
-            SpeedNum = (int)state.Speed.Fast;
+            SpeedNum = (int)State.Speed.Fast;
         }
         else if (Amount >= 0.95)
         {
-            SpeedNum = (int)state.Speed.Soso;
+            SpeedNum = (int)State.Speed.Soso;
         }
         else if (Amount >= 0.65)
         {
-            SpeedNum = (int)state.Speed.Slow;
+            SpeedNum = (int)State.Speed.Slow;
         }
         else if (Amount >= 0.05)
         {
-            SpeedNum = (int)state.Speed.TooSlow;
+            SpeedNum = (int)State.Speed.TooSlow;
         }
         switch (SpeedNum)
         {
@@ -214,5 +249,53 @@ public class ProbabilityManager
         int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) * (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
 
         return Total;
+    }
+
+    public static int GradeJudge()
+    {
+        int GradeState;
+
+        if (AM.InputMoney >= AM.TargetAmount)
+        {
+            int Sub = AM.InputMoney - AM.TargetAmount;
+            if(Sub<=0)
+            {
+                GradeState = (int)Statestate.Grade.Perfect;
+                gradecount.PerfectCount++;
+                ChooseGoods.Instance.Combo++;
+                AM.ChangeMoney += Sub;
+                return GradeState;
+            }
+            else if(Sub>=1&&Sub<=500)
+            {
+                GradeState = (int)Statestate.Grade.Great;
+                gradecount.GreatCount++;
+                ChooseGoods.Instance.Combo++;
+                AM.ChangeMoney += Sub;
+                return GradeState;
+            }
+            else if(Sub >= 501 && Sub <= 1000)
+            {
+                GradeState = (int)Statestate.Grade.Good;
+                gradecount.GoodCount++;
+                ChooseGoods.Instance.Combo++;
+                AM.ChangeMoney += Sub;
+                return GradeState;
+            }
+            else
+            {
+                GradeState = (int)Statestate.Grade.Bad;
+                gradecount.BadCount++;
+                ChooseGoods.Instance.Combo++;
+                AM.ChangeMoney += Sub;
+                return GradeState;
+            }
+        }
+        else
+        {
+            GradeState = (int)Statestate.Grade.Miss;
+            gradecount.MissCount++;
+            return GradeState;
+        }
     }
 }

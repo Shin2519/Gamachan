@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1020714623173ff4c9ad7a6b6cd8cf09, type: 3}
+  m_Name: Goods
+  m_EditorClassIdentifier: Assembly-CSharp::Goods
+  SomeIceCream:
+  - GoodsSprite: {fileID: 0}
+    Amount: 7320
+  - GoodsSprite: {fileID: 0}
+    Amount: 7350
+  - GoodsSprite: {fileID: 0}
+    Amount: 7370
+  SomeOnigiri:
+  - GoodsSprite: {fileID: 0}
+    Amount: 6930
+  - GoodsSprite: {fileID: 0}
+    Amount: 7070
+  SomeGreenTea:
+  - GoodsSprite: {fileID: 0}
+    Amount: 6720
+  - GoodsSprite: {fileID: 0}
+    Amount: 6880
+  SomeRamen:
+  - GoodsSprite: {fileID: 0}
+    Amount: 8400
+  - GoodsSprite: {fileID: 0}
+    Amount: 8430
+  - GoodsSprite: {fileID: 0}
+    Amount: 8470
+  SomeSandwich:
+  - GoodsSprite: {fileID: 0}
+    Amount: 7630
+  - GoodsSprite: {fileID: 0}
+    Amount: 7690
+  SomeChicken:
+  - GoodsSprite: {fileID: 0}
+    Amount: 7510
+  - GoodsSprite: {fileID: 0}
+    Amount: 7560
+  - GoodsSprite: {fileID: 0}
+    Amount: 7750
+  SomeBread:
+  - GoodsSprite: {fileID: 0}
+    Amount: 7500
+  - GoodsSprite: {fileID: 0}
+    Amount: 7770
+  - GoodsSprite: {fileID: 0}
+    Amount: 7860
+  SomePotatoChips:
+  - GoodsSprite: {fileID: 0}
+    Amount: 7310
+  - GoodsSprite: {fileID: 0}
+    Amount: 7360
+  SomeRegiBags:
+  - GoodsSprite: {fileID: 0}
+    Amount: 5500
+  - GoodsSprite: {fileID: 0}
+    Amount: 5730
+  - GoodsSprite: {fileID: 0}
+    Amount: 5850
+  SomeLanchs:
+  - GoodsSprite: {fileID: 0}
+    Amount: 8650
+  - GoodsSprite: {fileID: 0}
+    Amount: 8780
+  - GoodsSprite: {fileID: 0}
+    Amount: 9000

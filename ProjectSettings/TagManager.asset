@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Fade
+  - GoodsButton
   layers:
   - Default
   - TransparentFX

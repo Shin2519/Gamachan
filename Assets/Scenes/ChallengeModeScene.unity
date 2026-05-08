@@ -262,7 +262,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1261383148}
+  m_Father: {fileID: 1026129418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1292,7 +1292,6 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Finish: {fileID: 766982761}
   Gama: {fileID: 0}
   ResultPanel: {fileID: 0}
   Gauge: {fileID: 2033541686}
@@ -1477,7 +1476,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1261383148}
+  m_Father: {fileID: 1026129418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2418,7 +2417,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 59594727}
-  m_Father: {fileID: 1261383148}
+  m_Father: {fileID: 1026129418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2603,6 +2602,7 @@ MonoBehaviour:
   probability:
     NormalRange: 131
     GoldRange: 0
+    speed: 0
   gama: {fileID: 0}
   judge: 5
   gamalayer:
@@ -2736,10 +2736,8 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Finish: {fileID: 0}
   Gama: {fileID: 832412912}
   ResultPanel: {fileID: 0}
-  gametext: {fileID: 274824932}
   selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
   sumamounttext: {fileID: 1948405144}
   sumamountyen: {fileID: 2070662371}
@@ -2763,7 +2761,6 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
   about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Finish: {fileID: 0}
   Gama: {fileID: 0}
   ResultPanel: {fileID: 0}
   Grade: {fileID: 7453550722881035992, guid: c79c55b3c24ef52489ea33b08e6e2613, type: 3}
@@ -2993,7 +2990,6 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   Data: {fileID: 0}
   about_ui: {fileID: 0}
-  Finish: {fileID: 0}
   Gama: {fileID: 0}
   ResultPanel: {fileID: 0}
   moveDistance: 200
@@ -3311,20 +3307,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
-      insertIndex: 0
+    - targetCorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 766982765}
-    - targetCorrespondingSourceObject: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1476678730}
-    - targetCorrespondingSourceObject: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 451671434}
-    - targetCorrespondingSourceObject: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 155566796}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+--- !u!224 &1026129418 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+  m_PrefabInstance: {fileID: 1026129417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1070438083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4025,11 +4026,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221111420}
   m_CullTransparentMesh: 1
---- !u!224 &1261383148 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8698005392478364902, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
-  m_PrefabInstance: {fileID: 1026129417}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1267749325 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 137667596684690258, guid: 4736d706401ffe748aaebe54399adb7c, type: 3}
@@ -4507,7 +4503,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1261383148}
+  m_Father: {fileID: 1026129418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

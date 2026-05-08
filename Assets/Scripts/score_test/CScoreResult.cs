@@ -1,11 +1,11 @@
 public struct ChallengeScoreResult
 {
     // 新評価5段階
-    public int excellentScore;
     public int perfectScore;
     public int greatScore;
     public int goodScore;
     public int badScore;
+    public int missScore;
 
     // ボーナス類
     public int zeroYenBonus;
@@ -25,11 +25,11 @@ public struct ChallengeScoreResult
     {
         return new int[]
         {
-            excellentScore,
             perfectScore,
             greatScore,
             goodScore,
             badScore,
+            missScore,
             zeroYenBonus,
             goldenBonus,
             comboBonus,

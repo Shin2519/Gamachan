@@ -56,7 +56,7 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     // コンボボーナス
-    public int GetComboBonus(int comboCount)
+    int GetComboBonus(int comboCount)
     {
         int step = comboCount / 3;
         int bonus = step * setdata.comboStepBonus;
@@ -80,7 +80,7 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     // 硬貨スコア
-    public int GetCoinScore(int c1, int c5, int c10, int c50, int c100, int c500)
+    int GetCoinScore(int c1, int c5, int c10, int c50, int c100, int c500)
     {
         return
             c1 * setdata.coin1 +
@@ -92,39 +92,35 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     // チャレンジ最終スコア（新評価対応）
-    public ChallengeScoreResult CalculateChallenge(SendData data)
+    public ChallengeScoreResult CalculateChallenge(ProbabilityManager.GradeCount count,int Combo,ProbabilityManager.Coin coin,ProbabilityManager.AboutMoney am)
     {
         ChallengeScoreResult r = new ChallengeScoreResult();
-
-        r.excellentScore = data.total_Data.Excellent_Count * 5000;
-        r.perfectScore = data.total_Data.Perfect_Count * 1000;
-        r.greatScore = data.total_Data.Great_Count * 300;
-        r.goodScore = data.total_Data.Good_Count * 100;
-        r.badScore = data.total_Data.Bad_Count * -100;
-
-        r.zeroYenBonus = data.total_Data.Zero_Count * setdata.zeroYenBonus;
-        r.goldenBonus = data.total_Data.Golden_Count * setdata.goldenBonus;
-        r.comboBonus = GetComboBonus(data.total_Data.Combo_Count);
+        r.perfectScore = count.PerfectCount * 5000;
+        r.greatScore = count.GreatCount * 1000;
+        r.goodScore = count.GoodCount * 300;
+        r.badScore = count.BadCount * 100;
+        r.missScore = count.MissCount * -100;
+        r.goldenBonus = 0;
+        r.comboBonus = GetComboBonus(Combo);
         r.speedBonus = 0;
 
         r.coinScore = GetCoinScore(
-            data.total_Data.c1_count,
-            data.total_Data.c5_count,
-            data.total_Data.c10_count,
-            data.total_Data.c50_count,
-            data.total_Data.c100_count,
-            data.total_Data.c500_count
+            coin.OneYenCoins,
+            coin.FiveYenCoins,
+            coin.TenYenCoins,
+            coin.FiftyYenCoins,
+            coin.OnehundredYenCoins,
+            coin.FivehundredYenCoins
         );
 
-        r.totalChange = data.total_Data.Total_Change_Amount;
+        r.totalChange = am.ChangeMoney;
 
         r.totalScore =
-            r.excellentScore +
             r.perfectScore +
             r.greatScore +
             r.goodScore +
             r.badScore +
-            r.zeroYenBonus +
+            r.missScore +
             r.goldenBonus +
             r.comboBonus +
             r.speedBonus +
