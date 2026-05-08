@@ -29,6 +29,10 @@ public class GamaChanControll : MonoBehaviour
     Vector3 CurrentPos = new Vector3();
 
     Vector3 AfterPos = new Vector3();
+    [SerializeField]
+    Vector3 MinPos;
+    [SerializeField]
+    Vector3 MaxPos;
     private void OnMove(InputValue val)
     {
         MovInput = val.Get<Vector2>();
@@ -54,19 +58,6 @@ public class GamaChanControll : MonoBehaviour
     {
         UpdateCursor();
         DragAndDrop();
-        if(IsLight)
-        {
-            GameObject LightHand = GameObject.Find("hand");
-            GameObject TargetPos = GameObject.Find("TargetPosition");
-            if(LightHand != null)
-            {
-                LightHand.SetActive(true);
-                Vector3 Pos = (TargetPos.transform.position - LightHand.transform.position);
-                if (Pos.x <= 2.5f) return;
-                Vector3 Tar_P = Pos.normalized;
-                LightHand.transform.position = Tar_P * 2;
-            }
-        }
     }
     void UpdateCursor()
     {
@@ -99,8 +90,12 @@ public class GamaChanControll : MonoBehaviour
                     gama = null;
                 }
             }
+            if(gama == null)return;
             CurrentPos = gama.transform.position;
-            gama.transform.position = MouceWorldPos;
+            float Clamped_x = Mathf.Clamp(MouceWorldPos.x, MinPos.x, MaxPos.x);
+
+            float Clamped_y = Mathf.Clamp(MouceWorldPos.y, MinPos.y, MaxPos.y);
+            gama.transform.position = new Vector3(Clamped_x,Clamped_y,0);
 
             AfterPos = gama.transform.position;
 
@@ -116,7 +111,6 @@ public class GamaChanControll : MonoBehaviour
             }
             if (!WasSwiping && IsSwiping)
             {
-                Debug.Log(Speed);
                 probability.Normal(Speed);
             }
             WasSwiping = IsSwiping;

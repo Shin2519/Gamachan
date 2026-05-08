@@ -1465,7 +1465,7 @@ MonoBehaviour:
   ParentCanvas: {fileID: 954856430}
   Grade_image: {fileID: 0}
   Combo_image: {fileID: 0}
-  x: 5
+  x: 0
   targetText: {fileID: 1389058749}
   ResultPanel: {fileID: 0}
 --- !u!1 &1569507899

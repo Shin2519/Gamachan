@@ -4,28 +4,39 @@ public class KindOfSprite
 {
     [SerializeField]
     UI KindSprite;
-    public Sprite GamaEmotion(int GradeNum)
+    public Sprite GamaEmotion(int GradeNum,bool change)
     {
         if(GradeNum==5)
         {
-            return KindSprite.Kindofemotion[1];
+            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
+            return NomalorGold;
         }
         else if(GradeNum==4)
         {
-            return KindSprite.Kindofemotion[1];
+            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
+            return NomalorGold;
         }
         else if(GradeNum==3)
         {
-            return KindSprite.Kindofemotion[0];
+            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
+            return NomalorGold;
         }
         else if(GradeNum==2)
         {
-            return KindSprite.Kindofemotion[2];
+            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            return NomalorGold;
         }
         else
         {
-            return KindSprite.Kindofemotion[2];
+            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            return NomalorGold;
         }
+    }
+    public Sprite GamaChange(bool change)
+    {
+        Sprite NomalorGold = change ? KindSprite.Kindofemotion[0] : KindSprite.GoldenKindofemotion[0];
+
+        return NomalorGold;
     }
 
     public Sprite Grade_Sp(int GradeNum)
