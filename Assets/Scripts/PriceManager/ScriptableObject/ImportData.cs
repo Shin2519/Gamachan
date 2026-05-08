@@ -27,19 +27,14 @@ public class ImportData
             string[] split = lines[i].Split(',');
 
             string priceStr = split[0].Replace("\r", "");
-            //string imagename = split[1].Replace("\r", "");
 
 
             if (!int.TryParse(priceStr, out int price))
             {
                 continue;
             }
-
-            //Sprite sprite = Resources.Load<Sprite>("Images/"+imagename);
-
             datapool dp = new datapool
             {
-                //image = sprite,
                 price = price
                
             };
