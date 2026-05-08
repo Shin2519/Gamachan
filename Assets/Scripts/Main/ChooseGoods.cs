@@ -347,6 +347,8 @@ public class ChooseGoods : MonoBehaviour
         ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
         x = ProbabilityManager.GradeJudge();
+
+        StartCoroutine(AmountDisplay());
     }
 
     IEnumerator AmountDisplay()

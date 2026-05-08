@@ -1329,6 +1329,7 @@ MonoBehaviour:
   selectgoods: {fileID: 0}
   amounttext: {fileID: 1389058749}
   inputamounttext: {fileID: 1324754904}
+  cover: {fileID: 0}
 --- !u!224 &1446513867 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
@@ -1549,7 +1550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1569507902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510921538}
+        m_TargetAssemblyTypeName: ChooseGoods, Assembly-CSharp
+        m_MethodName: TotalInputMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1569507902
 MonoBehaviour:
   m_ObjectHideFlags: 0
