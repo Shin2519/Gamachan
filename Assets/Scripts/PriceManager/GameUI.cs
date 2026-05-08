@@ -19,7 +19,6 @@ public class GameUI : UIManager
     }
     private void FixedUpdate()
     { 
-        
 
         if (StartUI(one, two, three, start))
         {

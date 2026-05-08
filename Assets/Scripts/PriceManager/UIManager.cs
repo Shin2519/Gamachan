@@ -2,18 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-enum state
-{
-    ExCellent,
-    Perfect,
-    Great,
-    Good,
-    Bad,
-    First
-}
-
-
 public class UIManager : MonoBehaviour
 {
     [SerializeField] protected GameObject one;
@@ -23,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] protected GameObject start;
 
 
-    [SerializeField] protected float gameTimer;
+    public float gameTimer;
     protected float startTimer = 4;
 
 
@@ -109,26 +97,5 @@ public class UIManager : MonoBehaviour
         {
             timetext.color = new Color32(255, 0, 0, 255);//ê‘
         }
-    }
-
-
-
-    protected void SetSkill()
-    {
-        state Jage = state.First;
-        switch (Jage)
-        {
-            case state.First:
-                break;
-            case state.ExCellent:
-                break;
-            case state.Perfect:
-                break;
-            case state.Good:
-                break;
-            case state.Bad:
-                break;
-        }
-
     }
 }

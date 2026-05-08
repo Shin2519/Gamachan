@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class TouchPanel_Challenge : Register
 {
     ChallengeScoreResult CS;
+    [SerializeField] private GameObject cover;
     void Awake()
     {
-        if(Gama_Image==null)
+        if (Gama_Image == null)
         {
             Gama_Image = Gama.GetComponent<Image>();
         }
@@ -21,6 +22,7 @@ public class TouchPanel_Challenge : Register
         rndyentext();
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
+        cover.SetActive(false);
     }
     void Update()
     {
@@ -28,6 +30,7 @@ public class TouchPanel_Challenge : Register
     }
     public void OnButton()
     {
+        cover.SetActive(true);
         if (Onpay) return;
         StartCoroutine(kaikei());
         AudioManager.Instance.seSource.PlayOneShot(sound.Buttondown);
@@ -49,30 +52,6 @@ public class TouchPanel_Challenge : Register
             sumamounttext.color = Color.red;
             Data.total_Data.Total_Change_Amount += sumamount;
 
-            //if(SentTimer==15)
-            //{
-            //    if (selectgoodsso.judgement)
-            //    {
-            //        Data.total_Data.Speed_Bonus15 += 1*2;
-            //    }
-            //    else
-            //    {
-            //        Data.total_Data.Speed_Bonus15 += 1;
-            //    }
-                    
-            //}
-            //else if(SentTimer == 20)
-            //{
-            //    if (selectgoodsso.judgement)
-            //    {
-            //        Data.total_Data.Speed_Bonus20 += 1*2;
-            //    }
-            //    else
-            //    {
-            //        Data.total_Data.Speed_Bonus20 += 1;
-            //    }
-                
-            //}
         }
         else
         {
@@ -90,5 +69,6 @@ public class TouchPanel_Challenge : Register
         Destroy(comboobject);
         rndyentext();
         Onpay = false;
+        cover.SetActive(false);
     }
 }
