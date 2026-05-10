@@ -773,11 +773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2240
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -797,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5610407896509898775, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1332,7 +1332,6 @@ MonoBehaviour:
   selectgoods: {fileID: 954856430}
   amounttext: {fileID: 1389058749}
   inputamounttext: {fileID: 1324754904}
-  cover: {fileID: 0}
 --- !u!224 &1446513867 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
@@ -1655,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameUI
   goodscanvas: {fileID: 954856430}
-  gameTimer: 180
+  gameTimer: 100
   timetext: {fileID: 215937522}
   sprites:
   - {fileID: 21300000, guid: 8eb7ed29a076ecc4daa6207b97bab9fb, type: 3}
@@ -1663,6 +1662,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8de61994773549438bfebce7a8788dc, type: 3}
   - {fileID: 21300000, guid: 6cc7b69df522bde4bb9221692a19141c, type: 3}
   image: {fileID: 2066974932}
+  result: {fileID: 1083908005}
   inputamounttext: {fileID: 1324754904}
 --- !u!1 &1641176989
 GameObject:

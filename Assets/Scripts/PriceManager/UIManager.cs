@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static ProbabilityManager;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,37 +18,12 @@ public class UIManager : MonoBehaviour
     Sprite[] sprites;
     [SerializeField] GameObject image;
 
-    //ゲーム終了のカウントダウン
-    public void FinishUI(GameObject one, GameObject two, GameObject three, GameObject finish)
-    {
-        switch (gameTimer)
-        {
-            case <= -2:
-                
-                finish.SetActive(false);
-                break;
-            case <= 1:
-                goodscanvas.SetActive(true);
-                one.SetActive(false);
-                finish.SetActive(true);
-                break;
-            case <= 2:
-                two.SetActive(false);
-                one.SetActive(true);
-                break;
-            case <= 3:
-                three.SetActive(false);
-                two.SetActive(true);
-                break;
-            case <= 4:
-                three.SetActive(true);
-                break;
-        }
-    }
+    [SerializeField] protected GameObject result;
     public IEnumerator StartTimer()
     {
         Image sprite = image.GetComponent<Image>();
-    
+
+        result.SetActive(false);
 
         while(startTimer>-1)
         {
@@ -55,7 +31,7 @@ public class UIManager : MonoBehaviour
             startTimer--;
             yield return new WaitForSeconds(1);
         }
-        yield return new WaitForSeconds(1);
+        yield return null;
         sprite.sprite = sprites[3];
         yield return new WaitForSeconds(1);
 
@@ -63,27 +39,20 @@ public class UIManager : MonoBehaviour
         image.SetActive(false);
         stop = false;
     }
-
-    //ゲーム開始のカウントダウン
-    public bool StartUI( GameObject one, GameObject two, GameObject three, GameObject start)
-    {
-        
-        if (startTimer >= 0) return false;
-
-        return true;
-    }
     //タイマーの処理
     public void DownTimer()
     {
         int minuts = Mathf.FloorToInt(gameTimer / 60);
         int seconds = Mathf.FloorToInt(gameTimer % 60);
 
-        
+        if (gameTimer >= -1 && !stop)
+        {
+            gameTimer -= Time.deltaTime;
+        }
 
-        if (gameTimer > 0 && !stop)
+        if (gameTimer >= 0 && !stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
-            gameTimer -= Time.fixedDeltaTime;
         }
         if (10 < gameTimer && gameTimer <= 30)
         {

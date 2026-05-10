@@ -20,11 +20,15 @@ public class GameUI : UIManager
     void Update()
     {
         inputamounttext.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString() + "‰~";
+        if (gameTimer <= 0)
+        {
+            result.SetActive(true);
+            ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
+            
+        }
     }
     private void FixedUpdate()
     {
-        //base.FinishUI(one, two, three, finish);
-
         DownTimer();
         
     }
