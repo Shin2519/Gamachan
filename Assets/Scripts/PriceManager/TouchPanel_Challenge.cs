@@ -26,7 +26,7 @@ public class TouchPanel_Challenge : Register
     }
     void Update()
     {
-        inputamounttext.text = inputamount.ToString() + "‰~";
+        
     }
     public void OnButton()
     {

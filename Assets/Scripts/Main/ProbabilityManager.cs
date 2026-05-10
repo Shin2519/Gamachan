@@ -88,23 +88,23 @@ public class ProbabilityManager
         if (Amount <= 0) return;
         if (Amount >= 3)
         {
-            SpeedNum = (int)State.Speed.TooFast;
+            SpeedNum = (int)Statestate.Speed.TooFast;
         }
         else if (Amount >= 2)
         {
-            SpeedNum = (int)State.Speed.Fast;
+            SpeedNum = (int)Statestate.Speed.Fast;
         }
         else if (Amount >= 0.95)
         {
-            SpeedNum = (int)State.Speed.Soso;
+            SpeedNum = (int)Statestate.Speed.Soso;
         }
         else if (Amount >= 0.65)
         {
-            SpeedNum = (int)State.Speed.Slow;
+            SpeedNum = (int)Statestate.Speed.Slow;
         }
         else if (Amount >= 0.05)
         {
-            SpeedNum = (int)State.Speed.TooSlow;
+            SpeedNum = (int)Statestate.Speed.TooSlow;
         }
         switch (SpeedNum)
         {

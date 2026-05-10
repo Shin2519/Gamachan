@@ -13,64 +13,64 @@ MonoBehaviour:
   m_Name: Goods
   m_EditorClassIdentifier: Assembly-CSharp::Goods
   SomeIceCream:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 61ae75b60d1e5b34ba776d262656b3e5, type: 3}
     Amount: 7320
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: bb31f97db8b04194c95c34794add8797, type: 3}
     Amount: 7350
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: a95e5d79af59dcb4e8e5721f21334d98, type: 3}
     Amount: 7370
   SomeOnigiri:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 811dbf1fe8ccb2f4da8a9a9cc2ba3718, type: 3}
     Amount: 6930
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 6874c24578511c5448a970da9a869853, type: 3}
     Amount: 7070
   SomeGreenTea:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 5527d74f4d3893340a18a6bc8d6e06bd, type: 3}
     Amount: 6720
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: ac46add0d14dfba46abaa80b9a0e740e, type: 3}
     Amount: 6880
   SomeRamen:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 747f45e8ab69c2f478a37d6dbd706413, type: 3}
     Amount: 8400
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: b9f922ee964cd4c45920e4cf491365ad, type: 3}
     Amount: 8430
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 096605ba84754404aa60a96d69069e63, type: 3}
     Amount: 8470
   SomeSandwich:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: bccd0234c43629545873e87c44e9f132, type: 3}
     Amount: 7630
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 901e8619a9f447c47825ba935f07a6de, type: 3}
     Amount: 7690
   SomeChicken:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: a0def53dd83619c4c87abd2ef748d927, type: 3}
     Amount: 7510
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 70d8e796fa2213343a6a3bd1d1abc0e1, type: 3}
     Amount: 7560
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: a40d60cb804d63e439ac79fb568530b5, type: 3}
     Amount: 7750
   SomeBread:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 7d5052e59b89f7e4f92d1f55a32b5084, type: 3}
     Amount: 7500
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 4806aef8ae31f61499a3f11f4966e64b, type: 3}
     Amount: 7770
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 4dd94a1913c757d4fb46c8217e984594, type: 3}
     Amount: 7860
   SomePotatoChips:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: f6d6e34ce508a0e448293751404ebf2b, type: 3}
     Amount: 7310
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: aff83d93e3aa24947a60bd50fbfe202f, type: 3}
     Amount: 7360
   SomeRegiBags:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: bd59e104ff9727e43a92563e1877190a, type: 3}
     Amount: 5500
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 42401185f88451e47ae6fe03f7159909, type: 3}
     Amount: 5730
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 64a05ff784b4c8e47aa547db8843a512, type: 3}
     Amount: 5850
   SomeLanchs:
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 67abb4fb6c1659a43b428f0eb42c5172, type: 3}
     Amount: 8650
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 38d8abc0373c34a4e9cf055346d539e4, type: 3}
     Amount: 8780
-  - GoodsSprite: {fileID: 0}
+  - GoodsSprite: {fileID: 21300000, guid: 7860e0d7b6ccff54aac121e04c5f0266, type: 3}
     Amount: 9000

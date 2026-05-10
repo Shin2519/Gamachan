@@ -54,48 +54,6 @@ public class DropMoney : MasterCode
     {
         
     }
-    public void KindofMoney(float Amount)
-    {
-        if (Amount <= 0) return;
-        if (Amount >= 220)
-        {
-            speed_state = State.Speed.TooFast;
-        }
-        else if (Amount >= 180)
-        {
-            speed_state = State.Speed.Fast;
-        }
-        else if (Amount >= 120)
-        {
-            speed_state = State.Speed.Soso;
-        }
-        else if (Amount >= 70)
-        {
-            speed_state = State.Speed.Slow;
-        }
-        else if (Amount <= 40)
-        {
-            speed_state = State.Speed.TooSlow;
-        }
-        switch (speed_state)
-        {
-            case State.Speed.TooFast:
-                TOOFAST(Amount);
-                break;
-            case State.Speed.Fast:
-                FAST(Amount);
-                break;
-            case State.Speed.Soso:
-                SOSO(Amount);
-                break;
-            case State.Speed.Slow:
-                SLOW(Amount);
-                break;
-            case State.Speed.TooSlow:
-                TOOSLOW(Amount);
-                break;
-        }
-    }
     void Money_500()
     {
         for (int i = 0; i < smallmoney_500.Length; i++)
