@@ -11,14 +11,6 @@ namespace State
         Normal,
         Gold
     }
-    public enum Speed
-    {
-        TooFast,
-        Fast,
-        Soso,
-        Slow,
-        TooSlow
-    }
 }
 
 public class MasterCode : MonoBehaviour
@@ -28,8 +20,6 @@ public class MasterCode : MonoBehaviour
     protected int combo;
     [SerializeField]
     protected State.Gauge gauge_state;
-    [SerializeField]
-    protected State.Speed speed_state;
 
     [SerializeField]
     protected Sound sound;

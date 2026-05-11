@@ -7,13 +7,12 @@ using UnityEngine.UI;
 public class TouchPanel_Challenge : Register
 {
     ChallengeScoreResult CS;
-    [SerializeField] private GameObject cover;
     void Awake()
     {
-        if (Gama_Image == null)
-        {
-            Gama_Image = Gama.GetComponent<Image>();
-        }
+        //if (Gama_Image == null)
+        //{
+        //    Gama_Image = Gama.GetComponent<Image>();
+        //}
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,15 +21,9 @@ public class TouchPanel_Challenge : Register
         rndyentext();
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
-        cover.SetActive(false);
-    }
-    void Update()
-    {
-        inputamounttext.text = inputamount.ToString() + "‰~";
     }
     public void OnButton()
     {
-        cover.SetActive(true);
         if (Onpay) return;
         StartCoroutine(kaikei());
         AudioManager.Instance.seSource.PlayOneShot(sound.Buttondown);
@@ -69,6 +62,5 @@ public class TouchPanel_Challenge : Register
         Destroy(comboobject);
         rndyentext();
         Onpay = false;
-        cover.SetActive(false);
     }
 }

@@ -40,9 +40,13 @@ public class ChooseGoods : MonoBehaviour
     List<int> ChoicedNum = new List<int>();
     List<int> Money_amount = new List<int>();
     List<GameObject> Destroygameobject = new List<GameObject>();
+    [SerializeField]
     KindOfSprite kos = new KindOfSprite();
+
+    [SerializeField] TextMeshProUGUI[] resetText;
     public int Combo { get; set; }
 
+    bool a = false;
     void Awake()
     {
         Instance = this;
@@ -137,8 +141,9 @@ public class ChooseGoods : MonoBehaviour
                 while (Num == UsedNum)
                 {
                     Num = Random.Range(0, 10);
-                    a++;
+                    
                     UsedNum = ChoicedNum[a];
+                    a++;
                 }
             }
         }
@@ -148,9 +153,9 @@ public class ChooseGoods : MonoBehaviour
     }
     void SpriteAndAmountChange()
     {
-        if(x==5)
+        if (x == 5)
         {
-            GameObject Panel = Instantiate(GoodsPanel,ParentCanvasTrans);
+            GameObject Panel = Instantiate(GoodsPanel, ParentCanvasTrans);
 
             Transform PanelTrans = Panel.transform;
 
@@ -174,14 +179,16 @@ public class ChooseGoods : MonoBehaviour
 
                 teXt.text = saveitem.ToString();
 
-                Image But_Image = But[i].GetComponent<Image>();
+                GameObject But_Image = But[i].transform.GetChild(1).gameObject;
 
-                But_Image.sprite = item.GoodsSprite;
+                Image image = But_Image.GetComponent<Image>();
+
+                image.sprite = item.GoodsSprite;
             }
 
             But = new GameObject[3];
 
-            for (int i = 0;i < But.Length;i++)
+            for (int i = 0; i < But.Length; i++)
             {
                 Choice();
 
@@ -199,12 +206,14 @@ public class ChooseGoods : MonoBehaviour
 
                 teXt.text = saveitem.ToString();
 
-                Image But_Image = But[i].GetComponent<Image>();
+                GameObject But_Image = But[i].transform.GetChild(1).gameObject;
 
-                But_Image.sprite = item.GoodsSprite;
+                Image image = But_Image.GetComponent<Image>();
+
+                image.sprite = item.GoodsSprite;
             }
         }
-        else if(x==4)
+        else if (x == 4)
         {
             GameObject[] But = new GameObject[4];
 
@@ -225,13 +234,14 @@ public class ChooseGoods : MonoBehaviour
                 Text teXt = But_Text.GetComponent<Text>();
 
                 teXt.text = saveitem.ToString();
+                GameObject But_Image = But[i].transform.GetChild(1).gameObject;
 
-                Image But_Image = But[i].GetComponent<Image>();
+                Image image = But_Image.GetComponent<Image>();
 
-                But_Image.sprite = item.GoodsSprite;
+                image.sprite = item.GoodsSprite;
             }
         }
-        else if(x==3)
+        else if (x == 3)
         {
             GameObject[] But = new GameObject[3];
 
@@ -253,12 +263,14 @@ public class ChooseGoods : MonoBehaviour
 
                 teXt.text = saveitem.ToString();
 
-                Image But_Image = But[i].GetComponent<Image>();
+                GameObject But_Image = But[i].transform.GetChild(1).gameObject;
 
-                But_Image.sprite = item.GoodsSprite;
+                Image image = But_Image.GetComponent<Image>();
+
+                image.sprite = item.GoodsSprite;
             }
         }
-        else if(x==2)
+        else if (x == 2)
         {
             GameObject[] But = new GameObject[2];
 
@@ -280,12 +292,14 @@ public class ChooseGoods : MonoBehaviour
 
                 teXt.text = saveitem.ToString();
 
-                Image But_Image = But[i].GetComponent<Image>();
+                GameObject But_Image = But[i].transform.GetChild(1).gameObject;
 
-                But_Image.sprite = item.GoodsSprite;
+                Image image = But_Image.GetComponent<Image>();
+
+                image.sprite = item.GoodsSprite;
             }
         }
-        else if(x==1)
+        else if (x == 1)
         {
             Choice();
 
@@ -301,9 +315,11 @@ public class ChooseGoods : MonoBehaviour
 
             teXt.text = item.Amount.ToString();
 
-            Image But_Image = But.GetComponent<Image>();
+            GameObject But_Image = But.transform.GetChild(1).gameObject;
 
-            But_Image.sprite = item.GoodsSprite;
+            Image image = But_Image.GetComponent<Image>();
+
+            image.sprite = item.GoodsSprite;
         }
         else
         {
@@ -321,14 +337,18 @@ public class ChooseGoods : MonoBehaviour
 
             teXt.text = item.Amount.ToString();
 
-            Image But_Image = But.GetComponent<Image>();
+            GameObject But_Image = But.transform.GetChild(1).gameObject;
 
-            But_Image.sprite = item.GoodsSprite;
+            Image image = But_Image.GetComponent<Image>();
+
+            image.sprite = item.GoodsSprite;
         }
     }
 
     public void Money(int am)
     {
+        if (a) return;
+        a = true;
         targetText.text = am.ToString();
 
         for (int i = 0;i < Destroygameobject.Count;i++)
@@ -339,15 +359,25 @@ public class ChooseGoods : MonoBehaviour
         ProbabilityManager.AM.TargetAmount = am;
         ParentCanvas.SetActive(false);
         Destroygameobject.Clear();
+        a = false;
     }
 
     public void TotalInputMoney()
     {
+        if (a) return;
+        a = true;
         ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
         x = ProbabilityManager.GradeJudge();
 
         StartCoroutine(AmountDisplay());
+
+        for(int i = 0; i < resetText.Length;i++)
+        {
+            resetText[i].text = "";
+        }
+
+        a = false;
     }
 
     IEnumerator AmountDisplay()
@@ -374,6 +404,13 @@ public class ChooseGoods : MonoBehaviour
 
             com_sp.sprite = kos.Combo_Sp(Combo);
         }
+
+        yield return null;
+
+        Grade_image.SetActive(false);
+        Combo_image.SetActive(false);
+
+        ParentCanvas.SetActive(true);
         SpriteAndAmountChange();
     }
 }

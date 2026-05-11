@@ -1,94 +1,59 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static ProbabilityManager;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] protected GameObject one;
-    [SerializeField] protected GameObject two;
-    [SerializeField] protected GameObject three;
-    [SerializeField] protected GameObject finish;
-    [SerializeField] protected GameObject start;
-
+    [SerializeField] protected GameObject goodscanvas;
 
     public float gameTimer;
-    protected float startTimer = 4;
-
-
-
+    protected int startTimer = 2;
     [SerializeField] protected TextMeshProUGUI timetext;//時間テキスト
 
-    protected bool stop;
+    protected bool stop = true;
 
-    //ゲーム終了のカウントダウン
-    public void FinishUI(GameObject one, GameObject two, GameObject three, GameObject finish)
+    [SerializeField]
+    Sprite[] sprites;
+    [SerializeField] GameObject image;
+
+    [SerializeField] protected GameObject result;
+    public IEnumerator StartTimer()
     {
-        switch (gameTimer)
+        Image sprite = image.GetComponent<Image>();
+
+        result.SetActive(false);
+
+        while(startTimer>-1)
         {
-            case <= -2:
-                finish.SetActive(false);
-                break;
-            case <= 1:
-                one.SetActive(false);
-                finish.SetActive(true);
-                break;
-            case <= 2:
-                two.SetActive(false);
-                one.SetActive(true);
-                break;
-            case <= 3:
-                three.SetActive(false);
-                two.SetActive(true);
-                break;
-            case <= 4:
-                three.SetActive(true);
-                break;
+            sprite.sprite = sprites[startTimer];
+            startTimer--;
+            yield return new WaitForSeconds(1);
         }
-    }
+        yield return null;
+        sprite.sprite = sprites[3];
+        yield return new WaitForSeconds(1);
 
-    //ゲーム開始のカウントダウン
-    public bool StartUI( GameObject one, GameObject two, GameObject three, GameObject start)
-    {
-        if (startTimer >= -1) startTimer -= Time.deltaTime;
-
-        switch (startTimer)
-        {
-            case < -1:
-                start.SetActive(false);
-                break;
-            case <= 1:
-                one.SetActive(false);
-                start.SetActive(true);
-                break;
-            case <= 2:
-                two.SetActive(false);
-                one.SetActive(true);
-                break;
-            case <= 3:
-                three.SetActive(false);
-                two.SetActive(true);
-                break;
-            case <= 4:
-                three.SetActive(true);
-                break;
-        }
-        if (startTimer >= 0) return false;
-
-        return true;
+        goodscanvas.SetActive(true);
+        image.SetActive(false);
+        stop = false;
     }
     //タイマーの処理
-    public void DownTimer(TextMeshProUGUI timetext, bool stop)
+    public void DownTimer()
     {
         int minuts = Mathf.FloorToInt(gameTimer / 60);
         int seconds = Mathf.FloorToInt(gameTimer % 60);
 
-        gameTimer -= Time.fixedDeltaTime;
+        if (gameTimer >= -1 && !stop)
+        {
+            gameTimer -= Time.deltaTime;
+        }
 
-        if (gameTimer > 0 && !stop)
+        if (gameTimer >= 0 && !stop)
         {
             timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
         }
-
         if (10 < gameTimer && gameTimer <= 30)
         {
             timetext.color = new Color32(255, 128, 0, 255);//オレンジ
