@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - Fade
   - GoodsButton
+  - Gamatyan
+  - Tray
   layers:
   - Default
   - TransparentFX

@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 471545661}
   m_Layer: 0
   m_Name: Tray
-  m_TagString: Untagged
+  m_TagString: Tray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   OnehundredPrefab: {fileID: -5179327515813622475, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
   FivehundredPrefab: {fileID: -3804810473352614028, guid: 1c11839eece5141479218b7130979be0, type: 3}
   GamaPos: {fileID: 1220719230}
-  OffSet: {x: 0, y: -5, z: 0}
+  OffSet: {x: 0, y: -3, z: 0}
 --- !u!60 &471545661
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1220719233}
   m_Layer: 3
   m_Name: Gamatyan
-  m_TagString: Untagged
+  m_TagString: Gamatyan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
