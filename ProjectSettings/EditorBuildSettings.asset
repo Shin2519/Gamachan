@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 94bac1ee944d7334ea426caa6742efe7
   - enabled: 0
@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RuleScene.unity
     guid: 2f6429a2edffd0c41a2e7675c1f6318f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RankingScene.unity
     guid: 45a6c53f7bfc97342a797cdab0c31e85
   - enabled: 0
@@ -50,7 +50,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NewMainScene/feature_Gamachan.unity
     guid: 1e001aac6d41afd47be8f06990aaeb04
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NewMainScene/JoinMainScene.unity
     guid: 264e7b5da29a2c343bb570264c0510ef
   m_configObjects:

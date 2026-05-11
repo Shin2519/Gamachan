@@ -262,7 +262,7 @@ MonoBehaviour:
   OnehundredPrefab: {fileID: -5179327515813622475, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
   FivehundredPrefab: {fileID: -3804810473352614028, guid: 1c11839eece5141479218b7130979be0, type: 3}
   GamaPos: {fileID: 1220719230}
-  OffSet: {x: 0, y: -1, z: 0}
+  OffSet: {x: 0, y: -5, z: 0}
 --- !u!60 &471545661
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -398,7 +398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GamaChanControll
   IsInter: 0
-  IsLight: 0
   HotSpot: {x: 30, y: 0}
   timer: 0
   mouse: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
