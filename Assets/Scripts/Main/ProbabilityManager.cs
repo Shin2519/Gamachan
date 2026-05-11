@@ -1,6 +1,4 @@
-using Statestate;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 namespace Statestate
 {
     public enum Speed
@@ -35,7 +33,7 @@ public class ProbabilityManager
         public int FivehundredYenCoins;
     }
 
-    public struct AboutMoney
+    public struct PaymentState
     {
         public int TargetAmount;
 
@@ -58,12 +56,12 @@ public class ProbabilityManager
     }
     public static GradeCount gradecount = new GradeCount();
     public static Coin coin = new Coin();
-    public static AboutMoney AM = new AboutMoney();
-    [Range(0,999)]
+    public static PaymentState AM = new PaymentState();
+    [Range(0,99)]
     public int NormalRange;
-    [Range(0,999)]
+    [Range(0,99)]
     public int GoldRange;
-    public Speed speed;
+    public Statestate.Speed speed;
    
     public void Normal(float Shakespeed)
     {
@@ -88,23 +86,23 @@ public class ProbabilityManager
         if (Amount <= 0) return;
         if (Amount >= 3)
         {
-            SpeedNum = (int)State.Speed.TooFast;
+            SpeedNum = (int)Statestate.Speed.TooFast;
         }
         else if (Amount >= 2)
         {
-            SpeedNum = (int)State.Speed.Fast;
+            SpeedNum = (int)Statestate.Speed.Fast;
         }
         else if (Amount >= 0.95)
         {
-            SpeedNum = (int)State.Speed.Soso;
+            SpeedNum = (int)Statestate.Speed.Soso;
         }
         else if (Amount >= 0.65)
         {
-            SpeedNum = (int)State.Speed.Slow;
+            SpeedNum = (int)Statestate.Speed.Slow;
         }
         else if (Amount >= 0.05)
         {
-            SpeedNum = (int)State.Speed.TooSlow;
+            SpeedNum = (int)Statestate.Speed.TooSlow;
         }
         switch (SpeedNum)
         {
@@ -246,7 +244,7 @@ public class ProbabilityManager
     }
     public static int TotalMoney(Coin coin_)
     {
-        int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) * (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
+        int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) + (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
 
         return Total;
     }
@@ -286,7 +284,7 @@ public class ProbabilityManager
             {
                 GradeState = (int)Statestate.Grade.Bad;
                 gradecount.BadCount++;
-                ChooseGoods.Instance.Combo++;
+                ChooseGoods.Instance.Combo = 0;
                 AM.ChangeMoney += Sub;
                 return GradeState;
             }
@@ -295,6 +293,7 @@ public class ProbabilityManager
         {
             GradeState = (int)Statestate.Grade.Miss;
             gradecount.MissCount++;
+            ChooseGoods.Instance.Combo = 0;
             return GradeState;
         }
     }

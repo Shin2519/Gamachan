@@ -1,4 +1,3 @@
-using State;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,8 +5,6 @@ public class GamaChanControll : MonoBehaviour
 {
     [SerializeField, Header("ƒNƒŠƒbƒN‚µ‚½‚©‚Ç‚¤‚©")]
     private bool IsInter;
-    [SerializeField]
-    bool IsLight;
     Vector2 MovInput;
     [SerializeField] 
     private Vector2 HotSpot;
@@ -41,10 +38,6 @@ public class GamaChanControll : MonoBehaviour
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
-    }
-    void OnInteractL(InputValue val)
-    {
-        IsLight = val.isPressed;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
