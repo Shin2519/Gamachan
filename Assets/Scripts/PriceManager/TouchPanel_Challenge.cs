@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TouchPanel_Challenge : Register
 {
     ChallengeScoreResult CS;
-    [SerializeField] private GameObject cover;
     void Awake()
     {
         if (Gama_Image == null)
@@ -22,7 +21,6 @@ public class TouchPanel_Challenge : Register
         rndyentext();
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
-        cover.SetActive(false);
     }
     void Update()
     {
@@ -30,7 +28,6 @@ public class TouchPanel_Challenge : Register
     }
     public void OnButton()
     {
-        cover.SetActive(true);
         if (Onpay) return;
         StartCoroutine(kaikei());
         AudioManager.Instance.seSource.PlayOneShot(sound.Buttondown);
@@ -69,6 +66,5 @@ public class TouchPanel_Challenge : Register
         Destroy(comboobject);
         rndyentext();
         Onpay = false;
-        cover.SetActive(false);
     }
 }

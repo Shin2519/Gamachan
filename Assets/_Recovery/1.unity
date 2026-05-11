@@ -318,10 +318,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5036873361247252592, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5577581414286287114, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -777,11 +773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -2240
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 513359959828255181, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -801,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5610407896509898775, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1672,7 +1668,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8de61994773549438bfebce7a8788dc, type: 3}
   - {fileID: 21300000, guid: 01fd41afee0e8d44aac65e3db74dcddf, type: 3}
   image: {fileID: 2066974932}
-  resultpanel: {fileID: 1083908005}
 --- !u!1 &1641176989
 GameObject:
   m_ObjectHideFlags: 0

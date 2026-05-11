@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class SetSkill : MonoBehaviour
 {
-    [SerializeField] UIManager manager;
+    [SerializeField] GameUI manager;
 
 
 
