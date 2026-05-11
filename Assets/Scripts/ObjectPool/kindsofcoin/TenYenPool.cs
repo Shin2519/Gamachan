@@ -20,8 +20,11 @@ public class TenYenPool : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        int num = col.gameObject.GetComponent<PoolManagement>().Tray_;
-        if (num == 1)
+        if (col.gameObject.CompareTag("Gamatyan"))
+        {
+            return;
+        }
+        else if (col.gameObject.CompareTag("Tray"))
         {
             TenYen.Return(this);
             ProbabilityManager.coin.TenYenCoins++;

@@ -50,6 +50,9 @@ TagManager:
   - name: Register
     uniqueID: 4290301133
     locked: 0
+  - name: Gama
+    uniqueID: 587298875
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
