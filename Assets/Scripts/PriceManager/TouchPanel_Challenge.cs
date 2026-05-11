@@ -9,10 +9,10 @@ public class TouchPanel_Challenge : Register
     ChallengeScoreResult CS;
     void Awake()
     {
-        //if (Gama_Image == null)
-        //{
-        //    Gama_Image = Gama.GetComponent<Image>();
-        //}
+        if (Gama_Image == null)
+        {
+            Gama_Image = Gama.GetComponent<Image>();
+        }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +21,10 @@ public class TouchPanel_Challenge : Register
         rndyentext();
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
+    }
+    void Update()
+    {
+        
     }
     public void OnButton()
     {
