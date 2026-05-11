@@ -48,6 +48,6 @@ public class OptionManager : MonoBehaviour
             seSource.PlayOneShot(backSE);
         }
 
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
 }

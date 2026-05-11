@@ -45,6 +45,6 @@ public class Option : MonoBehaviour
     // ★ タイトルへ戻る（フェード付き）
     public void GoToTitleScene()
     {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
 }

@@ -14,20 +14,20 @@ public class ModeSelectScene : MonoBehaviour
     public void CharengeButton()
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-        FadeManager.Instance.LoadLevel("InputNameScene", 1.0f);
+        FadeManager.Instance.LoadLevel("InputNameScene", 1.0f, null, null);
         Mode.Instance.isMode = true;
     }
 
     public void TimeLimitButton()
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-        FadeManager.Instance.LoadLevel("InputNameScene", 1.0f);
+        FadeManager.Instance.LoadLevel("InputNameScene", 1.0f, null, null);
         Mode.Instance.isMode = false;
     }
 
     public void Title()
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Back);
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
 }

@@ -11,27 +11,27 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_st()
     {
-        FadeManager.Instance.LoadLevel("OptionScene", 1.0f);
+        FadeManager.Instance.LoadLevel("OptionScene", 1.0f,null, null);
     }
 
     public void ChangeButton_rk()
     {
-        FadeManager.Instance.LoadLevel("RankingScene",1.0f);
+        FadeManager.Instance.LoadLevel("RankingScene", 1.0f, null, null);
     }
 
     public void ChangeButton_rc()
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-        FadeManager.Instance.LoadLevel("RuleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("RuleScene", 1.0f, null, null);
     }
 
     public void ChangeButton_Ti()
     {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
     public void ChangeButton_This()
     {
-        FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);
+        FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f, null, null);
     }
     public void OnPose()
     {

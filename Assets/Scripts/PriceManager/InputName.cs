@@ -69,12 +69,12 @@ public class InputName : MonoBehaviour
             {
                 if (Mode.Instance.isMode)
                 {
-                    FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
+                    FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan", "feature_UI");//チャレンジモード
                     
                 }
                 else if (!Mode.Instance.isMode)
                 {
-                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
+                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//タイムリミットモード
 
                 }
             }
@@ -148,18 +148,18 @@ public class InputName : MonoBehaviour
         {
             if(Mode.Instance.isMode)
             {
-                FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
+                FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan","feature_UI");//チャレンジモード
             }
             else if(!Mode.Instance.isMode)
             {
-                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
+                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//タイムリミットモード
             }
         }
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     }
     public void OnButtonMode()
     {
-        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f);
+        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f, null, null);
         AudioManager.Instance.seSource.PlayOneShot(sound.Back);
     }
 

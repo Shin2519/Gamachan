@@ -92,7 +92,7 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     // チャレンジ最終スコア（新評価対応）
-    public ChallengeScoreResult CalculateChallenge(ProbabilityManager.GradeCount count,int Combo,ProbabilityManager.Coin coin,ProbabilityManager.AboutMoney am)
+    public ChallengeScoreResult CalculateChallenge(ProbabilityManager.GradeCount count,int Combo,ProbabilityManager.Coin coin,ProbabilityManager.PaymentState am)
     {
         ChallengeScoreResult r = new ChallengeScoreResult();
         r.perfectScore = count.PerfectCount * 5000;

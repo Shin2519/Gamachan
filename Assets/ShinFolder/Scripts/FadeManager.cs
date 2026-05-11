@@ -40,12 +40,12 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleはどこのス
 
 
 
-    public void LoadLevel(string scene,float interval)
+    public void LoadLevel(string scene,float interval,string addscene1,string addscene2)
     {
-        StartCoroutine(TransScene(scene,interval));
+        StartCoroutine(TransScene(scene,interval,addscene1,addscene2));
     }
 
-    private IEnumerator TransScene(string scene,float interval)
+    private IEnumerator TransScene(string scene,float interval, string addscene1, string addscene2)
     {
         //だんだん暗く
         this.isFadeing = true;
@@ -59,6 +59,11 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleはどこのス
 
         //シーンの切り替え
         SceneManager.LoadScene(scene);
+        if(addscene1!=null&&addscene2!=null)
+        {
+            SceneManager.LoadScene(addscene1, LoadSceneMode.Additive);
+            SceneManager.LoadScene(addscene2, LoadSceneMode.Additive);
+        }
 
 
         //だんだん明るく

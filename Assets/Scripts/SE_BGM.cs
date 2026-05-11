@@ -28,6 +28,6 @@ public class SE_BGM: MonoBehaviour
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f);
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
 }
