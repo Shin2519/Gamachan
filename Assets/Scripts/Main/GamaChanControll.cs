@@ -6,42 +6,37 @@ public class GamaChanControll : MonoBehaviour
     [SerializeField, Header("ÉNÉäÉbÉNÇµÇΩÇ©Ç«Ç§Ç©")]
     private bool IsInter;
     Vector2 MovInput;
-    [SerializeField] 
+    [SerializeField]
     private Vector2 HotSpot;
     Texture2D currentCursor;
-    [SerializeField, Range(0, 999)] float timer;
-    [SerializeField] private UI mouse;
+    [SerializeField, Range(0, 999)] 
+    float timer;
+    [SerializeField] 
+    private UI mouse;
     [SerializeField]
-    ProbabilityManager probability = new ProbabilityManager();
-    GameObject gama;
+    ProbabilityManager probability = new();
+    DragOperation drag;
     [SerializeField, Header("êUÇÍÇƒÇ¢ÇÈÇ©Ç«Ç§Ç©îªíËÇ∑ÇÈîÕàÕ"), Range(0, 20)]
     private float judge;
     [SerializeField]
     LayerMask gamalayer;
-
-    bool IsSwiping = false;
-
-    bool WasSwiping = false;
-
-    Vector3 CurrentPos = new Vector3();
-
-    Vector3 AfterPos = new Vector3();
     [SerializeField]
-    Vector3 MinPos;
+    Vector2 MinPos;
     [SerializeField]
-    Vector3 MaxPos;
-    private void OnMove(InputValue val)
-    {
-        MovInput = val.Get<Vector2>();
-    }
-
+    Vector2 MaxPos;
+    private Camera Cam;
+    void OnMove(InputValue val) => MovInput = val.Get<Vector2>();
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
+        if (IsInter) TryGrab();
+        else drag.End();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        drag = new DragOperation(MinPos,MaxPos,judge);
+        Cam = Camera.main;
         currentCursor = mouse.mouse[0];
         Cursor.SetCursor(currentCursor, HotSpot, CursorMode.Auto);
     }
@@ -49,8 +44,13 @@ public class GamaChanControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(MovInput);
         UpdateCursor();
-        DragAndDrop();
+        if (drag.IsActive)
+        {
+            float? swipeSpeed = drag.UpdatePosition(PointerWorld(), Time.deltaTime);
+            if (swipeSpeed.HasValue) probability.Normal(swipeSpeed.Value);
+        }
     }
     void UpdateCursor()
     {
@@ -64,53 +64,18 @@ public class GamaChanControll : MonoBehaviour
         }
     }
 
-    private void DragAndDrop()
+    private Vector3 PointerWorld()
     {
-        if(IsInter)
-        {
-            Vector3 MousePos = new Vector3(MovInput.x,MovInput.y,-Camera.main.transform.position.z);
+        Vector3 MouceWorld = new Vector3(MovInput.x, MovInput.y, -Cam.transform.position.z);
 
-            Vector3 MouceWorldPos = Camera.main.ScreenToWorldPoint(MousePos);
-            if (gama == null)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector2.zero, Mathf.Infinity, gamalayer);
-                if (hit)
-                {
-                    gama = hit.collider.gameObject;
-                }
-                else
-                {
-                    gama = null;
-                }
-            }
-            if(gama == null)return;
-            CurrentPos = gama.transform.position;
-            float Clamped_x = Mathf.Clamp(MouceWorldPos.x, MinPos.x, MaxPos.x);
+        return Cam.ScreenToWorldPoint(MouceWorld);
+    }
 
-            float Clamped_y = Mathf.Clamp(MouceWorldPos.y, MinPos.y, MaxPos.y);
-            gama.transform.position = new Vector3(Clamped_x,Clamped_y,0);
-
-            AfterPos = gama.transform.position;
-
-            float Dis = (AfterPos - CurrentPos).sqrMagnitude;
-            float Speed = Dis;
-            if (Speed > judge)
-            {
-                IsSwiping = true;
-            }
-            else
-            {
-                IsSwiping = false;
-            }
-            if (!WasSwiping && IsSwiping)
-            {
-                probability.Normal(Speed);
-            }
-            WasSwiping = IsSwiping;
-        }
-        else
-        {
-            gama = null;
-        }
+    private void TryGrab()
+    {
+        Vector3 MouceWorldPos = PointerWorld();
+        RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
+        if (hit.collider == null) return;
+        drag.Begin(hit.collider.transform, MouceWorldPos);
     }
 }
