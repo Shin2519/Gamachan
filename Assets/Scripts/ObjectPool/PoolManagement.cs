@@ -1,8 +1,14 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 
 public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 {
+    [SerializeField]
+    private Coin[] CoinPrefab;
+
+    [SerializeField]
+    private int InitialPoolSize;
+
     const int Tray = 1;
     public int Tray_ => Tray;
     [SerializeField]
@@ -27,6 +33,8 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     private ObjectPool<FiftyYenPool> Fifty_Yen;
     private ObjectPool<OnehundredYenPool> Onehundred_Yen;
     private ObjectPool<FivehundredYenPool> Fivehundred_Yen;
+
+    private Dictionary<int, ObjectPool<Coin>> Pools = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +44,11 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
         Fifty_Yen = new ObjectPool<FiftyYenPool>(FiftyPrefab,10);
         Onehundred_Yen = new ObjectPool<OnehundredYenPool>(OnehundredPrefab, 10);
         Fivehundred_Yen = new ObjectPool<FivehundredYenPool>(FivehundredPrefab, 10);
+        foreach (var prefab in CoinPrefab)
+        {
+            int yen = prefab.Yen;
+            Pools[yen] = new ObjectPool<Coin>(prefab, InitialPoolSize);
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +56,19 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         
     }
+
+    //public void Spawn(int yen)
+    //{
+    //    if (!Pools.TryGetValue(yen, out var pool))
+    //    {
+    //        Debug.LogWarning($"‹àŠz {yen} ‚Ìƒv[ƒ‹‚ª‚ ‚è‚Ü‚¹‚ñ");
+    //        return;
+    //    }
+
+    //    Coin coin = pool.Get();
+    //    coin.transform.position = GamaPos.position + OffSet;
+    //    coin.Initialize(c => OnCoinReturned(c, pool));
+    //}
 
     public void Money_1()
     {
