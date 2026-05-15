@@ -8,10 +8,12 @@ public class SceneChange : MonoBehaviour
     [SerializeField]
     private Sound sound;
     [SerializeField] GameObject Pose;
+    [Header("オプションパネル")]
+    public GameObject optionPanel;
 
     public void ChangeButton_st()
     {
-        FadeManager.Instance.LoadLevel("OptionScene", 1.0f,null, null);
+        optionPanel.SetActive(true);
     }
 
     public void ChangeButton_rk()

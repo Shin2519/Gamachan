@@ -11,21 +11,20 @@ public class Option : MonoBehaviour
     public AudioSource bgmSource;
     public AudioSource seSource;
 
+    [Header("オプションパネル")]
+    public GameObject optionPanel;   // ★ 追加：パネルを閉じるため
+
     private void Start()
     {
-        // 保存された音量を読み込む（なければ1.0）
         float bgmVolume = PlayerPrefs.GetFloat("BGM_VOLUME", 1.0f);
         float seVolume = PlayerPrefs.GetFloat("SE_VOLUME", 1.0f);
 
-        // スライダーに反映
         bgmSlider.value = bgmVolume;
         seSlider.value = seVolume;
 
-        // AudioSource に反映
         if (bgmSource != null) bgmSource.volume = bgmVolume;
         if (seSource != null) seSource.volume = seVolume;
 
-        // スライダー変更時のイベント登録
         bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
         seSlider.onValueChanged.AddListener(OnSEVolumeChanged);
     }
@@ -42,9 +41,9 @@ public class Option : MonoBehaviour
         PlayerPrefs.SetFloat("SE_VOLUME", value);
     }
 
-    // ★ タイトルへ戻る（フェード付き）
-    public void GoToTitleScene()
+    // ★ 戻るボタン → パネルを閉じるだけ
+    public void CloseOptionPanel()
     {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
+        optionPanel.SetActive(false);
     }
 }
