@@ -160,7 +160,6 @@ GameObject:
   m_Component:
   - component: {fileID: 471545659}
   - component: {fileID: 471545658}
-  - component: {fileID: 471545660}
   - component: {fileID: 471545661}
   m_Layer: 0
   m_Name: Tray
@@ -243,26 +242,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &471545660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471545657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69933d8967ef39e4bacdbb86ba44a691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PoolManagement
-  OnePrefab: {fileID: 6780720104244428061, guid: 3fc450be385b28f469aa3e75b2c98aaf, type: 3}
-  FivePrefab: {fileID: 6030460007183171656, guid: 7388848fe0615d24b86693f2885333f6, type: 3}
-  TenPrefab: {fileID: -3052072247270661619, guid: 002fb2da42c88e84993eccb85e190e8f, type: 3}
-  FiftyPrefab: {fileID: -1328733316680492186, guid: 96b7f9994c2506549bc0328476b0f4b2, type: 3}
-  OnehundredPrefab: {fileID: -5179327515813622475, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
-  FivehundredPrefab: {fileID: -3804810473352614028, guid: 1c11839eece5141479218b7130979be0, type: 3}
-  GamaPos: {fileID: 1220719230}
-  OffSet: {x: 0, y: -3, z: 0}
 --- !u!60 &471545661
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -352,6 +331,60 @@ PolygonCollider2D:
       - {x: 2.595, y: -1.0699999}
       - {x: 2.635, y: -0.97999996}
   m_UseDelaunayMesh: 1
+--- !u!1 &485430305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485430306}
+  - component: {fileID: 485430307}
+  m_Layer: 0
+  m_Name: CoinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485430306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485430305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485430307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485430305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69933d8967ef39e4bacdbb86ba44a691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoolManagement
+  CoinPrefab:
+  - {fileID: -3871530401855332909, guid: 3fc450be385b28f469aa3e75b2c98aaf, type: 3}
+  - {fileID: 7760710677362198318, guid: 7388848fe0615d24b86693f2885333f6, type: 3}
+  - {fileID: 576276391745213363, guid: 002fb2da42c88e84993eccb85e190e8f, type: 3}
+  - {fileID: -6621199720202934916, guid: 96b7f9994c2506549bc0328476b0f4b2, type: 3}
+  - {fileID: -4049951473196239220, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
+  - {fileID: 3510132005825385936, guid: 1c11839eece5141479218b7130979be0, type: 3}
+  InitialPoolSize: 10
+  GamaPos: {fileID: 1220719230}
+  OffSet: {x: 0, y: 0, z: 0}
 --- !u!1 &762821519
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,3 +982,4 @@ SceneRoots:
   - {fileID: 332240161}
   - {fileID: 762821523}
   - {fileID: 1200671658}
+  - {fileID: 485430306}

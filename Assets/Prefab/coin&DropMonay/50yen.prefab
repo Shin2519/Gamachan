@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1421517025418689334}
   - component: {fileID: -249540701025318979}
   - component: {fileID: -4796147137976710472}
-  - component: {fileID: -1328733316680492186}
+  - component: {fileID: -6621199720202934916}
   m_Layer: 5
   m_Name: 50yen
   m_TagString: Coin
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1328733316680492186
+--- !u!114 &-6621199720202934916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809218153978527842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abc7ba9949f1ed4d8112a4ee4e70af5, type: 3}
+  m_Script: {fileID: 11500000, guid: cf96d7b3cdc1c2042ad9b68473a02732, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  v0_: 200
+  m_EditorClassIdentifier: Assembly-CSharp::Coin
+  v0: 0
+  yen: 50

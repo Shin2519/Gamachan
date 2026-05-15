@@ -127,23 +127,23 @@ public class ProbabilityManager
     {
         if (Amount >= 3.9)
         {
-            PoolManagement.Instance.Money_500();
+            PoolManagement.Instance.Spawn(500);
         }
         else if (Amount >= 3.5)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
             {
-                PoolManagement.Instance.Money_500();
+                PoolManagement.Instance.Spawn(500);
             }
             else
             {
-                PoolManagement.Instance.Money_100();
+                PoolManagement.Instance.Spawn(100);
             }
         }
         else
         {
-            PoolManagement.Instance.Money_100();
+            PoolManagement.Instance.Spawn(100);
         }
     }
 
@@ -151,23 +151,23 @@ public class ProbabilityManager
     {
         if (Amount >= 2.9)
         {
-            PoolManagement.Instance.Money_100();
+            PoolManagement.Instance.Spawn(100);
         }
         else if (Amount >= 2.5)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
             {
-                PoolManagement.Instance.Money_100();
+                PoolManagement.Instance.Spawn(100);
             }
             else
             {
-                PoolManagement.Instance.Money_50();
+                PoolManagement.Instance.Spawn(50);
             }
         }
         else
         {
-            PoolManagement.Instance.Money_50();
+            PoolManagement.Instance.Spawn(50);
         }
     }
 
@@ -175,23 +175,23 @@ public class ProbabilityManager
     {
         if (Amount >= 1.4)
         {
-            PoolManagement.Instance.Money_50();
+            PoolManagement.Instance.Spawn(50);
         }
         else if (Amount >= 1)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
             {
-                PoolManagement.Instance.Money_50();
+                PoolManagement.Instance.Spawn(50);
             }
             else
             {
-                PoolManagement.Instance.Money_10();
+                PoolManagement.Instance.Spawn(10);
             }
         }
         else
         {
-            PoolManagement.Instance.Money_10();
+            PoolManagement.Instance.Spawn(10);
         }
     }
 
@@ -199,23 +199,23 @@ public class ProbabilityManager
     {
         if (Amount >= 0.9)
         {
-            PoolManagement.Instance.Money_10();
+            PoolManagement.Instance.Spawn(10);
         }
         else if (Amount >= 0.7)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
             {
-                PoolManagement.Instance.Money_10();
+                PoolManagement.Instance.Spawn(10);
             }
             else
             {
-                PoolManagement.Instance.Money_5();
+                PoolManagement.Instance.Spawn(5);
             }
         }
         else
         {
-            PoolManagement.Instance.Money_5();
+            PoolManagement.Instance.Spawn(5);
         }
     }
 
@@ -223,23 +223,23 @@ public class ProbabilityManager
     {
         if (Amount >= 0.6)
         {
-            PoolManagement.Instance.Money_5();
+            PoolManagement.Instance.Spawn(5);
         }
         else if (Amount >= 0.4)
         {
             int rnd = Random.Range(0, 2);
             if (rnd == 0)
             {
-                PoolManagement.Instance.Money_5();
+                PoolManagement.Instance.Spawn(5);
             }
             else
             {
-                PoolManagement.Instance.Money_1();
+                PoolManagement.Instance.Spawn(1);
             }
         }
         else
         {
-            PoolManagement.Instance.Money_1();
+            PoolManagement.Instance.Spawn(1);
         }
     }
     public static int TotalMoney(Coin coin_)
