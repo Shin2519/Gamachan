@@ -1,86 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 [System.Serializable]
-public struct IceCream
+public struct GoodsItem
 {
     public Sprite GoodsSprite;
 
     public int Amount;
 }
 [System.Serializable]
-public struct Onigiri
+public struct GoodsGenre
 {
-    public Sprite GoodsSprite;
+    public string GoodsSprite;
 
-    public int Amount;
-}
-[System.Serializable]
-public struct GreenTea
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct Ramen
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct Sandwich
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct Chicken
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct Bread
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct PotatoChips
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct RegiBags
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
-}
-[System.Serializable]
-public struct Lanchs
-{
-    public Sprite GoodsSprite;
-
-    public int Amount;
+    public GoodsItem[] Items;
 }
 [CreateAssetMenu(fileName = "Goods", menuName = "Scriptable Objects/Goods")]
 public class Goods : ScriptableObject
 {
-    public IceCream[] SomeIceCream;
-    public Onigiri[] SomeOnigiri;
-    public GreenTea[] SomeGreenTea;
-    public Ramen[] SomeRamen;
-    public Sandwich[] SomeSandwich;
-    public Chicken[] SomeChicken;
-    public Bread[] SomeBread;
-    public PotatoChips[] SomePotatoChips;
-    public RegiBags[] SomeRegiBags;
-    public Lanchs[] SomeLanchs;
+    public GoodsGenre[] Genres;
 }
