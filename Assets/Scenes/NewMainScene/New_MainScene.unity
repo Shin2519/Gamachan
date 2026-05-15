@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 7122205871732356249, guid: 4cb018ae3e9a37447ad21172a8e0e8e8, type: 3}
       propertyPath: 'scoreItems.Array.data[4]'
       value: 
-      objectReference: {fileID: 1186461948}
+      objectReference: {fileID: 0}
     - target: {fileID: 7122205871732356249, guid: 4cb018ae3e9a37447ad21172a8e0e8e8, type: 3}
       propertyPath: 'scoreItems.Array.data[5]'
       value: 
@@ -474,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 7122205871732356249, guid: 4cb018ae3e9a37447ad21172a8e0e8e8, type: 3}
       propertyPath: 'scoreTexts.Array.data[4]'
       value: 
-      objectReference: {fileID: 1186461935}
+      objectReference: {fileID: 0}
     - target: {fileID: 7122205871732356249, guid: 4cb018ae3e9a37447ad21172a8e0e8e8, type: 3}
       propertyPath: 'scoreTexts.Array.data[5]'
       value: 
@@ -2375,17 +2375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1186461935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 711515106460692952, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-  m_PrefabInstance: {fileID: 1186461927}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1186461936 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3593527763583471771, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
@@ -2474,11 +2463,6 @@ RectTransform:
 --- !u!224 &1186461947 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2068025327519168024, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
-  m_PrefabInstance: {fileID: 1186461927}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1186461948 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7553443414836323710, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
   m_PrefabInstance: {fileID: 1186461927}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1186461949 stripped
@@ -3194,7 +3178,7 @@ MonoBehaviour:
   ParentCanvas: {fileID: 275113054}
   Grade_image: {fileID: 294787781}
   Combo_image: {fileID: 440358447}
-  x: 0
+  x: 5
   targetText: {fileID: 1818787}
   ResultPanel: {fileID: 1186461930}
   kos:

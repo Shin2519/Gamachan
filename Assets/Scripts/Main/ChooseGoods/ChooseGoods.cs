@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using JetBrains.Annotations;
 
 public class ChooseGoods : MonoBehaviour
 {
@@ -30,16 +29,28 @@ public class ChooseGoods : MonoBehaviour
     TextMeshProUGUI targetText;
     [SerializeField]
     GameObject ResultPanel;
-    List<Sprite> Goods_Sp = new List<Sprite>();
-    List<int> Goods_Amount = new List<int>();
     List<GameObject> Destroygameobject = new List<GameObject>();
     [SerializeField]
     KindOfSprite kos = new KindOfSprite();
 
     [SerializeField] TextMeshProUGUI[] resetText;
-    public int Combo { get; set; }
 
     bool a = false;
+
+    private GoodsCatalog catalog;
+    private ComboCounter combo = new ComboCounter();
+
+    public int Combo
+    {
+        get => combo.Current; 
+        set
+        {
+            if (value == 0) combo.Reset();
+
+            else if (value > combo.Current) combo.Add();
+        }
+    }
+
     void Awake()
     {
         Instance = this;
@@ -48,7 +59,7 @@ public class ChooseGoods : MonoBehaviour
     void Start()
     {
         ParentCanvasTrans = ParentCanvas.transform;
-        GoodsSet();
+        catalog = new GoodsCatalog(goods);
         SpriteAndAmountChange();
     }
 
@@ -57,56 +68,24 @@ public class ChooseGoods : MonoBehaviour
     {
         
     }
-    void GoodsSet()
+    void CreateButton(GoodsCatalog.Entry entry, Transform parent)
     {
-        foreach(var genre in goods.Genres)
-        {
-            foreach(var item in genre.Items)
-            {
-                Goods_Sp.Add(item.GoodsSprite);
-                Goods_Amount.Add(item.Amount);
-            }
-        }
-    }
-
-    List<int> GetUniqueRandomIndices(int count, int max)
-    {
-        List<int> candidates = new List<int>();
-        for(int i = 0;i < max;i++)candidates.Add(i);
-
-        List<int> result = new List<int>();
-
-        for(int i = 0;i < count;i++)
-        {
-            if (candidates.Count == 0) break;
-            int idx = Random.Range(0, candidates.Count);
-            result.Add(candidates[idx]);
-            candidates.RemoveAt(idx);
-        }
-        return result;
-    }
-
-    void CreateButton(int goodsIndex, Transform parent)
-    {
-        Sprite sprite = Goods_Sp[goodsIndex];
-        int amount = Goods_Amount[goodsIndex];
-
         GameObject but = Instantiate(ChoiceButton, parent);
-        but.GetComponent<Button>().onClick.AddListener(() => Money(amount));
+        but.GetComponent<Button>().onClick.AddListener(() => Money(entry.Amount));
 
         Destroygameobject.Add(but);
 
         Text text = but.transform.GetChild(0).GetComponent<Text>();
-        text.text = amount.ToString();
+        text.text = entry.Amount.ToString();
 
         Image image = but.transform.GetChild(1).GetComponent<Image>();
-        image.sprite = sprite;
+        image.sprite = entry.Sprite;
     }
     void SpriteAndAmountChange()
     {
         int buttonCount = Mathf.Clamp(x,1,5);
 
-        var indices = GetUniqueRandomIndices(buttonCount, Goods_Sp.Count);
+        var picked = catalog.PickRandom(buttonCount);
 
         if(buttonCount==5)
         {
@@ -114,15 +93,15 @@ public class ChooseGoods : MonoBehaviour
             Destroygameobject.Add(extraPanel);
             Transform extraPanelTrans = extraPanel.transform;
             for (int i = 0; i < 3; i++)
-                CreateButton(indices[i], ParentPanel);
+                CreateButton(picked[i], ParentPanel);
 
             for (int i = 3; i < 5; i++)
-                CreateButton(indices[i], extraPanelTrans);
+                CreateButton(picked[i], extraPanelTrans);
         }
         else
         {
-            for (int i = 0; i < indices.Count; i++)
-                CreateButton(indices[i], ParentPanel);
+            for (int i = 0; i < picked.Count; i++)
+                CreateButton(picked[i], ParentPanel);
         }
     }
 
