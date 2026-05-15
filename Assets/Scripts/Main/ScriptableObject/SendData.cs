@@ -6,12 +6,12 @@ public class SendData : ScriptableObject
     [System.Serializable]
     public struct Total_data
     {
-        // 新評価5段階（追加）
-        public int Excellent_Count;   // 誤差0
-        public int Perfect_Count;     // 誤差1〜500
-        public int Great_Count;       // 誤差501〜1000
-        public int Good_Count;        // 誤差1001以上
-        public int Bad_Count;         // 指定金額未満
+        // 評価5段階
+        public int Perfect_Count;   // 誤差0
+        public int Great_Count;     // 誤差1〜500
+        public int Good_Count;       // 誤差501〜1000
+        public int Bad_Count;        // 誤差1001以上
+        public int Miss_Count;         // 指定金額未満
 
         // コイン枚数
         public int c1_count;

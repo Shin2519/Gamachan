@@ -12,7 +12,7 @@ public class Option : MonoBehaviour
     public AudioSource seSource;
 
     [Header("オプションパネル")]
-    public GameObject optionPanel;   // ★ 追加：パネルを閉じるため
+    public GameObject optionPanel; 
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class Option : MonoBehaviour
         PlayerPrefs.SetFloat("SE_VOLUME", value);
     }
 
-    // ★ 戻るボタン → パネルを閉じるだけ
+    // パネルを閉じる
     public void CloseOptionPanel()
     {
         optionPanel.SetActive(false);

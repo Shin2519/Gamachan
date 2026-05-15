@@ -7,38 +7,38 @@ public class ScoreCalculator : MonoBehaviour
     [SerializeField]
     private ScoreSettings setdata;
 
-    // 新しい5段階評価
-    public enum EvalType { Exernt, Perfect, Great, Good, Bad }
+    // 5段階評価
+    public enum EvalType { Perfect, Great, Good, Bad, Miss }
 
     void Awake()
     {
         Instance = this;
     }
 
-    // 新評価ロジック
+    // 評価ロジック
     public EvalType GetEvaluation(int target, int result)
     {
         int diff = Mathf.Abs(target - result);
         int change = result - target;
 
-        // ① 指定金額に届いていない → Bad
+        // 指定金額に届いていない 
         if (change < 0)
-            return EvalType.Bad;
+            return EvalType.Miss;
 
-        // ② 誤差 0 → Excellent
+        // 誤差 0 
         if (diff == 0)
-            return EvalType.Exernt;
-
-        // ③ 誤差 ±1 ～ ±500 → Perfect
-        if (diff <= 500)
             return EvalType.Perfect;
 
-        // ④ 誤差 ±501 ～ ±1000 → Great
-        if (diff <= 1000)
+        // 誤差 ±1 ～ ±500
+        if (diff <= 500)
             return EvalType.Great;
 
-        // ⑤ 誤差 ±1001 以上 → Good
-        return EvalType.Good;
+        // 誤差 ±501 ～ ±1000
+        if (diff <= 1000)
+            return EvalType.Good;
+
+        // 誤差 ±1001 以上
+        return EvalType.Bad;
     }
 
     // 評価ごとの点数
@@ -46,11 +46,11 @@ public class ScoreCalculator : MonoBehaviour
     {
         switch (eval)
         {
-            case EvalType.Exernt: return 5000;
-            case EvalType.Perfect: return 1000;
-            case EvalType.Great: return 300;
-            case EvalType.Good: return 100;
-            case EvalType.Bad: return -100;
+            case EvalType.Perfect: return 5000;
+            case EvalType.Great: return 1000;
+            case EvalType.Good: return 300;
+            case EvalType.Bad: return 100;
+            case EvalType.Miss: return -100;
         }
         return 0;
     }
@@ -91,7 +91,7 @@ public class ScoreCalculator : MonoBehaviour
             c500 * setdata.coin500;
     }
 
-    // チャレンジ最終スコア（新評価対応）
+    // チャレンジ最終スコア
     public ChallengeScoreResult CalculateChallenge(ProbabilityManager.GradeCount count,int Combo,ProbabilityManager.Coin coin,ProbabilityManager.PaymentState am)
     {
         ChallengeScoreResult r = new ChallengeScoreResult();
@@ -130,23 +130,22 @@ public class ScoreCalculator : MonoBehaviour
         return r;
     }
 
-    // リザルト画面用の10項目配列（新評価対応）
+    // リザルト画面用の10項目配列
     public int[] ScoreData(SendData senddata)
     {
         int[] data = new int[10];
 
-        data[0] = senddata.total_Data.Excellent_Count * 5000;
-        data[1] = senddata.total_Data.Perfect_Count * 1000;
-        data[2] = senddata.total_Data.Great_Count * 300;
-        data[3] = senddata.total_Data.Good_Count * 100;
-        data[4] = senddata.total_Data.Bad_Count * -100;
+        data[0] = senddata.total_Data.Perfect_Count * 5000;
+        data[1] = senddata.total_Data.Great_Count * 1000;
+        data[2] = senddata.total_Data.Good_Count * 300;
+        data[3] = senddata.total_Data.Bad_Count * 100;
+        data[4] = senddata.total_Data.Miss_Count * -100;
 
-        data[5] = senddata.total_Data.Zero_Count * setdata.zeroYenBonus;
-        data[6] = senddata.total_Data.Golden_Count * setdata.goldenBonus;
-        data[7] = GetComboBonus(senddata.total_Data.Combo_Count);
-        data[8] = senddata.total_Data.Total_Change_Amount;
+        data[5] = senddata.total_Data.Golden_Count * setdata.goldenBonus;
+        data[6] = GetComboBonus(senddata.total_Data.Combo_Count);
+        data[7] = senddata.total_Data.Total_Change_Amount;
 
-        data[9] =
+        data[8] =
             data[0] + data[1] + data[2] + data[3] + data[4] +
             data[5] + data[6] + data[7] + data[8] +
             GetCoinScore(
@@ -161,7 +160,7 @@ public class ScoreCalculator : MonoBehaviour
         return data;
     }
 
-    // タイムリミット最終スコア（新評価対応）
+    // タイムリミット最終スコア
     public TimeLimitScoreResult CalculateTimeLimit(
         int itemCount, int target, int result, int speedBonusTotal, SendData data)
     {
@@ -169,7 +168,7 @@ public class ScoreCalculator : MonoBehaviour
 
         r.itemBonus = GetItemBonus(itemCount);
 
-        // 新評価ロジック
+        // 評価ロジック
         EvalType eval = GetEvaluation(target, result);
         r.evalScore = GetEvalScore(eval);
 

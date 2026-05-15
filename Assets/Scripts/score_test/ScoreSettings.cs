@@ -4,14 +4,13 @@
 public class ScoreSettings : ScriptableObject
 {
     [Header("評価スコア（新仕様）")]
-    public int evalExcellent = 5000;  // 誤差0
-    public int evalPerfect = 1000;    // 誤差1〜500
-    public int evalGreat = 300;       // 誤差501〜1000
-    public int evalGood = 100;        // 誤差1001以上
-    public int evalBad = -100;        // 指定金額未満
+    public int evalPerfect = 5000;  // 誤差0
+    public int evalGreat = 1000;    // 誤差1〜500
+    public int evalGood = 300;       // 誤差501〜1000
+    public int evalBad = 100;        // 誤差1001以上
+    public int evalMiss = -100;        // 指定金額未満
 
     [Header("ボーナス（共通）")]
-    public int zeroYenBonus = 50;
     public int goldenBonus = 100;
     public int comboStepBonus = 100;
     public int comboMaxBonus = 500;
