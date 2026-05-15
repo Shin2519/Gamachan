@@ -13,8 +13,6 @@ public class GRADE : GradeAndCombo
     [SerializeField]
     private Image[] Cross_Ren;
     
-    [SerializeField, Header("Gameover‚Ü‚Å‚ÌƒJƒEƒ“ƒg")]
-    private GameObject Cross;
     void Awake()
     {
         Instance = this;
@@ -41,7 +39,7 @@ public class GRADE : GradeAndCombo
                 AudioManager.Instance.seSource.PlayOneShot(sound.Perfect);
                 hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
                 Grade_Ren = hyouka.GetComponent<SpriteRenderer>();
-                Grade_Ren.sprite = about_ui.Grade[3];
+                //Grade_Ren.sprite = about_ui.Grade[3];
                 if (gauge_state == State.Gauge.Gold)
                 {
                     Gama_Image.sprite = about_ui.GoldenKindofemotion[1];
@@ -75,10 +73,7 @@ public class GRADE : GradeAndCombo
             {
                 Combo();
                 AudioManager.Instance.seSource.PlayOneShot(sound.Good);
-                if (!Cross.activeSelf)
-                {
-                    Cross.SetActive(true);
-                }
+
                 Cross_Ren[Gameover_count].sprite = Out_count;
                 Gameover_count++;
                 hyouka = Instantiate(Grade, new Vector3(1300, 950, 0), Quaternion.identity);
@@ -97,10 +92,6 @@ public class GRADE : GradeAndCombo
         }
         else
         {
-            if (!Cross.activeSelf)
-            {
-                Cross.SetActive(true);
-            }
             AudioManager.Instance.seSource.PlayOneShot(sound.Bad);
             int Count = 3 - Gameover_count;
             for (int i = 0; i < Count; i++)

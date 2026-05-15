@@ -45,8 +45,6 @@ public class GameUI : MonoBehaviour
 
         if (gameTimer <= 4 && finish) StartCoroutine(FinnishTimer());
         
-
-        
     }
     private void FixedUpdate()
     {

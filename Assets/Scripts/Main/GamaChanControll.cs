@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GamaChanControll : MonoBehaviour
+public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
 {
     [SerializeField, Header("ƒNƒŠƒbƒN‚µ‚½‚©‚Ç‚¤‚©")]
     private bool IsInter;

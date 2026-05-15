@@ -22,7 +22,8 @@ public class TouchPanel_Challenge : Register
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
     }
-    void Update()
+
+    private void Update()
     {
         
     }
@@ -32,18 +33,17 @@ public class TouchPanel_Challenge : Register
         StartCoroutine(kaikei());
         AudioManager.Instance.seSource.PlayOneShot(sound.Buttondown);
     }
-    protected override IEnumerator kaikei()
+    protected  IEnumerator kaikei()
     {
         Onpay = true;
-        sumamount = inputamount - selectgoodsso.total;
-        sumamounttext.enabled = true;
-        sumamountyen.enabled = true;
 
-        sumamounttext.text = sumamount.ToString() + "‰~";
+        sumamounttext.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString() + "‰~";
+
+        sumamountyen.enabled = true;
+        sumamounttext.enabled = true;
 
         if (sumamount >= 0)
         {
-            //float SentTimer = Timer.Instance.timer;
             combo++;
             sumamountyen.text = "‚¨’Þ‚è";
             sumamounttext.color = Color.red;
@@ -62,8 +62,8 @@ public class TouchPanel_Challenge : Register
 
         yield return new WaitForSeconds(2.0f);
         selectgoods.SetActive(true);
-        Destroy(hyouka);
-        Destroy(comboobject);
+        //Destroy(hyouka);
+        //Destroy(comboobject);
         rndyentext();
         Onpay = false;
     }
