@@ -22,11 +22,6 @@ public class TouchPanel_Challenge : Register
         ResultPanel.SetActive(false);
         ResultManager.Instance.SetScores(CS.ToArray());
     }
-
-    private void Update()
-    {
-        
-    }
     public void OnButton()
     {
         if (Onpay) return;
@@ -37,29 +32,20 @@ public class TouchPanel_Challenge : Register
     {
         Onpay = true;
 
-        sumamounttext.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString() + "â~";
+        //if (sumamount >= 0)
+        //{
+        //    combo++;
+        //    sumamountyen.text = "Ç®íﬁÇË";
+        //    sumamounttext.color = Color.red;
+        //    //Data.total_Data.Total_Change_Amount += sumamount;
 
-        sumamountyen.enabled = true;
-        sumamounttext.enabled = true;
-
-        if (sumamount >= 0)
-        {
-            combo++;
-            sumamountyen.text = "Ç®íﬁÇË";
-            sumamounttext.color = Color.red;
-            Data.total_Data.Total_Change_Amount += sumamount;
-
-        }
-        else
-        {
-            combo = 0;
-            sumamountyen.text = "éxï•écäz";
-            sumamounttext.color = Color.blue;
-        }
-        yield return new WaitForSeconds(2.0f);
-
-        GRADE.Instance.GRADE_(sumamount);
-
+        //}
+        //else
+        //{
+        //    combo = 0;
+        //    sumamountyen.text = "éxï•écäz";
+        //    sumamounttext.color = Color.blue;
+        //}
         yield return new WaitForSeconds(2.0f);
         selectgoods.SetActive(true);
         //Destroy(hyouka);

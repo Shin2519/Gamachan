@@ -130,7 +130,7 @@ public class ChooseGoods : MonoBehaviour
     {
         if (a) return;
         a = true;
-        targetText.text = am.ToString();
+        targetText.text = am.ToString() + "‰~";
 
         foreach (var obj in Destroygameobject)
         {
@@ -167,7 +167,7 @@ public class ChooseGoods : MonoBehaviour
 
         TextMeshProUGUI ugui = Text.GetComponent<TextMeshProUGUI>();
 
-        ugui.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString();
+        ugui.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString() + "‰~";
 
         yield return null;
 
