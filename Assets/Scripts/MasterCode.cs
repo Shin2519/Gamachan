@@ -140,11 +140,6 @@ public class Register : MasterCode
     protected TextMeshProUGUI sumamountyen;//‡Œv‹àŠzƒeƒLƒXƒg(‚¨’Ş‚èAx•¥cŠz)
     [SerializeField] 
     protected GameObject selectgoods;
-    [SerializeField, Header("–Ú•W‹àŠz")] 
-    protected TextMeshProUGUI amounttext;//¤•i‚Ì‹àŠzƒeƒLƒXƒg
-    [SerializeField, Header("“Š“ü‹àŠz")] 
-    protected TextMeshProUGUI inputamounttext;//“Š“ü‹àŠz(‰¼)ƒeƒLƒXƒg
-    protected int sumamount;//‡Œv‹àŠz
     protected int inputamount = 0;
     public int InputAmount { get { return inputamount; } set { inputamount = value; } }
 
@@ -156,13 +151,6 @@ public class Register : MasterCode
     }
     public void rndyentext()
     {
-        //–Ú•W‹àŠz
-        amounttext.text = selectgoodsso.total.ToString() + "‰~";
-        //“Š“ü‹àŠz
-        inputamount = 0;
-        inputamounttext.text = inputamount.ToString() + "‰~";
-        //‡Œv‹àŠz
-        sumamounttext.text = sumamount.ToString() + "‰~";
 
         sumamountyen.enabled = false;
         sumamounttext.enabled = false;
