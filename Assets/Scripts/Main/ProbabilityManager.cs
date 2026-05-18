@@ -18,7 +18,11 @@ namespace Statestate
         Bad = 2,
         Miss = 1
     }
-
+    public enum GamaState
+    {
+        Nomal,
+        Gold
+    }
 }
 [System.Serializable]
 public class ProbabilityManager
@@ -62,6 +66,15 @@ public class ProbabilityManager
     [Range(0,99)]
     public int GoldRange;
     public Statestate.Speed speed;
+    static int f_gaugeamount;
+    public static int GaugeAmount
+    {
+        get => f_gaugeamount;
+        set
+        {
+            f_gaugeamount = Mathf.Clamp(value, 0, 100);
+        }
+    }
    
     public void Normal(float Shakespeed)
     {
@@ -249,16 +262,16 @@ public class ProbabilityManager
         return Total;
     }
 
-    public static int GradeJudge()
+    public static Statestate.Grade GradeJudge()
     {
-        int GradeState;
+        Statestate.Grade GradeState;
 
         if (AM.InputMoney >= AM.TargetAmount)
         {
             int Sub = AM.InputMoney - AM.TargetAmount;
             if(Sub<=0)
             {
-                GradeState = (int)Statestate.Grade.Perfect;
+                GradeState = Statestate.Grade.Perfect;
                 gradecount.PerfectCount++;
                 ChooseGoods.Instance.Combo++;
                 AM.ChangeMoney += Sub;
@@ -266,7 +279,7 @@ public class ProbabilityManager
             }
             else if(Sub>=1&&Sub<=500)
             {
-                GradeState = (int)Statestate.Grade.Great;
+                GradeState = Statestate.Grade.Great;
                 gradecount.GreatCount++;
                 ChooseGoods.Instance.Combo++;
                 AM.ChangeMoney += Sub;
@@ -274,7 +287,7 @@ public class ProbabilityManager
             }
             else if(Sub >= 501 && Sub <= 1000)
             {
-                GradeState = (int)Statestate.Grade.Good;
+                GradeState = Statestate.Grade.Good;
                 gradecount.GoodCount++;
                 ChooseGoods.Instance.Combo++;
                 AM.ChangeMoney += Sub;
@@ -282,7 +295,7 @@ public class ProbabilityManager
             }
             else
             {
-                GradeState = (int)Statestate.Grade.Bad;
+                GradeState = Statestate.Grade.Bad;
                 gradecount.BadCount++;
                 ChooseGoods.Instance.Combo = 0;
                 AM.ChangeMoney += Sub;
@@ -291,7 +304,7 @@ public class ProbabilityManager
         }
         else
         {
-            GradeState = (int)Statestate.Grade.Miss;
+            GradeState = Statestate.Grade.Miss;
             gradecount.MissCount++;
             ChooseGoods.Instance.Combo = 0;
             return GradeState;

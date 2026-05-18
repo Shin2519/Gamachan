@@ -47,6 +47,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         pool.Return(coin);
         AddCoinCount(coin.Yen);
+        ProbabilityManager.GaugeAmount = ProbabilityManager.GaugeUp(ProbabilityManager.GaugeAmount);
     }
 
     private void AddCoinCount(int yen)

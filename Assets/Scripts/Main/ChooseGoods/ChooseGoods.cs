@@ -24,7 +24,7 @@ public class ChooseGoods : MonoBehaviour
     [SerializeField]
     GameObject Combo_image;
     [SerializeField]
-    int x;
+    Statestate.Grade grade;
     [SerializeField]
     TextMeshProUGUI targetText;
     [SerializeField]
@@ -83,7 +83,9 @@ public class ChooseGoods : MonoBehaviour
     }
     void SpriteAndAmountChange()
     {
-        int buttonCount = Mathf.Clamp(x,1,5);
+        Statestate.Grade l_grade = grade;
+
+        int buttonCount = Mathf.Clamp((int)grade,1,5);
 
         var picked = catalog.PickRandom(buttonCount);
 
@@ -128,7 +130,7 @@ public class ChooseGoods : MonoBehaviour
         a = true;
         ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
-        x = ProbabilityManager.GradeJudge();
+        grade = ProbabilityManager.GradeJudge();
 
         StartCoroutine(AmountDisplay());
 
@@ -154,7 +156,7 @@ public class ChooseGoods : MonoBehaviour
 
         Image gr_sp = Grade_image.GetComponent<Image>();
 
-        gr_sp.sprite = kos.Grade_Sp(x);
+        gr_sp.sprite = kos.Grade_Sp(grade);
 
         if(Combo>=3)
         {
