@@ -4,103 +4,62 @@ public class KindOfSprite
 {
     [SerializeField]
     UI KindSprite;
-    public Sprite GamaEmotion(int GradeNum,bool change)
+    public Sprite GamaEmotion(Statestate.Grade l_grade, Statestate.GamaState l_gamaState)
     {
-        if(GradeNum==5)
+        Sprite l_gamasprite = null;
+        switch (l_grade)
         {
-            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
-            return NomalorGold;
+            case Statestate.Grade.Perfect:
+            case Statestate.Grade.Great:
+            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
+                break;
+            case Statestate.Grade.Good:
+            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
+                break;
+            case Statestate.Grade.Bad:
+            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+                break;
+            case Statestate.Grade.Miss:
+            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+                break;
         }
-        else if(GradeNum==4)
-        {
-            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
-            return NomalorGold;
-        }
-        else if(GradeNum==3)
-        {
-            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
-            return NomalorGold;
-        }
-        else if(GradeNum==2)
-        {
-            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
-            return NomalorGold;
-        }
-        else
-        {
-            Sprite NomalorGold = change ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
-            return NomalorGold;
-        }
+        return l_gamasprite;
     }
-    public Sprite GamaChange(bool change)
+    public Sprite GamaChange(Statestate.GamaState l_gamastate)
     {
-        Sprite NomalorGold = change ? KindSprite.Kindofemotion[0] : KindSprite.GoldenKindofemotion[0];
+        Sprite NomalorGold = (l_gamastate==Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
 
         return NomalorGold;
     }
 
-    public Sprite Grade_Sp(int GradeNum)
+    public Sprite Grade_Sp(Statestate.Grade l_grade)
     {
-        if (GradeNum == 4)
+        Sprite l_grade_sp = null;
+        switch (l_grade)
         {
-            return KindSprite.Grade[3];
+            case Statestate.Grade.Perfect:
+                l_grade_sp = KindSprite.Grade[3];
+                break;
+            case Statestate.Grade.Great:
+                l_grade_sp = KindSprite.Grade[2];
+                break;
+            case Statestate.Grade.Good:
+                l_grade_sp = KindSprite.Grade[1];
+                break;
+            case Statestate.Grade.Bad:
+                l_grade_sp = KindSprite.Grade[0];
+                break;
+            case Statestate.Grade.Miss:
+                l_grade_sp = null;
+                break;
         }
-        else if (GradeNum == 3)
-        {
-            return KindSprite.Grade[2];
-        }
-        else if (GradeNum == 2)
-        {
-            return KindSprite.Grade[1];
-        }
-        else
-        {
-            return KindSprite.Grade[0];
-        }
+        return l_grade_sp;
     }
 
-    public Sprite Combo_Sp(int ComboCount)
+    public Sprite Combo_Sp(int l_comboCount)
     {
-        if(ComboCount>=3)
-        {
-            return KindSprite.Kindofcombo[0];
-        }
-        else if(ComboCount>=6)
-        {
-            return KindSprite.Kindofcombo[1];
-        }
-        else if(ComboCount>=9)
-        {
-            return KindSprite.Kindofcombo[2];
-        }
-        else if(ComboCount>=12)
-        {
-            return KindSprite.Kindofcombo[3];
-        }
-        else if(ComboCount>=15)
-        {
-            return KindSprite.Kindofcombo[4];
-        }
-        else if(ComboCount>=18)
-        {
-            return KindSprite.Kindofcombo[5];
-        }
-        else if(ComboCount>=21)
-        {
-            return KindSprite.Kindofcombo[6];
-        }
-        else if(ComboCount>=24)
-        {
-            return KindSprite.Kindofcombo[7];
-        }
-        else if(ComboCount>=27)
-        {
-            return KindSprite.Kindofcombo[8];
-        }
-        else if(ComboCount>=30)
-        {
-            return KindSprite.Kindofcombo[9];
-        }
-        return null;
+        if (l_comboCount > 3&& l_comboCount % 3 != 0) return null;
+        int stage = Mathf.Min((l_comboCount/3) - 1,KindSprite.Kindofcombo.Length - 1);
+        return KindSprite.Kindofcombo[stage];
     }
 }
