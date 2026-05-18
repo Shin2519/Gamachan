@@ -9,8 +9,6 @@ public class poseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button TitleButton;
-    [SerializeField] private GameObject TwoChoose;
-    [SerializeField] private GameObject CountDown;
     [SerializeField] private GameObject Resultpanel;
 
     private bool isPaused = false;
@@ -28,7 +26,7 @@ public class poseManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
 
         //ボタンにリスナーを追加
-        ResumeButton.onClick.AddListener(ResumeGame);
+        //ResumeButton.onClick.AddListener(ResumeGame);
         //TitleButton.onClick.AddListener(ChangeScene_Ti);
 
         //音量設定用
@@ -43,7 +41,7 @@ public class poseManager : MonoBehaviour
 
         bgmSlider.onValueChanged.AddListener(delegate { OnBGMVolumeChanged(); });
         seSlider.onValueChanged.AddListener(delegate { OnSEVolumeChanged(); });
-        backButton.onClick.AddListener(OnBackButtonPressed);
+        //backButton.onClick.AddListener(OnBackButtonPressed);
     }
 
     private void Update()
@@ -61,51 +59,39 @@ public class poseManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if(isPaused)
+        if(!pauseMenuUI.activeSelf)
         {
-            ResumeGame();
+            pauseGame();
         }
         else
         {
-            pauseGame();
+            ResumeGame();
         }
     }
 
     public void pauseGame()
     {
         if (Resultpanel.activeSelf) return;
+
         //ゲーム時間停止
         Time.timeScale = 0f;
         //UI表示
- 
         pauseMenuUI.SetActive(true);
-        //TouchPanel.instance.Gama.SetActive(false);
-  
         //ポーズ状態を更新
         isPaused = true;
-
     }
 
     public void ResumeGame()
     {
         if (Resultpanel.activeSelf) return;
+
         //ゲーム時間を通常に戻す
         Time.timeScale = 1f;
 
-        //UI非表示
         pauseMenuUI.SetActive(false);
-        if(!TwoChoose.activeSelf&&!CountDown.activeSelf)
-        {
-            //TouchPanel.instance.Gama.SetActive(true);
-        }
 
         //ポーズ状態を更新
         isPaused = false;
-    }
-
-    public void ChangeScene_Ti()
-    {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
 
     //音量設定用
@@ -127,6 +113,12 @@ public class poseManager : MonoBehaviour
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
+        //SceneManager.LoadScene("TitleScene");
+    }
+
+    public void ChangeButton_Ti()
+    {
+        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
         //SceneManager.LoadScene("TitleScene");
     }
 }
