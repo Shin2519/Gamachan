@@ -2,21 +2,21 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static ProbabilityManager;
-
 public class GameUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI inputamounttext;
+    public static GameUI instance;
 
+    [SerializeField] private TextMeshProUGUI inputamounttext;
 
     [SerializeField] private GameObject goodscanvas;
 
+    [SerializeField] private GameObject Register;
+
+    [SerializeField] private GameObject timetext;//時間テキスト
+
     public float gameTimer;
-    
-    [SerializeField] private TextMeshProUGUI timetext;//時間テキスト
 
-    private bool stop = true;
-
+    TextMeshProUGUI f_timetext_ugui;
     [SerializeField]
     Sprite[] startsprites;
     [SerializeField]
@@ -27,11 +27,17 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject result;
     [SerializeField] private GameObject ui;
 
+
+    void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         int minuts = Mathf.FloorToInt(gameTimer / 60);
         int seconds = Mathf.FloorToInt(gameTimer % 60);
-        timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
+        f_timetext_ugui = timetext.GetComponent<TextMeshProUGUI>();
+        f_timetext_ugui.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
 
         goodscanvas.SetActive(false);
 
@@ -48,32 +54,34 @@ public class GameUI : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        int minuts = Mathf.FloorToInt(gameTimer / 60);
-        int seconds = Mathf.FloorToInt(gameTimer % 60);
+        //int minuts = Mathf.FloorToInt(gameTimer / 60);
+        //int seconds = Mathf.FloorToInt(gameTimer % 60);
 
-        if (gameTimer >= -1 && !stop)
-        {
-            gameTimer -= Time.deltaTime;
-        }
+        //if (gameTimer >= -1 && !stop)
+        //{
+        //    gameTimer -= Time.deltaTime;
+        //}
 
-        if (gameTimer >= 0 && !stop)
-        {
-            timetext.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
-        }
-        if (10 < gameTimer && gameTimer <= 30)
-        {
-            timetext.color = new Color32(255, 128, 0, 255);//オレンジ
-        }
-        else if (gameTimer <= 10)
-        {
-            timetext.color = new Color32(255, 0, 0, 255);//赤
-        }
+        //if (gameTimer >= 0 && !stop)
+        //{
+        //    f_timetext_ugui = timetext.GetComponent<TextMeshProUGUI>();
+        //    f_timetext_ugui.text = string.Format("TIME:" + "{0:D2}:{1:D2}", minuts, seconds);
+        //}
+        //if (10 < gameTimer && gameTimer <= 30)
+        //{
+        //    timetext.color = new Color32(255, 128, 0, 255);//オレンジ
+        //}
+        //else if (gameTimer <= 10)
+        //{
+        //    timetext.color = new Color32(255, 0, 0, 255);//赤
+        //}
     }
     public IEnumerator StartTimer()
     {
+        StartSetActive(false);
         int startTimer = 2;
 
-    Image sprite = image.GetComponent<Image>();
+        Image sprite = image.GetComponent<Image>();
 
         result.SetActive(false);
 
@@ -86,10 +94,11 @@ public class GameUI : MonoBehaviour
         yield return null;
         sprite.sprite = startsprites[3];
         yield return new WaitForSeconds(1);
-
+        
         goodscanvas.SetActive(true);
         image.SetActive(false);
-        stop = false;
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
+        StartSetActive(true);
     }
 
     public IEnumerator FinnishTimer()
@@ -113,7 +122,12 @@ public class GameUI : MonoBehaviour
         ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
         result.SetActive(true);
     }
-    
+    void StartSetActive(bool l_active)
+    {
+        timetext.SetActive(l_active);
+        goodscanvas.SetActive(l_active);
+    }
 
-    
+
+
 }
