@@ -1,5 +1,4 @@
 using StateMashine;
-using Statestate;
 using UnityEngine;
 
 namespace StateMashine
@@ -19,8 +18,18 @@ public class GameLoopManagement : MonoBehaviour
     [SerializeField,Header("ƒQ[ƒ€‚Ì—¬‚ê")]
     GameState gameState;
 
-    public GameState _Gamestate { get => gameState; set { gameState = value; } }
+    public GameState _Gamestate 
+    { 
+        get => gameState; 
+        set 
+        {
+            if (gameState == value) return;
 
+            gameState = value;
+
+            OnStateEnter(gameState);
+        } 
+    }
     void Awake()
     {
         Instance = this;
@@ -30,22 +39,15 @@ public class GameLoopManagement : MonoBehaviour
     {
         gameState = GameState.StartCountDownPhase;
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnStateEnter(GameState l_gamestate)
     {
-        switch (gameState)
+        switch (l_gamestate)
         {
             case GameState.StartCountDownPhase:
                 StartCoroutine(GameUI.instance.StartTimer());
                 break;
             case GameState.GoodsSelectPhase:
-                break;
-            case GameState.GamaSakePhase:
-                break;
-            case GameState.RegisterPhase:
-                break;
-            case GameState.ScorePhase:
+                ChooseGoods.Instance.SpriteAndAmountChange();
                 break;
         }
     }

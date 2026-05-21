@@ -316,4 +316,11 @@ public class ProbabilityManager
 
         return Afternum;
     }
+
+    public static void PaymentReset()
+    {
+        AM.TargetAmount = 0;
+        AM.InputMoney = 0;
+        AM.ChangeMoney = 0;
+    }
 }

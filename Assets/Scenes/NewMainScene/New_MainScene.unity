@@ -1334,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1342,7 +1342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1382,11 +1382,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 399.99997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -224.99998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2816,6 +2816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259304340}
   - component: {fileID: 1259304339}
+  - component: {fileID: 1259304341}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2835,9 +2836,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5dd3d2c11909a4db446bf261c44aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameUI
-  inputamounttext: {fileID: 2106929778}
   goodscanvas: {fileID: 275113054}
-  gameTimer: 180
+  f_register_text:
+  - {fileID: 1093616669}
+  - {fileID: 1818785}
+  - {fileID: 2094025525}
+  - {fileID: 2106929776}
+  - {fileID: 494637534}
+  - {fileID: 787110845}
   timetext: {fileID: 1768708439}
   startsprites:
   - {fileID: 21300000, guid: 8eb7ed29a076ecc4daa6207b97bab9fb, type: 3}
@@ -2849,7 +2855,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1f87056f88e478444936454ea2f69019, type: 3}
   - {fileID: 21300000, guid: f8de61994773549438bfebce7a8788dc, type: 3}
   - {fileID: 21300000, guid: 01fd41afee0e8d44aac65e3db74dcddf, type: 3}
-  image: {fileID: 1946740035}
+  f_CountDownImage: {fileID: 0}
   result: {fileID: 1186461930}
   ui: {fileID: 1768708437}
 --- !u!4 &1259304340
@@ -2867,6 +2873,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259304341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259304338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70109d75c4d1dc54fa24f99710061357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
+  f_timer: 0
 --- !u!1001 &1399883698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3151,7 +3170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600343100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
   m_Name: 
@@ -3460,17 +3479,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1875771794481696293, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
   m_PrefabInstance: {fileID: 1768708436}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1768708439 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+--- !u!1 &1768708439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8624011506174371142, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
   m_PrefabInstance: {fileID: 1768708436}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!82 &1790688980 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7452096693074195349, guid: 6a7114985673806499c0f5ca8adf9381, type: 3}
@@ -3879,7 +3892,7 @@ MonoBehaviour:
   ParentCanvas: {fileID: 275113054}
   Grade_image: {fileID: 294787781}
   Combo_image: {fileID: 440358447}
-  x: 5
+  grade: 0
   targetText: {fileID: 1818787}
   ResultPanel: {fileID: 1186461930}
   kos:

@@ -44,7 +44,7 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(MovInput);
+        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
         UpdateCursor();
         if (drag.IsActive)
         {

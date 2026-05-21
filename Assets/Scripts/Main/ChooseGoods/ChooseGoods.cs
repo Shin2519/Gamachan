@@ -81,7 +81,7 @@ public class ChooseGoods : MonoBehaviour
         Image image = but.transform.GetChild(1).GetComponent<Image>();
         image.sprite = entry.Sprite;
     }
-    void SpriteAndAmountChange()
+    public void SpriteAndAmountChange()
     {
         Statestate.Grade l_grade = grade;
 
@@ -106,13 +106,15 @@ public class ChooseGoods : MonoBehaviour
                 CreateButton(picked[i], ParentPanel);
         }
     }
-
+    /// <summary>
+    /// 生成されたボタン一つ一つに入っている関数
+    /// </summary>
+    /// <param name="am"></param>
     public void Money(int am)
     {
         if (a) return;
         a = true;
-        targetText.text = am.ToString() + "円";
-
+        GameUI.instance.TextInRegister(true);
         foreach (var obj in Destroygameobject)
         {
             Destroy(obj);
@@ -120,12 +122,16 @@ public class ChooseGoods : MonoBehaviour
         Destroygameobject.Clear();
         ProbabilityManager.AM.TargetAmount = am;
         ParentCanvas.SetActive(false);
-        
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
         a = false;
     }
 
+    /// <summary>
+    /// 精算ボタンを押したときにPaymentStatesという構造体の要素の中に値が入り、おつりや評価、コンボ数が表示される
+    /// </summary>
     public void TotalInputMoney()
     {
+        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
         if (a) return;
         a = true;
         ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
@@ -139,19 +145,13 @@ public class ChooseGoods : MonoBehaviour
             resetText[i].text = "";
         }
 
+        ProbabilityManager.PaymentReset();
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
         a = false;
     }
 
     IEnumerator AmountDisplay()
     {
-        GameObject Text = GameObject.Find("sumMoneyright");
-
-        TextMeshProUGUI ugui = Text.GetComponent<TextMeshProUGUI>();
-
-        ugui.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin).ToString() + "円";
-
-        yield return null;
-
         Grade_image.SetActive(true);
 
         Image gr_sp = Grade_image.GetComponent<Image>();
