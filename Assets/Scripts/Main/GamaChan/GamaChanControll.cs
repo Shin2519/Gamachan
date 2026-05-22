@@ -25,7 +25,11 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     [SerializeField]
     Vector2 MaxPos;
     private Camera Cam;
-    void OnMove(InputValue val) => MovInput = val.Get<Vector2>();
+    void OnMove(InputValue val)
+    {
+        
+        MovInput = val.Get<Vector2>();
+    }
     void OnInteract(InputValue val)
     {
         IsInter = val.isPressed;
@@ -44,7 +48,13 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     // Update is called once per frame
     void Update()
     {
-        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
+        GameObject obj = GameObject.Find("GameLoopManagement");
+
+        if (obj != null)
+        {
+            if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
+        }
+
         UpdateCursor();
         if (drag.IsActive)
         {

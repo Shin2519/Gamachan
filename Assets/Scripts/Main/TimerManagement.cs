@@ -19,7 +19,7 @@ public class TimerManagement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GameLoopManagement.Instance._Gamestate==StateMashine.GameState.GoodsSelectPhase) return;
+        if (GameLoopManagement.Instance._Gamestate==StateMashine.GameState.StartCountDownPhase) return;
         f_timer -= Time.deltaTime;
         if (f_timer < 0) f_timer = 0;
     }

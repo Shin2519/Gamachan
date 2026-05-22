@@ -81,6 +81,7 @@ public class GameUI : MonoBehaviour
         yield return null;
         sprite.sprite = startsprites[3];
         yield return new WaitForSeconds(1);
+        f_CountDownImage.SetActive(false);
         StartSetActive(true);
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
     }

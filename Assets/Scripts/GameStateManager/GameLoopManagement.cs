@@ -23,8 +23,6 @@ public class GameLoopManagement : MonoBehaviour
         get => gameState; 
         set 
         {
-            if (gameState == value) return;
-
             gameState = value;
 
             OnStateEnter(gameState);
@@ -37,7 +35,7 @@ public class GameLoopManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameState = GameState.StartCountDownPhase;
+        _Gamestate = GameState.StartCountDownPhase;
     }
     void OnStateEnter(GameState l_gamestate)
     {

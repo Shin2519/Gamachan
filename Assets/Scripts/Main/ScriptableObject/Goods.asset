@@ -15,89 +15,97 @@ MonoBehaviour:
   Genres:
   - GoodsSprite: onigiri
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 811dbf1fe8ccb2f4da8a9a9cc2ba3718, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 9382b187dd469bb4a9f607c0c25c1bab, type: 3}
       Amount: 6930
-    - GoodsSprite: {fileID: 21300000, guid: 6874c24578511c5448a970da9a869853, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 937ab2873b424194498aed1ce7d8ad28, type: 3}
+      Amount: 7070
+    - GoodsSprite: {fileID: 21300000, guid: c9060deb2f49437499a330a70ae04869, type: 3}
       Amount: 7070
   - GoodsSprite: greentea
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 5527d74f4d3893340a18a6bc8d6e06bd, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: ca0fc21efbdc7e040896248777210569, type: 3}
       Amount: 6720
-    - GoodsSprite: {fileID: 21300000, guid: ac46add0d14dfba46abaa80b9a0e740e, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 5f07d13e23c74cf4a91e90b46f392411, type: 3}
+      Amount: 6880
+    - GoodsSprite: {fileID: 21300000, guid: 29dffe45c34e3104caf96baf51c08fa2, type: 3}
       Amount: 6880
   - GoodsSprite: icecream
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 61ae75b60d1e5b34ba776d262656b3e5, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 44ef860613ff5ed40bd3fee722142379, type: 3}
       Amount: 7320
-    - GoodsSprite: {fileID: 21300000, guid: bb31f97db8b04194c95c34794add8797, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: ac05878504789da479afbe8eeeb1f34a, type: 3}
       Amount: 7350
-    - GoodsSprite: {fileID: 21300000, guid: a95e5d79af59dcb4e8e5721f21334d98, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: a153693ced61b9a4ea64019c6c9b9cda, type: 3}
       Amount: 7370
   - GoodsSprite: cupnoodles
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 747f45e8ab69c2f478a37d6dbd706413, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 739e8572edd13cc4a9dd12f31bdebd12, type: 3}
       Amount: 8400
-    - GoodsSprite: {fileID: 21300000, guid: b9f922ee964cd4c45920e4cf491365ad, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 24379f759443f8141886d31e2bcea4db, type: 3}
       Amount: 8430
-    - GoodsSprite: {fileID: 21300000, guid: 096605ba84754404aa60a96d69069e63, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 035e5994594c5aa45ab5dd2c73a6c406, type: 3}
       Amount: 8470
   - GoodsSprite: sandwich
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: bccd0234c43629545873e87c44e9f132, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 596bca95e25a4744bbf3c8e3a0e6ee0b, type: 3}
       Amount: 7630
-    - GoodsSprite: {fileID: 21300000, guid: 901e8619a9f447c47825ba935f07a6de, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: cca9c15bf4a749848aa55a41af4d893f, type: 3}
+      Amount: 7690
+    - GoodsSprite: {fileID: 21300000, guid: a9d3181c5482b314bbbc29e954ce107d, type: 3}
       Amount: 7690
   - GoodsSprite: chicken
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: a0def53dd83619c4c87abd2ef748d927, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 899be53242a83864eaf1c88cc904e4d1, type: 3}
       Amount: 7510
-    - GoodsSprite: {fileID: 21300000, guid: 70d8e796fa2213343a6a3bd1d1abc0e1, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 9e1e8793ffff3354b8c29d7d3cd67281, type: 3}
       Amount: 7560
-    - GoodsSprite: {fileID: 21300000, guid: a40d60cb804d63e439ac79fb568530b5, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 3036f5d5adf58544992f54c437caa4e4, type: 3}
       Amount: 7750
   - GoodsSprite: bread
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 7d5052e59b89f7e4f92d1f55a32b5084, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 22475cb6a2ce0f447bf84117e64aefc5, type: 3}
       Amount: 7500
-    - GoodsSprite: {fileID: 21300000, guid: 4806aef8ae31f61499a3f11f4966e64b, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 5177f3467265b69498191a25e3f560c3, type: 3}
       Amount: 7770
-    - GoodsSprite: {fileID: 21300000, guid: 4dd94a1913c757d4fb46c8217e984594, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 92af98ebe7a008040a13c99ec6742141, type: 3}
       Amount: 7860
   - GoodsSprite: potatochips
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: f6d6e34ce508a0e448293751404ebf2b, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 0bafc7d773424454591c04bcbf17c47a, type: 3}
       Amount: 7310
-    - GoodsSprite: {fileID: 21300000, guid: aff83d93e3aa24947a60bd50fbfe202f, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 58135061fec52e14e8b255dcabc7e819, type: 3}
+      Amount: 7360
+    - GoodsSprite: {fileID: 21300000, guid: 055985e6b46e5764badeb71a4d5d510f, type: 3}
       Amount: 7360
   - GoodsSprite: 3yenregibag
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: bd59e104ff9727e43a92563e1877190a, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 6dfa765fbac92e749941a318c2fc76b5, type: 3}
       Amount: 5500
-    - GoodsSprite: {fileID: 21300000, guid: 50ea982347c7240408d0cfef31011345, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 2495e12ceb36d7849a50a40b9b52d076, type: 3}
       Amount: 5730
-    - GoodsSprite: {fileID: 21300000, guid: aacb18548a6af87498b7ad8c63f16879, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 0f39cacfd533c794e961d3b7266c4897, type: 3}
       Amount: 5850
   - GoodsSprite: 5yenregibag
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 64d908c6023fa654383423cb39dde7a8, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 9f841e6d515fee44e863c7fc6a1d4e74, type: 3}
       Amount: 0
-    - GoodsSprite: {fileID: 21300000, guid: 42401185f88451e47ae6fe03f7159909, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: dec7e3f082f9b524bb5d0aba564fb822, type: 3}
       Amount: 0
-    - GoodsSprite: {fileID: 21300000, guid: 4a00112afd8370742befb11eea550563, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 47aef88a1ab8c514a8fd4878cc3ab1f3, type: 3}
       Amount: 0
   - GoodsSprite: 7yenregibag
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 585cff0549d4b114cbd977182ca9ed63, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: c3cb66fc4b4c13744a498959b23f2a30, type: 3}
       Amount: 0
-    - GoodsSprite: {fileID: 21300000, guid: 214ea36d27cc51a4ea49aa3b11c4fc4c, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 7d3a98dc822dd264caa412f29a84adf7, type: 3}
       Amount: 0
-    - GoodsSprite: {fileID: 21300000, guid: 64a05ff784b4c8e47aa547db8843a512, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 3bc6f690286eb7d4e8435f3d9e61d3d9, type: 3}
       Amount: 0
   - GoodsSprite: lunch
     Items:
-    - GoodsSprite: {fileID: 21300000, guid: 67abb4fb6c1659a43b428f0eb42c5172, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: cf660aface6296344bbaa4a536516364, type: 3}
       Amount: 8650
-    - GoodsSprite: {fileID: 21300000, guid: 38d8abc0373c34a4e9cf055346d539e4, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 3da272e670485f544933d711729c4a1b, type: 3}
       Amount: 8780
-    - GoodsSprite: {fileID: 21300000, guid: 7860e0d7b6ccff54aac121e04c5f0266, type: 3}
+    - GoodsSprite: {fileID: 21300000, guid: 77cf5523e76d7c048a97b817c58848b5, type: 3}
       Amount: 9000
