@@ -122,9 +122,4 @@ public class GameUI : MonoBehaviour
             f_register_text[i].SetActive(l_active);
         }
     }
-
-    public void GradeDisplay(Statestate.Grade l_grade,int l_combo,)
-    {
-
-    }
 }
