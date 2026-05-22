@@ -59,11 +59,11 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//single‚Í‚Ç‚±‚ÌƒX
 
         //ƒV[ƒ“‚ÌØ‚è‘Ö‚¦
         SceneManager.LoadScene(scene);
-        if(addscene1!=null&&addscene2!=null)
-        {
-            SceneManager.LoadScene(addscene1, LoadSceneMode.Additive);
-            SceneManager.LoadScene(addscene2, LoadSceneMode.Additive);
-        }
+        //if(addscene1!=null&&addscene2!=null)
+        //{
+        //    SceneManager.LoadScene(addscene1, LoadSceneMode.Additive);
+        //    SceneManager.LoadScene(addscene2, LoadSceneMode.Additive);
+        //}
 
 
         //‚¾‚ñ‚¾‚ñ–¾‚é‚­
