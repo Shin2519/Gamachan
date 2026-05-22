@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using NUnit.Framework.Constraints;
 
 public class ChooseGoods : MonoBehaviour
 {
@@ -25,14 +23,11 @@ public class ChooseGoods : MonoBehaviour
     [SerializeField]
     GameObject ResultPanel;
     List<GameObject> Destroygameobject = new List<GameObject>();
-    [SerializeField]
-    KindOfSprite kos = new KindOfSprite();
 
-    [SerializeField] TextMeshProUGUI[] resetText;
-
-    bool a = false;
+    bool OnPay = false;
 
     private GoodsCatalog catalog;
+
     private ComboCounter combo = new ComboCounter();
 
     public int Combo
@@ -45,6 +40,8 @@ public class ChooseGoods : MonoBehaviour
             else if (value > combo.Current) combo.Add();
         }
     }
+
+    public bool P_OnPay => OnPay;
 
     void Awake()
     {
@@ -106,8 +103,8 @@ public class ChooseGoods : MonoBehaviour
     /// <param name="am"></param>
     public void Money(int am)
     {
-        if (a) return;
-        a = true;
+        if (OnPay) return;
+        OnPay = true;
         GameUI.instance.TextInRegister(true);
         foreach (var obj in Destroygameobject)
         {
@@ -117,7 +114,7 @@ public class ChooseGoods : MonoBehaviour
         ProbabilityManager.AM.TargetAmount = am;
         ParentCanvas.SetActive(false);
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
-        a = false;
+        OnPay = false;
     }
 
     /// <summary>
@@ -126,45 +123,33 @@ public class ChooseGoods : MonoBehaviour
     public void TotalInputMoney()
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
-        if (a) return;
-        a = true;
+        if (OnPay) return;
+        OnPay = true;
         ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
         grade = ProbabilityManager.GradeJudge();
 
         StartCoroutine(AmountDisplay());
 
-        for(int i = 0; i < resetText.Length;i++)
-        {
-            resetText[i].text = "";
-        }
+        GameUI.instance.PaymentTextReset();
 
         ProbabilityManager.PaymentReset();
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
-        a = false;
+        OnPay = false;
     }
 
     IEnumerator AmountDisplay()
     {
-        GameUI.instance.f_gradeimage.SetActive(true);
-
-        Image gr_sp = GameUI.instance.f_gradeimage.GetComponent<Image>();
-
-        gr_sp.sprite = kos.Grade_Sp(grade);
+        GameUI.instance.ShowGrade(grade);
 
         if(Combo>=3)
         {
-            GameUI.instance.f_comboimage.SetActive(true);
-
-            Image com_sp = GameUI.instance.f_comboimage.GetComponent<Image>();
-
-            com_sp.sprite = kos.Combo_Sp(Combo);
+            GameUI.instance.ShowCombo(Combo);
         }
 
         yield return null;
 
-        GameUI.instance.f_gradeimage.SetActive(false);
-        GameUI.instance.f_comboimage.SetActive(false);
+        GameUI.instance.GradeAndCombo();
 
         ParentCanvas.SetActive(true);
     }

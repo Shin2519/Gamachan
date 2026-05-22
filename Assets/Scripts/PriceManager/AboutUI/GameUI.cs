@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -9,9 +8,9 @@ public class GameUI : MonoBehaviour
 {
     public static GameUI instance;
 
-    public GameObject f_gradeimage;
+    [SerializeField] private GameObject f_gradeimage;
 
-    public GameObject f_comboimage;
+    [SerializeField] private GameObject f_comboimage;
 
     [SerializeField] private GameObject goodscanvas;
 
@@ -33,7 +32,7 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject ui;
 
-    [SerializeField] KindOfSprite KindOfSprite;
+    [SerializeField] KindOfSprite KindOfSprite = new KindOfSprite();
 
     UIDisplay uidisplay;
     TimerDisplay timerDisplay;
@@ -49,13 +48,13 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        uidisplay.TextDisPlay(ProbabilityManager.AM, TimerManagement.instance.Timer);
-        timerDisplay.Refresh(TimerManagement.instance.Timer);
+        uidisplay.TextDisPlay(ProbabilityManager.AM, UIDisplayAmountManagement.instance.Timer);
+        timerDisplay.Refresh(UIDisplayAmountManagement.instance.Timer);
         if (GameLoopManagement.Instance._Gamestate == StateMashine.GameState.GoodsSelectPhase)
         {
             uidisplay.ResetText();
         }
-        if (TimerManagement.instance.Timer <= 4 && finish) StartCoroutine(FinnishTimer());
+        if (UIDisplayAmountManagement.instance.Timer <= 4 && finish) StartCoroutine(FinnishTimer());
     }
     /// <summary>
     /// StartCountDownPhaseになった時に一度だけ発動するカウントダウンのコルーチン
@@ -125,5 +124,33 @@ public class GameUI : MonoBehaviour
         {
             f_register_text[i].SetActive(l_active);
         }
+    }
+
+    public void ShowGrade(Statestate.Grade l_grade)
+    {
+        f_gradeimage.SetActive(true);
+
+        Image gr_sp = f_gradeimage.GetComponent<Image>();
+
+        gr_sp.sprite = KindOfSprite.Grade_Sp(l_grade);
+    }
+
+    public void ShowCombo(int l_combo)
+    {
+        f_comboimage.SetActive(true);
+
+        Image com_sp = f_comboimage.GetComponent<Image>();
+
+        com_sp.sprite = KindOfSprite.Combo_Sp(l_combo);
+    }
+    public void GradeAndCombo()
+    {
+        f_gradeimage.SetActive(false);
+        f_comboimage.SetActive(false);
+    }
+
+    public void PaymentTextReset()
+    {
+        uidisplay.ResetText();
     }
 }
