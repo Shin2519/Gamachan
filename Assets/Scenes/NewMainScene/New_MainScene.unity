@@ -2701,6 +2701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5dd3d2c11909a4db446bf261c44aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameUI
+  f_gradeimage: {fileID: 0}
+  f_comboimage: {fileID: 0}
   goodscanvas: {fileID: 275113054}
   f_register_text:
   - {fileID: 1093616669}
@@ -2710,6 +2712,7 @@ MonoBehaviour:
   - {fileID: 494637534}
   - {fileID: 787110845}
   timetext: {fileID: 1768708439}
+  f_gaugeimege: []
   startsprites:
   - {fileID: 21300000, guid: 8eb7ed29a076ecc4daa6207b97bab9fb, type: 3}
   - {fileID: 21300000, guid: 1f87056f88e478444936454ea2f69019, type: 3}
@@ -2720,9 +2723,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1f87056f88e478444936454ea2f69019, type: 3}
   - {fileID: 21300000, guid: f8de61994773549438bfebce7a8788dc, type: 3}
   - {fileID: 21300000, guid: 01fd41afee0e8d44aac65e3db74dcddf, type: 3}
-  f_CountDownImage: {fileID: 0}
+  f_CountDownImage: {fileID: 1946740035}
   result: {fileID: 1186461930}
   ui: {fileID: 1768708437}
+  KindOfSprite:
+    KindSprite: {fileID: 0}
 --- !u!4 &1259304340
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,7 +2755,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d75c4d1dc54fa24f99710061357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
-  f_timer: 0
+  f_timer: 180
+--- !u!1 &1377194280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377194281}
+  - component: {fileID: 1377194282}
+  m_Layer: 0
+  m_Name: GameLoopManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377194281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377194280}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 707.8031, y: 413.0999, z: 6.68176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377194282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377194280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83adfa63f57d2ae4a8158da130cc48d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameLoopManagement
+  gameState: 0
 --- !u!1001 &1399883698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2989,7 +3039,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600343101}
-  - component: {fileID: 1600343103}
   - component: {fileID: 1600343102}
   m_Layer: 0
   m_Name: GameObject
@@ -3028,28 +3077,6 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   bgmSource: {fileID: 1790688980}
   seSource: {fileID: 1790688980}
---- !u!114 &1600343103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600343100}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b49c428b2dad2d4299bde4806199238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GRADE
-  gauge_state: 0
-  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
-  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
-  about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gama: {fileID: 1964754738}
-  ResultPanel: {fileID: 1435336849}
-  Grade: {fileID: 294787781}
-  combo_image: {fileID: 440358447}
-  Out_count: {fileID: 0}
-  Cross_Ren: []
 --- !u!1001 &1678871498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3874,10 +3901,7 @@ MonoBehaviour:
   GoodsPanel: {fileID: 1179130302810308771, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
   ParentPanel: {fileID: 666450970}
   ParentCanvas: {fileID: 275113054}
-  Grade_image: {fileID: 294787781}
-  Combo_image: {fileID: 440358447}
   grade: 0
-  targetText: {fileID: 1818787}
   ResultPanel: {fileID: 1186461930}
   kos:
     KindSprite: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
@@ -4575,3 +4599,4 @@ SceneRoots:
   - {fileID: 1399883698}
   - {fileID: 1678871498}
   - {fileID: 998137403}
+  - {fileID: 1377194281}
