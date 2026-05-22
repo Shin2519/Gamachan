@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using NUnit.Framework.Constraints;
 
 public class ChooseGoods : MonoBehaviour
 {
@@ -20,13 +21,7 @@ public class ChooseGoods : MonoBehaviour
     [SerializeField]
     GameObject ParentCanvas;
     [SerializeField]
-    GameObject Grade_image;
-    [SerializeField]
-    GameObject Combo_image;
-    [SerializeField]
     Statestate.Grade grade;
-    [SerializeField]
-    TextMeshProUGUI targetText;
     [SerializeField]
     GameObject ResultPanel;
     List<GameObject> Destroygameobject = new List<GameObject>();
@@ -60,7 +55,6 @@ public class ChooseGoods : MonoBehaviour
     {
         ParentCanvasTrans = ParentCanvas.transform;
         catalog = new GoodsCatalog(goods);
-        SpriteAndAmountChange();
     }
 
     // Update is called once per frame
@@ -152,27 +146,26 @@ public class ChooseGoods : MonoBehaviour
 
     IEnumerator AmountDisplay()
     {
-        Grade_image.SetActive(true);
+        GameUI.instance.f_gradeimage.SetActive(true);
 
-        Image gr_sp = Grade_image.GetComponent<Image>();
+        Image gr_sp = GameUI.instance.f_gradeimage.GetComponent<Image>();
 
         gr_sp.sprite = kos.Grade_Sp(grade);
 
         if(Combo>=3)
         {
-            Combo_image.SetActive(true);
+            GameUI.instance.f_comboimage.SetActive(true);
 
-            Image com_sp = Combo_image.GetComponent<Image>();
+            Image com_sp = GameUI.instance.f_comboimage.GetComponent<Image>();
 
             com_sp.sprite = kos.Combo_Sp(Combo);
         }
 
         yield return null;
 
-        Grade_image.SetActive(false);
-        Combo_image.SetActive(false);
+        GameUI.instance.f_gradeimage.SetActive(false);
+        GameUI.instance.f_comboimage.SetActive(false);
 
         ParentCanvas.SetActive(true);
-        SpriteAndAmountChange();
     }
 }

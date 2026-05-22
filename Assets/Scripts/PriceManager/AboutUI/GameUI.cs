@@ -9,23 +9,33 @@ public class GameUI : MonoBehaviour
 {
     public static GameUI instance;
 
+    public GameObject f_gradeimage;
+
+    public GameObject f_comboimage;
+
     [SerializeField] private GameObject goodscanvas;
 
     [SerializeField] private GameObject[] f_register_text;
 
     [SerializeField] private GameObject timetext;//時間テキスト
-    [SerializeField]
-    Sprite[] startsprites;
-    [SerializeField]
-    Sprite[] finishsprites;
-    [SerializeField] GameObject f_CountDownImage;
+
+    [SerializeField] private GameObject[] f_gaugeimege;
+
+    [SerializeField] private Sprite[] startsprites;
+
+    [SerializeField] private Sprite[] finishsprites;
+
+    [SerializeField] private GameObject f_CountDownImage;
+
     bool finish = true;
 
     [SerializeField] private GameObject result;
+
     [SerializeField] private GameObject ui;
 
-    UIDisplay uidisplay;
+    [SerializeField] KindOfSprite KindOfSprite;
 
+    UIDisplay uidisplay;
     void Awake()
     {
         instance = this;
@@ -38,7 +48,10 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         uidisplay.TextDisPlay(ProbabilityManager.AM, TimerManagement.instance.Timer);
-
+        if (GameLoopManagement.Instance._Gamestate == StateMashine.GameState.GoodsSelectPhase)
+        {
+            uidisplay.ResetText();
+        }
         if (TimerManagement.instance.Timer <= 4 && finish) StartCoroutine(FinnishTimer());
     }
     /// <summary>
@@ -89,10 +102,18 @@ public class GameUI : MonoBehaviour
         ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
         result.SetActive(true);
     }
+    /// <summary>
+    /// カウントダウンの初めと終わりで表示・非表示させるものを変える
+    /// </summary>
+    /// <param name="l_active"></param>
     void StartSetActive(bool l_active)
     {
         timetext.SetActive(l_active);
         goodscanvas.SetActive(l_active);
+        for(int i = 0;i < f_gaugeimege.Length;i++)
+        {
+            f_gaugeimege[i].SetActive(l_active);
+        }
     }
     public void TextInRegister(bool l_active)
     {
@@ -100,5 +121,10 @@ public class GameUI : MonoBehaviour
         {
             f_register_text[i].SetActive(l_active);
         }
+    }
+
+    public void GradeDisplay(Statestate.Grade l_grade,int l_combo,)
+    {
+
     }
 }

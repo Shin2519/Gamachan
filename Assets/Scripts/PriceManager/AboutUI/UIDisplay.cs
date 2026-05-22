@@ -1,6 +1,8 @@
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+/// <summary>
+/// Textの更新だけをするクラス
+/// </summary>
 public class UIDisplay
 {
     private readonly TextMeshProUGUI TargetMoneyAmountText;
