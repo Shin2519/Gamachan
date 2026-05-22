@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "UI", menuName = "Scriptable Objects/UI")]
 public class UI : ScriptableObject

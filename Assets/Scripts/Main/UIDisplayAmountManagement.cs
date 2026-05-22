@@ -1,11 +1,20 @@
 using UnityEngine;
 
-public class TimerManagement : MonoBehaviour
+public class UIDisplayAmountManagement : MonoBehaviour
 {
-    public static TimerManagement instance;
+    public static UIDisplayAmountManagement instance;
     [SerializeField, Header("§ŒÀŽžŠÔ")]
     float f_timer;
+    float f_current;
     public float Timer => f_timer;
+    public float Current
+    {
+        get => f_current;
+        set
+        {
+            f_current = Mathf.Clamp(value,0,100);
+        }
+    }
     void Awake()
     {
         instance = this;
