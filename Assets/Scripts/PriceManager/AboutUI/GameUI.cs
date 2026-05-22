@@ -36,18 +36,21 @@ public class GameUI : MonoBehaviour
     [SerializeField] KindOfSprite KindOfSprite;
 
     UIDisplay uidisplay;
+    TimerDisplay timerDisplay;
     void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5],timetext);
+        uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
+        timerDisplay = new TimerDisplay(timetext);
     }
 
     void Update()
     {
         uidisplay.TextDisPlay(ProbabilityManager.AM, TimerManagement.instance.Timer);
+        timerDisplay.Refresh(TimerManagement.instance.Timer);
         if (GameLoopManagement.Instance._Gamestate == StateMashine.GameState.GoodsSelectPhase)
         {
             uidisplay.ResetText();

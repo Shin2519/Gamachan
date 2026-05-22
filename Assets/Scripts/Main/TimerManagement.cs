@@ -6,7 +6,6 @@ public class TimerManagement : MonoBehaviour
     [SerializeField, Header("§ŒÀŽžŠÔ")]
     float f_timer;
     public float Timer => f_timer;
-
     void Awake()
     {
         instance = this;
