@@ -2,13 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 public class poseManager : MonoBehaviour
 {
     [SerializeField] private Sound sound;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button TitleButton;
+    [SerializeField] private Button PoseButton;
     [SerializeField] private GameObject Resultpanel;
 
     private bool isPaused = false;
@@ -26,8 +26,9 @@ public class poseManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
 
         //ボタンにリスナーを追加
-        //ResumeButton.onClick.AddListener(ResumeGame);
-        //TitleButton.onClick.AddListener(ChangeScene_Ti);
+        ResumeButton.onClick.AddListener(ResumeGame);
+        TitleButton.onClick.AddListener(ChangeButton_Ti);
+        PoseButton.onClick.AddListener(TogglePause);
 
         //音量設定用
         float bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
@@ -112,13 +113,11 @@ public class poseManager : MonoBehaviour
     public void OnBackButtonPressed()
     {
         AudioManager.Instance.seSource.PlayOneShot(sound.Back);
-
-        //SceneManager.LoadScene("TitleScene");
     }
 
     public void ChangeButton_Ti()
     {
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
-        //SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TitleScene");
     }
 }
