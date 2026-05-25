@@ -2,12 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// UI‚Ì•\¦E”ñ•\¦‚¾‚¯‚ğˆµ‚¤ƒNƒ‰ƒX
+/// UIï¿½Ì•\ï¿½ï¿½ï¿½Eï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 /// </summary>
 public class GameUI : MonoBehaviour
 {
     public static GameUI instance;
-
     [SerializeField] private GameObject f_gradeimage;
 
     [SerializeField] private GameObject f_comboimage;
@@ -16,9 +15,11 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject[] f_register_text;
 
-    [SerializeField] private GameObject timetext;//ŠÔƒeƒLƒXƒg
+    [SerializeField] private GameObject timetext;//ï¿½ï¿½ï¿½Ôƒeï¿½Lï¿½Xï¿½g
 
     [SerializeField] private GameObject[] f_gaugeimege;
+
+    [SerializeField] private GameObject f_pause_ui;
 
     [SerializeField] private Sprite[] startsprites;
 
@@ -57,7 +58,7 @@ public class GameUI : MonoBehaviour
         if (UIDisplayAmountManagement.instance.Timer <= 4 && finish) StartCoroutine(FinnishTimer());
     }
     /// <summary>
-    /// StartCountDownPhase‚É‚È‚Á‚½‚Éˆê“x‚¾‚¯”­“®‚·‚éƒJƒEƒ“ƒgƒ_ƒEƒ“‚ÌƒRƒ‹[ƒ`ƒ“
+    /// StartCountDownPhaseï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éˆï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½_ï¿½Eï¿½ï¿½ï¿½ÌƒRï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½
     /// </summary>
     /// <returns></returns>
     public IEnumerator StartTimer()
@@ -106,7 +107,7 @@ public class GameUI : MonoBehaviour
         result.SetActive(true);
     }
     /// <summary>
-    /// ƒJƒEƒ“ƒgƒ_ƒEƒ“‚Ì‰‚ß‚ÆI‚í‚è‚Å•\¦E”ñ•\¦‚³‚¹‚é‚à‚Ì‚ğ•Ï‚¦‚é
+    /// ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½_ï¿½Eï¿½ï¿½ï¿½Ìï¿½ï¿½ß‚ÆIï¿½ï¿½ï¿½Å•\ï¿½ï¿½ï¿½Eï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½Ï‚ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="l_active"></param>
     void StartSetActive(bool l_active)
@@ -147,6 +148,11 @@ public class GameUI : MonoBehaviour
     {
         f_gradeimage.SetActive(false);
         f_comboimage.SetActive(false);
+    }
+
+    public void PauseActive(bool l_active)
+    {
+        f_pause_ui.SetActive(l_active);
     }
 
     public void PaymentTextReset()

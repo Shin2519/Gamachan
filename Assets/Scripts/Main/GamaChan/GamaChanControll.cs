@@ -3,20 +3,17 @@ using UnityEngine.InputSystem;
 
 public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
 {
-    [SerializeField, Header("ƒNƒŠƒbƒN‚µ‚½‚©‚Ç‚¤‚©")]
-    private bool IsInter;
-    Vector2 MovInput;
+    [SerializeField] MouseInputProvider Input;
+
     [SerializeField]
     private Vector2 HotSpot;
     Texture2D currentCursor;
-    [SerializeField, Range(0, 999)] 
-    float timer;
     [SerializeField] 
     private UI mouse;
     [SerializeField]
     ProbabilityManager probability = new();
     DragOperation drag;
-    [SerializeField, Header("U‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©”»’è‚·‚é”ÍˆÍ"), Range(0, 20)]
+    [SerializeField, Header("è§¦ã‚Œã¦ã„ã‚‹ã‹"), Range(0, 20)]
     private float judge;
     [SerializeField]
     LayerMask gamalayer;
@@ -24,23 +21,11 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     Vector2 MinPos;
     [SerializeField]
     Vector2 MaxPos;
-    private Camera Cam;
-    void OnMove(InputValue val)
-    {
-        
-        MovInput = val.Get<Vector2>();
-    }
-    void OnInteract(InputValue val)
-    {
-        IsInter = val.isPressed;
-        if (IsInter) TryGrab();
-        else drag.End();
-    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         drag = new DragOperation(MinPos,MaxPos,judge);
-        Cam = Camera.main;
         currentCursor = mouse.mouse[0];
         Cursor.SetCursor(currentCursor, HotSpot, CursorMode.Auto);
     }
@@ -48,25 +33,14 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     // Update is called once per frame
     void Update()
     {
-        GameObject obj = GameObject.Find("GameLoopManagement");
-
-        if (obj != null)
-        {
-            if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
-        }
-
         UpdateCursor();
-        if (drag.IsActive)
-        {
-            float? swipeSpeed = drag.UpdatePosition(PointerWorld(), Time.deltaTime);
-            if (swipeSpeed.HasValue) probability.Normal(swipeSpeed.Value);
-        }
+        HandleDrag();
     }
     void UpdateCursor()
     {
-        Texture2D nextCursor = IsInter ? mouse.mouse[1] : mouse.mouse[0];
+        Texture2D nextCursor = Input.IsPressed ? mouse.mouse[1] : mouse.mouse[0];
 
-        // ƒJ[ƒ\ƒ‹‚ª•Ï‚í‚é‚¾‚¯ SetCursor ‚ğŒÄ‚Ô
+        // ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚ï¿½éï¿½ï¿½ï¿½ï¿½ SetCursor ï¿½ï¿½ï¿½Ä‚ï¿½
         if (currentCursor != nextCursor)
         {
             Cursor.SetCursor(nextCursor, HotSpot, CursorMode.Auto);
@@ -74,16 +48,27 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
         }
     }
 
-    private Vector3 PointerWorld()
+    void HandleDrag()
     {
-        Vector3 MouceWorld = new Vector3(MovInput.x, MovInput.y, -Cam.transform.position.z);
-
-        return Cam.ScreenToWorldPoint(MouceWorld);
+        if (Input.IsPressed && !drag.IsActive)
+        {
+            TryGrab();
+        }
+        else if (!Input.IsPressed && drag.IsActive)
+        {
+            drag.End();
+        }
+        
+        if (drag.IsActive)
+        {
+            float? swipeSpeed = drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime);
+            if (swipeSpeed.HasValue) probability.Normal(swipeSpeed.Value);
+        }
     }
 
     private void TryGrab()
     {
-        Vector3 MouceWorldPos = PointerWorld();
+        Vector3 MouceWorldPos = Input.GetWorldPosition();
         RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
         if (hit.collider == null) return;
         drag.Begin(hit.collider.transform, MouceWorldPos);

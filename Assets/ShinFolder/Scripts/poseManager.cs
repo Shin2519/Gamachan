@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class poseManager : MonoBehaviour
@@ -13,7 +12,7 @@ public class poseManager : MonoBehaviour
 
     private bool isPaused = false;
 
-    //‰¹—Êİ’è—p
+    //ï¿½ï¿½ï¿½Êİ’ï¿½p
     public Slider bgmSlider;
     public Slider seSlider;
     public Button backButton;
@@ -22,25 +21,22 @@ public class poseManager : MonoBehaviour
 
     private void Start()
     {
-        //ƒpƒlƒ‹”ñ•\¦
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
         pauseMenuUI.SetActive(false);
 
-        //ƒ{ƒ^ƒ“‚ÉƒŠƒXƒi[‚ğ’Ç‰Á
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½Éƒï¿½ï¿½Xï¿½iï¿½[ï¿½ï¿½Ç‰ï¿½
         //ResumeButton.onClick.AddListener(ResumeGame);
         //TitleButton.onClick.AddListener(ChangeScene_Ti);
 
-        //‰¹—Êİ’è—p
+        //ï¿½ï¿½ï¿½Êİ’ï¿½p
         float bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
         float seVolume = PlayerPrefs.GetFloat("SEVolume", 0.5f);
 
         bgmSlider.value = bgmVolume;
         seSlider.value = seVolume;
 
-        bgmSource.volume = bgmVolume;
-        seSource.volume = seVolume;
-
-        bgmSlider.onValueChanged.AddListener(delegate { OnBGMVolumeChanged(); });
-        seSlider.onValueChanged.AddListener(delegate { OnSEVolumeChanged(); });
+        bgmSlider.onValueChanged.AddListener(delegate { OnVolumeChanged(bgmSlider.value,bgmSource.volume,"BGMVolume"); });
+        seSlider.onValueChanged.AddListener(delegate { OnVolumeChanged(seSlider.value,seSource.volume,"SEVolume"); });
         //backButton.onClick.AddListener(OnBackButtonPressed);
     }
 
@@ -73,11 +69,11 @@ public class poseManager : MonoBehaviour
     {
         if (Resultpanel.activeSelf) return;
 
-        //ƒQ[ƒ€ŠÔ’â~
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ô’ï¿½~
         Time.timeScale = 0f;
-        //UI•\¦
+        //UIï¿½\ï¿½ï¿½
         pauseMenuUI.SetActive(true);
-        //ƒ|[ƒYó‘Ô‚ğXV
+        //ï¿½|ï¿½[ï¿½Yï¿½ï¿½Ô‚ï¿½ï¿½Xï¿½V
         isPaused = true;
     }
 
@@ -85,27 +81,21 @@ public class poseManager : MonoBehaviour
     {
         if (Resultpanel.activeSelf) return;
 
-        //ƒQ[ƒ€ŠÔ‚ğ’Êí‚É–ß‚·
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½Êï¿½É–ß‚ï¿½
         Time.timeScale = 1f;
 
         pauseMenuUI.SetActive(false);
 
-        //ƒ|[ƒYó‘Ô‚ğXV
+        //ï¿½|ï¿½[ï¿½Yï¿½ï¿½Ô‚ï¿½ï¿½Xï¿½V
         isPaused = false;
     }
 
-    //‰¹—Êİ’è—p
-    public void OnBGMVolumeChanged()
+    //ï¿½ï¿½ï¿½Êİ’ï¿½p
+    
+    void OnVolumeChanged(float l_slider_value,float l_Source_value,string l_volumename)
     {
-        bgmSource.volume = bgmSlider.value;
-        PlayerPrefs.SetFloat("BGMVolume", bgmSlider.value);
-        PlayerPrefs.Save();
-    }
-
-    public void OnSEVolumeChanged()
-    {
-        seSource.volume = seSlider.value;
-        PlayerPrefs.SetFloat("SEVolume", seSlider.value);
+        l_Source_value = l_slider_value;
+        PlayerPrefs.SetFloat(l_volumename, l_slider_value);
         PlayerPrefs.Save();
     }
 
