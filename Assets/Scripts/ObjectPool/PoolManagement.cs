@@ -34,7 +34,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         if (!Pools.TryGetValue(yen, out var pool))
         {
-            Debug.LogWarning($"‹àŠz {yen} ‚Ìƒv[ƒ‹‚ª‚ ‚è‚Ü‚¹‚ñ");
+            Debug.LogWarning($"ï¿½ï¿½ï¿½z {yen} ï¿½Ìƒvï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½");
             return;
         }
 
@@ -47,7 +47,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         pool.Return(coin);
         AddCoinCount(coin.Yen);
-        ProbabilityManager.GaugeAmount = ProbabilityManager.GaugeUp(ProbabilityManager.GaugeAmount);
+        UIDisplayAmountManagement.instance.Current++;
     }
 
     private void AddCoinCount(int yen)

@@ -2,8 +2,17 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+namespace GaugeState
+{
+    public enum Gauge
+    {
+        Normal,
+        Gold
+    }
+}
 /// <summary>
-/// Text‚ÌXV‚¾‚¯‚ğ‚·‚éƒNƒ‰ƒX
+/// Textã®æ›´æ–°ã‚’ã™ã‚‹ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class UIDisplay
 {
@@ -22,11 +31,11 @@ public class UIDisplay
 
     public void TextDisPlay(ProbabilityManager.PaymentState l_paymentstate,float timer)
     {
-        TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "‰~";
+        TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "ï¿½~";
 
-        InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "‰~";
+        InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "ï¿½~";
 
-        ChangeMoneyText.text = l_paymentstate.ChangeMoney + "‰~";
+        ChangeMoneyText.text = l_paymentstate.ChangeMoney + "ï¿½~";
     }
     
 
@@ -88,15 +97,28 @@ class GaugeDisplay
 
         while (gauge_image.fillAmount > 0)
         {
-            //if (ResultPanel.activeSelf) break;
+            if(GameLoopManagement.Instance._Gamestate==StateMashine.GameState.ScorePhase)break;
             yield return new WaitUntil(() => !ChooseGoods.Instance.P_OnPay);
             l_current -= 1 * Time.deltaTime;
             yield return null;
         }
-        //gauge_state = State.Gauge.Normal;
-        //Gama_Image.sprite = about_ui.Kindofemotion[0];
         gauge_image.color = gauge_color;
         gaugedown = false;
+    }
+    IEnumerator ColorChange()
+    {
+        while (gauge_image.fillAmount > 0)
+        {
+            Color l_gauge_color = gauge_color;
+            float rnd_R = Random.Range(0.0f, 1.0f);
+            float rnd_G = Random.Range(0.0f, 1.0f);
+            float rnd_B = Random.Range(0.0f, 1.0f);
+            l_gauge_color.r = rnd_R;
+            l_gauge_color.g = rnd_G;
+            l_gauge_color.b = rnd_B;
+            gauge_image.color = l_gauge_color;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
 

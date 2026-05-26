@@ -7,7 +7,6 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
 
     [SerializeField]
     private Vector2 HotSpot;
-    Texture2D currentCursor;
     [SerializeField] 
     private UI mouse;
     [SerializeField]
