@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+
 public class SceneChange : MonoBehaviour
 {
     [SerializeField]
     private Sound sound;
-    [SerializeField] GameObject Pose;
+    
     [Header("オプションパネル")]
     public GameObject optionPanel;
+
+    [SerializeField] private Scene[] scene;
 
     public void ChangeButton_st()
     {
@@ -35,18 +38,7 @@ public class SceneChange : MonoBehaviour
     {
         FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f, null, null);
     }
-    public void OnPose()
-    {
-        if (!Pose.activeSelf)
-        {
-            Pose.SetActive(true);
-        }
-        else
-        {
-            Pose.SetActive(false);
-        }
-        
-    }
+    
 
     public void EndGame()
     {
