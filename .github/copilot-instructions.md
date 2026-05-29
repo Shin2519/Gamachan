@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Gamachan, Water, UI, 3dObject
 - Active game object:
-  - Name: BGMSlider
+  - Name: O_Total
   - Tag: Untagged
   - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

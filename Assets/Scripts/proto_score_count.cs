@@ -35,7 +35,7 @@ public class proto_score_count : MonoBehaviour
     /// <summary>
     /// リザルト計算と表示
     /// </summary>
-    public void ShowResult(string playerName, string mode)
+    public void ShowResult(string playerName)
     {
         // 基本スコア計算（点数は仮に固定値を設定）
         int baseScore = (perfectCount * 100) +
@@ -59,23 +59,21 @@ public class proto_score_count : MonoBehaviour
         finalScoreText.text = $"Final Score: {finalScore}";
 
         // ランキング判定
-        AddToRanking(playerName, mode);
+        AddToRanking(playerName);
     }
 
     /// <summary>
     /// ランキングに追加（上位5位以内なら保存）
     /// </summary>
-    private void AddToRanking(string playerName, string mode)
+    private void AddToRanking(string playerName)
     {
         // 上位5位以内かどうかをチェック
-        var rankingList = (mode == "Challenge") ?
-            RankingManager.Instance.challengeRanking :
-            RankingManager.Instance.timeLimitRanking;
+        var rankingList = RankingManager.Instance.challengeRanking;
 
         // 仮にランキングが5件未満なら必ず追加
         if (rankingList.Count < 5 || finalScore > rankingList[rankingList.Count - 1].score)
         {
-            RankingManager.Instance.AddScore(mode, playerName, finalScore);
+            RankingManager.Instance.AddScore(playerName, finalScore);
         }
         // 圏外なら保存せず破棄（タイトル戻り時にリセットされる）
     }

@@ -5,7 +5,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public static UIDisplayAmountManagement instance;
     [SerializeField, Header("§ŒÀŠÔ")]
     float f_timer;
-    float f_current;
+    float f_current = 0;
     public float Timer => f_timer;
     public float Current
     {

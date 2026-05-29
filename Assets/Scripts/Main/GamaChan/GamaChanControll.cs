@@ -1,51 +1,35 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
 {
     [SerializeField] MouseInputProvider Input;
+    
+    [SerializeField] ProbabilityManager probability = new();
 
-    [SerializeField]
-    private Vector2 HotSpot;
-    [SerializeField] 
-    private UI mouse;
-    [SerializeField]
-    ProbabilityManager probability = new();
     DragOperation drag;
+
     [SerializeField, Header("触れているか"), Range(0, 20)]
     private float judge;
-    [SerializeField]
-    LayerMask gamalayer;
-    [SerializeField]
-    Vector2 MinPos;
-    [SerializeField]
-    Vector2 MaxPos;
+
+    [SerializeField] LayerMask gamalayer;
+
+    [SerializeField] Vector2 MinPos;
+
+    [SerializeField] Vector2 MaxPos;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         drag = new DragOperation(MinPos,MaxPos,judge);
-        currentCursor = mouse.mouse[0];
-        Cursor.SetCursor(currentCursor, HotSpot, CursorMode.Auto);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateCursor();
+        if(GameLoopManagement.Instance._Gamestate!=StateMashine.GameState.GamaSakePhase)return;
         HandleDrag();
     }
-    void UpdateCursor()
-    {
-        Texture2D nextCursor = Input.IsPressed ? mouse.mouse[1] : mouse.mouse[0];
-
-        // �J�[�\�����ς�鎞���� SetCursor ���Ă�
-        if (currentCursor != nextCursor)
-        {
-            Cursor.SetCursor(nextCursor, HotSpot, CursorMode.Auto);
-            currentCursor = nextCursor;
-        }
-    }
+    
 
     void HandleDrag()
     {
@@ -61,7 +45,11 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
         if (drag.IsActive)
         {
             float? swipeSpeed = drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime);
-            if (swipeSpeed.HasValue) probability.Normal(swipeSpeed.Value);
+            if (swipeSpeed.HasValue)
+            {
+                Debug.Log(swipeSpeed);
+                probability.Normal(swipeSpeed.Value);
+            }
         }
     }
 

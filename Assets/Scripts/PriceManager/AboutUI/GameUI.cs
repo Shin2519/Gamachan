@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 /// <summary>
 /// UI�̕\���E��\�������������N���X
 /// </summary>
 public class GameUI : MonoBehaviour
 {
     public static GameUI instance;
+
     [SerializeField] private GameObject f_gradeimage;
 
     [SerializeField] private GameObject f_comboimage;
@@ -21,22 +23,33 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject f_pause_ui;
 
+    [SerializeField] private GameObject f_RankInFlag_ui;
+
+    [SerializeField] private GameObject f_InputName_ui;
+
     [SerializeField] private Sprite[] startsprites;
 
     [SerializeField] private Sprite[] finishsprites;
 
     [SerializeField] private GameObject f_CountDownImage;
 
-    bool finish = true;
+    public Transform p_goodscanvastrans => goodscanvas.transform;
+
+    bool finish = false;
 
     [SerializeField] private GameObject result;
-
-    [SerializeField] private GameObject ui;
 
     [SerializeField] KindOfSprite KindOfSprite = new KindOfSprite();
 
     UIDisplay uidisplay;
+
     TimerDisplay timerDisplay;
+
+    GaugeDisplay gaugeDisplay;
+
+    [SerializeField] ScoreDisplay scoredisplay;
+
+    public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
     void Awake()
     {
         instance = this;
@@ -45,17 +58,23 @@ public class GameUI : MonoBehaviour
     {
         uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
         timerDisplay = new TimerDisplay(timetext);
+        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1]);
     }
 
     void Update()
     {
         uidisplay.TextDisPlay(ProbabilityManager.AM, UIDisplayAmountManagement.instance.Timer);
+        gaugeDisplay.GaugeUpdate(UIDisplayAmountManagement.instance.Current,100);
         timerDisplay.Refresh(UIDisplayAmountManagement.instance.Timer);
         if (GameLoopManagement.Instance._Gamestate == StateMashine.GameState.GoodsSelectPhase)
         {
             uidisplay.ResetText();
         }
-        if (UIDisplayAmountManagement.instance.Timer <= 4 && finish) StartCoroutine(FinnishTimer());
+        if (UIDisplayAmountManagement.instance.Timer <= 4 && !finish)
+        {
+            finish = true;
+            StartCoroutine(FinnishTimer());
+        }
     }
     /// <summary>
     /// StartCountDownPhase�ɂȂ������Ɉ�x������������J�E���g�_�E���̃R���[�`��
@@ -88,7 +107,6 @@ public class GameUI : MonoBehaviour
 
     public IEnumerator FinnishTimer()
     {
-        finish = false;
         Image sprite = f_CountDownImage.GetComponent<Image>();
         int finishTimer = 2;
         f_CountDownImage.SetActive(true);
@@ -100,11 +118,9 @@ public class GameUI : MonoBehaviour
         }
         sprite.sprite = finishsprites[3];
         
-        yield return new WaitForSeconds(1);     
-        ui.SetActive(false);
+        yield return new WaitForSeconds(1);
         f_CountDownImage.SetActive(false);
-        ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
-        result.SetActive(true);
+        ShowResult();
     }
     /// <summary>
     /// �J�E���g�_�E���̏��߂ƏI���ŕ\���E��\����������̂�ς���
@@ -158,5 +174,56 @@ public class GameUI : MonoBehaviour
     public void PaymentTextReset()
     {
         uidisplay.ResetText();
+    }
+
+    void ShowResult()
+    {
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.ScorePhase;
+
+        result.SetActive(true);
+
+        scoredisplay.AllScoreDisplay();
+
+        ResultManagement.Instance.ActiveAndSlide();
+
+        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount,ChooseGoods.Instance.Combo,ProbabilityManager.coin,ProbabilityManager.AM).totalScore);
+
+        if(RankingNum<=5)
+        {
+            f_RankInFlag_ui.SetActive(true);
+        }
+    }
+
+    public void InputNameSetActive()
+    {
+        f_InputName_ui.SetActive(true);
+    }
+
+    public void GoodsCanvas()
+    {
+        goodscanvas.SetActive(false);
+    }
+
+    public void ToInputNameUI()
+    {
+        f_RankInFlag_ui.SetActive(false);
+
+        f_InputName_ui.SetActive(true);
+    }
+
+    public IEnumerator AmountDisplay()
+    {
+        ShowGrade(ChooseGoods.Instance.p_grade);
+
+        if (ChooseGoods.Instance.Combo >= 3)
+        {
+            ShowCombo(ChooseGoods.Instance.Combo);
+        }
+
+        yield return null;
+
+        GradeAndCombo();
+
+        goodscanvas.SetActive(true);
     }
 }

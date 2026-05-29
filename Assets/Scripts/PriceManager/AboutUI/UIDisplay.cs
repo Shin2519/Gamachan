@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 namespace GaugeState
 {
     public enum Gauge
@@ -31,11 +31,11 @@ public class UIDisplay
 
     public void TextDisPlay(ProbabilityManager.PaymentState l_paymentstate,float timer)
     {
-        TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "�~";
+        TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "円";
 
-        InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "�~";
+        InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "円";
 
-        ChangeMoneyText.text = l_paymentstate.ChangeMoney + "�~";
+        ChangeMoneyText.text = l_paymentstate.ChangeMoney + "円";
     }
     
 
@@ -87,22 +87,16 @@ class GaugeDisplay
     {
         gauge_image = l_gauge.GetComponent<Image>();
 
+        gauge_image.fillAmount = 0;
+
         gauge_color = gauge_image.color;
     }
     public void GaugeUpdate(float Current,float Max) => gauge_image.fillAmount = Current / Max;
 
-    IEnumerator GaugeDown(float l_current)
+    public void Gaugedown()
     {
         gaugedown = true;
-
-        while (gauge_image.fillAmount > 0)
-        {
-            if(GameLoopManagement.Instance._Gamestate==StateMashine.GameState.ScorePhase)break;
-            yield return new WaitUntil(() => !ChooseGoods.Instance.P_OnPay);
-            l_current -= 1 * Time.deltaTime;
-            yield return null;
-        }
-        gauge_image.color = gauge_color;
+        gauge_image.DOFillAmount(0.0f,0.5f);
         gaugedown = false;
     }
     IEnumerator ColorChange()
@@ -119,6 +113,33 @@ class GaugeDisplay
             gauge_image.color = l_gauge_color;
             yield return new WaitForSeconds(0.5f);
         }
+    }
+}
+[System.Serializable]
+class ScoreDisplay
+{
+    ChallengeScoreResult challengeScoreResult;
+    [SerializeField] Text PerfectScore;
+    [SerializeField] Text GreatScore;
+    [SerializeField] Text GoodScore;
+    [SerializeField] Text BadScore;
+    [SerializeField] Text MissScore;
+    [SerializeField] Text GoldenBonus;
+    [SerializeField] Text ComboBonus;
+    [SerializeField] Text SpeedBonus;
+    [SerializeField] Text ChangeBonus;
+    [SerializeField] Text TotalScore;
+    public void AllScoreDisplay()
+    {
+        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
+
+        PerfectScore.text = challengeScoreResult.perfectScore.ToString();
+        GreatScore.text = challengeScoreResult.greatScore.ToString();
+        GoodScore.text = challengeScoreResult.goodScore.ToString();
+        BadScore.text = challengeScoreResult.badScore.ToString();
+        ComboBonus.text = challengeScoreResult.comboBonus.ToString();
+        ChangeBonus.text = challengeScoreResult.totalChange.ToString();
+        TotalScore.text = challengeScoreResult.totalScore.ToString();
     }
 }
 

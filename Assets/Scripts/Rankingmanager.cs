@@ -29,30 +29,37 @@ public class RankingManager : MonoBehaviour
     }
 
     // スコア追加
-    public void AddScore(string mode, string name, int score)
+    public void AddScore(string name, int score)
     {
         RankEntry entry = new RankEntry { playerName = name, score = score };
 
-        if (mode == "Challenge")
-        {
-            challengeRanking.Add(entry);
+        challengeRanking.Add(entry);
 
-            // ★ 高い順に並べて上位5件だけ残す
-            challengeRanking = challengeRanking
-                .OrderByDescending(e => e.score)
-                .Take(5)
-                .ToList();
-        }
-        else if (mode == "TimeLimit")
-        {
-            timeLimitRanking.Add(entry);
+        // ★ 高い順に並べて上位5件だけ残す
+        challengeRanking = challengeRanking
+            .OrderByDescending(e => e.score)
+            .Take(5)
+            .ToList();
+        //if (mode == "Challenge")
+        //{
+        //    challengeRanking.Add(entry);
 
-            // ★ 高い順に並べて上位5件だけ残す
-            timeLimitRanking = timeLimitRanking
-                .OrderByDescending(e => e.score)
-                .Take(5)
-                .ToList();
-        }
+        //    // ★ 高い順に並べて上位5件だけ残す
+        //    challengeRanking = challengeRanking
+        //        .OrderByDescending(e => e.score)
+        //        .Take(5)
+        //        .ToList();
+        //}
+        //else if (mode == "TimeLimit")
+        //{
+        //    timeLimitRanking.Add(entry);
+
+        //    // ★ 高い順に並べて上位5件だけ残す
+        //    timeLimitRanking = timeLimitRanking
+        //        .OrderByDescending(e => e.score)
+        //        .Take(5)
+        //        .ToList();
+        //}
 
         SaveRanking();
     }
@@ -75,6 +82,17 @@ public class RankingManager : MonoBehaviour
         }
 
         PlayerPrefs.Save();
+    }
+
+    public bool ChallengeRankin(int NewScore)
+    {
+        int ChallengeNum = challengeRanking.Count;
+
+        if (ChallengeNum <= 5) return true;
+
+        int lowestScore = challengeRanking[ChallengeNum - 1].score;
+
+        return NewScore > lowestScore;
     }
 
     // 読み込み

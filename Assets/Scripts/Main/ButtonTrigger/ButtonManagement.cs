@@ -1,0 +1,62 @@
+using Statestate;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ButtonManagement : MonoBehaviour
+{
+    bool OnPay = false;
+    /// <summary>
+    /// 生成されたボタン一つ一つに入っている関数
+    /// </summary>
+    /// <param name="am"></param>
+    public void Money(int am,List<GameObject> l_destroy)
+    {
+        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GoodsSelectPhase) return;
+        if (OnPay) return;
+        OnPay = true;
+        GameUI.instance.TextInRegister(true);
+        foreach (var obj in l_destroy)
+        {
+            Destroy(obj);
+        }
+        l_destroy.Clear();
+        ProbabilityManager.AM.TargetAmount = am;
+        GameUI.instance.GoodsCanvas();
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
+        OnPay = false;
+    }
+
+    /// <summary>
+    /// 精算ボタンを押したときにPaymentStatesという構造体の要素の中に値が入り、おつりや評価、コンボ数が表示される
+    /// </summary>
+    public void TotalInputMoney()
+    {
+        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
+        if (OnPay) return;
+        OnPay = true;
+        ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
+
+        ChooseGoods.Instance.p_grade = ProbabilityManager.GradeJudge();
+
+        StartCoroutine(GameUI.instance.AmountDisplay());
+
+        GameUI.instance.PaymentTextReset();
+
+        ProbabilityManager.PaymentReset();
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
+        OnPay = false;
+    }
+
+    public void SaveNameData()
+    {
+        string Namedata = GameUI.instance.p_InputNameUGUI.ToString(); 
+        for(int i = 0;i < 5;i++)
+        {
+            if(!PlayerPrefs.HasKey("Name" + (i + 1).ToString()))
+            {
+                PlayerPrefs.SetString((i + 1).ToString(),Namedata);
+                break;
+            }
+        }
+    }
+}

@@ -6,22 +6,17 @@ using UnityEngine.UI;
 public class ChooseGoods : MonoBehaviour
 {
     public static ChooseGoods Instance;
-    
-    [SerializeField]
-    Goods goods;
-    [SerializeField]
-    GameObject ChoiceButton;
-    [SerializeField]
-    GameObject GoodsPanel;
-    [SerializeField]
+
+    [SerializeField] ButtonManagement buttonmanagement;
+
+    [SerializeField] Goods goods;
+
+    [SerializeField] GameObject ChoiceButton;
+
+    [SerializeField] GameObject GoodsPanel;
+
     Transform ParentPanel;
-    Transform ParentCanvasTrans;
-    [SerializeField]
-    GameObject ParentCanvas;
-    [SerializeField]
-    Statestate.Grade grade;
-    [SerializeField]
-    GameObject ResultPanel;
+
     List<GameObject> Destroygameobject = new List<GameObject>();
 
     bool OnPay = false;
@@ -29,6 +24,8 @@ public class ChooseGoods : MonoBehaviour
     private GoodsCatalog catalog;
 
     private ComboCounter combo = new ComboCounter();
+
+    public Statestate.Grade p_grade { get; set; }
 
     public int Combo
     {
@@ -50,7 +47,7 @@ public class ChooseGoods : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ParentCanvasTrans = ParentCanvas.transform;
+        ParentPanel = GoodsPanel.transform;
         catalog = new GoodsCatalog(goods);
     }
 
@@ -62,7 +59,7 @@ public class ChooseGoods : MonoBehaviour
     void CreateButton(GoodsCatalog.Entry entry, Transform parent)
     {
         GameObject but = Instantiate(ChoiceButton, parent);
-        but.GetComponent<Button>().onClick.AddListener(() => Money(entry.Amount));
+        but.GetComponent<Button>().onClick.AddListener(() => buttonmanagement.Money(entry.Amount,Destroygameobject));
 
         Destroygameobject.Add(but);
 
@@ -74,15 +71,15 @@ public class ChooseGoods : MonoBehaviour
     }
     public void SpriteAndAmountChange()
     {
-        Statestate.Grade l_grade = grade;
+        Statestate.Grade l_grade = p_grade;
 
-        int buttonCount = Mathf.Clamp((int)grade,1,5);
+        int buttonCount = Mathf.Clamp((int)p_grade,1,5);
 
         var picked = catalog.PickRandom(buttonCount);
 
         if(buttonCount==5)
         {
-            GameObject extraPanel = Instantiate(GoodsPanel, ParentCanvasTrans);
+            GameObject extraPanel = Instantiate(GoodsPanel, GameUI.instance.p_goodscanvastrans);
             Destroygameobject.Add(extraPanel);
             Transform extraPanelTrans = extraPanel.transform;
             for (int i = 0; i < 3; i++)
@@ -96,61 +93,5 @@ public class ChooseGoods : MonoBehaviour
             for (int i = 0; i < picked.Count; i++)
                 CreateButton(picked[i], ParentPanel);
         }
-    }
-    /// <summary>
-    /// 生成されたボタン一つ一つに入っている関数
-    /// </summary>
-    /// <param name="am"></param>
-    public void Money(int am)
-    {
-        if (OnPay) return;
-        OnPay = true;
-        GameUI.instance.TextInRegister(true);
-        foreach (var obj in Destroygameobject)
-        {
-            Destroy(obj);
-        }
-        Destroygameobject.Clear();
-        ProbabilityManager.AM.TargetAmount = am;
-        ParentCanvas.SetActive(false);
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
-        OnPay = false;
-    }
-
-    /// <summary>
-    /// 精算ボタンを押したときにPaymentStatesという構造体の要素の中に値が入り、おつりや評価、コンボ数が表示される
-    /// </summary>
-    public void TotalInputMoney()
-    {
-        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
-        if (OnPay) return;
-        OnPay = true;
-        ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
-
-        grade = ProbabilityManager.GradeJudge();
-
-        StartCoroutine(AmountDisplay());
-
-        GameUI.instance.PaymentTextReset();
-
-        ProbabilityManager.PaymentReset();
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
-        OnPay = false;
-    }
-
-    IEnumerator AmountDisplay()
-    {
-        GameUI.instance.ShowGrade(grade);
-
-        if(Combo>=3)
-        {
-            GameUI.instance.ShowCombo(Combo);
-        }
-
-        yield return null;
-
-        GameUI.instance.GradeAndCombo();
-
-        ParentCanvas.SetActive(true);
     }
 }
