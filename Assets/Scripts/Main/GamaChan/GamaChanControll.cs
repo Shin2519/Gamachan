@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
+public class GamaChanControll : MonoBehaviour
 {
     [SerializeField] MouseInputProvider Input;
     
@@ -11,11 +11,23 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     [SerializeField, Header("触れているか"), Range(0, 20)]
     private float judge;
 
+    [SerializeField] float ShakeCharge;
+
     [SerializeField] LayerMask gamalayer;
 
     [SerializeField] Vector2 MinPos;
 
     [SerializeField] Vector2 MaxPos;
+
+    public float shakecharge
+    {
+        get => ShakeCharge;
+
+        set
+        {
+            ShakeCharge = Mathf.Clamp(value,0,100);
+        }
+    }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,9 +40,8 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
     {
         if(GameLoopManagement.Instance._Gamestate!=StateMashine.GameState.GamaSakePhase)return;
         HandleDrag();
+        shakecharge -= 2;
     }
-    
-
     void HandleDrag()
     {
         if (Input.IsPressed && !drag.IsActive)
@@ -40,16 +51,13 @@ public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
         else if (!Input.IsPressed && drag.IsActive)
         {
             drag.End();
+            shakecharge = 0;
         }
         
         if (drag.IsActive)
         {
-            float? swipeSpeed = drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime);
-            if (swipeSpeed.HasValue)
-            {
-                Debug.Log(swipeSpeed);
-                probability.Normal(swipeSpeed.Value);
-            }
+            shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime,shakecharge);
+            probability.Normal(shakecharge);
         }
     }
 

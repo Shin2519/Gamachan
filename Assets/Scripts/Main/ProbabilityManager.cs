@@ -95,45 +95,30 @@ public class ProbabilityManager
     }
     void KindofMoney(float Amount)
     {
-        int SpeedNum = 0;
-        if (Amount <= 0) return;
-        if (Amount >= 3)
+        if (Amount >= 9) return;
+        if(Amount>=100)
         {
-            SpeedNum = (int)Statestate.Speed.TooFast;
+            PoolManagement.Instance.Spawn(500);
         }
-        else if (Amount >= 2)
+        else if(Amount>=80)
         {
-            SpeedNum = (int)Statestate.Speed.Fast;
+            PoolManagement.Instance.Spawn(100);
         }
-        else if (Amount >= 0.95)
+        else if(Amount>=60)
         {
-            SpeedNum = (int)Statestate.Speed.Soso;
+            PoolManagement.Instance.Spawn(50);
         }
-        else if (Amount >= 0.65)
+        else if(Amount>=40)
         {
-            SpeedNum = (int)Statestate.Speed.Slow;
+            PoolManagement.Instance.Spawn(10);
         }
-        else if (Amount >= 0.05)
+        else if(Amount>=20)
         {
-            SpeedNum = (int)Statestate.Speed.TooSlow;
+            PoolManagement.Instance.Spawn(5);
         }
-        switch (SpeedNum)
+        else if(Amount>=10)
         {
-            case 4:
-                TOOFAST(Amount);
-                break;
-            case 3:
-                FAST(Amount);
-                break;
-            case 2:
-                SOSO(Amount);
-                break;
-            case 1:
-                SLOW(Amount);
-                break;
-            case 0:
-                TOOSLOW(Amount);
-                break;
+            PoolManagement.Instance.Spawn(1);
         }
     }
     void TOOFAST(float Amount)

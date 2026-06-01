@@ -25,25 +25,34 @@ public class DragOperation
         wasSwiping = false;
     }
 
-    public float? UpdatePosition(Vector3 pointerWorld, float deltaTime)
+    public float UpdatePosition(Vector3 pointerWorld, float deltaTime,float shakecharge)
     {
-        if (target == null) return null;
+        if (target == null) return 0;
+        float speed = 0;
         var pos = pointerWorld + offset;
-        Debug.Log($"pointerWorld={pointerWorld}, offset={offset}, pos(before clamp)={pos}, min={min}, max={max}");
+        //Debug.Log($"pointerWorld={pointerWorld}, offset={offset}, pos(before clamp)={pos}, min={min}, max={max}");
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
         pos.z = 0f;
         target.position = pos;
 
-        float speed = (pos - prevPos).magnitude / Mathf.Max(deltaTime, 1e-5f);
+        if(shakecharge!=0)
+        {
+            Vector2 dir = (pos - prevPos).normalized;
 
-        bool isSwiping = speed > threshold;
+            if(dir!=new Vector2(0.0f,0.0f))
+            {
+                speed += 4;
+            }
+        }
+        else
+        {
+            speed = (pos - prevPos).magnitude / Mathf.Max(deltaTime, 1e-5f);
+        }
 
-        float? swipeStartSpeed = (!wasSwiping && isSwiping) ? speed : (float?)null;
-
-        wasSwiping = isSwiping;
         prevPos = pos;
-        return swipeStartSpeed;
+
+        return speed;
     }
 
     public void End() => target = null;
