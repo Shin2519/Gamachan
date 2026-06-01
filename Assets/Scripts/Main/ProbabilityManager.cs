@@ -310,13 +310,6 @@ public class ProbabilityManager
             return GradeState;
         }
     }
-    public static int GaugeUp(int Currentnum)
-    {
-        int Afternum = Currentnum++;
-
-        return Afternum;
-    }
-
     public static void PaymentReset()
     {
         AM.TargetAmount = 0;

@@ -15,6 +15,10 @@ public class ChooseGoods : MonoBehaviour
 
     [SerializeField] GameObject GoodsPanel;
 
+    [SerializeField] Transform ParentGoodsPanel;
+
+    [SerializeField] Transform ParentGoodsCanvas;
+
     Transform ParentPanel;
 
     List<GameObject> Destroygameobject = new List<GameObject>();
@@ -79,7 +83,7 @@ public class ChooseGoods : MonoBehaviour
 
         if(buttonCount==5)
         {
-            GameObject extraPanel = Instantiate(GoodsPanel, GameUI.instance.p_goodscanvastrans);
+            GameObject extraPanel = Instantiate(GoodsPanel, ParentGoodsCanvas);
             Destroygameobject.Add(extraPanel);
             Transform extraPanelTrans = extraPanel.transform;
             for (int i = 0; i < 3; i++)

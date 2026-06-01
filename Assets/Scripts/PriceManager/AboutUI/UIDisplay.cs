@@ -20,6 +20,8 @@ public class UIDisplay
     private readonly TextMeshProUGUI InputMoneyAmountText;
     private readonly TextMeshProUGUI ChangeMoneyText;
 
+    int ChangeMoney;
+
     public UIDisplay(GameObject l_TargetText, GameObject l_InputMoneyAmountText,GameObject l_ChangeMoneyText)
     {
         TargetMoneyAmountText = l_TargetText.GetComponent<TextMeshProUGUI>();
@@ -31,11 +33,16 @@ public class UIDisplay
 
     public void TextDisPlay(ProbabilityManager.PaymentState l_paymentstate,float timer)
     {
+        ChangeMoney = l_paymentstate.ChangeMoney;
+
         TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "円";
 
         InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "円";
+    }
 
-        ChangeMoneyText.text = l_paymentstate.ChangeMoney + "円";
+    public void ChangeTextDisplay()
+    {
+        ChangeMoneyText.text = ChangeMoney + "円";
     }
     
 
