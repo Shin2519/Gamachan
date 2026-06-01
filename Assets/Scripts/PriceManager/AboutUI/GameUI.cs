@@ -33,10 +33,6 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject f_CountDownImage;
 
-    public Transform p_goodscanvastrans => goodscanvas.transform;
-
-    bool finish = false;
-
     [SerializeField] private GameObject result;
 
     [SerializeField] KindOfSprite KindOfSprite = new KindOfSprite();
@@ -50,6 +46,12 @@ public class GameUI : MonoBehaviour
     [SerializeField] ScoreDisplay scoredisplay;
 
     public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+
+    bool finish = false;
+
+    bool OnPaying;
+
+    public bool p_OnPaying => OnPaying;
     void Awake()
     {
         instance = this;
@@ -171,7 +173,7 @@ public class GameUI : MonoBehaviour
         f_pause_ui.SetActive(l_active);
     }
 
-    public void PaymentTextReset()
+    void PaymentTextReset()
     {
         uidisplay.ResetText();
     }
@@ -213,17 +215,38 @@ public class GameUI : MonoBehaviour
 
     public IEnumerator AmountDisplay()
     {
+        if (OnPaying) yield break;
+        OnPaying = true;
+
+        ChangeMoneyDisplay();
+
+        yield return new WaitForSeconds(1.0f);
+
         ShowGrade(ChooseGoods.Instance.p_grade);
 
         if (ChooseGoods.Instance.Combo >= 3)
         {
+            yield return new WaitForSeconds(1.0f);
+
             ShowCombo(ChooseGoods.Instance.Combo);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(1.0f);
 
         GradeAndCombo();
 
+        PaymentTextReset();
+
+        ProbabilityManager.PaymentReset();
+
         goodscanvas.SetActive(true);
+
+        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
+        OnPaying = false;
+    }
+
+    public void ChangeMoneyDisplay()
+    {
+        uidisplay.ChangeTextDisplay();
     }
 }

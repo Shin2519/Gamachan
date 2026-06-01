@@ -1,10 +1,8 @@
-using Statestate;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonManagement : MonoBehaviour
 {
-    bool OnPay = false;
     /// <summary>
     /// ¶¬‚³‚ê‚½ƒ{ƒ^ƒ“ˆê‚Âˆê‚Â‚É“ü‚Á‚Ä‚¢‚éŠÖ”
     /// </summary>
@@ -12,8 +10,6 @@ public class ButtonManagement : MonoBehaviour
     public void Money(int am,List<GameObject> l_destroy)
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GoodsSelectPhase) return;
-        if (OnPay) return;
-        OnPay = true;
         GameUI.instance.TextInRegister(true);
         foreach (var obj in l_destroy)
         {
@@ -23,7 +19,6 @@ public class ButtonManagement : MonoBehaviour
         ProbabilityManager.AM.TargetAmount = am;
         GameUI.instance.GoodsCanvas();
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
-        OnPay = false;
     }
 
     /// <summary>
@@ -32,19 +27,12 @@ public class ButtonManagement : MonoBehaviour
     public void TotalInputMoney()
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
-        if (OnPay) return;
-        OnPay = true;
-        ProbabilityManager.AM.InputMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
+        if (GameUI.instance.p_OnPaying) return;
+        ProbabilityManager.AM.ChangeMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
         ChooseGoods.Instance.p_grade = ProbabilityManager.GradeJudge();
 
         StartCoroutine(GameUI.instance.AmountDisplay());
-
-        GameUI.instance.PaymentTextReset();
-
-        ProbabilityManager.PaymentReset();
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
-        OnPay = false;
     }
 
     public void SaveNameData()
