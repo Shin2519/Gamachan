@@ -90,6 +90,8 @@ class GaugeDisplay
 
     public bool gaugedown;
 
+    public bool gaugecolor;
+
     public GaugeDisplay(GameObject l_gauge)
     {
         gauge_image = l_gauge.GetComponent<Image>();
@@ -103,11 +105,22 @@ class GaugeDisplay
     public void Gaugedown()
     {
         gaugedown = true;
-        gauge_image.DOFillAmount(0.0f,0.5f);
+        gauge_image.DOFillAmount(0.0f,2.0f);
+        float t = 0f;
+        DOTween.To(() => t,x => 
+        {
+            t = x;
+            gauge_image.color = Color.HSVToRGB(x, 1f, 0.1f);
+        },
+        1f,
+        0.5f
+        ).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+        UIDisplayAmountManagement.instance.Current = 0;
         gaugedown = false;
     }
-    IEnumerator ColorChange()
+    public IEnumerator ColorChange()
     {
+        gaugecolor = true;
         while (gauge_image.fillAmount > 0)
         {
             Color l_gauge_color = gauge_color;
@@ -120,6 +133,7 @@ class GaugeDisplay
             gauge_image.color = l_gauge_color;
             yield return new WaitForSeconds(0.5f);
         }
+        gaugecolor = false;
     }
 }
 [System.Serializable]

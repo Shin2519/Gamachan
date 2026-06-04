@@ -11,12 +11,25 @@ namespace StateMashine
         RegisterPhase,
         ScorePhase
     }
+    public enum Skill
+    {
+        None,
+        NoSkill,
+        Golden,
+        NormalLocked,
+        AddTime
+    }
 }
 public class GameLoopManagement : MonoBehaviour
 {
     public static GameLoopManagement Instance;
     [SerializeField,Header("ゲームの流れ")]
     GameState gameState;
+
+    [SerializeField]
+    Skill SkillState;
+
+    SkillDetail skillDetail = new();
 
     public GameState _Gamestate 
     { 
@@ -25,8 +38,18 @@ public class GameLoopManagement : MonoBehaviour
         {
             gameState = value;
 
-            OnStateEnter(gameState);
+            OnGameState(gameState);
         } 
+    }
+
+    public Skill _SkillState
+    {
+        get => SkillState;
+        set
+        {
+            SkillState = value;
+            OnSkillState(SkillState);
+        }
     }
     void Awake()
     {
@@ -37,7 +60,7 @@ public class GameLoopManagement : MonoBehaviour
     {
         _Gamestate = GameState.StartCountDownPhase;
     }
-    void OnStateEnter(GameState l_gamestate)
+    void OnGameState(GameState l_gamestate)
     {
         switch (l_gamestate)
         {
@@ -48,5 +71,25 @@ public class GameLoopManagement : MonoBehaviour
                 ChooseGoods.Instance.SpriteAndAmountChange();
                 break;
         }
+    }
+
+    void OnSkillState(Skill l_skillstate)
+    {
+        switch (l_skillstate)
+        {
+            case Skill.NoSkill:
+                Debug.Log("スキルどこ？");
+                break;
+            case Skill.Golden:
+                skillDetail.Golden(UIDisplayAmountManagement.instance.Current);
+                break;
+            case Skill.NormalLocked:
+                skillDetail.NormalLocked();
+                break;
+            case Skill.AddTime:
+                skillDetail.AddTime(UIDisplayAmountManagement.instance.Timer);
+                break;
+        }
+
     }
 }

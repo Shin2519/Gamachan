@@ -1,15 +1,6 @@
 using UnityEngine;
 namespace Statestate
 {
-    public enum Speed
-    {
-        TooFast = 4,
-        Fast = 3,
-        Soso = 2,
-        Slow = 1,
-        TooSlow = 0
-    }
-
     public enum Grade
     { 
         Perfect = 5,
@@ -65,7 +56,6 @@ public class ProbabilityManager
     public int NormalRange;
     [Range(0,99)]
     public int GoldRange;
-    public Statestate.Speed speed;
     static int f_gaugeamount;
     public static int GaugeAmount
     {
@@ -91,11 +81,10 @@ public class ProbabilityManager
         {
             KindofMoney(Shakespeed);
         }
-        Debug.Log(rnd);
     }
     void KindofMoney(float Amount)
     {
-        if (Amount >= 9) return;
+        if (Amount <= 9) return;
         if(Amount>=100)
         {
             PoolManagement.Instance.Spawn(500);
@@ -121,125 +110,7 @@ public class ProbabilityManager
             PoolManagement.Instance.Spawn(1);
         }
     }
-    void TOOFAST(float Amount)
-    {
-        if (Amount >= 3.9)
-        {
-            PoolManagement.Instance.Spawn(500);
-        }
-        else if (Amount >= 3.5)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                PoolManagement.Instance.Spawn(500);
-            }
-            else
-            {
-                PoolManagement.Instance.Spawn(100);
-            }
-        }
-        else
-        {
-            PoolManagement.Instance.Spawn(100);
-        }
-    }
-
-    void FAST(float Amount)
-    {
-        if (Amount >= 2.9)
-        {
-            PoolManagement.Instance.Spawn(100);
-        }
-        else if (Amount >= 2.5)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                PoolManagement.Instance.Spawn(100);
-            }
-            else
-            {
-                PoolManagement.Instance.Spawn(50);
-            }
-        }
-        else
-        {
-            PoolManagement.Instance.Spawn(50);
-        }
-    }
-
-    void SOSO(float Amount)
-    {
-        if (Amount >= 1.4)
-        {
-            PoolManagement.Instance.Spawn(50);
-        }
-        else if (Amount >= 1)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                PoolManagement.Instance.Spawn(50);
-            }
-            else
-            {
-                PoolManagement.Instance.Spawn(10);
-            }
-        }
-        else
-        {
-            PoolManagement.Instance.Spawn(10);
-        }
-    }
-
-    void SLOW(float Amount)
-    {
-        if (Amount >= 0.9)
-        {
-            PoolManagement.Instance.Spawn(10);
-        }
-        else if (Amount >= 0.7)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                PoolManagement.Instance.Spawn(10);
-            }
-            else
-            {
-                PoolManagement.Instance.Spawn(5);
-            }
-        }
-        else
-        {
-            PoolManagement.Instance.Spawn(5);
-        }
-    }
-
-    void TOOSLOW(float Amount)
-    {
-        if (Amount >= 0.6)
-        {
-            PoolManagement.Instance.Spawn(5);
-        }
-        else if (Amount >= 0.4)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                PoolManagement.Instance.Spawn(5);
-            }
-            else
-            {
-                PoolManagement.Instance.Spawn(1);
-            }
-        }
-        else
-        {
-            PoolManagement.Instance.Spawn(1);
-        }
-    }
+    
     public static int TotalMoney(Coin coin_)
     {
         int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) + (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);

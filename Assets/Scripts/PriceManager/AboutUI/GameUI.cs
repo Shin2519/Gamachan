@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 /// <summary>
-/// UI�̕\���E��\�������������N���X
+/// UIを表示させる処理のスクリプト
 /// </summary>
 public class GameUI : MonoBehaviour
 {
@@ -180,6 +181,8 @@ public class GameUI : MonoBehaviour
 
     void ShowResult()
     {
+        List<int> RankingScores = new List<int>();
+
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.ScorePhase;
 
         result.SetActive(true);
@@ -248,5 +251,10 @@ public class GameUI : MonoBehaviour
     public void ChangeMoneyDisplay()
     {
         uidisplay.ChangeTextDisplay();
+    }
+
+    public void GaugeImageControl()
+    {
+        gaugeDisplay.Gaugedown();
     }
 }

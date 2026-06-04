@@ -8,10 +8,9 @@ public class GamaChanControll : MonoBehaviour
 
     DragOperation drag;
 
-    [SerializeField, Header("触れているか"), Range(0, 20)]
-    private float judge;
-
     [SerializeField] float ShakeCharge;
+
+    [SerializeField] float MoneyTimer;
 
     [SerializeField] LayerMask gamalayer;
 
@@ -32,7 +31,7 @@ public class GamaChanControll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        drag = new DragOperation(MinPos,MaxPos,judge);
+        drag = new DragOperation(MinPos,MaxPos);
     }
 
     // Update is called once per frame

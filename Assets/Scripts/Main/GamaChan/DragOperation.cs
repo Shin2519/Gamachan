@@ -6,15 +6,12 @@ public class DragOperation
     private Vector3 offset;
     private Vector3 prevPos;
     private readonly Vector3 min, max;
-    private bool wasSwiping;
-    private readonly float threshold;
     private readonly SwipeDetector swipe;
 
-    public DragOperation(Vector2 min, Vector2 max, float swipeThreshold)
+    public DragOperation(Vector2 min, Vector2 max)
     {
         this.min = min;
         this.max = max;
-        threshold = swipeThreshold;
     }
 
     public void Begin(Transform t, Vector3 pointerWorld)
@@ -22,7 +19,6 @@ public class DragOperation
         target = t;
         offset = t.position - pointerWorld;
         prevPos = t.position;
-        wasSwiping = false;
     }
 
     public float UpdatePosition(Vector3 pointerWorld, float deltaTime,float shakecharge)

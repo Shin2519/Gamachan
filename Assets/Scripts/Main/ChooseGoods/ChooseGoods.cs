@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,7 +62,7 @@ public class ChooseGoods : MonoBehaviour
     void CreateButton(GoodsCatalog.Entry entry, Transform parent)
     {
         GameObject but = Instantiate(ChoiceButton, parent);
-        but.GetComponent<Button>().onClick.AddListener(() => buttonmanagement.Money(entry.Amount,Destroygameobject));
+        but.GetComponent<Button>().onClick.AddListener(() => buttonmanagement.Money(entry.Amount,Destroygameobject,entry.Number));
 
         Destroygameobject.Add(but);
 

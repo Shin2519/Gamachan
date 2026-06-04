@@ -5,7 +5,8 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public static UIDisplayAmountManagement instance;
     [SerializeField, Header("§ŒÀŽžŠÔ")]
     float f_timer;
-    float f_current = 0;
+    [SerializeField]
+    float f_current;
     public float Timer => f_timer;
     public float Current
     {
@@ -13,6 +14,10 @@ public class UIDisplayAmountManagement : MonoBehaviour
         set
         {
             f_current = Mathf.Clamp(value,0,100);
+            if(value>=100)
+            {
+                GameUI.instance.GaugeImageControl();
+            }
         }
     }
     void Awake()
