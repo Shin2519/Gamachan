@@ -7,9 +7,12 @@ public class TitlePanelChange : MonoBehaviour
     private Sound sound;
     //AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     [SerializeField] private GameObject[] titlepanels;
+    bool ispush = false;
+
     /*
-     * チャレンジモードとタイムリミットモードの選択方法
-     * フラグを立てる
+     * 0,タイトルパネル
+     * 1,チュートリアルチェックパネル
+     * 2,モード選択パネル
      */
     Mode mode;
     private void Start()
@@ -20,21 +23,41 @@ public class TitlePanelChange : MonoBehaviour
         }
     }
 
-    //パネル切り替え
+    //パネル切り替え,チュートリアルチェック
     public void TitletoTutorialCheck()
     {
-
+        titlepanels[1].SetActive(true);
     }
 
     //シーン切り替え
     public void TutorialChecktoTutorialYES()
     {
-
+        //チュートリアルシーンに移動
+        Fade.Instance.FadeScenChenge(1);
     }
 
     //パネル切り替えモード選択
     public void TutorialChecktoTutorialNO()
     {
+        titlepanels[0].SetActive(false);
 
+        titlepanels[2].SetActive(true);
+
+    }
+
+    public void RoadCharengeScene()
+    {
+        if (ispush) return;
+
+        ispush = true;
+        Fade.Instance.FadeScenChenge(5);
+
+    }
+    public void RoadTimeLimitScene()
+    {
+        if (ispush) return;
+
+        ispush = true;
+        Fade.Instance.FadeScenChenge(3);
     }
 }
