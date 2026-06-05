@@ -39,7 +39,8 @@ public class TitlePanelChange : MonoBehaviour
     //パネル切り替えモード選択
     public void TutorialChecktoTutorialNO()
     {
-        titlepanels[0].SetActive(false);
+        titlepanels[1].SetActive(false);
+
 
         titlepanels[2].SetActive(true);
 

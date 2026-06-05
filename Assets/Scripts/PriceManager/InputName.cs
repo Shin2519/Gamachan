@@ -14,7 +14,7 @@ public class InputName : MonoBehaviour
     [SerializeField] private TextMeshProUGUI inputText_e;
 
     [Header("名前入力スペース")]
-    [SerializeField] private TMP_InputField inputField;//プレイヤーの名前を入力
+    [SerializeField] public TMP_InputField inputField;//プレイヤーの名前を入力
 
     [SerializeField] private TextMeshProUGUI namecount;//文字数制限テキスト
 
@@ -24,9 +24,12 @@ public class InputName : MonoBehaviour
 
     [SerializeField] private PlayerInput playerInput;
 
+    public static InputName instance;
+
     private void Awake()
     {
         playerInput=GetComponent<PlayerInput>();
+        instance = this;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,7 +53,24 @@ public class InputName : MonoBehaviour
         inputField.ActivateInputField();
         inputField.text = inputField.text.ToUpper();
 
-        
+        if (playerInput.actions["InputName"].WasPressedThisFrame())
+        {
+            if (inputField.text == "")
+            {
+                StartCoroutine(stay());
+
+            }
+            else if (ngtext.enabled)
+            {
+                InputText();
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+
+                AudioManager.Instance.seSource.PlayOneShot(sound.Click);
+        }
 
         if(inputField.text!= Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
         {
@@ -97,7 +117,11 @@ public class InputName : MonoBehaviour
         {
             InputText();
         }
-        
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     }
 
