@@ -61,9 +61,22 @@ public class RankingDisplay : MonoBehaviour
             if(!PlayerPrefs.HasKey("Score" + (i + 1).ToString()))
             {
                 RankingNum = i + 1;
-                PlayerPrefs.SetInt(RankingNum.ToString(),New_Score);
+                PlayerPrefs.SetInt("Score" + RankingNum.ToString(),New_Score);
                 break;
             }
+        }
+
+        List<int> RankingScore = new List<int>();
+
+        for(int i = 0;i < 5;i++)
+        {
+            RankingScore.Add(PlayerPrefs.GetInt("Score" + (i + 1).ToString()));
+        }
+
+        if (RankingScore[5]<=New_Score)
+        {
+            RankingNum = 5;
+            PlayerPrefs.SetInt("Score" + RankingNum.ToString(), New_Score);
         }
         return RankingNum;
     }

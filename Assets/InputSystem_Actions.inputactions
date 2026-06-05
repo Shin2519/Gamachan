@@ -593,13 +593,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InputName",
-                    "type": "Button",
-                    "id": "6a47d723-077b-4797-97c3-64b66588d246",
+                    "name": "OnNext",
+                    "type": "Value",
+                    "id": "48dd3ac5-d18f-4357-8305-4df1ed1fe5af",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1023,12 +1023,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6f7041bd-e3fa-4a95-8047-c7ff2f97120e",
+                    "id": "9a655ede-1193-4060-ac06-e6f82f41cbb1",
                     "path": "<Keyboard>/enter",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "InputName",
+                    "action": "OnNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

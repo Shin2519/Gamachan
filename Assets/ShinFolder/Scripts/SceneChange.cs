@@ -12,6 +12,8 @@ public class SceneChange : MonoBehaviour
     [Header("オプションパネル")]
     public GameObject optionPanel;
 
+    [SerializeField] private Scene[] scene;
+
     public void ChangeButton_st()
     {
         optionPanel.SetActive(true);
