@@ -1,45 +1,26 @@
 using UnityEngine;
 
-public class GamaChanControll : MonoBehaviour
+public class GamaChanControll : SingletonMonoBehaviour<GamaChanControll>
 {
-    [SerializeField] KindOfSprite GamachanSprite;
-
     [SerializeField] MouseInputProvider Input;
     
     [SerializeField] ProbabilityManager probability = new();
 
     DragOperation drag;
 
-    [SerializeField] float ShakeCharge;
-
-    [SerializeField] float MoneyTimer;
+    [SerializeField, Header("触れているか"), Range(0, 20)]
+    private float judge;
 
     [SerializeField] LayerMask gamalayer;
 
     [SerializeField] Vector2 MinPos;
 
     [SerializeField] Vector2 MaxPos;
-
-    [SerializeField] KindOfSprite Gama_Sprite;
-
-    [SerializeField] SpriteRenderer GamachanRenderer;
-
-    public float shakecharge
-    {
-        get => ShakeCharge;
-
-        set
-        {
-            ShakeCharge = Mathf.Clamp(value,0,100);
-        }
-    }
-
-    public Sprite p_GamachanRenderer { set => GamachanRenderer.sprite = value; }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GamachanRenderer.sprite = GamachanSprite.GamaChange(GameLoopManagement.Instance._Gamastate);
-        drag = new DragOperation(MinPos,MaxPos);
+        drag = new DragOperation(MinPos,MaxPos,judge);
     }
 
     // Update is called once per frame
@@ -47,8 +28,9 @@ public class GamaChanControll : MonoBehaviour
     {
         if(GameLoopManagement.Instance._Gamestate!=StateMashine.GameState.GamaSakePhase)return;
         HandleDrag();
-        shakecharge -= 2;
     }
+    
+
     void HandleDrag()
     {
         if (Input.IsPressed && !drag.IsActive)
@@ -58,18 +40,15 @@ public class GamaChanControll : MonoBehaviour
         else if (!Input.IsPressed && drag.IsActive)
         {
             drag.End();
-            shakecharge = 0;
         }
         
         if (drag.IsActive)
         {
-            MoneyTimer--;
-            shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime, shakecharge);
-            if (MoneyTimer<=0)
+            float? swipeSpeed = drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime);
+            if (swipeSpeed.HasValue)
             {
-                MoneyTimer = 2;
-                
-                probability.Normal(shakecharge);
+                Debug.Log(swipeSpeed);
+                probability.Normal(swipeSpeed.Value);
             }
         }
     }
@@ -80,16 +59,5 @@ public class GamaChanControll : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
         if (hit.collider == null) return;
         drag.Begin(hit.collider.transform, MouceWorldPos);
-    }
-
-    public void SpriteChange(StateMashine.GamaState l_gamastate)
-    {
-        switch (l_gamastate)
-        {
-            case StateMashine.GamaState.Nomal:
-                break;
-            case StateMashine.GamaState.Gold:
-                break;
-        }
     }
 }

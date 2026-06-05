@@ -81,44 +81,45 @@ class TimerDisplay
             TimerText.color = new Color32(255, 0, 0, 255);
     }
 }
+
 class GaugeDisplay
 {
-    private readonly Gradient gradient;
     private readonly Image gauge_image;
 
     private readonly Color gauge_color;
 
     public bool gaugedown;
 
-    public bool gaugecolor;
-
-    public GaugeDisplay(GameObject l_gauge,Gradient l_gradient)
+    public GaugeDisplay(GameObject l_gauge)
     {
         gauge_image = l_gauge.GetComponent<Image>();
 
         gauge_image.fillAmount = 0;
 
         gauge_color = gauge_image.color;
-
-        gradient = l_gradient;
     }
     public void GaugeUpdate(float Current,float Max) => gauge_image.fillAmount = Current / Max;
 
-    public IEnumerator Gaugedown()
+    public void Gaugedown()
     {
         gaugedown = true;
-        Tween ColorTween =  DOTween.To(() => 0.0f, x =>
-        gauge_image.color = gradient.Evaluate(x),
-        1f,
-        0.5f
-        ).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
-        gauge_image.DOFillAmount(0.0f,2.0f).OnComplete(() => ColorTween.Kill());
-        yield return new WaitForSeconds(2.0f);
-        
-        UIDisplayAmountManagement.instance.Current = 0;
-        gauge_image.color = gauge_color;
-        GameLoopManagement.Instance.GamaStateChange(false);
+        gauge_image.DOFillAmount(0.0f,0.5f);
         gaugedown = false;
+    }
+    IEnumerator ColorChange()
+    {
+        while (gauge_image.fillAmount > 0)
+        {
+            Color l_gauge_color = gauge_color;
+            float rnd_R = Random.Range(0.0f, 1.0f);
+            float rnd_G = Random.Range(0.0f, 1.0f);
+            float rnd_B = Random.Range(0.0f, 1.0f);
+            l_gauge_color.r = rnd_R;
+            l_gauge_color.g = rnd_G;
+            l_gauge_color.b = rnd_B;
+            gauge_image.color = l_gauge_color;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
 [System.Serializable]

@@ -7,7 +7,6 @@ public class GoodsCatalog
     {
         public Sprite Sprite;
         public int Amount;
-        public int Number;
     }
     private readonly List<Entry> entries = new List<Entry>();
 
@@ -19,8 +18,7 @@ public class GoodsCatalog
         {
             foreach (var item in genre.Items)
             {
-                int Num = Random.Range(0,4);
-                entries.Add(new Entry{Sprite = item.GoodsSprite,Amount = item.Amount,Number = Num});
+                entries.Add(new Entry{Sprite = item.GoodsSprite,Amount = item.Amount});
             }
         }
     }
@@ -36,6 +34,7 @@ public class GoodsCatalog
             if (candidates.Count == 0) break;
             int idx = Random.Range(0, candidates.Count);
             result.Add(entries[candidates[idx]]);
+            candidates.RemoveAt(idx);
         }
         return result;
     }

@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Events;
-using System;
+using UnityEngine.UI;
 [System.Serializable]
 public struct GoodsItem
 {
@@ -20,6 +18,4 @@ public struct GoodsGenre
 public class Goods : ScriptableObject
 {
     public GoodsGenre[] Genres;
-
-    public UnityEvent<Action<int>> Event;
 }

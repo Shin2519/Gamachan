@@ -6,12 +6,15 @@ public class DragOperation
     private Vector3 offset;
     private Vector3 prevPos;
     private readonly Vector3 min, max;
+    private bool wasSwiping;
+    private readonly float threshold;
     private readonly SwipeDetector swipe;
 
-    public DragOperation(Vector2 min, Vector2 max)
+    public DragOperation(Vector2 min, Vector2 max, float swipeThreshold)
     {
         this.min = min;
         this.max = max;
+        threshold = swipeThreshold;
     }
 
     public void Begin(Transform t, Vector3 pointerWorld)
@@ -19,36 +22,28 @@ public class DragOperation
         target = t;
         offset = t.position - pointerWorld;
         prevPos = t.position;
+        wasSwiping = false;
     }
 
-    public float UpdatePosition(Vector3 pointerWorld, float deltaTime,float shakecharge)
+    public float? UpdatePosition(Vector3 pointerWorld, float deltaTime)
     {
-        if (target == null) return 0;
-        float speed = 0;
+        if (target == null) return null;
         var pos = pointerWorld + offset;
-        //Debug.Log($"pointerWorld={pointerWorld}, offset={offset}, pos(before clamp)={pos}, min={min}, max={max}");
+        Debug.Log($"pointerWorld={pointerWorld}, offset={offset}, pos(before clamp)={pos}, min={min}, max={max}");
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
         pos.z = 0f;
         target.position = pos;
 
-        if(shakecharge!=0)
-        {
-            Vector2 dir = (pos - prevPos).normalized;
+        float speed = (pos - prevPos).magnitude / Mathf.Max(deltaTime, 1e-5f);
 
-            if(dir!=new Vector2(0.0f,0.0f))
-            {
-                speed += 4;
-            }
-        }
-        else
-        {
-            speed = (pos - prevPos).magnitude / Mathf.Max(deltaTime, 1e-5f);
-        }
+        bool isSwiping = speed > threshold;
 
+        float? swipeStartSpeed = (!wasSwiping && isSwiping) ? speed : (float?)null;
+
+        wasSwiping = isSwiping;
         prevPos = pos;
-
-        return speed;
+        return swipeStartSpeed;
     }
 
     public void End() => target = null;

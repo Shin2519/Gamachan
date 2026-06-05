@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 /// <summary>
-/// UIを表示させる処理のスクリプト
+/// UI�̕\���E��\�������������N���X
 /// </summary>
 public class GameUI : MonoBehaviour
 {
@@ -41,13 +40,10 @@ public class GameUI : MonoBehaviour
     UIDisplay uidisplay;
 
     TimerDisplay timerDisplay;
-    [SerializeField]
+
     GaugeDisplay gaugeDisplay;
 
     [SerializeField] ScoreDisplay scoredisplay;
-
-    [SerializeField]
-    Gradient gradient;
 
     public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
 
@@ -64,8 +60,7 @@ public class GameUI : MonoBehaviour
     {
         uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
         timerDisplay = new TimerDisplay(timetext);
-        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient);
-        f_pause_ui.SetActive(false);
+        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1]);
     }
 
     void Update()
@@ -185,8 +180,6 @@ public class GameUI : MonoBehaviour
 
     void ShowResult()
     {
-        List<int> RankingScores = new List<int>();
-
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.ScorePhase;
 
         result.SetActive(true);
@@ -255,10 +248,5 @@ public class GameUI : MonoBehaviour
     public void ChangeMoneyDisplay()
     {
         uidisplay.ChangeTextDisplay();
-    }
-
-    public void GaugeImageControl()
-    {
-        StartCoroutine(gaugeDisplay.Gaugedown());
     }
 }
