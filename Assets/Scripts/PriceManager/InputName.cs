@@ -22,8 +22,13 @@ public class InputName : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ngtext;//NGワードテキスト
     [SerializeField] private TextMeshProUGUI ngtext_e;
 
-    Mode mode;
-    [SerializeField] private Playername pl;//プレイヤーの名前を記憶
+    [SerializeField] private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        playerInput=GetComponent<PlayerInput>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,21 +38,19 @@ public class InputName : MonoBehaviour
         ngtext.enabled = false;
         ngtext_e.enabled = false;
 
-        inputField.onValueChanged.AddListener(delegate { InputText(); });
-
+        if (inputField.isFocused)
+        {
+            Input.imeCompositionMode = IMECompositionMode.Off;
+        }
     }
 
     void Update()
     {
         namecount.enabled = inputField.text.Length == inputField.characterLimit;//文字数制限
         inputField.ActivateInputField();
-        pl.playername = inputField.text.ToString();
         inputField.text = inputField.text.ToUpper();
 
-        if(inputField.isFocused)
-        {
-            Input.imeCompositionMode = IMECompositionMode.Off;
-        }
+        
 
         if(inputField.text!= Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
         {
@@ -55,58 +58,8 @@ public class InputName : MonoBehaviour
         }
         InputText();
 
-        if (Input.GetKey(KeyCode.Return))
-        {
-            if (inputField.text == "")
-            {
-                StartCoroutine(stay());
-            }
-            else if (ngtext.enabled)
-            {
-
-            }
-            else
-            {
-                if (Mode.Instance.isMode)
-                {
-                    FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan", "feature_UI");//チャレンジモード
-                    
-                }
-                else if (!Mode.Instance.isMode)
-                {
-                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//タイムリミットモード
-
-                }
-            }
-            AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-        }
+        
     }
-    //Inputsystemでの入力(時間があれば)
-    //public void OnNext(InputValue value)
-    //{
-    //    if (inputField.text == "")
-    //    {
-    //        StartCoroutine(stay());
-
-    //    }
-    //    else if (ngtext.enabled)
-    //    {
-
-    //    }
-    //    else
-    //    {
-    //        if (Mode.Instance.isMode)
-    //        {
-    //            FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//チャレンジモード
-    //        }
-    //        else if (!Mode.Instance.isMode)
-    //        {
-    //            FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//タイムリミットモード
-
-    //        }
-    //    }
-    //    audioSource.PlayOneShot(Clip1);
-    //}
 
     public void InputText()
     {
@@ -114,7 +67,7 @@ public class InputName : MonoBehaviour
 
         foreach (string n in ngword)
         {
-            if (pl.playername.Contains(n))
+            if (inputField.text.Contains(n))
             {
                 isNg = true;
                 break;
@@ -142,25 +95,10 @@ public class InputName : MonoBehaviour
         }
         else if (ngtext.enabled)
         {
-
+            InputText();
         }
-        else
-        {
-            if(Mode.Instance.isMode)
-            {
-                FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan","feature_UI");//チャレンジモード
-            }
-            else if(!Mode.Instance.isMode)
-            {
-                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//タイムリミットモード
-            }
-        }
+        
         AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-    }
-    public void OnButtonMode()
-    {
-        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f, null, null);
-        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
     }
 
     IEnumerator stay()
