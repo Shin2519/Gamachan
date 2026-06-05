@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GamaChanControll : MonoBehaviour
 {
+    [SerializeField] KindOfSprite GamachanSprite;
+
     [SerializeField] MouseInputProvider Input;
     
     [SerializeField] ProbabilityManager probability = new();
@@ -18,6 +20,10 @@ public class GamaChanControll : MonoBehaviour
 
     [SerializeField] Vector2 MaxPos;
 
+    [SerializeField] KindOfSprite Gama_Sprite;
+
+    [SerializeField] SpriteRenderer GamachanRenderer;
+
     public float shakecharge
     {
         get => ShakeCharge;
@@ -27,10 +33,12 @@ public class GamaChanControll : MonoBehaviour
             ShakeCharge = Mathf.Clamp(value,0,100);
         }
     }
-    
+
+    public Sprite p_GamachanRenderer { set => GamachanRenderer.sprite = value; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GamachanRenderer.sprite = GamachanSprite.GamaChange(GameLoopManagement.Instance._Gamastate);
         drag = new DragOperation(MinPos,MaxPos);
     }
 
@@ -55,8 +63,14 @@ public class GamaChanControll : MonoBehaviour
         
         if (drag.IsActive)
         {
-            shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime,shakecharge);
-            probability.Normal(shakecharge);
+            MoneyTimer--;
+            shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime, shakecharge);
+            if (MoneyTimer<=0)
+            {
+                MoneyTimer = 2;
+                
+                probability.Normal(shakecharge);
+            }
         }
     }
 
@@ -66,5 +80,16 @@ public class GamaChanControll : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
         if (hit.collider == null) return;
         drag.Begin(hit.collider.transform, MouceWorldPos);
+    }
+
+    public void SpriteChange(StateMashine.GamaState l_gamastate)
+    {
+        switch (l_gamastate)
+        {
+            case StateMashine.GamaState.Nomal:
+                break;
+            case StateMashine.GamaState.Gold:
+                break;
+        }
     }
 }

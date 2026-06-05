@@ -2233,23 +2233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchPanel_Challenge
-  combo: 0
-  gauge_state: 0
-  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
-  Data: {fileID: 11400000, guid: b2bbf293f2b948a48bb1eed6b5631059, type: 2}
-  about_ui: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
-  Gama: {fileID: 1964754738}
-  hyouka: {fileID: 0}
-  comboobject: {fileID: 0}
-  ResultPanel: {fileID: 1186461930}
-  Gama_Image: {fileID: 0}
-  isDown: 0
-  Onpay: 0
-  selectgoodsso: {fileID: 11400000, guid: e00257dbf564ec741b0d630a30140649, type: 2}
-  sumamounttext: {fileID: 787110847}
-  sumamountyen: {fileID: 494637536}
-  selectgoods: {fileID: 275113054}
-  inputamount: 0
 --- !u!114 &902454158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,6 +3733,36 @@ MonoBehaviour:
     SpeedBonus: {fileID: 1186461932}
     ChangeBonus: {fileID: 1186461931}
     TotalScore: {fileID: 1186461928}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.050537944, g: 1, b: 0, a: 1}
+    key1: {r: 0, g: 0.0109705925, b: 1, a: 1}
+    key2: {r: 1, g: 0.15459123, b: 0, a: 1}
+    key3: {r: 1, g: 0, b: 0.74584246, a: 1}
+    key4: {r: 0, g: 0.79896164, b: 1, a: 1}
+    key5: {r: 1, g: 0, b: 0.39616537, a: 1}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 12722
+    ctime2: 22590
+    ctime3: 33076
+    ctime4: 44949
+    ctime5: 58211
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 12567
+    atime2: 23053
+    atime3: 33539
+    atime4: 45104
+    atime5: 59136
+    atime6: 0
+    atime7: 0
+    m_Mode: 2
+    m_ColorSpace: -1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 6
 --- !u!4 &1259304340
 Transform:
   m_ObjectHideFlags: 0
@@ -3777,7 +3790,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d75c4d1dc54fa24f99710061357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
+  gamacont: {fileID: 0}
   f_timer: 120
+  f_current: 0
 --- !u!1 &1377194280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,7 +3837,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83adfa63f57d2ae4a8158da130cc48d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoopManagement
+  Gamachan: {fileID: 0}
   gameState: 0
+  SkillState: 0
+  gamastate: 0
 --- !u!1 &1435336849
 GameObject:
   m_ObjectHideFlags: 0

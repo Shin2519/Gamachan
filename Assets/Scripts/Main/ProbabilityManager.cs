@@ -9,11 +9,6 @@ namespace Statestate
         Bad = 2,
         Miss = 1
     }
-    public enum GamaState
-    {
-        Nomal,
-        Gold
-    }
 }
 [System.Serializable]
 public class ProbabilityManager

@@ -11,6 +11,11 @@ namespace StateMashine
         RegisterPhase,
         ScorePhase
     }
+    public enum GamaState
+    {
+        Nomal,
+        Gold
+    }
     public enum Skill
     {
         None,
@@ -23,11 +28,20 @@ namespace StateMashine
 public class GameLoopManagement : MonoBehaviour
 {
     public static GameLoopManagement Instance;
+    [SerializeField]
+    GamaChanControll Gamachan;
+
+    [SerializeField]
+    KindOfSprite GamaSprite;
+
     [SerializeField,Header("ƒQ[ƒ€‚Ì—¬‚ê")]
     GameState gameState;
 
     [SerializeField]
     Skill SkillState;
+
+    [SerializeField]
+    GamaState gamastate;
 
     SkillDetail skillDetail = new();
 
@@ -49,6 +63,24 @@ public class GameLoopManagement : MonoBehaviour
         {
             SkillState = value;
             OnSkillState(SkillState);
+        }
+    }
+
+    public GamaState _Gamastate
+    {
+        get => gamastate;
+        set
+        {
+            gamastate = value;
+            switch(gamastate)
+            {
+                case GamaState.Nomal:
+                    Gamachan.p_GamachanRenderer= GamaSprite.GamaChange(gamastate);
+                    break;
+                case GamaState.Gold:
+                    Gamachan.p_GamachanRenderer = GamaSprite.GamaChange(gamastate);
+                    break;
+            }
         }
     }
     void Awake()
@@ -90,6 +122,9 @@ public class GameLoopManagement : MonoBehaviour
                 skillDetail.AddTime(UIDisplayAmountManagement.instance.Timer);
                 break;
         }
-
+    }
+    public void GamaStateChange(bool Change)
+    {
+        gamastate = Change ? GamaState.Gold : GamaState.Nomal;
     }
 }

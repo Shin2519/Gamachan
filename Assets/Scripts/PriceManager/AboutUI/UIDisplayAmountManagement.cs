@@ -3,10 +3,12 @@ using UnityEngine;
 public class UIDisplayAmountManagement : MonoBehaviour
 {
     public static UIDisplayAmountManagement instance;
+    [SerializeField]
+    GamaChanControll gamacont;
     [SerializeField, Header("§ŒÀŽžŠÔ")]
     float f_timer;
     [SerializeField]
-    float f_current;
+    float f_current = 0;
     public float Timer => f_timer;
     public float Current
     {
@@ -17,6 +19,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
             if(value>=100)
             {
                 GameUI.instance.GaugeImageControl();
+                GameLoopManagement.Instance.GamaStateChange(true);
             }
         }
     }
