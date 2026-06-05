@@ -4,30 +4,30 @@ public class KindOfSprite
 {
     [SerializeField]
     UI KindSprite;
-    public Sprite GamaEmotion(Statestate.Grade l_grade, Statestate.GamaState l_gamaState)
+    public Sprite GamaEmotion(Statestate.Grade l_grade, StateMashine.GamaState l_gamaState)
     {
         Sprite l_gamasprite = null;
         switch (l_grade)
         {
             case Statestate.Grade.Perfect:
             case Statestate.Grade.Great:
-            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
                 break;
             case Statestate.Grade.Good:
-            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
                 break;
             case Statestate.Grade.Bad:
-            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
                 break;
             case Statestate.Grade.Miss:
-            l_gamasprite = (l_gamaState == Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
                 break;
         }
         return l_gamasprite;
     }
-    public Sprite GamaChange(Statestate.GamaState l_gamastate)
+    public Sprite GamaChange(StateMashine.GamaState l_gamastate)
     {
-        Sprite NomalorGold = (l_gamastate==Statestate.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
+        Sprite NomalorGold = (l_gamastate==StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
 
         return NomalorGold;
     }

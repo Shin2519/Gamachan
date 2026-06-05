@@ -7,9 +7,24 @@ public class ButtonManagement : MonoBehaviour
     /// ¶¬‚³‚ê‚½ƒ{ƒ^ƒ“ˆê‚Âˆê‚Â‚É“ü‚Á‚Ä‚¢‚éŠÖ”
     /// </summary>
     /// <param name="am"></param>
-    public void Money(int am,List<GameObject> l_destroy)
+    public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GoodsSelectPhase) return;
+        switch (l_changeStateNum)
+        {
+            case 0:
+                GameLoopManagement.Instance._SkillState = StateMashine.Skill.NoSkill;
+                break;
+            case 1:
+                GameLoopManagement.Instance._SkillState = StateMashine.Skill.Golden;
+                break;
+            case 2:
+                GameLoopManagement.Instance._SkillState = StateMashine.Skill.NormalLocked;
+                break;
+            case 3:
+                GameLoopManagement.Instance._SkillState = StateMashine.Skill.AddTime;
+                break;
+        }
         GameUI.instance.TextInRegister(true);
         foreach (var obj in l_destroy)
         {
