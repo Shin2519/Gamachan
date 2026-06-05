@@ -37,8 +37,10 @@ public class ButtonManagement : MonoBehaviour
 
     public void SaveNameData()
     {
-        string Namedata = GameUI.instance.p_InputNameUGUI.ToString(); 
-        for(int i = 0;i < 5;i++)
+        //string Namedata = GameUI.instance.p_InputNameUGUI.ToString();
+        string Namedata = InputName.instance.inputField.ToString();
+
+        for (int i = 0;i < 5;i++)
         {
             if(!PlayerPrefs.HasKey("Name" + (i + 1).ToString()))
             {
