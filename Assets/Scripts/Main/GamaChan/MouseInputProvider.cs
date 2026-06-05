@@ -12,7 +12,7 @@ public class MouseInputProvider : MonoBehaviour
     private Vector2 MovInput;
 
     private Camera cam;
-
+    [SerializeField]
     private bool f_ispressed;
 
     public bool IsPressed => f_ispressed;
