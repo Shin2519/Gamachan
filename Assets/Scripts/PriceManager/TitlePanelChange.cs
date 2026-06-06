@@ -61,4 +61,5 @@ public class TitlePanelChange : MonoBehaviour
         ispush = true;
         Fade.Instance.FadeScenChenge(3);
     }
+
 }

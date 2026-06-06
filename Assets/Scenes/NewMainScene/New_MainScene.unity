@@ -3788,8 +3788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d75c4d1dc54fa24f99710061357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
-  gamacont: {fileID: 0}
-  f_timer: 120
+  gamacont: {fileID: 754754715}
+  f_timer: 10
   f_current: 0
 --- !u!1 &1377194280
 GameObject:
