@@ -2198,7 +2198,6 @@ GameObject:
   - component: {fileID: 902454156}
   - component: {fileID: 902454159}
   - component: {fileID: 902454158}
-  - component: {fileID: 902454157}
   m_Layer: 5
   m_Name: Rejister
   m_TagString: Untagged
@@ -2232,28 +2231,6 @@ RectTransform:
   m_AnchoredPosition: {x: 429, y: 3}
   m_SizeDelta: {x: 850, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &902454157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902454155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f227fdbbe899546b596454370def98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TouchPanel_Challenge
-  gauge_state: 0
-  sound: {fileID: 0}
-  Data: {fileID: 0}
-  about_ui: {fileID: 0}
-  Gama: {fileID: 0}
-  ResultPanel: {fileID: 0}
-  selectgoodsso: {fileID: 0}
-  sumamounttext: {fileID: 0}
-  sumamountyen: {fileID: 0}
-  selectgoods: {fileID: 0}
 --- !u!114 &902454158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6302,6 +6279,10 @@ PrefabInstance:
       objectReference: {fileID: 1964754741}
     - target: {fileID: 1659478501237092343, guid: 829b9ba120d21134d8706f55d0372900, type: 3}
       propertyPath: Gama_Sprite.KindSprite
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
+    - target: {fileID: 1659478501237092343, guid: 829b9ba120d21134d8706f55d0372900, type: 3}
+      propertyPath: GamachanSprite.KindSprite
       value: 
       objectReference: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
     - target: {fileID: 3581717394159579931, guid: 829b9ba120d21134d8706f55d0372900, type: 3}
