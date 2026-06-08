@@ -3762,7 +3762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4014825042856404238, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5111411340032510030, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_SortingOrder
@@ -4124,11 +4124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bb4d3cd097cc440897a03b88c8222b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitlePanelChange
-  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
   titlepanels:
   - {fileID: 1782717298}
   - {fileID: 494880535}
   - {fileID: 1603057848}
+  fadeImage: {fileID: 155229312}
+  fadeTime: 1
+  sceneID: 050000000500000000000000
 --- !u!114 &1832244412
 MonoBehaviour:
   m_ObjectHideFlags: 0

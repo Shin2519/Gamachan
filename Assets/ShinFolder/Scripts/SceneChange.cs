@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
     [SerializeField]
     private Sound sound;
     
-    [Header("ƒIƒvƒVƒ‡ƒ“ƒpƒlƒ‹")]
+    [Header("ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒ‘ãƒãƒ«")]
     public GameObject optionPanel;
 
     [SerializeField] private Scene[] scene;

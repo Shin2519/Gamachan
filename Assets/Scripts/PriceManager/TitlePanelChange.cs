@@ -1,20 +1,23 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using NaughtyAttributes;
 
 public class TitlePanelChange : MonoBehaviour
 {
-    [SerializeField]
-    private Sound sound;
     //AudioManager.Instance.seSource.PlayOneShot(sound.Click);
     [SerializeField] private GameObject[] titlepanels;
     bool ispush = false;
 
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private float fadeTime = 1f;
+    [SerializeField, Scene] int[] sceneID;
+
     /*
-     * 0,ƒ^ƒCƒgƒ‹ƒpƒlƒ‹
-     * 1,ƒ`ƒ…[ƒgƒŠƒAƒ‹ƒ`ƒFƒbƒNƒpƒlƒ‹
-     * 2,ƒ‚[ƒh‘I‘ğƒpƒlƒ‹
+     * 0,ã‚¿ã‚¤ãƒˆãƒ«ãƒ‘ãƒãƒ«
+     * 1,ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ãƒã‚§ãƒƒã‚¯ãƒ‘ãƒãƒ«
+     * 2,ãƒ¢ãƒ¼ãƒ‰é¸æŠãƒ‘ãƒãƒ«
      */
-    Mode mode;
     private void Start()
     {
         for (int i = 1; i < titlepanels.Length; i++)
@@ -23,20 +26,20 @@ public class TitlePanelChange : MonoBehaviour
         }
     }
 
-    //ƒpƒlƒ‹Ø‚è‘Ö‚¦,ƒ`ƒ…[ƒgƒŠƒAƒ‹ƒ`ƒFƒbƒN
+    //ãƒ‘ãƒãƒ«åˆ‡ã‚Šæ›¿ãˆ,ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ãƒã‚§ãƒƒã‚¯
     public void TitletoTutorialCheck()
     {
         titlepanels[1].SetActive(true);
     }
 
-    //ƒV[ƒ“Ø‚è‘Ö‚¦
+    //ã‚·ãƒ¼ãƒ³åˆ‡ã‚Šæ›¿ãˆ
     public void TutorialChecktoTutorialYES()
     {
-        //ƒ`ƒ…[ƒgƒŠƒAƒ‹ƒV[ƒ“‚ÉˆÚ“®
-        Fade.Instance.FadeScenChenge(1);
+        //ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã‚·ãƒ¼ãƒ³ã«ç§»å‹•
+        SceneStatic.LoadScene(sceneID[0], fadeImage,fadeTime);
     }
 
-    //ƒpƒlƒ‹Ø‚è‘Ö‚¦ƒ‚[ƒh‘I‘ğ
+    //ãƒ‘ãƒãƒ«åˆ‡ã‚Šæ›¿ãˆãƒ¢ãƒ¼ãƒ‰é¸æŠ
     public void TutorialChecktoTutorialNO()
     {
         titlepanels[1].SetActive(false);
@@ -51,15 +54,14 @@ public class TitlePanelChange : MonoBehaviour
         if (ispush) return;
 
         ispush = true;
-        Fade.Instance.FadeScenChenge(5);
-
+        SceneStatic.LoadScene(sceneID[1], fadeImage, fadeTime);
     }
     public void RoadTimeLimitScene()
     {
         if (ispush) return;
 
         ispush = true;
-        Fade.Instance.FadeScenChenge(3);
+        SceneStatic.LoadScene(sceneID[2], fadeImage, fadeTime);
     }
 
 }

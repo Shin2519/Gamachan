@@ -1,174 +1,173 @@
-using TMPro;
-using UnityEngine;
-using System.Linq;
-using System.Collections;
-using UnityEngine.InputSystem;
-using System.Text.RegularExpressions;
+ï»¿//using TMPro;
+//using UnityEngine;
+//using System.Linq;
+//using System.Collections;
+//using UnityEngine.InputSystem;
+//using System.Text.RegularExpressions;
 
-public class InputName : MonoBehaviour
-{
-    [SerializeField]
-    private Sound sound;
-    [Header("”ñ•\¦ƒeƒLƒXƒg(“ü—Í‚µ‚Ä‚­‚¾‚³‚¢)")]
-    [SerializeField] private TextMeshProUGUI inputText;
-    [SerializeField] private TextMeshProUGUI inputText_e;
+//public class InputName : MonoBehaviour
+//{
+//    [SerializeField]
+//    private Sound sound;
+//    [Header("éè¡¨ç¤ºãƒ†ã‚­ã‚¹ãƒˆ(å…¥åŠ›ã—ã¦ãã ã•ã„)")]
+//    [SerializeField] private TextMeshProUGUI inputText;
+//    [SerializeField] private TextMeshProUGUI inputText_e;
 
-    [Header("–¼‘O“ü—ÍƒXƒy[ƒX")]
-    [SerializeField] private TMP_InputField inputField;//ƒvƒŒƒCƒ„[‚Ì–¼‘O‚ğ“ü—Í
+//    [Header("åå‰å…¥åŠ›ã‚¹ãƒšãƒ¼ã‚¹")]
+//    [SerializeField] private TMP_InputField inputField;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åå‰ã‚’å…¥åŠ›
 
-    [SerializeField] private TextMeshProUGUI namecount;//•¶š”§ŒÀƒeƒLƒXƒg
+//    [SerializeField] private TextMeshProUGUI namecount;//æ–‡å­—æ•°åˆ¶é™ãƒ†ã‚­ã‚¹ãƒˆ
 
-    [SerializeField] private string[] ngword;//NGƒ[ƒhƒŠƒXƒg
-    [SerializeField] private TextMeshProUGUI ngtext;//NGƒ[ƒhƒeƒLƒXƒg
-    [SerializeField] private TextMeshProUGUI ngtext_e;
+//    [SerializeField] private string[] ngword;//NGãƒ¯ãƒ¼ãƒ‰ãƒªã‚¹ãƒˆ
+//    [SerializeField] private TextMeshProUGUI ngtext;//NGãƒ¯ãƒ¼ãƒ‰ãƒ†ã‚­ã‚¹ãƒˆ
+//    [SerializeField] private TextMeshProUGUI ngtext_e;
 
-    Mode mode;
-    [SerializeField] private Playername pl;//ƒvƒŒƒCƒ„[‚Ì–¼‘O‚ğ‹L‰¯
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        inputText.enabled = false;
-        inputText_e.enabled = false;
-        namecount.enabled = false;
-        ngtext.enabled = false;
-        ngtext_e.enabled = false;
+//    [SerializeField] private Playername pl;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åå‰ã‚’è¨˜æ†¶
+//    // Start is called once before the first execution of Update after the MonoBehaviour is created
+//    void Start()
+//    {
+//        inputText.enabled = false;
+//        inputText_e.enabled = false;
+//        namecount.enabled = false;
+//        ngtext.enabled = false;
+//        ngtext_e.enabled = false;
 
-        inputField.onValueChanged.AddListener(delegate { InputText(); });
+//        inputField.onValueChanged.AddListener(delegate { InputText(); });
 
-    }
+//    }
 
-    void Update()
-    {
-        namecount.enabled = inputField.text.Length == inputField.characterLimit;//•¶š”§ŒÀ
-        inputField.ActivateInputField();
-        pl.playername = inputField.text.ToString();
-        inputField.text = inputField.text.ToUpper();
+//    void Update()
+//    {
+//        namecount.enabled = inputField.text.Length == inputField.characterLimit;//æ–‡å­—æ•°åˆ¶é™
+//        inputField.ActivateInputField();
+//        pl.playername = inputField.text.ToString();
+//        inputField.text = inputField.text.ToUpper();
 
-        if(inputField.isFocused)
-        {
-            Input.imeCompositionMode = IMECompositionMode.Off;
-        }
+//        if(inputField.isFocused)
+//        {
+//            Input.imeCompositionMode = IMECompositionMode.Off;
+//        }
 
-        if(inputField.text!= Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
-        {
-            return;
-        }
-        InputText();
+//        if(inputField.text!= Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
+//        {
+//            return;
+//        }
+//        InputText();
 
-        if (Input.GetKey(KeyCode.Return))
-        {
-            if (inputField.text == "")
-            {
-                StartCoroutine(stay());
-            }
-            else if (ngtext.enabled)
-            {
+//        if (Input.GetKey(KeyCode.Return))
+//        {
+//            if (inputField.text == "")
+//            {
+//                StartCoroutine(stay());
+//            }
+//            else if (ngtext.enabled)
+//            {
 
-            }
-            else
-            {
-                if (Mode.Instance.isMode)
-                {
-                    FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan", "feature_UI");//ƒ`ƒƒƒŒƒ“ƒWƒ‚[ƒh
+//            }
+//            else
+//            {
+//                if (Mode.Instance.isMode)
+//                {
+//                    FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan", "feature_UI");//ãƒãƒ£ãƒ¬ãƒ³ã‚¸ãƒ¢ãƒ¼ãƒ‰
                     
-                }
-                else if (!Mode.Instance.isMode)
-                {
-                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//ƒ^ƒCƒ€ƒŠƒ~ƒbƒgƒ‚[ƒh
+//                }
+//                else if (!Mode.Instance.isMode)
+//                {
+//                    FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//ã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰
 
-                }
-            }
-            AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-        }
-    }
-    //Inputsystem‚Å‚Ì“ü—Í(ŠÔ‚ª‚ ‚ê‚Î)
-    //public void OnNext(InputValue value)
-    //{
-    //    if (inputField.text == "")
-    //    {
-    //        StartCoroutine(stay());
+//                }
+//            }
+//            AudioManager.Instance.seSource.PlayOneShot(sound.Click);
+//        }
+//    }
+//    //Inputsystemã§ã®å…¥åŠ›(æ™‚é–“ãŒã‚ã‚Œã°)
+//    //public void OnNext(InputValue value)
+//    //{
+//    //    if (inputField.text == "")
+//    //    {
+//    //        StartCoroutine(stay());
 
-    //    }
-    //    else if (ngtext.enabled)
-    //    {
+//    //    }
+//    //    else if (ngtext.enabled)
+//    //    {
 
-    //    }
-    //    else
-    //    {
-    //        if (Mode.Instance.isMode)
-    //        {
-    //            FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//ƒ`ƒƒƒŒƒ“ƒWƒ‚[ƒh
-    //        }
-    //        else if (!Mode.Instance.isMode)
-    //        {
-    //            FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//ƒ^ƒCƒ€ƒŠƒ~ƒbƒgƒ‚[ƒh
+//    //    }
+//    //    else
+//    //    {
+//    //        if (Mode.Instance.isMode)
+//    //        {
+//    //            FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f);//ãƒãƒ£ãƒ¬ãƒ³ã‚¸ãƒ¢ãƒ¼ãƒ‰
+//    //        }
+//    //        else if (!Mode.Instance.isMode)
+//    //        {
+//    //            FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f);//ã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰
 
-    //        }
-    //    }
-    //    audioSource.PlayOneShot(Clip1);
-    //}
+//    //        }
+//    //    }
+//    //    audioSource.PlayOneShot(Clip1);
+//    //}
 
-    public void InputText()
-    {
-        bool isNg = false;
+//    public void InputText()
+//    {
+//        bool isNg = false;
 
-        foreach (string n in ngword)
-        {
-            if (pl.playername.Contains(n))
-            {
-                isNg = true;
-                break;
-            }
-        }
+//        foreach (string n in ngword)
+//        {
+//            if (pl.playername.Contains(n))
+//            {
+//                isNg = true;
+//                break;
+//            }
+//        }
 
-        ngtext.enabled = isNg;
-        ngtext_e.enabled = isNg;
+//        ngtext.enabled = isNg;
+//        ngtext_e.enabled = isNg;
 
-        if(isNg)
-        {
-            inputText.enabled = false;
-            inputText_e.enabled = false;
-        }
+//        if(isNg)
+//        {
+//            inputText.enabled = false;
+//            inputText_e.enabled = false;
+//        }
 
         
-    }
+//    }
 
-    public void OnButtonGame()
-    {
-        if (inputField.text == "")
-        {
-            StartCoroutine(stay());
+//    public void OnButtonGame()
+//    {
+//        if (inputField.text == "")
+//        {
+//            StartCoroutine(stay());
 
-        }
-        else if (ngtext.enabled)
-        {
+//        }
+//        else if (ngtext.enabled)
+//        {
 
-        }
-        else
-        {
-            if(Mode.Instance.isMode)
-            {
-                FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan","feature_UI");//ƒ`ƒƒƒŒƒ“ƒWƒ‚[ƒh
-            }
-            else if(!Mode.Instance.isMode)
-            {
-                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//ƒ^ƒCƒ€ƒŠƒ~ƒbƒgƒ‚[ƒh
-            }
-        }
-        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
-    }
-    public void OnButtonMode()
-    {
-        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f, null, null);
-        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
-    }
+//        }
+//        else
+//        {
+//            if(Mode.Instance.isMode)
+//            {
+//                FadeManager.Instance.LoadLevel("New_MainScene", 1.0f,"feature_Gamachan","feature_UI");//ãƒãƒ£ãƒ¬ãƒ³ã‚¸ãƒ¢ãƒ¼ãƒ‰
+//            }
+//            else if(!Mode.Instance.isMode)
+//            {
+//                FadeManager.Instance.LoadLevel("TimeLimitModeScene", 1.0f,null,null);//ã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰
+//            }
+//        }
+//        AudioManager.Instance.seSource.PlayOneShot(sound.Click);
+//    }
+//    public void OnButtonMode()
+//    {
+//        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f, null, null);
+//        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
+//    }
 
-    IEnumerator stay()
-    {
-        inputText.enabled = true;
-        inputText_e.enabled = true;
-        yield return new WaitForSeconds(1);
-        inputText.enabled = false;
-        inputText_e.enabled = false;
-    }
-}
+//    IEnumerator stay()
+//    {
+//        inputText.enabled = true;
+//        inputText_e.enabled = true;
+//        yield return new WaitForSeconds(1);
+//        inputText.enabled = false;
+//        inputText_e.enabled = false;
+//    }
+//}
