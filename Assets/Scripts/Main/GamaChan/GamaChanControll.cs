@@ -1,9 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GamaChanControll : MonoBehaviour
 {
-    [SerializeField] KindOfSprite GamachanSprite;
-
     [SerializeField] MouseInputProvider Input;
     
     [SerializeField] ProbabilityManager probability = new();
@@ -19,8 +17,6 @@ public class GamaChanControll : MonoBehaviour
     [SerializeField] Vector2 MinPos;
 
     [SerializeField] Vector2 MaxPos;
-
-    [SerializeField] KindOfSprite Gama_Sprite;
 
     [SerializeField] SpriteRenderer GamachanRenderer;
 
@@ -38,7 +34,7 @@ public class GamaChanControll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GamachanRenderer.sprite = GamachanSprite.GamaChange(GameLoopManagement.Instance._Gamastate);
+        SpriteChange(StateMashine.GamaState.Nomal);
         drag = new DragOperation(MinPos,MaxPos);
     }
 
@@ -63,13 +59,13 @@ public class GamaChanControll : MonoBehaviour
         
         if (drag.IsActive)
         {
-            MoneyTimer--;
+            MoneyTimer -= Time.deltaTime;
             shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime, shakecharge);
             if (MoneyTimer<=0)
             {
-                MoneyTimer = 2;
+                MoneyTimer = 0.2f;
                 
-                probability.Normal(shakecharge);
+                probability.KindofMoney(shakecharge);
             }
         }
     }
