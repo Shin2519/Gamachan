@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonManagement : MonoBehaviour
 {
     /// <summary>
-    /// ¶¬‚³‚ê‚½ƒ{ƒ^ƒ“ˆê‚Âˆê‚Â‚É“ü‚Á‚Ä‚¢‚éŠÖ”
+    /// ç”Ÿæˆã•ã‚ŒãŸãƒœã‚¿ãƒ³ä¸€ã¤ä¸€ã¤ã«å…¥ã£ã¦ã„ã‚‹é–¢æ•°
     /// </summary>
     /// <param name="am"></param>
     public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
@@ -37,7 +37,7 @@ public class ButtonManagement : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸Zƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚ÉPaymentStates‚Æ‚¢‚¤\‘¢‘Ì‚Ì—v‘f‚Ì’†‚É’l‚ª“ü‚èA‚¨‚Â‚è‚â•]‰¿AƒRƒ“ƒ{”‚ª•\¦‚³‚ê‚é
+    /// ç²¾ç®—ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã«PaymentStatesã¨ã„ã†æ§‹é€ ä½“ã®è¦ç´ ã®ä¸­ã«å€¤ãŒå…¥ã‚Šã€ãŠã¤ã‚Šã‚„è©•ä¾¡ã€ã‚³ãƒ³ãƒœæ•°ãŒè¡¨ç¤ºã•ã‚Œã‚‹
     /// </summary>
     public void TotalInputMoney()
     {
