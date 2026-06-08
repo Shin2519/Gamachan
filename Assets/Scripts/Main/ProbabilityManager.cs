@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 namespace Statestate
 {
     public enum Grade
@@ -61,14 +61,14 @@ public class ProbabilityManager
         }
     }
    
-    public void Normal(float Shakespeed)
-    {
-        int rnd = Random.Range(0, 100);
-        if (rnd >= 0 && rnd <= NormalRange)
-        {
-            KindofMoney(Shakespeed);
-        }
-    }
+    //public void Normal(float Shakespeed)
+    //{
+    //    int rnd = Random.Range(0, 100);
+    //    if (rnd >= 0 && rnd <= NormalRange)
+    //    {
+    //        KindofMoney(Shakespeed);
+    //    }
+    //}
     public void Gold(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);
@@ -77,7 +77,7 @@ public class ProbabilityManager
             KindofMoney(Shakespeed);
         }
     }
-    void KindofMoney(float Amount)
+    public void KindofMoney(float Amount)
     {
         if (Amount <= 9) return;
         if(Amount>=100)

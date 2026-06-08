@@ -1,4 +1,4 @@
-using StateMashine;
+Ôªøusing StateMashine;
 using UnityEngine;
 
 namespace StateMashine
@@ -31,10 +31,7 @@ public class GameLoopManagement : MonoBehaviour
     [SerializeField]
     GamaChanControll Gamachan;
 
-    [SerializeField]
-    KindOfSprite GamaSprite;
-
-    [SerializeField,Header("ÉQÅ[ÉÄÇÃó¨ÇÍ")]
+    [SerializeField,Header("„Ç≤„Éº„É†„ÅÆÊµÅ„Çå")]
     GameState gameState;
 
     [SerializeField]
@@ -75,10 +72,10 @@ public class GameLoopManagement : MonoBehaviour
             switch(gamastate)
             {
                 case GamaState.Nomal:
-                    Gamachan.p_GamachanRenderer= GamaSprite.GamaChange(gamastate);
+                    Gamachan.SpriteChange(gamastate);
                     break;
                 case GamaState.Gold:
-                    Gamachan.p_GamachanRenderer = GamaSprite.GamaChange(gamastate);
+                    Gamachan.SpriteChange(gamastate);
                     break;
             }
         }
@@ -110,7 +107,7 @@ public class GameLoopManagement : MonoBehaviour
         switch (l_skillstate)
         {
             case Skill.NoSkill:
-                Debug.Log("ÉXÉLÉãÇ«Ç±ÅH");
+                Debug.Log("„Çπ„Ç≠„É´„Å©„ÅìÔºü");
                 break;
             case Skill.Golden:
                 skillDetail.Golden(UIDisplayAmountManagement.instance.Current);
