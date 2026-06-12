@@ -1,4 +1,4 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -9,18 +9,10 @@ public class SceneChange : MonoBehaviour
     [SerializeField]
     private Sound sound;
     
-    [Header("ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒ‘ãƒãƒ«")]
+    [Header("ƒIƒvƒVƒ‡ƒ“ƒpƒlƒ‹")]
     public GameObject optionPanel;
 
     [SerializeField] private Scene[] scene;
-
-    public GameObject Canvace1;
-    public GameObject Canvace2;
-
-    private void Start()
-    {
-        
-    }
 
     public void ChangeButton_st()
     {
@@ -46,17 +38,7 @@ public class SceneChange : MonoBehaviour
     {
         FadeManager.Instance.LoadLevel("ChallengeModeScene", 1.0f, null, null);
     }
-
-    public void ChangeButton_cr1()
-    {
-
-    }
-
-    public void ChangeButton_cr2()
-    {
-
-    }
-
+    
 
     public void EndGame()
     {
