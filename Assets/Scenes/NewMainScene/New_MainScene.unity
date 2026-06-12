@@ -4591,8 +4591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoopManagement
   Gamachan: {fileID: 754754715}
-  GamaSprite:
-    KindSprite: {fileID: 0}
   gameState: 0
   SkillState: 0
   gamastate: 0
@@ -4916,6 +4914,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1125039991471011081, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1305808529240372267, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4955,6 +4957,10 @@ PrefabInstance:
     - target: {fileID: 1746365325538211848, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: optionPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293067573041557901, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2293067573041557901, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5073,8 +5079,16 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5058715232005675919, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058715232005675919, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058715232005675919, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6452158934157987419, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_UiScaleMode
@@ -5111,6 +5125,10 @@ PrefabInstance:
     - target: {fileID: 7092294275504142489, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -192
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827653257832684810, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
+      propertyPath: m_Value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7827653257832684810, guid: 4e7736955a093144781066be4c4ae3a9, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size

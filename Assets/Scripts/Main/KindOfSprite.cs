@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 [System.Serializable]
 public class KindOfSprite
 {
@@ -24,12 +24,6 @@ public class KindOfSprite
                 break;
         }
         return l_gamasprite;
-    }
-    public Sprite GamaChange(StateMashine.GamaState l_gamastate)
-    {
-        Sprite NomalorGold = (l_gamastate==StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
-
-        return NomalorGold;
     }
 
     public Sprite Grade_Sp(Statestate.Grade l_grade)

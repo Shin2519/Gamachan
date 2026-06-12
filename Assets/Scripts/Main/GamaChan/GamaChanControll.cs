@@ -88,4 +88,9 @@ public class GamaChanControll : MonoBehaviour
                 break;
         }
     }
+
+    void Grade_SpriteChange(Statestate.Grade l_grade)
+    {
+
+    }
 }
