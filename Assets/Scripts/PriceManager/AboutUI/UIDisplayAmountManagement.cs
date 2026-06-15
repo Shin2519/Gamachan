@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class UIDisplayAmountManagement : MonoBehaviour
 {
     public static UIDisplayAmountManagement instance;
     [SerializeField]
     GamaChanControll gamacont;
-    [SerializeField, Header("§ŒÀŠÔ")]
+    [SerializeField, Header("åˆ¶é™æ™‚é–“")]
     float f_timer;
     [SerializeField]
     float f_current = 0;

@@ -43,7 +43,6 @@ public class ButtonManagement : MonoBehaviour
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
         if (GameUI.instance.p_OnPaying) return;
-        ProbabilityManager.AM.ChangeMoney = ProbabilityManager.TotalMoney(ProbabilityManager.coin);
 
         ChooseGoods.Instance.p_grade = ProbabilityManager.GradeJudge();
 

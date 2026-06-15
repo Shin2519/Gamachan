@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -241,6 +241,8 @@ public class GameUI : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         GradeAndCombo();
+
+        yield return new WaitForSeconds(1.0f);
 
         PaymentTextReset();
 

@@ -69,13 +69,13 @@ public class GameLoopManagement : MonoBehaviour
         set
         {
             gamastate = value;
-            switch(gamastate)
+            switch(value)
             {
                 case GamaState.Nomal:
-                    Gamachan.SpriteChange(gamastate);
+                    Gamachan.SpriteChange(gamastate,ChooseGoods.Instance.p_grade);
                     break;
                 case GamaState.Gold:
-                    Gamachan.SpriteChange(gamastate);
+                    Gamachan.SpriteChange(gamastate, ChooseGoods.Instance.p_grade);
                     break;
             }
         }
@@ -122,6 +122,6 @@ public class GameLoopManagement : MonoBehaviour
     }
     public void GamaStateChange(bool Change)
     {
-        gamastate = Change ? GamaState.Gold : GamaState.Nomal;
+        _Gamastate = Change ? GamaState.Gold : GamaState.Nomal;
     }
 }

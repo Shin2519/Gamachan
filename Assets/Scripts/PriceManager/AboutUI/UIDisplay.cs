@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,11 +48,11 @@ public class UIDisplay
 
     public void ResetText()
     {
-        TargetMoneyAmountText.text = "";
+        TargetMoneyAmountText.text = string.Empty;
 
-        InputMoneyAmountText.text = "";
+        InputMoneyAmountText.text = string.Empty;
 
-        ChangeMoneyText.text = "";
+        ChangeMoneyText.text = string.Empty;
     }
 }
 class TimerDisplay
@@ -117,7 +117,7 @@ class GaugeDisplay
         
         UIDisplayAmountManagement.instance.Current = 0;
         gauge_image.color = gauge_color;
-        GameLoopManagement.Instance.GamaStateChange(false);
+        GameLoopManagement.Instance.GamaStateChange(true);
         gaugedown = false;
     }
 }

@@ -110,6 +110,8 @@ public class ProbabilityManager
     {
         int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) + (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
 
+        AM.InputMoney = Total;
+
         return Total;
     }
 
