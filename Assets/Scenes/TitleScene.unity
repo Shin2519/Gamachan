@@ -563,27 +563,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1522779239}
+      objectReference: {fileID: 1832244411}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseOptionPanel
+      value: ChangeButton_ti
       objectReference: {fileID: 0}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Option, Assembly-CSharp
+      value: SceneChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 786631244}
+    - target: {fileID: 13659483022774224, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1315401450407137267, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1106,7 +1110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782717303}
+      - m_Target: {fileID: 1832244411}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: EndGame
         m_Mode: 1
@@ -1361,7 +1365,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1832244411}
-        m_TargetAssemblyTypeName: TitlePanelChange, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: TitletoTutorialCheck
         m_Mode: 1
         m_Arguments:
@@ -1784,65 +1788,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5627982681087084011, guid: cb888b5f5cd0d974c8794abb945d821a, type: 3}
   m_PrefabInstance: {fileID: 304550544}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &789191831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 789191832}
-  - component: {fileID: 789191833}
-  - component: {fileID: 789191834}
-  m_Layer: 0
-  m_Name: FadeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &789191832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789191831}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789191833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789191831}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786c64895748a66468b67f1b574633df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &789191834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789191831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7808f5f94399bd247a53b04dd7fbc12e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  sceneId: 7
-  image: {fileID: 155229312}
 --- !u!1 &790180800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2084,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1832244411}
-        m_TargetAssemblyTypeName: TitlePanelChange, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: TutorialChecktoTutorialNO
         m_Mode: 1
         m_Arguments:
@@ -3351,7 +3296,7 @@ PrefabInstance:
     - target: {fileID: 2264308006389231221, guid: 10127f817664f234bba80ad6a5fdf873, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: e38aad61e67de1d4eb8dfd9669fdb340, type: 3}
     - target: {fileID: 2264308006389231221, guid: 10127f817664f234bba80ad6a5fdf873, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -3464,7 +3409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782717303}
+      - m_Target: {fileID: 1832244411}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: ChangeButton_rk
         m_Mode: 1
@@ -3618,7 +3563,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782717303}
+      - m_Target: {fileID: 1832244411}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: ChangeButton_st
         m_Mode: 1
@@ -3762,7 +3707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4014825042856404238, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5111411340032510030, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_SortingOrder
@@ -3778,11 +3723,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5312163983578129552, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TitlePanelChange, Assembly-CSharp
+      value: SceneChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7740043431101203777, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
       propertyPath: m_text
       value: "\u30C1\u30E3\u30EC\u30F3\u30B8\u30E2\u30FC\u30C9\n\u5236\u9650\u6642\u95932\u5206\u4EE5\u5185\n\u306B\u6CA2\u5C71\u306E\u5546\u54C1\u3092\u5165\u3057\u3088\u3046!\n\u304A\u3064\u308A\u304C0\u5186\u306A\u3089\n\u6642\u9593\u304C\u5EF6\u9577\u3059\u308B\u305E!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1832244411}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeButton_ti
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChange, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1603057848}
+    - target: {fileID: 7910842948888840331, guid: 8868c418bbc0f754289a41e90d4dacb7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3882,7 +3851,6 @@ GameObject:
   - component: {fileID: 1782717301}
   - component: {fileID: 1782717300}
   - component: {fileID: 1782717299}
-  - component: {fileID: 1782717303}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3993,21 +3961,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1782717303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782717298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0bfaa3228ad944e8f2c92beb80f70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneChange
-  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
-  optionPanel: {fileID: 786631244}
-  scene: []
 --- !u!1 &1832244406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4020,7 +3973,6 @@ GameObject:
   - component: {fileID: 1832244409}
   - component: {fileID: 1832244408}
   - component: {fileID: 1832244407}
-  - component: {fileID: 1832244412}
   - component: {fileID: 1832244411}
   m_Layer: 5
   m_Name: Fade
@@ -4121,30 +4073,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1832244406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1bb4d3cd097cc440897a03b88c8222b, type: 3}
+  m_Script: {fileID: 11500000, guid: cd0bfaa3228ad944e8f2c92beb80f70f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TitlePanelChange
+  m_EditorClassIdentifier: Assembly-CSharp::SceneChange
+  sound: {fileID: 11400000, guid: 67d8df5404e53694eb5eb833fda23fbc, type: 2}
+  optionPanel: {fileID: 786631244}
   titlepanels:
   - {fileID: 1782717298}
   - {fileID: 494880535}
   - {fileID: 1603057848}
   fadeImage: {fileID: 155229312}
-  fadeTime: 1
-  sceneID: 050000000500000000000000
---- !u!114 &1832244412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832244406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53c0e448636186e4690012fb7f2648ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fade
-  fadeImage: {fileID: 155229312}
-  fadeTime: 1
+  fadeTime: 0.5
+  startbutton: {fileID: 554863787}
 --- !u!1 &1850749414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,7 +4495,6 @@ SceneRoots:
   - {fileID: 961739753}
   - {fileID: 203844589}
   - {fileID: 1395344700}
-  - {fileID: 789191832}
   - {fileID: 1280696072}
   - {fileID: 1428708073}
   - {fileID: 1104055239}

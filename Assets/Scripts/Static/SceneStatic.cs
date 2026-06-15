@@ -15,12 +15,12 @@ public static class SceneStatic
             .DOFade(1.0f, fadeTime)
             .OnComplete(() =>
             {
-                SceneManager.GetSceneByBuildIndex(index);
+                SceneManager.LoadScene(index);
 
                 //明るく
                 fadeimage.color = new Color(0, 0, 0, 1);
 
-                fadeimage.DOFade(0f, fadeTime);
+                fadeimage.DOFade(0.0f,fadeTime);
                     
             });
 

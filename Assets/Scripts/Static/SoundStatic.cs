@@ -1,16 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
-public class SoundStatic : MonoBehaviour
+public static class SoundStatic
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static void SE(this AudioSource audiosource ,AudioClip sound)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        audiosource.PlayOneShot(sound);
+        Debug.Log("サウンド再生");
     }
 }

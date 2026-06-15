@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +26,6 @@ public class SE_BGM: MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
         FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
     }
