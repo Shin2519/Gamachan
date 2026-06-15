@@ -1,35 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Audio;
 
 [CreateAssetMenu(fileName = "Sound", menuName = "Scriptable Objects/Sound")]
 public class Sound : ScriptableObject
 {
-    [Header("‰Ÿ‚µ‚½‚Æ‚«‚Ì‰¹")]
-    public AudioClip Buttondown;
+    [Header("SEã®é…åˆ—")]
+    public AudioClip[] searray;
 
-    [Header("I‚í‚è‚Ì‰¹")]
-    public AudioClip SEofFinish;
-
-    [Header("•]‰¿‚É‚æ‚é‰¹‚Ìí—Ş")]
-    public AudioClip Perfect;
-    public AudioClip Great;
-    public AudioClip Good;
-    public AudioClip Bad;
-
-    [Header("³‰ğ")]
-    public AudioClip Circle;
-    [Header("•s³‰ğ")]
-    public AudioClip Cross;
-
-    [Header("ƒNƒŠƒbƒN‰¹")]
-    public AudioClip Click;
-
-    [Header("¬‘K‚ª—‚¿‚Ä‚«‚½‚Ì‰¹")]
-    public AudioClip CoinFall;
-
-    [Header("–ß‚é‚Æ‚«‚Ì‰¹")]
-    public AudioClip Back;
-
-    [Header("í‚É—¬‚ê‚Ä‚¢‚é‰¹Šy")]
-    public AudioResource resource;
+    [Header("BGMã®é…åˆ—")]
+    public AudioClip[] bgmarray;
 }

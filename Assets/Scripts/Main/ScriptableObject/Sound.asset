@@ -12,15 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcc5862206a6ea45aab5da2b16f4be0, type: 3}
   m_Name: Sound
   m_EditorClassIdentifier: 
-  Buttondown: {fileID: 8300000, guid: 659dce23053965e449b68c005f1fa212, type: 3}
-  SEofFinish: {fileID: 8300000, guid: 8d16b43b4cc082948a1c3c23070210c6, type: 3}
-  Perfect: {fileID: 8300000, guid: 567597dd434284b49981f5e428269d9f, type: 3}
-  Great: {fileID: 8300000, guid: b747f4bff7394af4fb60bb22dddee80c, type: 3}
-  Good: {fileID: 8300000, guid: de8db9b59478093499fb1290d77e77b6, type: 3}
-  Bad: {fileID: 8300000, guid: ff36af36c3c04574981efa758c04644b, type: 3}
-  Circle: {fileID: 8300000, guid: 4a68734ffc5bd0545ba50ccd328de94c, type: 3}
-  Cross: {fileID: 8300000, guid: f1782fce5e382914eb7c8647d7f75c1e, type: 3}
-  Click: {fileID: 8300000, guid: f13bf02c97cc49c4bbc665e56cf0208c, type: 3}
-  CoinFall: {fileID: 8300000, guid: fffc5995dedbd264785cd211b9372041, type: 3}
-  Back: {fileID: 8300000, guid: 4668a4dcb148de243b9569ee2ce6eacc, type: 3}
-  resource: {fileID: 8300000, guid: 1ccf19a73f91e9b4a8198ecf037f35f9, type: 3}
+  searray:
+  - {fileID: 8300000, guid: b3f978936f3e5e64286210ebcfcf985b, type: 3}
+  - {fileID: 8300000, guid: d05d1657b5149e741bf467322a8d24d3, type: 3}
+  - {fileID: 8300000, guid: 84d0b2b66cd0bc74493b57dffab39435, type: 3}
+  - {fileID: 8300000, guid: 1f7ac96ffd872d94ba7bd8d68e429cf2, type: 3}
+  - {fileID: 8300000, guid: 0e804b0f7db546e4fb876f47f0ea9299, type: 3}
+  - {fileID: 8300000, guid: ca990cf85063e57429d945e6da18a077, type: 3}
+  - {fileID: 8300000, guid: 928e434c20e71a64b9c6077d38cbec8f, type: 3}
+  - {fileID: 8300000, guid: a3dbcd6f2fad45943977883213aee20a, type: 3}
+  - {fileID: 8300000, guid: b6eb57edc91edc3439bf9e58f1acb7b5, type: 3}
+  - {fileID: 8300000, guid: a4792d5bfad24974398a0be1f4d1720b, type: 3}
+  - {fileID: 8300000, guid: b0f82ff71d8433a4c817eab4f85b0b65, type: 3}
+  - {fileID: 8300000, guid: 1b3cb9e4090a61d42b4294cd9e421f13, type: 3}
+  - {fileID: 8300000, guid: e970e1c4030e72f41b999f0fca1d94d2, type: 3}
+  - {fileID: 8300000, guid: 6d7ebec85381c3246905604569ab72b3, type: 3}
+  - {fileID: 8300000, guid: 141f757a49141724e9712726f1d3a0cb, type: 3}
+  - {fileID: 8300000, guid: 220c37413e618fc4b971c7d87cc8faf2, type: 3}
+  - {fileID: 8300000, guid: fcac6c9a2a22cfb4a8fa03da5f478bc5, type: 3}
+  bgmarray:
+  - {fileID: 8300000, guid: 1ccf19a73f91e9b4a8198ecf037f35f9, type: 3}
+  - {fileID: 8300000, guid: bc3301cc0422fb342861d7483f8e66f3, type: 3}
+  - {fileID: 8300000, guid: 73eae31c6bb0ffc4b97002d2dc7c4b99, type: 3}

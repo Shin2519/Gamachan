@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class poseManager : MonoBehaviour
@@ -100,7 +100,6 @@ public class poseManager : MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        AudioManager.Instance.seSource.PlayOneShot(sound.Back);
 
         //SceneManager.LoadScene("TitleScene");
     }
