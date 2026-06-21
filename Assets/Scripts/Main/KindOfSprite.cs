@@ -3,47 +3,49 @@
 public class KindOfSprite
 {
     [SerializeField]
-    UI KindSprite;
-    public Sprite GamaEmotion(Statestate.Grade l_grade, StateMashine.GamaState l_gamaState)
+    Gama_SpriteRenderer Gama;
+    [SerializeField]
+    AnythingSprite anything;
+    public Sprite GamaEmotion(StateMashine.Grade l_grade, StateMashine.GamaState l_gamaState)
     {
         Sprite l_gamasprite = null;
         switch (l_grade)
         {
-            case Statestate.Grade.Perfect:
-            case Statestate.Grade.Great:
-            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[1] : KindSprite.Kindofemotion[1];
+            case StateMashine.Grade.Perfect:
+            case StateMashine.Grade.Great:
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? Gama.GetGamaEmotion_Gold(1) : Gama.GetGamaEmotion_Normal(1);
                 break;
-            case Statestate.Grade.Good:
-            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[0] : KindSprite.Kindofemotion[0];
+            case StateMashine.Grade.Good:
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? Gama.GetGamaEmotion_Gold(0) : Gama.GetGamaEmotion_Normal(0);
                 break;
-            case Statestate.Grade.Bad:
-            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            case StateMashine.Grade.Bad:
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? Gama.GetGamaEmotion_Gold(2) : Gama.GetGamaEmotion_Normal(2);
                 break;
-            case Statestate.Grade.Miss:
-            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? KindSprite.GoldenKindofemotion[2] : KindSprite.Kindofemotion[2];
+            case StateMashine.Grade.Miss:
+            l_gamasprite = (l_gamaState == StateMashine.GamaState.Gold) ? Gama.GetGamaEmotion_Gold(2) : Gama.GetGamaEmotion_Normal(2);
                 break;
         }
         return l_gamasprite;
     }
 
-    public Sprite Grade_Sp(Statestate.Grade l_grade)
+    public Sprite Grade_Sp(StateMashine.Grade l_grade)
     {
         Sprite l_grade_sp = null;
         switch (l_grade)
         {
-            case Statestate.Grade.Perfect:
-                l_grade_sp = KindSprite.Grade[3];
+            case StateMashine.Grade.Perfect:
+                l_grade_sp = anything.GetGrade(3);
                 break;
-            case Statestate.Grade.Great:
-                l_grade_sp = KindSprite.Grade[2];
+            case StateMashine.Grade.Great:
+                l_grade_sp = anything.GetGrade(2);
                 break;
-            case Statestate.Grade.Good:
-                l_grade_sp = KindSprite.Grade[1];
+            case StateMashine.Grade.Good:
+                l_grade_sp = anything.GetGrade(1);
                 break;
-            case Statestate.Grade.Bad:
-                l_grade_sp = KindSprite.Grade[0];
+            case StateMashine.Grade.Bad:
+                l_grade_sp = anything.GetGrade(0);
                 break;
-            case Statestate.Grade.Miss:
+            case StateMashine.Grade.Miss:
                 l_grade_sp = null;
                 break;
         }
@@ -53,7 +55,7 @@ public class KindOfSprite
     public Sprite Combo_Sp(int l_comboCount)
     {
         if (l_comboCount > 3&& l_comboCount % 3 != 0) return null;
-        int stage = Mathf.Min((l_comboCount/3) - 1,KindSprite.Kindofcombo.Length - 1);
-        return KindSprite.Kindofcombo[stage];
+        int stage = Mathf.Min((l_comboCount/3) - 1, anything.ComboNum - 1);
+        return anything.GetCombo(stage);
     }
 }

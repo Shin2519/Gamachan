@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class ScoreCalculator : MonoBehaviour
     [SerializeField]
     private ScoreSettings setdata;
 
-    // 5’iŠK•]‰¿
+    // 5æ®µéšè©•ä¾¡
     public enum EvalType { Perfect, Great, Good, Bad, Miss }
 
     void Awake()
@@ -15,33 +15,33 @@ public class ScoreCalculator : MonoBehaviour
         Instance = this;
     }
 
-    // •]‰¿ƒƒWƒbƒN
+    // è©•ä¾¡ãƒ­ã‚¸ãƒƒã‚¯
     public EvalType GetEvaluation(int target, int result)
     {
         int diff = Mathf.Abs(target - result);
         int change = result - target;
 
-        // w’è‹àŠz‚É“Í‚¢‚Ä‚¢‚È‚¢ 
+        // æŒ‡å®šé‡‘é¡ã«å±Šã„ã¦ã„ãªã„ 
         if (change < 0)
             return EvalType.Miss;
 
-        // Œë· 0 
+        // èª¤å·® 0 
         if (diff == 0)
             return EvalType.Perfect;
 
-        // Œë· }1 ` }500
+        // èª¤å·® Â±1 ï½ Â±500
         if (diff <= 500)
             return EvalType.Great;
 
-        // Œë· }501 ` }1000
+        // èª¤å·® Â±501 ï½ Â±1000
         if (diff <= 1000)
             return EvalType.Good;
 
-        // Œë· }1001 ˆÈã
+        // èª¤å·® Â±1001 ä»¥ä¸Š
         return EvalType.Bad;
     }
 
-    // •]‰¿‚²‚Æ‚Ì“_”
+    // è©•ä¾¡ã”ã¨ã®ç‚¹æ•°
     public int GetEvalScore(EvalType eval)
     {
         switch (eval)
@@ -55,7 +55,7 @@ public class ScoreCalculator : MonoBehaviour
         return 0;
     }
 
-    // ƒRƒ“ƒ{ƒ{[ƒiƒX
+    // ã‚³ãƒ³ãƒœãƒœãƒ¼ãƒŠã‚¹
     int GetComboBonus(int comboCount)
     {
         int step = comboCount / 3;
@@ -63,7 +63,7 @@ public class ScoreCalculator : MonoBehaviour
         return Mathf.Min(bonus, setdata.comboMaxBonus);
     }
 
-    // ƒXƒs[ƒhƒ{[ƒiƒX
+    // ã‚¹ãƒ”ãƒ¼ãƒ‰ãƒœãƒ¼ãƒŠã‚¹
     public int GetSpeedBonus(float time)
     {
         if (time <= 15f) return setdata.speed15;
@@ -71,7 +71,7 @@ public class ScoreCalculator : MonoBehaviour
         return 0;
     }
 
-    // ¤•i”ƒ{[ƒiƒXiƒ^ƒCƒ€ƒŠƒ~ƒbƒgj
+    // å•†å“æ•°ãƒœãƒ¼ãƒŠã‚¹ï¼ˆã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆï¼‰
     public int GetItemBonus(int itemCount)
     {
         if (itemCount >= 3) return setdata.threeItemScore;
@@ -79,7 +79,7 @@ public class ScoreCalculator : MonoBehaviour
         return 0;
     }
 
-    // d‰İƒXƒRƒA
+    // ç¡¬è²¨ã‚¹ã‚³ã‚¢
     int GetCoinScore(int c1, int c5, int c10, int c50, int c100, int c500)
     {
         return
@@ -91,8 +91,8 @@ public class ScoreCalculator : MonoBehaviour
             c500 * setdata.coin500;
     }
 
-    // ƒ`ƒƒƒŒƒ“ƒWÅIƒXƒRƒA
-    public ChallengeScoreResult CalculateChallenge(ProbabilityManager.GradeCount count,int Combo,ProbabilityManager.Coin coin,ProbabilityManager.PaymentState am)
+    // ãƒãƒ£ãƒ¬ãƒ³ã‚¸æœ€çµ‚ã‚¹ã‚³ã‚¢
+    public ChallengeScoreResult CalculateChallenge(AnythingData.GradeCount count,int Combo, AnythingData.Coin coin,AnythingData.PaymentState am)
     {
         ChallengeScoreResult r = new ChallengeScoreResult();
         r.perfectScore = count.PerfectCount * 5000;
@@ -130,7 +130,7 @@ public class ScoreCalculator : MonoBehaviour
         return r;
     }
 
-    // ƒŠƒUƒ‹ƒg‰æ–Ê—p‚Ì10€–Ú”z—ñ
+    // ãƒªã‚¶ãƒ«ãƒˆç”»é¢ç”¨ã®10é …ç›®é…åˆ—
     public int[] ScoreData(SendData senddata)
     {
         int[] data = new int[10];
@@ -160,7 +160,7 @@ public class ScoreCalculator : MonoBehaviour
         return data;
     }
 
-    // ƒ^ƒCƒ€ƒŠƒ~ƒbƒgÅIƒXƒRƒA
+    // ã‚¿ã‚¤ãƒ ãƒªãƒŸãƒƒãƒˆæœ€çµ‚ã‚¹ã‚³ã‚¢
     public TimeLimitScoreResult CalculateTimeLimit(
         int itemCount, int target, int result, int speedBonusTotal, SendData data)
     {
@@ -168,7 +168,7 @@ public class ScoreCalculator : MonoBehaviour
 
         r.itemBonus = GetItemBonus(itemCount);
 
-        // •]‰¿ƒƒWƒbƒN
+        // è©•ä¾¡ãƒ­ã‚¸ãƒƒã‚¯
         EvalType eval = GetEvaluation(target, result);
         r.evalScore = GetEvalScore(eval);
 

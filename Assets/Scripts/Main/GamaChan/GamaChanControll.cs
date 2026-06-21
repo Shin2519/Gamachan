@@ -2,9 +2,6 @@
 
 public class GamaChanControll : MonoBehaviour
 {
-    [SerializeField]
-    UI Gama;
-
     [SerializeField] MouseInputProvider Input;
     
     [SerializeField] ProbabilityManager probability = new();
@@ -37,7 +34,6 @@ public class GamaChanControll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GamachanRenderer.sprite = Gama.Kindofemotion[0];
         drag = new DragOperation(MinPos,MaxPos);
     }
 
@@ -79,58 +75,5 @@ public class GamaChanControll : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
         if (hit.collider == null) return;
         drag.Begin(hit.collider.transform, MouceWorldPos);
-    }
-
-    public void SpriteChange(StateMashine.GamaState l_gamastate,Statestate.Grade l_grade)
-    {
-        switch (l_gamastate)
-        {
-            case StateMashine.GamaState.Nomal:
-                Grade_SpriteChange_Normal(l_grade);
-                break;
-            case StateMashine.GamaState.Gold:
-                Grade_SpriteChange_Gold(l_grade);
-                break;
-        }
-    }
-    /// <summary>
-    /// 通常時のがまちゃんの評価の時の表情差分
-    /// </summary>
-    /// <param name="l_grade"></param>
-    void Grade_SpriteChange_Normal(Statestate.Grade l_grade)
-    {
-        switch (l_grade)
-        {
-            case Statestate.Grade.Perfect:
-                break;
-            case Statestate.Grade.Great:
-                break;
-            case Statestate.Grade.Good:
-                break;
-            case Statestate.Grade.Bad:
-                break;
-            case Statestate.Grade.Miss:
-                break;
-        }
-    }
-    /// <summary>
-    /// ゲージがたまった時のがまちゃんの評価の時の表情差分
-    /// </summary>
-    /// <param name="l_grade"></param>
-    void Grade_SpriteChange_Gold(Statestate.Grade l_grade)
-    {
-        switch (l_grade)
-        {
-            case Statestate.Grade.Perfect:
-                break;
-            case Statestate.Grade.Great:
-                break;
-            case Statestate.Grade.Good:
-                break;
-            case Statestate.Grade.Bad:
-                break;
-            case Statestate.Grade.Miss:
-                break;
-        }
     }
 }

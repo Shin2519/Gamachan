@@ -1,14 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 /// <summary>
 /// UIを表示させる処理のスクリプト
 /// </summary>
 public class GameUI : MonoBehaviour
 {
-    public static GameUI instance;
+    StateMashine.Grade f_grade;
+
+    Action<bool> OnStateChange;
 
     [SerializeField] private GameObject f_gradeimage;
 
@@ -41,47 +43,35 @@ public class GameUI : MonoBehaviour
     UIDisplay uidisplay;
 
     TimerDisplay timerDisplay;
-    [SerializeField]
-    GaugeDisplay gaugeDisplay;
+
+    [SerializeField] GaugeDisplay gaugeDisplay;
 
     [SerializeField] ScoreDisplay scoredisplay;
 
-    [SerializeField]
-    Gradient gradient;
+    [SerializeField] Gradient gradient;
+
+    [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-
-    bool finish = false;
 
     bool OnPaying;
 
     public bool p_OnPaying => OnPaying;
-    void Awake()
-    {
-        instance = this;
-    }
     void Start()
     {
+        AmountManagement.SetActionMesod(GaugeImageControl);
+        AmountManagement.SetFuncMesod(FinishTimer);
         uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
         timerDisplay = new TimerDisplay(timetext);
-        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient);
+        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient,AmountManagement,OnStateChange);
         f_pause_ui.SetActive(false);
     }
 
     void Update()
     {
-        uidisplay.TextDisPlay(ProbabilityManager.AM, UIDisplayAmountManagement.instance.Timer);
-        gaugeDisplay.GaugeUpdate(UIDisplayAmountManagement.instance.Current,100);
-        timerDisplay.Refresh(UIDisplayAmountManagement.instance.Timer);
-        if (GameLoopManagement.Instance._Gamestate == StateMashine.GameState.GoodsSelectPhase)
-        {
-            uidisplay.ResetText();
-        }
-        if (UIDisplayAmountManagement.instance.Timer <= 4 && !finish)
-        {
-            finish = true;
-            StartCoroutine(FinnishTimer());
-        }
+        uidisplay.TextDisPlay(AnythingData.payment, AmountManagement.Timer);
+        gaugeDisplay.GaugeUpdate(AmountManagement.Current,100);
+        timerDisplay.Refresh(AmountManagement.Timer);
     }
     /// <summary>
     /// StartCountDownPhase�ɂȂ������Ɉ�x������������J�E���g�_�E���̃R���[�`��
@@ -112,7 +102,7 @@ public class GameUI : MonoBehaviour
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
     }
 
-    public IEnumerator FinnishTimer()
+    public IEnumerator FinishTimer()
     {
         Image sprite = f_CountDownImage.GetComponent<Image>();
         int finishTimer = 2;
@@ -130,7 +120,7 @@ public class GameUI : MonoBehaviour
         ShowResult();
     }
     /// <summary>
-    /// �J�E���g�_�E���̏��߂ƏI���ŕ\���E��\����������̂�ς���
+    /// 初めに処理される表示・非表示の関数
     /// </summary>
     /// <param name="l_active"></param>
     void StartSetActive(bool l_active)
@@ -150,7 +140,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void ShowGrade(Statestate.Grade l_grade)
+    void ShowGrade(StateMashine.Grade l_grade)
     {
         f_gradeimage.SetActive(true);
 
@@ -178,15 +168,13 @@ public class GameUI : MonoBehaviour
         f_pause_ui.SetActive(l_active);
     }
 
-    void PaymentTextReset()
+    public void PaymentTextReset()
     {
         uidisplay.ResetText();
     }
 
     void ShowResult()
     {
-        List<int> RankingScores = new List<int>();
-
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.ScorePhase;
 
         result.SetActive(true);
@@ -195,7 +183,7 @@ public class GameUI : MonoBehaviour
 
         ResultManagement.Instance.ActiveAndSlide();
 
-        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount,ChooseGoods.Instance.Combo,ProbabilityManager.coin,ProbabilityManager.AM).totalScore);
+        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,ChooseGoods.Instance.Combo,AnythingData.coin, AnythingData.payment).totalScore);
 
         if(RankingNum<=5)
         {
@@ -229,7 +217,7 @@ public class GameUI : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        ShowGrade(ChooseGoods.Instance.p_grade);
+        ShowGrade(f_grade);
 
         if (ChooseGoods.Instance.Combo >= 3)
         {
@@ -244,9 +232,7 @@ public class GameUI : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        PaymentTextReset();
-
-        ProbabilityManager.PaymentReset();
+        AnythingData.PaymentReset();
 
         goodscanvas.SetActive(true);
 
@@ -262,5 +248,15 @@ public class GameUI : MonoBehaviour
     public void GaugeImageControl()
     {
         StartCoroutine(gaugeDisplay.Gaugedown());
+    }
+
+    public void SetActionMesod(Action<bool> l_statechange)
+    {
+        OnStateChange = l_statechange;
+    }
+
+    public void SetGrade(StateMashine.Grade l_grade)
+    {
+        f_grade = l_grade;
     }
 }

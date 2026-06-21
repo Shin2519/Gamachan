@@ -3,14 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-namespace GaugeState
-{
-    public enum Gauge
-    {
-        Normal,
-        Gold
-    }
-}
+using System;
 /// <summary>
 /// Textの更新をするクラス
 /// </summary>
@@ -31,13 +24,13 @@ public class UIDisplay
         ChangeMoneyText = l_ChangeMoneyText.GetComponent<TextMeshProUGUI>();
     }
 
-    public void TextDisPlay(ProbabilityManager.PaymentState l_paymentstate,float timer)
+    public void TextDisPlay(AnythingData.PaymentState l_paymentstate,float timer)
     {
         ChangeMoney = l_paymentstate.ChangeMoney;
 
         TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "円";
 
-        InputMoneyAmountText.text = ProbabilityManager.TotalMoney(ProbabilityManager.coin) + "円";
+        InputMoneyAmountText.text = AnythingData.TotalMoney(AnythingData.coin) + "円";
     }
 
     public void ChangeTextDisplay()
@@ -88,11 +81,15 @@ class GaugeDisplay
 
     private readonly Color gauge_color;
 
+    private readonly UIDisplayAmountManagement AmountManagement;
+
+    private readonly Action<bool> Onstatechange;
+
     public bool gaugedown;
 
     public bool gaugecolor;
 
-    public GaugeDisplay(GameObject l_gauge,Gradient l_gradient)
+    public GaugeDisplay(GameObject l_gauge,Gradient l_gradient, UIDisplayAmountManagement amountManagement, Action<bool> l_statechange)
     {
         gauge_image = l_gauge.GetComponent<Image>();
 
@@ -101,6 +98,10 @@ class GaugeDisplay
         gauge_color = gauge_image.color;
 
         gradient = l_gradient;
+
+        AmountManagement = amountManagement;
+
+        Onstatechange = l_statechange;
     }
     public void GaugeUpdate(float Current,float Max) => gauge_image.fillAmount = Current / Max;
 
@@ -115,9 +116,9 @@ class GaugeDisplay
         gauge_image.DOFillAmount(0.0f,2.0f).OnComplete(() => ColorTween.Kill());
         yield return new WaitForSeconds(2.0f);
         
-        UIDisplayAmountManagement.instance.Current = 0;
+        AmountManagement.Current = 0;
         gauge_image.color = gauge_color;
-        GameLoopManagement.Instance.GamaStateChange(true);
+        Onstatechange(true);
         gaugedown = false;
     }
 }
@@ -137,7 +138,7 @@ class ScoreDisplay
     [SerializeField] Text TotalScore;
     public void AllScoreDisplay()
     {
-        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(ProbabilityManager.gradecount, ChooseGoods.Instance.Combo, ProbabilityManager.coin, ProbabilityManager.AM);
+        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount, ChooseGoods.Instance.Combo, AnythingData.coin, AnythingData.payment);
 
         PerfectScore.text = challengeScoreResult.perfectScore.ToString();
         GreatScore.text = challengeScoreResult.greatScore.ToString();

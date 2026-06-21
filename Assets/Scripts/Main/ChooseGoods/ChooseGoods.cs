@@ -1,9 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChooseGoods : MonoBehaviour
 {
+    StateMashine.Grade f_grade;
+
     public static ChooseGoods Instance;
 
     [SerializeField] ButtonManagement buttonmanagement;
@@ -27,9 +29,6 @@ public class ChooseGoods : MonoBehaviour
     private GoodsCatalog catalog;
 
     private ComboCounter combo = new ComboCounter();
-
-    public Statestate.Grade p_grade { get; set; }
-
     public int Combo
     {
         get => combo.Current; 
@@ -74,9 +73,9 @@ public class ChooseGoods : MonoBehaviour
     }
     public void SpriteAndAmountChange()
     {
-        Statestate.Grade l_grade = p_grade;
+        StateMashine.Grade l_grade = f_grade;
 
-        int buttonCount = Mathf.Clamp((int)p_grade,1,5);
+        int buttonCount = Mathf.Clamp((int)f_grade,1,5);
 
         var picked = catalog.PickRandom(buttonCount);
 
@@ -96,5 +95,10 @@ public class ChooseGoods : MonoBehaviour
             for (int i = 0; i < picked.Count; i++)
                 CreateButton(picked[i], ParentPanel);
         }
+    }
+
+    public void SetGrade(StateMashine.Grade l_grade)
+    {
+        f_grade = l_grade;
     }
 }

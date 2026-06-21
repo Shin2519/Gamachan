@@ -11,40 +11,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f2d81fe48786594db27c802dbb03e75, type: 3}
   m_Name: AnythingSprite
-  m_EditorClassIdentifier: 
-  Kindofemotion:
-  - {fileID: 21300000, guid: 5f3ccc92718afd646bed4a972204e205, type: 3}
-  - {fileID: 21300000, guid: 7c8c2f9c59d097447abe6fa5d104e593, type: 3}
-  - {fileID: 21300000, guid: 92a399aa805103d489b7547c8afbc43b, type: 3}
-  GoldenKindofemotion:
-  - {fileID: 21300000, guid: 1872e9cda850c934baba8ce1b26a2621, type: 3}
-  - {fileID: 21300000, guid: d80589d0969e1834bbbe1b588fd79eb2, type: 3}
-  - {fileID: 21300000, guid: 52f92fb28b89a6e4f96e8e51e633f49b, type: 3}
-  Kindofcombo:
-  - {fileID: 21300000, guid: 0177f4d7d0bd87444978abfb67f69c28, type: 3}
-  - {fileID: 21300000, guid: 930332cba0048674899b8ac35165cac6, type: 3}
-  - {fileID: 21300000, guid: 57e1b4c2d77969b4e84ededf02b84b05, type: 3}
-  - {fileID: 21300000, guid: 0eb53c1478344d442989180aa8be120f, type: 3}
-  - {fileID: 21300000, guid: 0623fa42c98cb964d89ed913efa7c802, type: 3}
-  - {fileID: 21300000, guid: 04041dd8acf0ba44793af8244acbc42b, type: 3}
-  - {fileID: 21300000, guid: 981dab7324e3a9242bf8b1216ea0f325, type: 3}
-  - {fileID: 21300000, guid: 5d181cb9b0d18cb45ad823d78662f2e1, type: 3}
-  - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
-  - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
-  Grade:
-  - {fileID: 21300000, guid: 24854b806d8294e4c89455315cd044f4, type: 3}
-  - {fileID: 21300000, guid: c1562c5e9a613bb448a4b4bc3899f64d, type: 3}
-  - {fileID: 21300000, guid: 5b5000ab317b3db448d7caf7348a8a45, type: 3}
-  - {fileID: 21300000, guid: 124df4b2868711b4c85e61c5abfcf249, type: 3}
-  Kindofsmallmoney:
-  - {fileID: 18973860315053115, guid: 1c11839eece5141479218b7130979be0, type: 3}
-  - {fileID: 912835745512326280, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
-  - {fileID: 1809218153978527842, guid: 96b7f9994c2506549bc0328476b0f4b2, type: 3}
-  - {fileID: 6100890142348136656, guid: 002fb2da42c88e84993eccb85e190e8f, type: 3}
-  - {fileID: 2468698493702330222, guid: 7388848fe0615d24b86693f2885333f6, type: 3}
-  - {fileID: 8577934718105567996, guid: 3fc450be385b28f469aa3e75b2c98aaf, type: 3}
-  mouse:
-  - {fileID: 2800000, guid: 3fbf6bb11c66bc845adf261539f950cf, type: 3}
-  - {fileID: 2800000, guid: 978d505e9291e65429f51684812ed08c, type: 3}
-  Min: 0
-  Max: 15
+  m_EditorClassIdentifier: Assembly-CSharp::AnythingSprite

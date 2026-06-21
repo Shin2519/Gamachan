@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ButtonManagement : MonoBehaviour
 {
+    [SerializeField] GameUI gameUI;
+
+    Action OnGradeJudge;
     /// <summary>
     /// 生成されたボタン一つ一つに入っている関数
     /// </summary>
@@ -25,14 +28,14 @@ public class ButtonManagement : MonoBehaviour
                 GameLoopManagement.Instance._SkillState = StateMashine.Skill.AddTime;
                 break;
         }
-        GameUI.instance.TextInRegister(true);
+        gameUI.TextInRegister(true);
         foreach (var obj in l_destroy)
         {
             Destroy(obj);
         }
         l_destroy.Clear();
-        ProbabilityManager.AM.TargetAmount = am;
-        GameUI.instance.GoodsCanvas();
+        AnythingData.payment.TargetAmount = am;
+        gameUI.GoodsCanvas();
         GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
     }
 
@@ -42,16 +45,21 @@ public class ButtonManagement : MonoBehaviour
     public void TotalInputMoney()
     {
         if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
-        if (GameUI.instance.p_OnPaying) return;
+        if (gameUI.p_OnPaying) return;
 
-        ChooseGoods.Instance.p_grade = ProbabilityManager.GradeJudge();
+        OnGradeJudge();
 
-        StartCoroutine(GameUI.instance.AmountDisplay());
+        StartCoroutine(gameUI.AmountDisplay());
+    }
+
+    public void SetActionMesod(Action l_gradejudge)
+    {
+        OnGradeJudge = l_gradejudge;
     }
 
     public void SaveNameData()
     {
-        string Namedata = GameUI.instance.p_InputNameUGUI.ToString(); 
+        string Namedata = gameUI.p_InputNameUGUI.ToString(); 
         for(int i = 0;i < 5;i++)
         {
             if(!PlayerPrefs.HasKey("Name" + (i + 1).ToString()))

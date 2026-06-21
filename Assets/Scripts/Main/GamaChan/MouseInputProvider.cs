@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class MouseInputProvider : MonoBehaviour
 {
     
     [SerializeField] 
-    private UI mouse;
+    private MouseCursorTexture mouse;
     Texture2D currentCursor;
     [SerializeField]
     private Vector2 HotSpot;
@@ -38,7 +38,7 @@ public class MouseInputProvider : MonoBehaviour
 
     void Start()
     {
-        currentCursor = mouse.mouse[0];
+        currentCursor = mouse.GetMouseCursorTexture(0);
         Cursor.SetCursor(currentCursor, HotSpot, CursorMode.Auto);
     }
 
@@ -48,7 +48,7 @@ public class MouseInputProvider : MonoBehaviour
     }
     void UpdateCursor()
     {
-        Texture2D nextCursor = f_ispressed ? mouse.mouse[1] : mouse.mouse[0];
+        Texture2D nextCursor = f_ispressed ? mouse.GetMouseCursorTexture(1) : mouse.GetMouseCursorTexture(0);
 
         // �J�[�\�����ς�鎞���� SetCursor ���Ă�
         if (currentCursor != nextCursor)

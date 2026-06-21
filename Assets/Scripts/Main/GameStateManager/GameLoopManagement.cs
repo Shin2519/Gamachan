@@ -24,21 +24,37 @@ namespace StateMashine
         NormalLocked,
         AddTime
     }
+
+    public enum Grade
+    {
+        Perfect = 5,
+        Great = 4,
+        Good = 3,
+        Bad = 2,
+        Miss = 1
+    }
 }
 public class GameLoopManagement : MonoBehaviour
 {
     public static GameLoopManagement Instance;
-    [SerializeField]
-    GamaChanControll Gamachan;
 
-    [SerializeField,Header("ゲームの流れ")]
-    GameState gameState;
+    [SerializeField] GamachanRendererChange GamaRendererChange;
 
-    [SerializeField]
-    Skill SkillState;
+    [SerializeField] UIDisplayAmountManagement AmountManagement;
 
-    [SerializeField]
-    GamaState gamastate;
+    [SerializeField] GameUI GameUI;
+
+    [SerializeField] ButtonManagement ButtonManagement;
+
+    [SerializeField] ChooseGoods ChooseGoods;
+
+    [SerializeField,Header("ゲームの流れ")] GameState gameState;
+
+    [SerializeField] Grade gradestate;
+
+    [SerializeField] Skill SkillState;
+
+    [SerializeField] GamaState gamastate;
 
     SkillDetail skillDetail = new();
 
@@ -69,15 +85,16 @@ public class GameLoopManagement : MonoBehaviour
         set
         {
             gamastate = value;
-            switch(value)
-            {
-                case GamaState.Nomal:
-                    Gamachan.SpriteChange(gamastate,ChooseGoods.Instance.p_grade);
-                    break;
-                case GamaState.Gold:
-                    Gamachan.SpriteChange(gamastate, ChooseGoods.Instance.p_grade);
-                    break;
-            }
+            GamaRendererChange.NomalAndGold(gamastate);
+        }
+    }
+
+    public Grade _Gradestate
+    {
+        get => gradestate;
+        set
+        {
+            gradestate = value;
         }
     }
     void Awake()
@@ -88,16 +105,25 @@ public class GameLoopManagement : MonoBehaviour
     void Start()
     {
         _Gamestate = GameState.StartCountDownPhase;
+        AmountManagement.SetActionMesod_bool(GamaStateChange);
+        GameUI.SetActionMesod(GamaStateChange);
+        ButtonManagement.SetActionMesod(GradeJudge);
+    }
+
+    void Update()
+    {
+        GameUI.SetGrade(_Gradestate);
     }
     void OnGameState(GameState l_gamestate)
     {
         switch (l_gamestate)
         {
             case GameState.StartCountDownPhase:
-                StartCoroutine(GameUI.instance.StartTimer());
+                StartCoroutine(GameUI.StartTimer());
                 break;
             case GameState.GoodsSelectPhase:
-                ChooseGoods.Instance.SpriteAndAmountChange();
+                ChooseGoods.SpriteAndAmountChange();
+                GameUI.PaymentTextReset();
                 break;
         }
     }
@@ -110,18 +136,81 @@ public class GameLoopManagement : MonoBehaviour
                 Debug.Log("スキルどこ？");
                 break;
             case Skill.Golden:
-                skillDetail.Golden(UIDisplayAmountManagement.instance.Current);
+                skillDetail.Golden(AmountManagement.Current);
                 break;
             case Skill.NormalLocked:
                 skillDetail.NormalLocked();
                 break;
             case Skill.AddTime:
-                skillDetail.AddTime(UIDisplayAmountManagement.instance.Timer);
+                skillDetail.AddTime(AmountManagement.Timer);
                 break;
         }
     }
     public void GamaStateChange(bool Change)
     {
         _Gamastate = Change ? GamaState.Gold : GamaState.Nomal;
+    }
+
+    public void GameStateChange(GameState l_gamestate)
+    {
+        switch (l_gamestate)
+        {
+            case GameState.StartCountDownPhase:
+                l_gamestate = GameState.GoodsSelectPhase;
+                break;
+            case GameState.GoodsSelectPhase:
+                l_gamestate = GameState.GamaSakePhase;
+                break;
+            case GameState.GamaSakePhase:
+                l_gamestate = GameState.RegisterPhase;
+                break;
+            case GameState.RegisterPhase:
+                l_gamestate = GameState.GamaSakePhase;
+                break;
+            case GameState.ScorePhase:
+                break;
+        }
+    }
+
+    public void GradeJudge()
+    {
+        if (AnythingData.payment.InputMoney >= AnythingData.payment.TargetAmount)
+        {
+            int Sub = AnythingData.payment.InputMoney - AnythingData.payment.TargetAmount;
+            if (Sub <= 0)
+            {
+                gradestate = Grade.Perfect;
+                AnythingData.gradecount.PerfectCount++;
+                ChooseGoods.Instance.Combo++;
+                AnythingData.payment.ChangeMoney += Sub;
+            }
+            else if (Sub >= 1 && Sub <= 500)
+            {
+                gradestate = Grade.Great;
+                AnythingData.gradecount.GreatCount++;
+                ChooseGoods.Instance.Combo++;
+                AnythingData.payment.ChangeMoney += Sub;
+            }
+            else if (Sub >= 501 && Sub <= 1000)
+            {
+                gradestate = Grade.Good;
+                AnythingData.gradecount.GoodCount++;
+                ChooseGoods.Instance.Combo++;
+                AnythingData.payment.ChangeMoney += Sub;
+            }
+            else
+            {
+                gradestate = Grade.Bad;
+                AnythingData.gradecount.BadCount++;
+                ChooseGoods.Instance.Combo = 0;
+                AnythingData.payment.ChangeMoney += Sub;
+            }
+        }
+        else
+        {
+            gradestate = Grade.Miss;
+            AnythingData.gradecount.MissCount++;
+            ChooseGoods.Instance.Combo = 0;
+        }
     }
 }

@@ -1,31 +1,35 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections;
 
 public class UIDisplayAmountManagement : MonoBehaviour
 {
-    public static UIDisplayAmountManagement instance;
-    [SerializeField]
-    GamaChanControll gamacont;
+    Action<bool> Ongaugefull;
+
+    Action Ongaugeimagecontrol;
+
+    Func<IEnumerator> OnFinishCountDown;
+
+    [SerializeField] GamaChanControll gamacont;
     [SerializeField, Header("制限時間")]
     float f_timer;
     [SerializeField]
     float f_current = 0;
     public float Timer => f_timer;
+
+    bool finish = false;
     public float Current
     {
         get => f_current;
         set
         {
             f_current = Mathf.Clamp(value,0,100);
-            if(value>=100)
+            if(f_current>=100)
             {
-                GameUI.instance.GaugeImageControl();
-                GameLoopManagement.Instance.GamaStateChange(true);
+                Ongaugefull.Invoke(true);
+                Ongaugeimagecontrol();
             }
         }
-    }
-    void Awake()
-    {
-        instance = this;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +42,25 @@ public class UIDisplayAmountManagement : MonoBehaviour
     {
         if (GameLoopManagement.Instance._Gamestate==StateMashine.GameState.StartCountDownPhase) return;
         f_timer -= Time.deltaTime;
+        if(f_timer>=4&&!finish)
+        {
+            StartCoroutine(OnFinishCountDown());
+            finish = true;
+        }
         if (f_timer < 0) f_timer = 0;
+    }
+
+    public void SetActionMesod_bool(Action<bool> l_changestate)
+    {
+        Ongaugefull = l_changestate;
+    }
+    public void SetActionMesod(Action l_imagecontrol)
+    {
+        Ongaugeimagecontrol = l_imagecontrol;
+    }
+
+    public void SetFuncMesod(Func<IEnumerator> l_finishtimer)
+    {
+        OnFinishCountDown = l_finishtimer;
     }
 }

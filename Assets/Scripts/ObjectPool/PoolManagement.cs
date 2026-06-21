@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
@@ -6,6 +6,8 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     [SerializeField]
     private Coin[] CoinPrefab;
 
+    [SerializeField]
+    UIDisplayAmountManagement AmountManagement;
     [SerializeField]
     private int InitialPoolSize;
     [SerializeField]
@@ -47,7 +49,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         pool.Return(coin);
         AddCoinCount(coin.Yen);
-        UIDisplayAmountManagement.instance.Current++;
+        AmountManagement.Current++;
     }
 
     private void AddCoinCount(int yen)
