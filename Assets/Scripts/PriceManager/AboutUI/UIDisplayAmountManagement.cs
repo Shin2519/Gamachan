@@ -15,6 +15,9 @@ public class UIDisplayAmountManagement : MonoBehaviour
     float f_timer;
     [SerializeField]
     float f_current = 0;
+
+    [SerializeField]
+    int f_combo;
     public float Timer => f_timer;
 
     bool finish = false;
@@ -29,6 +32,16 @@ public class UIDisplayAmountManagement : MonoBehaviour
                 Ongaugefull.Invoke(true);
                 Ongaugeimagecontrol();
             }
+        }
+    }
+
+    public int Combo
+    {
+        get => f_combo;
+
+        set
+        {
+            f_combo = value;
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

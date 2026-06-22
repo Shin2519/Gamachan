@@ -56,12 +56,12 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         switch (yen)
         {
-            case 1: ProbabilityManager.coin.OneYenCoins++; break;
-            case 5: ProbabilityManager.coin.FiveYenCoins++; break;
-            case 10: ProbabilityManager.coin.TenYenCoins++; break;
-            case 50: ProbabilityManager.coin.FiftyYenCoins++; break;
-            case 100: ProbabilityManager.coin.OnehundredYenCoins++; break;
-            case 500: ProbabilityManager.coin.FivehundredYenCoins++; break;
+            case 1: AnythingData.coin.OneYenCoins++; break;
+            case 5: AnythingData.coin.FiveYenCoins++; break;
+            case 10: AnythingData.coin.TenYenCoins++; break;
+            case 50: AnythingData.coin.FiftyYenCoins++; break;
+            case 100: AnythingData.coin.OnehundredYenCoins++; break;
+            case 500: AnythingData.coin.FivehundredYenCoins++; break;
         }
     }
 }

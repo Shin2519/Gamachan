@@ -4487,6 +4487,7 @@ MonoBehaviour:
     Gama: {fileID: 11400000, guid: 9b1f18e5f8aedfa448c3371a3da21b78, type: 2}
     anything: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}
   scoredisplay:
+    AmountManagement: {fileID: 1259304341}
     PerfectScore: {fileID: 1186461939}
     GreatScore: {fileID: 1186461938}
     GoodScore: {fileID: 1186461937}
@@ -4558,6 +4559,7 @@ MonoBehaviour:
   gamacont: {fileID: 754754715}
   f_timer: 120
   f_current: 0
+  f_combo: 0
 --- !u!1 &1377194280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,8 +4607,10 @@ MonoBehaviour:
   GamaRendererChange: {fileID: 1964754742}
   AmountManagement: {fileID: 1259304341}
   GameUI: {fileID: 1259304339}
+  ButtonManagement: {fileID: 836059112}
   ChooseGoods: {fileID: 1958669711}
   gameState: 0
+  gradestate: 0
   SkillState: 0
   gamastate: 0
 --- !u!1 &1435336849
@@ -7214,6 +7218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8881865390427661441, guid: 2fc93a283ffb43143b299bde0aa255ea, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 11400000, guid: 1824929e4b9d081478733f66eaff8e56, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

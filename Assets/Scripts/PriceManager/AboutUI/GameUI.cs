@@ -12,6 +12,8 @@ public class GameUI : MonoBehaviour
 
     Action<bool> OnStateChange;
 
+    Action OnGameState;
+
     [SerializeField] private GameObject f_gradeimage;
 
     [SerializeField] private GameObject f_comboimage;
@@ -99,7 +101,7 @@ public class GameUI : MonoBehaviour
         yield return new WaitForSeconds(1);
         f_CountDownImage.SetActive(false);
         StartSetActive(true);
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
+        OnGameState();
     }
 
     public IEnumerator FinishTimer()
@@ -175,7 +177,7 @@ public class GameUI : MonoBehaviour
 
     void ShowResult()
     {
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.ScorePhase;
+        OnGameState();
 
         result.SetActive(true);
 
@@ -183,7 +185,7 @@ public class GameUI : MonoBehaviour
 
         ResultManagement.Instance.ActiveAndSlide();
 
-        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,ChooseGoods.Instance.Combo,AnythingData.coin, AnythingData.payment).totalScore);
+        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo,AnythingData.coin, AnythingData.payment).totalScore);
 
         if(RankingNum<=5)
         {
@@ -219,11 +221,11 @@ public class GameUI : MonoBehaviour
 
         ShowGrade(f_grade);
 
-        if (ChooseGoods.Instance.Combo >= 3)
+        if (AmountManagement.Combo >= 3)
         {
             yield return new WaitForSeconds(1.0f);
 
-            ShowCombo(ChooseGoods.Instance.Combo);
+            ShowCombo(AmountManagement.Combo);
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -236,7 +238,8 @@ public class GameUI : MonoBehaviour
 
         goodscanvas.SetActive(true);
 
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GoodsSelectPhase;
+        OnGameState();
+
         OnPaying = false;
     }
 
@@ -258,5 +261,10 @@ public class GameUI : MonoBehaviour
     public void SetGrade(StateMashine.Grade l_grade)
     {
         f_grade = l_grade;
+    }
+
+    public void SetActionMesod_GameState(Action l_gamestate)
+    {
+        OnGameState = l_gamestate;
     }
 }

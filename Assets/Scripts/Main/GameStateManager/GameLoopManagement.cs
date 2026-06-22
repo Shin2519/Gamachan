@@ -95,6 +95,8 @@ public class GameLoopManagement : MonoBehaviour
         set
         {
             gradestate = value;
+            GameUI.SetGrade(gradestate);
+            ChooseGoods.SetGrade(gradestate);
         }
     }
     void Awake()
@@ -108,15 +110,16 @@ public class GameLoopManagement : MonoBehaviour
         AmountManagement.SetActionMesod_bool(GamaStateChange);
         GameUI.SetActionMesod(GamaStateChange);
         ButtonManagement.SetActionMesod(GradeJudge);
+        GameUI.SetActionMesod_GameState(GameStateChange);
     }
 
     void Update()
     {
-        GameUI.SetGrade(_Gradestate);
+        
     }
     void OnGameState(GameState l_gamestate)
     {
-        switch (l_gamestate)
+        switch (gameState)
         {
             case GameState.StartCountDownPhase:
                 StartCoroutine(GameUI.StartTimer());
@@ -151,21 +154,21 @@ public class GameLoopManagement : MonoBehaviour
         _Gamastate = Change ? GamaState.Gold : GamaState.Nomal;
     }
 
-    public void GameStateChange(GameState l_gamestate)
+    public void GameStateChange()
     {
-        switch (l_gamestate)
+        switch (_Gamestate)
         {
             case GameState.StartCountDownPhase:
-                l_gamestate = GameState.GoodsSelectPhase;
+                _Gamestate = GameState.GoodsSelectPhase;
                 break;
             case GameState.GoodsSelectPhase:
-                l_gamestate = GameState.GamaSakePhase;
+                _Gamestate = GameState.GamaSakePhase;
                 break;
             case GameState.GamaSakePhase:
-                l_gamestate = GameState.RegisterPhase;
+                _Gamestate = GameState.RegisterPhase;
                 break;
             case GameState.RegisterPhase:
-                l_gamestate = GameState.GamaSakePhase;
+                _Gamestate = GameState.GamaSakePhase;
                 break;
             case GameState.ScorePhase:
                 break;
@@ -179,38 +182,38 @@ public class GameLoopManagement : MonoBehaviour
             int Sub = AnythingData.payment.InputMoney - AnythingData.payment.TargetAmount;
             if (Sub <= 0)
             {
-                gradestate = Grade.Perfect;
+                _Gradestate = Grade.Perfect;
                 AnythingData.gradecount.PerfectCount++;
-                ChooseGoods.Instance.Combo++;
+                AmountManagement.Combo++;
                 AnythingData.payment.ChangeMoney += Sub;
             }
             else if (Sub >= 1 && Sub <= 500)
             {
-                gradestate = Grade.Great;
+                _Gradestate = Grade.Great;
                 AnythingData.gradecount.GreatCount++;
-                ChooseGoods.Instance.Combo++;
+                AmountManagement.Combo++;
                 AnythingData.payment.ChangeMoney += Sub;
             }
             else if (Sub >= 501 && Sub <= 1000)
             {
-                gradestate = Grade.Good;
+                _Gradestate = Grade.Good;
                 AnythingData.gradecount.GoodCount++;
-                ChooseGoods.Instance.Combo++;
+                AmountManagement.Combo++;
                 AnythingData.payment.ChangeMoney += Sub;
             }
             else
             {
-                gradestate = Grade.Bad;
+                _Gradestate = Grade.Bad;
                 AnythingData.gradecount.BadCount++;
-                ChooseGoods.Instance.Combo = 0;
+                AmountManagement.Combo = 0;
                 AnythingData.payment.ChangeMoney += Sub;
             }
         }
         else
         {
-            gradestate = Grade.Miss;
+            _Gradestate = Grade.Miss;
             AnythingData.gradecount.MissCount++;
-            ChooseGoods.Instance.Combo = 0;
+            AmountManagement.Combo = 0;
         }
     }
 }

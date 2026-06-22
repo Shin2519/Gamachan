@@ -6,8 +6,6 @@ public class ChooseGoods : MonoBehaviour
 {
     StateMashine.Grade f_grade;
 
-    public static ChooseGoods Instance;
-
     [SerializeField] ButtonManagement buttonmanagement;
 
     [SerializeField] Goods goods;
@@ -27,25 +25,7 @@ public class ChooseGoods : MonoBehaviour
     bool OnPay = false;
 
     private GoodsCatalog catalog;
-
-    private ComboCounter combo = new ComboCounter();
-    public int Combo
-    {
-        get => combo.Current; 
-        set
-        {
-            if (value == 0) combo.Reset();
-
-            else if (value > combo.Current) combo.Add();
-        }
-    }
-
     public bool P_OnPay => OnPay;
-
-    void Awake()
-    {
-        Instance = this;
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

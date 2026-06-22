@@ -126,6 +126,7 @@ class GaugeDisplay
 class ScoreDisplay
 {
     ChallengeScoreResult challengeScoreResult;
+    [SerializeField] UIDisplayAmountManagement AmountManagement;
     [SerializeField] Text PerfectScore;
     [SerializeField] Text GreatScore;
     [SerializeField] Text GoodScore;
@@ -138,7 +139,7 @@ class ScoreDisplay
     [SerializeField] Text TotalScore;
     public void AllScoreDisplay()
     {
-        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount, ChooseGoods.Instance.Combo, AnythingData.coin, AnythingData.payment);
+        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo, AnythingData.coin, AnythingData.payment);
 
         PerfectScore.text = challengeScoreResult.perfectScore.ToString();
         GreatScore.text = challengeScoreResult.greatScore.ToString();
