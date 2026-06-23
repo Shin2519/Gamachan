@@ -12,3 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2d81fe48786594db27c802dbb03e75, type: 3}
   m_Name: AnythingSprite
   m_EditorClassIdentifier: Assembly-CSharp::AnythingSprite
+  Kindofcombo:
+  - {fileID: 21300000, guid: 0177f4d7d0bd87444978abfb67f69c28, type: 3}
+  - {fileID: 21300000, guid: 930332cba0048674899b8ac35165cac6, type: 3}
+  - {fileID: 21300000, guid: 57e1b4c2d77969b4e84ededf02b84b05, type: 3}
+  - {fileID: 21300000, guid: 0eb53c1478344d442989180aa8be120f, type: 3}
+  - {fileID: 21300000, guid: 0623fa42c98cb964d89ed913efa7c802, type: 3}
+  - {fileID: 21300000, guid: 04041dd8acf0ba44793af8244acbc42b, type: 3}
+  - {fileID: 21300000, guid: 981dab7324e3a9242bf8b1216ea0f325, type: 3}
+  - {fileID: 21300000, guid: 5d181cb9b0d18cb45ad823d78662f2e1, type: 3}
+  - {fileID: 21300000, guid: e696026bbbe38be4eb04117a45dfb162, type: 3}
+  - {fileID: 21300000, guid: ee4e9b48be278454ebad7f3f00cfec8f, type: 3}
+  Grade:
+  - {fileID: 21300000, guid: 6d5a9a2499783154e92f7011dafe6963, type: 3}
+  - {fileID: 21300000, guid: 24854b806d8294e4c89455315cd044f4, type: 3}
+  - {fileID: 21300000, guid: c1562c5e9a613bb448a4b4bc3899f64d, type: 3}
+  - {fileID: 21300000, guid: 5b5000ab317b3db448d7caf7348a8a45, type: 3}
+  - {fileID: 21300000, guid: 124df4b2868711b4c85e61c5abfcf249, type: 3}

@@ -34,19 +34,19 @@ public class KindOfSprite
         switch (l_grade)
         {
             case StateMashine.Grade.Perfect:
-                l_grade_sp = anything.GetGrade(3);
+                l_grade_sp = anything.GetGrade(4);
                 break;
             case StateMashine.Grade.Great:
-                l_grade_sp = anything.GetGrade(2);
+                l_grade_sp = anything.GetGrade(3);
                 break;
             case StateMashine.Grade.Good:
-                l_grade_sp = anything.GetGrade(1);
+                l_grade_sp = anything.GetGrade(2);
                 break;
             case StateMashine.Grade.Bad:
-                l_grade_sp = anything.GetGrade(0);
+                l_grade_sp = anything.GetGrade(1);
                 break;
             case StateMashine.Grade.Miss:
-                l_grade_sp = null;
+                l_grade_sp = anything.GetGrade(0);
                 break;
         }
         return l_grade_sp;

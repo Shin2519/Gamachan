@@ -20,6 +20,8 @@ public class GamaChanControll : MonoBehaviour
 
     [SerializeField] SpriteRenderer GamachanRenderer;
 
+    StateMashine.GameState OnGameState;
+
     public float shakecharge
     {
         get => ShakeCharge;
@@ -40,7 +42,7 @@ public class GamaChanControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameLoopManagement.Instance._Gamestate!=StateMashine.GameState.GamaSakePhase)return;
+        if(OnGameState!=StateMashine.GameState.GamaSakePhase)return;
         HandleDrag();
         shakecharge -= 2;
     }
@@ -75,5 +77,10 @@ public class GamaChanControll : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MouceWorldPos, Vector3.zero, Mathf.Infinity, gamalayer);
         if (hit.collider == null) return;
         drag.Begin(hit.collider.transform, MouceWorldPos);
+    }
+
+    public void SetGameState(StateMashine.GameState l_gamestate)
+    {
+        OnGameState = l_gamestate;
     }
 }

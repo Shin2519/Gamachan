@@ -40,6 +40,8 @@ public class GameLoopManagement : MonoBehaviour
 
     [SerializeField] GamachanRendererChange GamaRendererChange;
 
+    [SerializeField] GamaChanControll GamaControl;
+
     [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     [SerializeField] GameUI GameUI;
@@ -66,6 +68,9 @@ public class GameLoopManagement : MonoBehaviour
             gameState = value;
 
             OnGameState(gameState);
+            ButtonManagement.SetGameState(gameState);
+            AmountManagement.SetGameState(gameState);
+            GamaControl.SetGameState(gameState);
         } 
     }
 
@@ -109,8 +114,9 @@ public class GameLoopManagement : MonoBehaviour
         _Gamestate = GameState.StartCountDownPhase;
         AmountManagement.SetActionMesod_bool(GamaStateChange);
         GameUI.SetActionMesod(GamaStateChange);
-        ButtonManagement.SetActionMesod(GradeJudge);
         GameUI.SetActionMesod_GameState(GameStateChange);
+        ButtonManagement.SetActionMesod(GradeJudge);
+        ButtonManagement.SetActionMesod_GameState(GameStateChange);
     }
 
     void Update()
@@ -168,7 +174,7 @@ public class GameLoopManagement : MonoBehaviour
                 _Gamestate = GameState.RegisterPhase;
                 break;
             case GameState.RegisterPhase:
-                _Gamestate = GameState.GamaSakePhase;
+                _Gamestate = GameState.GoodsSelectPhase;
                 break;
             case GameState.ScorePhase:
                 break;

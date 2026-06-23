@@ -10,7 +10,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
 
     Func<IEnumerator> OnFinishCountDown;
 
-    [SerializeField] GamaChanControll gamacont;
+    StateMashine.GameState OnGameState;
     [SerializeField, Header("制限時間")]
     float f_timer;
     [SerializeField]
@@ -29,7 +29,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
             f_current = Mathf.Clamp(value,0,100);
             if(f_current>=100)
             {
-                Ongaugefull.Invoke(true);
+                Ongaugefull(true);
                 Ongaugeimagecontrol();
             }
         }
@@ -53,9 +53,9 @@ public class UIDisplayAmountManagement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GameLoopManagement.Instance._Gamestate==StateMashine.GameState.StartCountDownPhase) return;
+        if (OnGameState == StateMashine.GameState.StartCountDownPhase) return;
         f_timer -= Time.deltaTime;
-        if(f_timer>=4&&!finish)
+        if(f_timer<=4&&!finish)
         {
             StartCoroutine(OnFinishCountDown());
             finish = true;
@@ -75,5 +75,10 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public void SetFuncMesod(Func<IEnumerator> l_finishtimer)
     {
         OnFinishCountDown = l_finishtimer;
+    }
+
+    public void SetGameState(StateMashine.GameState l_gamestate)
+    {
+        OnGameState = l_gamestate;
     }
 }

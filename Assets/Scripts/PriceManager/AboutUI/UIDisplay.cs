@@ -118,7 +118,7 @@ class GaugeDisplay
         
         AmountManagement.Current = 0;
         gauge_image.color = gauge_color;
-        Onstatechange(true);
+        Onstatechange(false);
         gaugedown = false;
     }
 }

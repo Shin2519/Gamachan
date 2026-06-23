@@ -6,13 +6,17 @@ public class ButtonManagement : MonoBehaviour
     [SerializeField] GameUI gameUI;
 
     Action OnGradeJudge;
+
+    Action OnGameStateChange;
+    
+    StateMashine.GameState OnGameState;
     /// <summary>
     /// 生成されたボタン一つ一つに入っている関数
     /// </summary>
     /// <param name="am"></param>
     public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
     {
-        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GoodsSelectPhase) return;
+        if (OnGameState != StateMashine.GameState.GoodsSelectPhase) return;
         switch (l_changeStateNum)
         {
             case 0:
@@ -36,7 +40,7 @@ public class ButtonManagement : MonoBehaviour
         l_destroy.Clear();
         AnythingData.payment.TargetAmount = am;
         gameUI.GoodsCanvas();
-        GameLoopManagement.Instance._Gamestate = StateMashine.GameState.GamaSakePhase;
+        OnGameStateChange();
     }
 
     /// <summary>
@@ -44,8 +48,10 @@ public class ButtonManagement : MonoBehaviour
     /// </summary>
     public void TotalInputMoney()
     {
-        if (GameLoopManagement.Instance._Gamestate != StateMashine.GameState.GamaSakePhase) return;
+        if (OnGameState != StateMashine.GameState.GamaSakePhase) return;
         if (gameUI.p_OnPaying) return;
+
+        OnGameStateChange();
 
         OnGradeJudge();
 
@@ -55,6 +61,16 @@ public class ButtonManagement : MonoBehaviour
     public void SetActionMesod(Action l_gradejudge)
     {
         OnGradeJudge = l_gradejudge;
+    }
+
+    public void SetActionMesod_GameState(Action l_gamestatechange)
+    {
+        OnGameStateChange = l_gamestatechange;
+    }
+
+    public void SetGameState(StateMashine.GameState l_gamestate)
+    {
+        OnGameState = l_gamestate;
     }
 
     public void SaveNameData()
