@@ -113,7 +113,6 @@ public class GameLoopManagement : MonoBehaviour
     {
         _Gamestate = GameState.StartCountDownPhase;
         AmountManagement.SetActionMesod_bool(GamaStateChange);
-        GameUI.SetActionMesod(GamaStateChange);
         GameUI.SetActionMesod_GameState(GameStateChange);
         ButtonManagement.SetActionMesod(GradeJudge);
         ButtonManagement.SetActionMesod_GameState(GameStateChange);
@@ -131,8 +130,10 @@ public class GameLoopManagement : MonoBehaviour
                 StartCoroutine(GameUI.StartTimer());
                 break;
             case GameState.GoodsSelectPhase:
-                ChooseGoods.SpriteAndAmountChange();
+                AnythingData.PaymentReset();
+                Debug.Log(AnythingData.payment.InputMoney);
                 GameUI.PaymentTextReset();
+                ChooseGoods.SpriteAndAmountChange();
                 break;
         }
     }

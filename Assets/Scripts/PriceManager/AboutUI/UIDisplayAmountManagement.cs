@@ -6,13 +6,18 @@ public class UIDisplayAmountManagement : MonoBehaviour
 {
     Action<bool> Ongaugefull;
 
-    Action Ongaugeimagecontrol;
+    Action<Action<bool>> Ongaugeimagecontrol;
 
     Func<IEnumerator> OnFinishCountDown;
 
     StateMashine.GameState OnGameState;
+
+    [SerializeField]
+    GameUI gameUI;
+
     [SerializeField, Header("制限時間")]
     float f_timer;
+
     [SerializeField]
     float f_current = 0;
 
@@ -30,7 +35,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
             if(f_current>=100)
             {
                 Ongaugefull(true);
-                Ongaugeimagecontrol();
+                Ongaugeimagecontrol(Ongaugefull);
             }
         }
     }
@@ -67,7 +72,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
     {
         Ongaugefull = l_changestate;
     }
-    public void SetActionMesod(Action l_imagecontrol)
+    public void SetActionMesod(Action<Action<bool>> l_imagecontrol)
     {
         Ongaugeimagecontrol = l_imagecontrol;
     }

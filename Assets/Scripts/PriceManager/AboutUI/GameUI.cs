@@ -10,8 +10,6 @@ public class GameUI : MonoBehaviour
 {
     StateMashine.Grade f_grade;
 
-    Action<bool> OnStateChange;
-
     Action OnGameState;
 
     [SerializeField] private GameObject f_gradeimage;
@@ -65,7 +63,7 @@ public class GameUI : MonoBehaviour
         AmountManagement.SetFuncMesod(FinishTimer);
         uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
         timerDisplay = new TimerDisplay(timetext);
-        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient,AmountManagement,OnStateChange);
+        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient,AmountManagement);
         f_pause_ui.SetActive(false);
     }
 
@@ -234,8 +232,6 @@ public class GameUI : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        AnythingData.PaymentReset();
-
         goodscanvas.SetActive(true);
 
         OnGameState();
@@ -248,14 +244,9 @@ public class GameUI : MonoBehaviour
         uidisplay.ChangeTextDisplay();
     }
 
-    public void GaugeImageControl()
+    public void GaugeImageControl(Action<bool> l_statechange)
     {
-        StartCoroutine(gaugeDisplay.Gaugedown());
-    }
-
-    public void SetActionMesod(Action<bool> l_statechange)
-    {
-        OnStateChange = l_statechange;
+        StartCoroutine(gaugeDisplay.Gaugedown(l_statechange));
     }
 
     public void SetGrade(StateMashine.Grade l_grade)

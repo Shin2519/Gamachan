@@ -83,13 +83,11 @@ class GaugeDisplay
 
     private readonly UIDisplayAmountManagement AmountManagement;
 
-    private readonly Action<bool> Onstatechange;
-
     public bool gaugedown;
 
     public bool gaugecolor;
 
-    public GaugeDisplay(GameObject l_gauge,Gradient l_gradient, UIDisplayAmountManagement amountManagement, Action<bool> l_statechange)
+    public GaugeDisplay(GameObject l_gauge,Gradient l_gradient, UIDisplayAmountManagement amountManagement)
     {
         gauge_image = l_gauge.GetComponent<Image>();
 
@@ -100,12 +98,10 @@ class GaugeDisplay
         gradient = l_gradient;
 
         AmountManagement = amountManagement;
-
-        Onstatechange = l_statechange;
     }
     public void GaugeUpdate(float Current,float Max) => gauge_image.fillAmount = Current / Max;
 
-    public IEnumerator Gaugedown()
+    public IEnumerator Gaugedown(Action<bool> l_statechange)
     {
         gaugedown = true;
         Tween ColorTween =  DOTween.To(() => 0.0f, x =>
@@ -118,11 +114,11 @@ class GaugeDisplay
         
         AmountManagement.Current = 0;
         gauge_image.color = gauge_color;
-        Onstatechange(false);
+        l_statechange(false);
         gaugedown = false;
     }
 }
-[System.Serializable]
+[Serializable]
 class ScoreDisplay
 {
     ChallengeScoreResult challengeScoreResult;
