@@ -69,7 +69,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        uidisplay.TextDisPlay(AnythingData.payment, AmountManagement.Timer);
+        uidisplay.TextDisPlay();
         gaugeDisplay.GaugeUpdate(AmountManagement.Current,100);
         timerDisplay.Refresh(AmountManagement.Timer);
     }
@@ -168,11 +168,6 @@ public class GameUI : MonoBehaviour
         f_pause_ui.SetActive(l_active);
     }
 
-    public void PaymentTextReset()
-    {
-        uidisplay.ResetText();
-    }
-
     void ShowResult()
     {
         OnGameState();
@@ -239,7 +234,7 @@ public class GameUI : MonoBehaviour
         OnPaying = false;
     }
 
-    public void ChangeMoneyDisplay()
+    void ChangeMoneyDisplay()
     {
         uidisplay.ChangeTextDisplay();
     }

@@ -131,8 +131,7 @@ public class GameLoopManagement : MonoBehaviour
                 break;
             case GameState.GoodsSelectPhase:
                 AnythingData.PaymentReset();
-                Debug.Log(AnythingData.payment.InputMoney);
-                GameUI.PaymentTextReset();
+                GameUI.TextInRegister(false);
                 ChooseGoods.SpriteAndAmountChange();
                 break;
         }

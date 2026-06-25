@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using System;
 /// <summary>
 /// Textの更新をするクラス
 /// </summary>
@@ -24,28 +24,16 @@ public class UIDisplay
         ChangeMoneyText = l_ChangeMoneyText.GetComponent<TextMeshProUGUI>();
     }
 
-    public void TextDisPlay(AnythingData.PaymentState l_paymentstate,float timer)
+    public void TextDisPlay()
     {
-        ChangeMoney = l_paymentstate.ChangeMoney;
-
-        TargetMoneyAmountText.text = l_paymentstate.TargetAmount + "円";
+        TargetMoneyAmountText.text = AnythingData.payment.TargetAmount + "円";
 
         InputMoneyAmountText.text = AnythingData.TotalMoney(AnythingData.coin) + "円";
     }
 
     public void ChangeTextDisplay()
     {
-        ChangeMoneyText.text = ChangeMoney + "円";
-    }
-    
-
-    public void ResetText()
-    {
-        TargetMoneyAmountText.text = string.Empty;
-
-        InputMoneyAmountText.text = string.Empty;
-
-        ChangeMoneyText.text = string.Empty;
+        ChangeMoneyText.text = AnythingData.payment.ChangeMoney + "円";
     }
 }
 class TimerDisplay

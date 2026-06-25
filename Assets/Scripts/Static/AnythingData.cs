@@ -51,5 +51,12 @@ public static class AnythingData
         payment.TargetAmount = 0;
         payment.InputMoney = 0;
         payment.ChangeMoney = 0;
+
+        coin.FivehundredYenCoins = 0;
+        coin.OnehundredYenCoins = 0;
+        coin.FiftyYenCoins = 0;
+        coin.TenYenCoins = 0;
+        coin.FiveYenCoins = 0;
+        coin.OneYenCoins = 0;
     }
 }
