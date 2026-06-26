@@ -4528,6 +4528,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 6
     m_NumAlphaKeys: 6
+  gamachanRendererChange: {fileID: 1964754742}
   AmountManagement: {fileID: 1259304341}
 --- !u!4 &1259304340
 Transform:
@@ -4556,7 +4557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d75c4d1dc54fa24f99710061357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
-  gamacont: {fileID: 754754715}
+  gameUI: {fileID: 1259304339}
   f_timer: 120
   f_current: 0
   f_combo: 0

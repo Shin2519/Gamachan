@@ -50,6 +50,8 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] Gradient gradient;
 
+    [SerializeField] GamachanRendererChange gamachanRendererChange;
+
     [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
@@ -214,10 +216,10 @@ public class GameUI : MonoBehaviour
 
         ShowGrade(f_grade);
 
+        gamachanRendererChange.NormalOrGold_GradeEmotion(f_grade);
+
         if (AmountManagement.Combo >= 3)
         {
-            yield return new WaitForSeconds(1.0f);
-
             ShowCombo(AmountManagement.Combo);
         }
 
@@ -225,7 +227,7 @@ public class GameUI : MonoBehaviour
 
         GradeAndCombo();
 
-        yield return new WaitForSeconds(1.0f);
+        gamachanRendererChange.NomalAndGold();
 
         goodscanvas.SetActive(true);
 

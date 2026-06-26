@@ -36,21 +36,23 @@ namespace StateMashine
 }
 public class GameLoopManagement : MonoBehaviour
 {
-    public static GameLoopManagement Instance;
+    [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     [SerializeField] GamachanRendererChange GamaRendererChange;
 
-    [SerializeField] GamaChanControll GamaControl;
-
-    [SerializeField] UIDisplayAmountManagement AmountManagement;
-
-    [SerializeField] GameUI GameUI;
-
     [SerializeField] ButtonManagement ButtonManagement;
+
+    [SerializeField] PoolManagement PoolManagement;
+
+    [SerializeField] GamaChanControll GamaControl;
 
     [SerializeField] ChooseGoods ChooseGoods;
 
-    [SerializeField,Header("ゲームの流れ")] GameState gameState;
+    [SerializeField] GameUI GameUI;
+
+    [Header("ゲームの流れ")]
+
+    [SerializeField] GameState gameState;
 
     [SerializeField] Grade gradestate;
 
@@ -58,7 +60,7 @@ public class GameLoopManagement : MonoBehaviour
 
     [SerializeField] GamaState gamastate;
 
-    SkillDetail skillDetail = new();
+    SkillDetail skillDetail;
 
     public GameState _Gamestate 
     { 
@@ -81,6 +83,8 @@ public class GameLoopManagement : MonoBehaviour
         {
             SkillState = value;
             OnSkillState(SkillState);
+            AmountManagement.SetSkillState(SkillState);
+            PoolManagement.SetSkillState(SkillState);
         }
     }
 
@@ -90,7 +94,8 @@ public class GameLoopManagement : MonoBehaviour
         set
         {
             gamastate = value;
-            GamaRendererChange.NomalAndGold(gamastate);
+            GamaRendererChange.NomalAndGold();
+            GamaRendererChange.SetGamaState(gamastate);
         }
     }
 
@@ -104,23 +109,16 @@ public class GameLoopManagement : MonoBehaviour
             ChooseGoods.SetGrade(gradestate);
         }
     }
-    void Awake()
-    {
-        Instance = this;
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _Gamestate = GameState.StartCountDownPhase;
+        skillDetail = new SkillDetail(AmountManagement);
         AmountManagement.SetActionMesod_bool(GamaStateChange);
         GameUI.SetActionMesod_GameState(GameStateChange);
         ButtonManagement.SetActionMesod(GradeJudge);
         ButtonManagement.SetActionMesod_GameState(GameStateChange);
-    }
-
-    void Update()
-    {
-        
+        ButtonManagement.SetActionMesod_SkillState(SkillStateChange);
     }
     void OnGameState(GameState l_gamestate)
     {
@@ -142,10 +140,10 @@ public class GameLoopManagement : MonoBehaviour
         switch (l_skillstate)
         {
             case Skill.NoSkill:
-                Debug.Log("スキルどこ？");
+                skillDetail.None();
                 break;
             case Skill.Golden:
-                skillDetail.Golden(AmountManagement.Current);
+                skillDetail.Golden();
                 break;
             case Skill.NormalLocked:
                 skillDetail.NormalLocked();
@@ -177,6 +175,25 @@ public class GameLoopManagement : MonoBehaviour
                 _Gamestate = GameState.GoodsSelectPhase;
                 break;
             case GameState.ScorePhase:
+                break;
+        }
+    }
+
+    public void SkillStateChange(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                _SkillState = Skill.NoSkill;
+                break;
+            case 1:
+                _SkillState = Skill.Golden;
+                break;
+            case 2:
+                _SkillState = Skill.NormalLocked;
+                break;
+            case 3:
+                _SkillState = Skill.AddTime;
                 break;
         }
     }

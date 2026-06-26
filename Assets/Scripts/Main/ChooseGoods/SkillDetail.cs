@@ -1,29 +1,37 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class SkillDetail
 {
+    const float gold_gaugeamount = 100;
+
     float before_gaugeamount;
 
-    public float NoSkill(float l_gaugeamount)
+    UIDisplayAmountManagement AmountManagement;
+
+    public SkillDetail(UIDisplayAmountManagement l_amountmanagement)
     {
-        l_gaugeamount = before_gaugeamount;
-        return l_gaugeamount;
+        AmountManagement = l_amountmanagement;
     }
-    public void Golden(float l_gaugeamount)
+
+    public void None()
     {
-        before_gaugeamount = l_gaugeamount;
-        //GameLoopManagement.Instance.GamaStateChange();
-        Debug.Log("ƒS[ƒ‹ƒfƒ“");
+        AmountManagement.Current = before_gaugeamount;
+    }
+    public void Golden()
+    {
+        before_gaugeamount = AmountManagement.Current;
+        AmountManagement.Current = gold_gaugeamount;
+        Debug.Log("ã‚´ãƒ¼ãƒ«ãƒ‡ãƒ³");
     }
 
     public void NormalLocked()
     {
-        Debug.Log("ƒm[ƒ}ƒ‹ŒÅ’è");
+        Debug.Log("ãƒãƒ¼ãƒãƒ«å›ºå®š");
     }
 
     public void AddTime(float l_currenttimer)
     {
         l_currenttimer += 3;
-        Debug.Log("ŠÔ‚ª‘‚¦‚½");
+        Debug.Log("æ™‚é–“ãŒå¢—ãˆãŸ");
     }
 }

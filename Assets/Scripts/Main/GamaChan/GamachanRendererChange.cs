@@ -6,6 +6,8 @@ public class GamachanRendererChange : MonoBehaviour
     Gama_SpriteRenderer Gama_SpriteRenderer;
 
     SpriteRenderer GamaRenderer;
+
+    StateMashine.GamaState OnState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,9 +15,9 @@ public class GamachanRendererChange : MonoBehaviour
         GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Normal(0);
     }
 
-    public void NomalAndGold(StateMashine.GamaState l_gamastate)
+    public void NomalAndGold()
     {
-        switch(l_gamastate)
+        switch(OnState)
         {
             case StateMashine.GamaState.Nomal:
                 GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Normal(0);
@@ -26,7 +28,7 @@ public class GamachanRendererChange : MonoBehaviour
         }
     }
 
-    public void GradeAtNormal(StateMashine.Grade l_grade)
+    void GradeAtNormal(StateMashine.Grade l_grade)
     {
         switch (l_grade)
         {
@@ -47,7 +49,7 @@ public class GamachanRendererChange : MonoBehaviour
                 break;
         }
     }
-    public void GradeAtGold(StateMashine.Grade l_grade)
+    void GradeAtGold(StateMashine.Grade l_grade)
     {
         switch (l_grade)
         {
@@ -67,5 +69,23 @@ public class GamachanRendererChange : MonoBehaviour
                 GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Gold(2);
                 break;
         }
+    }
+
+    public void NormalOrGold_GradeEmotion(StateMashine.Grade l_grade)
+    {
+        switch (OnState)
+        {
+            case StateMashine.GamaState.Nomal:
+                GradeAtNormal(l_grade);
+                break;
+            case StateMashine.GamaState.Gold:
+                GradeAtGold(l_grade);
+                break;
+        }
+    }
+
+    public void SetGamaState(StateMashine.GamaState l_state)
+    {
+        OnState = l_state;
     }
 }

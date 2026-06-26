@@ -8,6 +8,8 @@ public class ButtonManagement : MonoBehaviour
     Action OnGradeJudge;
 
     Action OnGameStateChange;
+
+    Action<int> OnSkillStateChange;
     
     StateMashine.GameState OnGameState;
     /// <summary>
@@ -17,29 +19,21 @@ public class ButtonManagement : MonoBehaviour
     public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
     {
         if (OnGameState != StateMashine.GameState.GoodsSelectPhase) return;
-        switch (l_changeStateNum)
-        {
-            case 0:
-                GameLoopManagement.Instance._SkillState = StateMashine.Skill.NoSkill;
-                break;
-            case 1:
-                GameLoopManagement.Instance._SkillState = StateMashine.Skill.Golden;
-                break;
-            case 2:
-                GameLoopManagement.Instance._SkillState = StateMashine.Skill.NormalLocked;
-                break;
-            case 3:
-                GameLoopManagement.Instance._SkillState = StateMashine.Skill.AddTime;
-                break;
-        }
+        
+        OnSkillStateChange(l_changeStateNum);
+
         gameUI.TextInRegister(true);
+
         foreach (var obj in l_destroy)
         {
             Destroy(obj);
         }
+
         l_destroy.Clear();
+
         AnythingData.payment.TargetAmount = am;
         gameUI.GoodsCanvas();
+
         OnGameStateChange();
     }
 
@@ -71,6 +65,11 @@ public class ButtonManagement : MonoBehaviour
     public void SetGameState(StateMashine.GameState l_gamestate)
     {
         OnGameState = l_gamestate;
+    }
+
+    public void SetActionMesod_SkillState(Action<int> l_skillstatechange)
+    {
+        OnSkillStateChange = l_skillstatechange;
     }
 
     public void SaveNameData()

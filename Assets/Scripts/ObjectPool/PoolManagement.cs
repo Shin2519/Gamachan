@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 {
-    [SerializeField]
-    private Coin[] CoinPrefab;
+    [SerializeField] UIDisplayAmountManagement AmountManagement;
 
-    [SerializeField]
-    UIDisplayAmountManagement AmountManagement;
-    [SerializeField]
-    private int InitialPoolSize;
-    [SerializeField]
-    Transform GamaPos;
-    [SerializeField]
-    Vector3 OffSet;
+    [SerializeField] private Coin[] CoinPrefab;
+
+    [SerializeField] private int InitialPoolSize;
+
+    [SerializeField] Transform GamaPos;
+
+    [SerializeField] Vector3 OffSet;
+
+    StateMashine.Skill OnSkillState;
 
     private Dictionary<int, ObjectPool<Coin>> Pools = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +25,6 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
             Pools[yen] = new ObjectPool<Coin>(prefab, InitialPoolSize);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Spawn(int yen)
     {
         if (!Pools.TryGetValue(yen, out var pool))
@@ -49,6 +42,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         pool.Return(coin);
         AddCoinCount(coin.Yen);
+        if (OnSkillState==StateMashine.Skill.NormalLocked) return;
         AmountManagement.Current++;
     }
 
@@ -63,5 +57,10 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
             case 100: AnythingData.coin.OnehundredYenCoins++; break;
             case 500: AnythingData.coin.FivehundredYenCoins++; break;
         }
+    }
+
+    public void SetSkillState(StateMashine.Skill l_skillstate)
+    {
+        OnSkillState = l_skillstate;
     }
 }

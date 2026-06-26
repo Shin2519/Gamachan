@@ -12,6 +12,8 @@ public class UIDisplayAmountManagement : MonoBehaviour
 
     StateMashine.GameState OnGameState;
 
+    StateMashine.Skill OnSkillState;
+
     [SerializeField]
     GameUI gameUI;
 
@@ -35,6 +37,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
             if(f_current>=100)
             {
                 Ongaugefull(true);
+                if (OnSkillState==StateMashine.Skill.Golden) return;
                 Ongaugeimagecontrol(Ongaugefull);
             }
         }
@@ -49,12 +52,6 @@ public class UIDisplayAmountManagement : MonoBehaviour
             f_combo = value;
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -85,5 +82,10 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public void SetGameState(StateMashine.GameState l_gamestate)
     {
         OnGameState = l_gamestate;
+    }
+
+    public void SetSkillState(StateMashine.Skill l_skillstate)
+    {
+        OnSkillState = l_skillstate;
     }
 }
