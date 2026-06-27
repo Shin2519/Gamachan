@@ -180,12 +180,12 @@ public class GameUI : MonoBehaviour
 
         ResultManagement.Instance.ActiveAndSlide();
 
-        int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo,AnythingData.coin, AnythingData.payment).totalScore);
+        //int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo,AnythingData.coin, AnythingData.payment).totalScore);
 
-        if(RankingNum<=5)
-        {
-            f_RankInFlag_ui.SetActive(true);
-        }
+        //if(RankingNum<=5)
+        //{
+        //    f_RankInFlag_ui.SetActive(true);
+        //}
     }
 
     public void InputNameSetActive()
