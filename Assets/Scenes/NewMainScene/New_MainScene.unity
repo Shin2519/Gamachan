@@ -3682,6 +3682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69933d8967ef39e4bacdbb86ba44a691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolManagement
+  AmountManagement: {fileID: 1259304341}
   CoinPrefab:
   - {fileID: 3510132005825385936, guid: 1c11839eece5141479218b7130979be0, type: 3}
   - {fileID: -4049951473196239220, guid: fa0c124178879044fa9d034a625df1c5, type: 3}
@@ -3689,7 +3690,6 @@ MonoBehaviour:
   - {fileID: 576276391745213363, guid: 002fb2da42c88e84993eccb85e190e8f, type: 3}
   - {fileID: 7760710677362198318, guid: 7388848fe0615d24b86693f2885333f6, type: 3}
   - {fileID: -3871530401855332909, guid: 3fc450be385b28f469aa3e75b2c98aaf, type: 3}
-  AmountManagement: {fileID: 1259304341}
   InitialPoolSize: 10
   GamaPos: {fileID: 1964754739}
   OffSet: {x: 0, y: -3, z: 0}
@@ -4605,12 +4605,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83adfa63f57d2ae4a8158da130cc48d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoopManagement
-  GamaRendererChange: {fileID: 1964754742}
-  GamaControl: {fileID: 754754715}
   AmountManagement: {fileID: 1259304341}
-  GameUI: {fileID: 1259304339}
+  GamaRendererChange: {fileID: 1964754742}
   ButtonManagement: {fileID: 836059112}
+  PoolManagement: {fileID: 1135457557}
+  GamaControl: {fileID: 754754715}
   ChooseGoods: {fileID: 1958669711}
+  GameUI: {fileID: 1259304339}
   gameState: 0
   gradestate: 0
   SkillState: 0
@@ -6111,6 +6112,7 @@ MonoBehaviour:
   GoodsPanel: {fileID: 734432820}
   ParentGoodsPanel: {fileID: 666450970}
   ParentGoodsCanvas: {fileID: 666450970}
+  descripsion: {fileID: 11400000, guid: 3418605dfd57cdf48b689142c0ddf909, type: 2}
 --- !u!4 &1958669712
 Transform:
   m_ObjectHideFlags: 0

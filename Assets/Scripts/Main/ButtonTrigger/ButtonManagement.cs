@@ -12,6 +12,10 @@ public class ButtonManagement : MonoBehaviour
     Action<int> OnSkillStateChange;
     
     StateMashine.GameState OnGameState;
+
+    int f_changeStateNum;
+
+    public int p_changeStateNum => f_changeStateNum;
     /// <summary>
     /// 生成されたボタン一つ一つに入っている関数
     /// </summary>
@@ -19,7 +23,7 @@ public class ButtonManagement : MonoBehaviour
     public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
     {
         if (OnGameState != StateMashine.GameState.GoodsSelectPhase) return;
-        
+
         OnSkillStateChange(l_changeStateNum);
 
         gameUI.TextInRegister(true);

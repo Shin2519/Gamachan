@@ -10,12 +10,11 @@ public class UIDisplayAmountManagement : MonoBehaviour
 
     Func<IEnumerator> OnFinishCountDown;
 
+    Func<StateMashine.Skill> GetSkillState;
+
     StateMashine.GameState OnGameState;
 
-    StateMashine.Skill OnSkillState;
-
-    [SerializeField]
-    GameUI gameUI;
+    [SerializeField] GameUI gameUI;
 
     [SerializeField, Header("制限時間")]
     float f_timer;
@@ -37,7 +36,8 @@ public class UIDisplayAmountManagement : MonoBehaviour
             if(f_current>=100)
             {
                 Ongaugefull(true);
-                if (OnSkillState==StateMashine.Skill.Golden) return;
+                StateMashine.Skill OnSkillState = GetSkillState();
+                if (OnSkillState == StateMashine.Skill.Golden) return;
                 Ongaugeimagecontrol(Ongaugefull);
             }
         }
@@ -83,9 +83,8 @@ public class UIDisplayAmountManagement : MonoBehaviour
     {
         OnGameState = l_gamestate;
     }
-
-    public void SetSkillState(StateMashine.Skill l_skillstate)
+    public void SetSkillState(Func<StateMashine.Skill> l_skillstate)
     {
-        OnSkillState = l_skillstate;
+        GetSkillState = l_skillstate;
     }
 }

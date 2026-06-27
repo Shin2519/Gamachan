@@ -250,7 +250,6 @@ public class GameUI : MonoBehaviour
     {
         f_grade = l_grade;
     }
-
     public void SetActionMesod_GameState(Action l_gamestate)
     {
         OnGameState = l_gamestate;

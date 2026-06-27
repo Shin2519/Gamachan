@@ -12,9 +12,6 @@ public class UIDisplay
     private readonly TextMeshProUGUI TargetMoneyAmountText;
     private readonly TextMeshProUGUI InputMoneyAmountText;
     private readonly TextMeshProUGUI ChangeMoneyText;
-
-    int ChangeMoney;
-
     public UIDisplay(GameObject l_TargetText, GameObject l_InputMoneyAmountText,GameObject l_ChangeMoneyText)
     {
         TargetMoneyAmountText = l_TargetText.GetComponent<TextMeshProUGUI>();
