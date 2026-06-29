@@ -126,6 +126,7 @@ public class GameLoopManagement : MonoBehaviour
         {
             case GameState.StartCountDownPhase:
                 StartCoroutine(GameUI.StartTimer());
+                PoolManagement.CoinInitialize();
                 break;
             case GameState.GoodsSelectPhase:
                 _Gamastate = GamaState.Nomal;
