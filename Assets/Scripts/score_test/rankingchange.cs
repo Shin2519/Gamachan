@@ -23,15 +23,17 @@ public class rankingchange: MonoBehaviour
     public void FlipToCanvasB()
     {
         if (isFlipping) return;
-        StartCoroutine(Flip(canvasA, canvasB));
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+        StartCoroutine(Flip(canvasA, canvasB));
+        
     }
 
     public void FlipToCanvasA()
     {
         if (isFlipping) return;
-        StartCoroutine(Flip(canvasB, canvasA));
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+        StartCoroutine(Flip(canvasB, canvasA));
+        
 
 
     }

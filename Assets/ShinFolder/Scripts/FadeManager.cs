@@ -10,7 +10,7 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleはどこ�
     private float fadeAlpha = 0;//フェード中の透明度
     private bool isFadeing = false;//フェード中かどうか
 
-    public void Awake()
+    protected override void Awake()
     {
         if(this != Instance)
         {
