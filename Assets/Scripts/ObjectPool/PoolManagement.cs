@@ -17,8 +17,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     Func<StateMashine.Skill> OnSkillState;
 
     private Dictionary<int, ObjectPool<Coin>> Pools = new();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void CoinInitialize()
     {
         foreach (var prefab in CoinPrefab)
         {

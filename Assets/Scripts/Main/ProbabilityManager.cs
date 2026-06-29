@@ -22,6 +22,10 @@ public class ProbabilityManager
             KindofMoney(Shakespeed);
         }
     }
+    /// <summary>
+    /// 振る激しさによって出る小銭を変える処理をする関数
+    /// </summary>
+    /// <param name="Amount"></param>
     public void KindofMoney(float Amount)
     {
         if (Amount <= 9) return;
