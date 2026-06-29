@@ -33,6 +33,13 @@ public static class AnythingData
         public int PerfectCount;
     }
 
+    public struct AnotherBonusCount
+    {
+        public int GoldenCount;
+
+        public int SpeedCount;
+    }
+
     public static GradeCount gradecount;
     public static Coin coin;
     public static PaymentState payment;
