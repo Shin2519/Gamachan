@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +9,7 @@ public class OptionManager : MonoBehaviour
     public Button backButton;
     public AudioSource bgmSource;
     public AudioSource seSource;
-    public AudioClip backSE; // –ß‚éƒ{ƒ^ƒ“—p‚ÌŒø‰Ê‰¹
+    public AudioClip backSE; // æˆ»ã‚‹ãƒœã‚¿ãƒ³ç”¨ã®åŠ¹æœéŸ³
 
     void Start()
     {
@@ -48,6 +48,6 @@ public class OptionManager : MonoBehaviour
             seSource.PlayOneShot(backSE);
         }
 
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
+        FadeManager.Instance.LoadLevel(0,1.0f);
     }
 }

@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
-public class FadeManager : SingletonMonoBehaviour<FadeManager>//single‚Í‚Ç‚±‚ÌƒXƒNƒŠƒvƒg‚©‚ç‚Å‚àŒÄ‚×‚é‚æ‚¤‚É‚·‚é‚½‚ß
+public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleã¯ã©ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‹ã‚‰ã§ã‚‚å‘¼ã¹ã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚
 {
-    private Texture2D blackTexture;//ˆÃ“]—p
-    private float fadeAlpha = 0;//ƒtƒF[ƒh’†‚Ì“§–¾“x
-    private bool isFadeing = false;//ƒtƒF[ƒh’†‚©‚Ç‚¤‚©
+    private Texture2D blackTexture;//æš—è»¢ç”¨
+    private float fadeAlpha = 0;//ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã®é€æ˜åº¦
+    private bool isFadeing = false;//ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã‹ã©ã†ã‹
 
     public void Awake()
     {
@@ -20,7 +20,7 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//single‚Í‚Ç‚±‚ÌƒX
 
         DontDestroyOnLoad(this.gameObject);
 
-        //•ƒeƒNƒXƒ`ƒƒ‚ğì‚é
+        //é»’ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’ä½œã‚‹
         this.blackTexture = new Texture2D(1, 1);
         this.blackTexture.SetPixel(0, 0, Color.black);
         this.blackTexture.Apply();
@@ -40,14 +40,14 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//single‚Í‚Ç‚±‚ÌƒX
 
 
 
-    public void LoadLevel(string scene,float interval,string addscene1,string addscene2)
+    public void LoadLevel(int scene,float interval)
     {
-        StartCoroutine(TransScene(scene,interval,addscene1,addscene2));
+        StartCoroutine(TransScene(scene,interval));
     }
 
-    private IEnumerator TransScene(string scene,float interval, string addscene1, string addscene2)
+    private IEnumerator TransScene(int scene,float interval)
     {
-        //‚¾‚ñ‚¾‚ñˆÃ‚­
+        //ã ã‚“ã ã‚“æš—ã
         this.isFadeing = true;
         float time = 0;
         while(time<=interval)
@@ -57,16 +57,12 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//single‚Í‚Ç‚±‚ÌƒX
             yield return 0;
         }
 
-        //ƒV[ƒ“‚ÌØ‚è‘Ö‚¦
+        //ã‚·ãƒ¼ãƒ³ã®åˆ‡ã‚Šæ›¿ãˆ
         SceneManager.LoadScene(scene);
-        //if(addscene1!=null&&addscene2!=null)
-        //{
-        //    SceneManager.LoadScene(addscene1, LoadSceneMode.Additive);
-        //    SceneManager.LoadScene(addscene2, LoadSceneMode.Additive);
-        //}
+ 
 
 
-        //‚¾‚ñ‚¾‚ñ–¾‚é‚­
+        //ã ã‚“ã ã‚“æ˜ã‚‹ã
         time = 0;
         while(time<=interval)
         {

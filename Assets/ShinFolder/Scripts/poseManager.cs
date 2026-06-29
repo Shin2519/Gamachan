@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class poseManager : MonoBehaviour
 {
-    [SerializeField] private Sound sound;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button TitleButton;
@@ -106,7 +105,7 @@ public class poseManager : MonoBehaviour
 
     public void ChangeButton_Ti()
     {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
+        FadeManager.Instance.LoadLevel(0, 1.0f);
         //SceneManager.LoadScene("TitleScene");
     }
 }

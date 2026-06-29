@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 public class rankingchange: MonoBehaviour
@@ -12,24 +12,28 @@ public class rankingchange: MonoBehaviour
 
     void Start()
     {
-        // Å‰‚Í A ‚ğ•\¦AB ‚ğ”ñ•\¦
+        // æœ€åˆã¯ A ã‚’è¡¨ç¤ºã€B ã‚’éè¡¨ç¤º
         canvasA.gameObject.SetActive(true);
         canvasB.gameObject.SetActive(false);
 
         canvasA.localRotation = Quaternion.Euler(0, 0, 0);
-        canvasB.localRotation = Quaternion.Euler(0, 180, 0); // — Œü‚«‚Å‘Ò‹@
+        canvasB.localRotation = Quaternion.Euler(0, 180, 0); // è£å‘ãã§å¾…æ©Ÿ
     }
 
     public void FlipToCanvasB()
     {
         if (isFlipping) return;
         StartCoroutine(Flip(canvasA, canvasB));
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
     }
 
     public void FlipToCanvasA()
     {
         if (isFlipping) return;
         StartCoroutine(Flip(canvasB, canvasA));
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
 
     private IEnumerator Flip(RectTransform from, RectTransform to)
@@ -38,7 +42,7 @@ public class rankingchange: MonoBehaviour
 
         float time = 0f;
 
-        // Ø‚è‘Ö‚¦æ‚ğ— Œü‚«‚ÅƒAƒNƒeƒBƒu
+        // åˆ‡ã‚Šæ›¿ãˆå…ˆã‚’è£å‘ãã§ã‚¢ã‚¯ãƒ†ã‚£ãƒ–
         to.gameObject.SetActive(true);
         to.localRotation = Quaternion.Euler(0, 180, 0);
 
@@ -46,11 +50,11 @@ public class rankingchange: MonoBehaviour
         {
             float t = time / duration;
 
-            // A: 0‹ ¨ 90‹
+            // A: 0Â° â†’ 90Â°
             float fromY = Mathf.Lerp(0f, 90f, t);
             from.localRotation = Quaternion.Euler(0, fromY, 0);
 
-            // B: 180‹ ¨ 90‹
+            // B: 180Â° â†’ 90Â°
             float toY = Mathf.Lerp(180f, 90f, t);
             to.localRotation = Quaternion.Euler(0, toY, 0);
 
@@ -58,14 +62,14 @@ public class rankingchange: MonoBehaviour
             yield return null;
         }
 
-        // ÅIˆÊ’u‚ğ•ÛØ
+        // æœ€çµ‚ä½ç½®ã‚’ä¿è¨¼
         from.localRotation = Quaternion.Euler(0, 90, 0);
         to.localRotation = Quaternion.Euler(0, 90, 0);
 
-        // A ‚ğ”ñ•\¦
+        // A ã‚’éè¡¨ç¤º
         from.gameObject.SetActive(false);
 
-        // B ‚ğ³–Ê‚É–ß‚·
+        // B ã‚’æ­£é¢ã«æˆ»ã™
         to.localRotation = Quaternion.Euler(0, 0, 0);
 
         isFlipping = false;

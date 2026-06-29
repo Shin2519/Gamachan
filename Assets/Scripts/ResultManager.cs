@@ -195,16 +195,16 @@ public class ResultManager : MonoBehaviour
 
     public void GoToRankingScene()
     {
-        FadeManager.Instance.LoadLevel("RankingScene", 1.0f, null, null);
+        FadeManager.Instance.LoadLevel(0, 1.0f);
     }
 
     public void GoToTitleScene()
     {
-        FadeManager.Instance.LoadLevel("TitleScene", 1.0f, null, null);
+        FadeManager.Instance.LoadLevel(0, 1.0f);
     }
 
     public void GoToModeSelectScene()
     {
-        FadeManager.Instance.LoadLevel("ModeSelectScene", 1.0f, null, null);
+        FadeManager.Instance.LoadLevel(0, 1.0f);
     }
 }
