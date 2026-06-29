@@ -51,11 +51,10 @@ public class InputName : MonoBehaviour
             return;
         }
 
-        if (playerinput.actions["aa"].WasPressedThisFrame())
+        if (playerinput.actions["OnNext"].WasPressedThisFrame())
         {
             NameEnter();
         }
-        
     }
 
     public void InputText()
@@ -94,7 +93,11 @@ public class InputName : MonoBehaviour
         {
             InputText();
         }
-        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
+        else
+        {
+            gameObject.SetActive(false);
+        }
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
 
     }
 

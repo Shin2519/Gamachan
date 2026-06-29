@@ -1223,7 +1223,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1832244411}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: TitletoTutorialCheck
+        m_MethodName: RoadCharengeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
