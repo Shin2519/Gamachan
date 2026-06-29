@@ -87,4 +87,9 @@ public class UIDisplayAmountManagement : MonoBehaviour
     {
         GetSkillState = l_skillstate;
     }
+
+    public void AddTimer(float addtime)
+    {
+        f_timer += addtime;
+    }
 }

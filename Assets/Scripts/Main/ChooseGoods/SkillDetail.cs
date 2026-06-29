@@ -27,9 +27,9 @@ public class SkillDetail
         Debug.Log("ノーマル固定");
     }
 
-    public void AddTime(float l_currenttimer)
+    public void AddTime()
     {
-        l_currenttimer += 3;
+        AmountManagement.AddTimer(3);
         Debug.Log("時間が増えた");
     }
 }

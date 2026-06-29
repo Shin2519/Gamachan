@@ -151,7 +151,7 @@ public class GameLoopManagement : MonoBehaviour
                 skillDetail.NormalLocked();
                 break;
             case Skill.AddTime:
-                skillDetail.AddTime(AmountManagement.Timer);
+                skillDetail.AddTime();
                 break;
         }
     }
