@@ -75,7 +75,12 @@ public static class RankingData
 
             l_data = JsonUtility.FromJson<Data>(json);
         }
+        else if(!File.Exists(filePath))
+        {
+            json = JsonUtility.ToJson(l_data);
 
-        return l_data;
+            File.WriteAllText(filePath, json);
+        }
+            return l_data;
     }
 }

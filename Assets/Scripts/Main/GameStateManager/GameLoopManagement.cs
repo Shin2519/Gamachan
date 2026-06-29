@@ -122,6 +122,8 @@ public class GameLoopManagement : MonoBehaviour
     }
     void OnGameState(GameState l_gamestate)
     {
+        float l_pasttimer = 0;
+
         switch (gameState)
         {
             case GameState.StartCountDownPhase:
@@ -131,9 +133,15 @@ public class GameLoopManagement : MonoBehaviour
             case GameState.GoodsSelectPhase:
                 _Gamastate = GamaState.Nomal;
                 _SkillState = Skill.NoSkill;
+                l_pasttimer = AmountManagement.Timer;
                 AnythingData.PaymentReset();
+                GameUI.ChangeMoneyDisplay();
                 GameUI.TextInRegister(false);
                 ChooseGoods.SpriteAndAmountChange();
+                break;
+            case GameState.RegisterPhase:
+                AnythingData.AddSpeedBonus(l_pasttimer,AmountManagement.Timer);
+                if (gamastate == GamaState.Gold) AnythingData.anotherbonus.GoldenCount++;
                 break;
         }
     }
@@ -218,21 +226,24 @@ public class GameLoopManagement : MonoBehaviour
                 _Gradestate = Grade.Great;
                 AnythingData.gradecount.GreatCount++;
                 AmountManagement.Combo++;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
             else if (Sub >= 501 && Sub <= 1000)
             {
                 _Gradestate = Grade.Good;
                 AnythingData.gradecount.GoodCount++;
                 AmountManagement.Combo++;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
             else
             {
                 _Gradestate = Grade.Bad;
                 AnythingData.gradecount.BadCount++;
                 AmountManagement.Combo = 0;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
         }
         else

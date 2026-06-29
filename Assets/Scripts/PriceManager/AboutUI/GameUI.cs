@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -180,12 +181,9 @@ public class GameUI : MonoBehaviour
 
         ResultManagement.Instance.ActiveAndSlide();
 
-        //int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo,AnythingData.coin, AnythingData.payment).totalScore);
+        List<DataDetail> l_details = RankingData.Load_DataAmount();
 
-        //if(RankingNum<=5)
-        //{
-        //    f_RankInFlag_ui.SetActive(true);
-        //}
+        if (l_details.Count < 5) Debug.Log("ランキング入り");
     }
 
     public void InputNameSetActive()
@@ -236,7 +234,7 @@ public class GameUI : MonoBehaviour
         OnPaying = false;
     }
 
-    void ChangeMoneyDisplay()
+    public void ChangeMoneyDisplay()
     {
         uidisplay.ChangeTextDisplay();
     }
