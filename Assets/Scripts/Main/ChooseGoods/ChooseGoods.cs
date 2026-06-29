@@ -18,6 +18,8 @@ public class ChooseGoods : MonoBehaviour
 
     [SerializeField] Transform ParentGoodsCanvas;
 
+    [SerializeField] SkillDescripsion descripsion;
+
     Transform ParentPanel;
 
     List<GameObject> Destroygameobject = new List<GameObject>();
@@ -30,7 +32,7 @@ public class ChooseGoods : MonoBehaviour
     void Start()
     {
         ParentPanel = GoodsPanel.transform;
-        catalog = new GoodsCatalog(goods);
+        catalog = new GoodsCatalog(goods,descripsion);
     }
 
     // Update is called once per frame
@@ -50,6 +52,9 @@ public class ChooseGoods : MonoBehaviour
 
         Image image = but.transform.GetChild(1).GetComponent<Image>();
         image.sprite = entry.Sprite;
+
+        Text text_2 = but.transform.GetChild(2).GetComponent<Text>();
+        text_2.text = entry.Description.ToString();
     }
     public void SpriteAndAmountChange()
     {

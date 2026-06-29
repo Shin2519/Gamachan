@@ -1,11 +1,13 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GoodsCatalog
 {
+    private readonly SkillDescripsion descripsion;
     public struct Entry
     {
         public Sprite Sprite;
+        public string Description;
         public int Amount;
         public int Number;
     }
@@ -13,14 +15,16 @@ public class GoodsCatalog
 
     public int Count => entries.Count;
 
-    public GoodsCatalog(Goods goods)
+    public GoodsCatalog(Goods goods, SkillDescripsion descripsion)
     {
-        foreach(var genre in goods.Genres)
+        this.descripsion = descripsion;
+        foreach (var genre in goods.Genres)
         {
             foreach (var item in genre.Items)
             {
                 int Num = Random.Range(0,4);
-                entries.Add(new Entry{Sprite = item.GoodsSprite,Amount = item.Amount,Number = Num});
+                string l_detail = descripsion.GetSkillDetail(Num);
+                entries.Add(new Entry{Sprite = item.GoodsSprite,Amount = item.Amount,Number = Num,Description = l_detail});
             }
         }
     }

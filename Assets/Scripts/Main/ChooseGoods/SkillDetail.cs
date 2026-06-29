@@ -7,7 +7,6 @@ public class SkillDetail
     float before_gaugeamount;
 
     UIDisplayAmountManagement AmountManagement;
-
     public SkillDetail(UIDisplayAmountManagement l_amountmanagement)
     {
         AmountManagement = l_amountmanagement;
@@ -21,7 +20,6 @@ public class SkillDetail
     {
         before_gaugeamount = AmountManagement.Current;
         AmountManagement.Current = gold_gaugeamount;
-        Debug.Log("ゴールデン");
     }
 
     public void NormalLocked()
@@ -29,9 +27,9 @@ public class SkillDetail
         Debug.Log("ノーマル固定");
     }
 
-    public void AddTime(float l_currenttimer)
+    public void AddTime()
     {
-        l_currenttimer += 3;
+        AmountManagement.AddTimer(3);
         Debug.Log("時間が増えた");
     }
 }

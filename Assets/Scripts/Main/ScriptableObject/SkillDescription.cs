@@ -4,4 +4,6 @@
 public class SkillDescripsion : ScriptableObject
 {
     [SerializeField] string[] SkillDetail;
+
+    public string GetSkillDetail(int num) => SkillDetail[num];
 }

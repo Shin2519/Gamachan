@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 {
@@ -13,7 +14,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 
     [SerializeField] Vector3 OffSet;
 
-    StateMashine.Skill OnSkillState;
+    Func<StateMashine.Skill> OnSkillState;
 
     private Dictionary<int, ObjectPool<Coin>> Pools = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,7 +43,8 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     {
         pool.Return(coin);
         AddCoinCount(coin.Yen);
-        if (OnSkillState==StateMashine.Skill.NormalLocked) return;
+        StateMashine.Skill l_skillstate = OnSkillState();
+        if (l_skillstate==StateMashine.Skill.NormalLocked) return;
         AmountManagement.Current++;
     }
 
@@ -59,7 +61,7 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
         }
     }
 
-    public void SetSkillState(StateMashine.Skill l_skillstate)
+    public void SetSkillState(Func<StateMashine.Skill> l_skillstate)
     {
         OnSkillState = l_skillstate;
     }

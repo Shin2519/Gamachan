@@ -82,9 +82,7 @@ public class GameLoopManagement : MonoBehaviour
         set
         {
             SkillState = value;
-            OnSkillState(SkillState);
-            AmountManagement.SetSkillState(SkillState);
-            PoolManagement.SetSkillState(SkillState);
+            OnSkillState(value);
         }
     }
 
@@ -95,7 +93,6 @@ public class GameLoopManagement : MonoBehaviour
         {
             gamastate = value;
             GamaRendererChange.NomalAndGold();
-            GamaRendererChange.SetGamaState(gamastate);
         }
     }
 
@@ -113,12 +110,15 @@ public class GameLoopManagement : MonoBehaviour
     void Start()
     {
         _Gamestate = GameState.StartCountDownPhase;
+        GamaRendererChange.SetGamaState(GetGamaState);
         skillDetail = new SkillDetail(AmountManagement);
         AmountManagement.SetActionMesod_bool(GamaStateChange);
+        AmountManagement.SetSkillState(GetSkillState);
         GameUI.SetActionMesod_GameState(GameStateChange);
         ButtonManagement.SetActionMesod(GradeJudge);
         ButtonManagement.SetActionMesod_GameState(GameStateChange);
         ButtonManagement.SetActionMesod_SkillState(SkillStateChange);
+        PoolManagement.SetSkillState(GetSkillState);
     }
     void OnGameState(GameState l_gamestate)
     {
@@ -128,6 +128,8 @@ public class GameLoopManagement : MonoBehaviour
                 StartCoroutine(GameUI.StartTimer());
                 break;
             case GameState.GoodsSelectPhase:
+                _Gamastate = GamaState.Nomal;
+                _SkillState = Skill.NoSkill;
                 AnythingData.PaymentReset();
                 GameUI.TextInRegister(false);
                 ChooseGoods.SpriteAndAmountChange();
@@ -149,7 +151,7 @@ public class GameLoopManagement : MonoBehaviour
                 skillDetail.NormalLocked();
                 break;
             case Skill.AddTime:
-                skillDetail.AddTime(AmountManagement.Timer);
+                skillDetail.AddTime();
                 break;
         }
     }
@@ -238,5 +240,14 @@ public class GameLoopManagement : MonoBehaviour
             AnythingData.gradecount.MissCount++;
             AmountManagement.Combo = 0;
         }
+    }
+    Skill GetSkillState()
+    {
+        return SkillState;
+    }
+
+    GamaState GetGamaState()
+    {
+        return gamastate;
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GamachanRendererChange : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class GamachanRendererChange : MonoBehaviour
 
     SpriteRenderer GamaRenderer;
 
-    StateMashine.GamaState OnState;
+    Func<StateMashine.GamaState> GetGamaState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +18,8 @@ public class GamachanRendererChange : MonoBehaviour
 
     public void NomalAndGold()
     {
-        switch(OnState)
+        StateMashine.GamaState l_gamastate = GetGamaState();
+        switch (l_gamastate)
         {
             case StateMashine.GamaState.Nomal:
                 GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Normal(0);
@@ -73,7 +75,8 @@ public class GamachanRendererChange : MonoBehaviour
 
     public void NormalOrGold_GradeEmotion(StateMashine.Grade l_grade)
     {
-        switch (OnState)
+        StateMashine.GamaState l_gamastate = GetGamaState();
+        switch (l_gamastate)
         {
             case StateMashine.GamaState.Nomal:
                 GradeAtNormal(l_grade);
@@ -84,8 +87,8 @@ public class GamachanRendererChange : MonoBehaviour
         }
     }
 
-    public void SetGamaState(StateMashine.GamaState l_state)
+    public void SetGamaState(Func<StateMashine.GamaState> l_gamastate)
     {
-        OnState = l_state;
+        GetGamaState = l_gamastate;
     }
 }
