@@ -96,6 +96,7 @@ public class InputName : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            
         }
             AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
 
