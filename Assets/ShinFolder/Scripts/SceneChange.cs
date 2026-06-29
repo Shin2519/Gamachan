@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class SceneChange : MonoBehaviour
 {
-    [SerializeField]
-    private Sound sound;
 
     [Header("オプションパネル")]
     public GameObject optionPanel;
@@ -17,7 +15,6 @@ public class SceneChange : MonoBehaviour
     [SerializeField] private GameObject[] titlepanels;
     bool ispush = false;
 
-    [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeTime = 1f;
 
     [SerializeField] private GameObject startbutton;
@@ -29,18 +26,23 @@ public class SceneChange : MonoBehaviour
         {
             titlepanels[i].SetActive(false);
         }
-        DontDestroyOnLoad(gameObject);
     }
     //パネル切り替え,チュートリアルチェック
     public void TitletoTutorialCheck()
     {
         titlepanels[1].SetActive(true);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
 
     //シーン切り替え
     public void TutorialChecktoTutorialYES()
     {
-        SceneStatic.LoadScene(0, fadeImage, fadeTime);
+        FadeManager.Instance.LoadLevel(0, fadeTime);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
 
     //パネル切り替えモード選択
@@ -50,6 +52,9 @@ public class SceneChange : MonoBehaviour
 
 
         titlepanels[2].SetActive(true);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
 
     }
     public void RoadCharengeScene()
@@ -57,34 +62,50 @@ public class SceneChange : MonoBehaviour
         if (ispush) return;
 
         ispush = true;
-        SceneStatic.LoadScene(4, fadeImage, fadeTime);
+        FadeManager.Instance.LoadLevel(4,fadeTime);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[2]);
+
+
     }
 
     public void ChangeButton_st()
     {
         startbutton.SetActive(false);
         optionPanel.SetActive(true);
-        
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
     public void ChangeButton_ti(GameObject obj)
     {
         startbutton.SetActive(true);
         obj.SetActive(false);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
 
     }
 
     public void ChangeButton_rk()
     {
-        SceneStatic.LoadScene(2, fadeImage, fadeTime);
+        FadeManager.Instance.LoadLevel(2, fadeTime);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
 
     public void ChangeButton_Ti()
     {
-        SceneStatic.LoadScene(0, fadeImage, fadeTime);
+        FadeManager.Instance.LoadLevel(0, fadeTime);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
+
+
     }
 
     public void EndGame()
     {
         Application.Quit();
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+
+
     }
 }
