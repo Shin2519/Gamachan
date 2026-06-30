@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -8,13 +8,14 @@ public class ResultManagement : MonoBehaviour
 
     [Header("リザルト演出設定")]
     [SerializeField] private RectTransform[] scoreItems;
-    [SerializeField] private float slideDuration = 0.5f;
-    [SerializeField] private float delayBetweenItems = 0.2f;
-    [SerializeField] private float startOffsetY = -200f;
-    [SerializeField] private float countDuration = 0.25f;
 
-    [Header("演出スキップ用")]
-    [SerializeField] private Button skipbtn;
+    [SerializeField] private float slideDuration = 0.5f;
+
+    [SerializeField] private float delayBetweenItems = 0.2f;
+
+    [SerializeField] private float startOffsetY = -200f;
+
+    [SerializeField] private float countDuration = 0.25f;
 
     [Header("シーン遷移ボタン")]
     [SerializeField] private GameObject[] sceneButtons;
@@ -26,17 +27,23 @@ public class ResultManagement : MonoBehaviour
 
     // 0〜9: 各項目 / 10: 合計スコア（最終値）
     private int[] scoreValues = new int[11];
+
     private int currentTotalScore = 0;
     
     Sequence slidesequence;
+
+    bool sequenceskip  = true;
+
     public string gameMode = "Challenge";
+
     public static int modeId;
 
-    [SerializeField] private Playername pl;
-
+    public bool p_skip => sequenceskip;
     private void Awake()
     {
         Instance = this;
+
+        sequenceskip = true;
     }
     public void ActiveAndSlide()
     {
@@ -45,7 +52,6 @@ public class ResultManagement : MonoBehaviour
         Initializeitems();
         
         SetSceneButtons(true);
-        SetupSkipButton();
 
         slidesequence = BuildSequence();
     }
@@ -64,12 +70,6 @@ public class ResultManagement : MonoBehaviour
     void SetSceneButtons(bool active)
     {
         foreach (var btn in sceneButtons) btn.SetActive(active);
-    }
-
-    void SetupSkipButton()
-    {
-        skipbtn.onClick.RemoveAllListeners();
-        skipbtn.onClick.AddListener(() => slidesequence?.Complete());
     }
     Sequence BuildSequence()
     {
@@ -115,5 +115,12 @@ public class ResultManagement : MonoBehaviour
             target,
             countDuration
         );
+    }
+
+    public void SequenceSkip()
+    {
+        slidesequence?.Complete();
+
+        sequenceskip = false;
     }
 }

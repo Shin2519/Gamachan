@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -57,7 +58,6 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI p_InputNameUGUI => f_InputName_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
 
     bool OnPaying;
-
     public bool p_OnPaying => OnPaying;
     void Start()
     {
@@ -76,7 +76,7 @@ public class GameUI : MonoBehaviour
         timerDisplay.Refresh(AmountManagement.Timer);
     }
     /// <summary>
-    /// StartCountDownPhase�ɂȂ������Ɉ�x������������J�E���g�_�E���̃R���[�`��
+    /// StartCountDownPhaseになったら発動させるカウントダウンのコルーチン
     /// </summary>
     /// <returns></returns>
     public IEnumerator StartTimer()
@@ -103,7 +103,10 @@ public class GameUI : MonoBehaviour
         StartSetActive(true);
         OnGameState();
     }
-
+    /// <summary>
+    /// 残り何秒になったら終わるまでのカウントダウンを表示する
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator FinishTimer()
     {
         Image sprite = f_CountDownImage.GetComponent<Image>();
@@ -119,7 +122,8 @@ public class GameUI : MonoBehaviour
         
         yield return new WaitForSeconds(1);
         f_CountDownImage.SetActive(false);
-        ShowResult();
+
+        StartCoroutine(ShowResult());
     }
     /// <summary>
     /// 初めに処理される表示・非表示の関数
@@ -134,6 +138,10 @@ public class GameUI : MonoBehaviour
             f_gaugeimege[i].SetActive(l_active);
         }
     }
+    /// <summary>
+    /// レジ内のすべてのテキストUIの表示・非表示させる
+    /// </summary>
+    /// <param name="l_active"></param>
     public void TextInRegister(bool l_active)
     {
         for(int i = 0;i < f_register_text.Length;i++)
@@ -141,7 +149,10 @@ public class GameUI : MonoBehaviour
             f_register_text[i].SetActive(l_active);
         }
     }
-
+    /// <summary>
+    /// 評価UIを表示した後に、spriteを変更する
+    /// </summary>
+    /// <param name="l_grade"></param>
     void ShowGrade(StateMashine.Grade l_grade)
     {
         f_gradeimage.SetActive(true);
@@ -150,7 +161,10 @@ public class GameUI : MonoBehaviour
 
         gr_sp.sprite = KindOfSprite.Grade_Sp(l_grade);
     }
-
+    /// <summary>
+    /// コンボUIを表示した後に、spriteを変更する
+    /// </summary>
+    /// <param name="l_combo"></param>
     public void ShowCombo(int l_combo)
     {
         f_comboimage.SetActive(true);
@@ -159,6 +173,9 @@ public class GameUI : MonoBehaviour
 
         com_sp.sprite = KindOfSprite.Combo_Sp(l_combo);
     }
+    /// <summary>
+    /// 評価UIとコンボUIを非表示にする
+    /// </summary>
     public void GradeAndCombo()
     {
         f_gradeimage.SetActive(false);
@@ -169,8 +186,10 @@ public class GameUI : MonoBehaviour
     {
         f_pause_ui.SetActive(l_active);
     }
-
-    void ShowResult()
+    /// <summary>
+    /// 制限時間が0になったらリザルトパネルを表示し、そのあとにランキングのトップ5入りしたら名前入力パネルを出す
+    /// </summary>
+    IEnumerator ShowResult()
     {
         OnGameState();
 
@@ -180,12 +199,24 @@ public class GameUI : MonoBehaviour
 
         ResultManagement.Instance.ActiveAndSlide();
 
-        //int RankingNum = RankingDisplay.RankingJudge(ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo,AnythingData.coin, AnythingData.payment).totalScore);
+        yield return new WaitUntil(() => !ResultManagement.Instance.p_skip);
 
-        //if(RankingNum<=5)
-        //{
-        //    f_RankInFlag_ui.SetActive(true);
-        //}
+        List<DataDetail> l_details = RankingData.Load_DataAmount();
+
+        if (l_details.Count < 5)
+        {
+            
+        }
+        else
+        {
+            ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
+
+            if (scoreresult.totalScore <= l_details[4].Score) yield break;
+
+            l_details[4].Score = scoreresult.totalScore;
+
+            l_details[4].Name = string.Empty;
+        }
     }
 
     public void InputNameSetActive()
@@ -204,7 +235,10 @@ public class GameUI : MonoBehaviour
 
         f_InputName_ui.SetActive(true);
     }
-
+    /// <summary>
+    /// 精算ボタンを押したときに処理されるコルーチン
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator AmountDisplay()
     {
         if (OnPaying) yield break;
@@ -235,21 +269,33 @@ public class GameUI : MonoBehaviour
 
         OnPaying = false;
     }
-
-    void ChangeMoneyDisplay()
+    /// <summary>
+    /// GoodsSelectPhaseや精算ボタンを押したときに発動する、おつりのテキストを更新させる関数
+    /// </summary>
+    public void ChangeMoneyDisplay()
     {
         uidisplay.ChangeTextDisplay();
     }
-
+    /// <summary>
+    /// ゲージが満タンになったときに何秒かかけて0まで減らすコルーチン
+    /// </summary>
+    /// <param name="l_statechange"></param>
     public void GaugeImageControl(Action<bool> l_statechange)
     {
         StartCoroutine(gaugeDisplay.Gaugedown(l_statechange));
     }
-
+    /// <summary>
+    /// GameUIクラスに評価の状態を渡す関数
+    /// </summary>
+    /// <param name="l_grade"></param>
     public void SetGrade(StateMashine.Grade l_grade)
     {
         f_grade = l_grade;
     }
+    /// <summary>
+    /// GameUIクラスに、GameLoopAmountManagementクラスのgameStateの状態を変える関数を渡す関数
+    /// </summary>
+    /// <param name="l_gamestate"></param>
     public void SetActionMesod_GameState(Action l_gamestate)
     {
         OnGameState = l_gamestate;

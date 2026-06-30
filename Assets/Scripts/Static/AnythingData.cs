@@ -33,17 +33,71 @@ public static class AnythingData
         public int PerfectCount;
     }
 
+    public struct AnotherBonusCount
+    {
+        public int CoinBonusCount;
+
+        public int GoldenCount;
+
+        public int ComboBonusCount;
+
+        public int SpeedCount;
+
+        public int TotalChangeCount;
+    }
+
     public static GradeCount gradecount;
+
     public static Coin coin;
+
     public static PaymentState payment;
 
-    public static int TotalMoney(AnythingData.Coin coin_)
+    public static AnotherBonusCount anotherbonus;
+    public static int TotalMoney()
     {
-        int Total = coin_.OneYenCoins + (5 * coin_.FiveYenCoins) + (10 * coin_.TenYenCoins) + (50 * coin_.FiftyYenCoins) + (100 * coin_.OnehundredYenCoins) + (500 * coin_.FivehundredYenCoins);
+        int Total = coin.OneYenCoins + (5 * coin.FiveYenCoins) + (10 * coin.TenYenCoins) + (50 * coin.FiftyYenCoins) + (100 * coin.OnehundredYenCoins) + (500 * coin.FivehundredYenCoins);
+
+        anotherbonus.CoinBonusCount += (50 * coin.OneYenCoins) + (30 * coin.FiveYenCoins) + (20 * coin.TenYenCoins) + (10 * coin.FiftyYenCoins) + (5 * coin.OnehundredYenCoins) + (2 * coin.FivehundredYenCoins);
 
         payment.InputMoney = Total;
 
         return Total;
+    }
+
+    public static void AddComboBonus(int l_combo)
+    {
+        switch(l_combo)
+        {
+            case 3:
+                anotherbonus.ComboBonusCount += 100;
+                break;
+            case 6:
+                anotherbonus.ComboBonusCount += 200;
+                break;
+            case 9:
+                anotherbonus.ComboBonusCount += 300;
+                break;
+            case 12:
+                anotherbonus.ComboBonusCount += 400;
+                break;
+            case >=15:
+                anotherbonus.ComboBonusCount += 500;
+                break;
+        }
+    }
+    
+    public static void AddSpeedBonus(float l_pasttimer, float l_currenttimer)
+    {
+        float timer_sub = l_pasttimer - l_currenttimer;
+
+        if(timer_sub <= 15)
+        {
+            anotherbonus.SpeedCount += 100;
+        }
+        else if(timer_sub <= 20)
+        {
+            anotherbonus.SpeedCount += 50;
+        }
     }
 
     public static void PaymentReset()

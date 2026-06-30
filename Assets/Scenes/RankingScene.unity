@@ -335,7 +335,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cb21f3bd06d98044a9b5c0c20fd35a96, type: 3}
+    m_Font: {fileID: 12800000, guid: 824bb8ecf9870754f87fd015f63ed327, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -982,7 +982,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cb21f3bd06d98044a9b5c0c20fd35a96, type: 3}
+    m_Font: {fileID: 12800000, guid: 824bb8ecf9870754f87fd015f63ed327, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1061,7 +1061,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cb21f3bd06d98044a9b5c0c20fd35a96, type: 3}
+    m_Font: {fileID: 12800000, guid: 824bb8ecf9870754f87fd015f63ed327, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cb21f3bd06d98044a9b5c0c20fd35a96, type: 3}
+    m_Font: {fileID: 12800000, guid: 824bb8ecf9870754f87fd015f63ed327, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
@@ -1219,7 +1219,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cb21f3bd06d98044a9b5c0c20fd35a96, type: 3}
+    m_Font: {fileID: 12800000, guid: 824bb8ecf9870754f87fd015f63ed327, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -2327,11 +2327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0bfaa3228ad944e8f2c92beb80f70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChange
-  optionPanel: {fileID: 0}
   titlepanels: []
   fadeTime: 1
-  startbutton: {fileID: 0}
-  audioData: {fileID: 11400000, guid: 5dc26dc14497e4e44bc7a539f9cf8e22, type: 2}
 --- !u!1 &1717955894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,7 +2832,6 @@ MonoBehaviour:
   canvasA: {fileID: 950444230}
   canvasB: {fileID: 1887081690}
   duration: 0.5
-  audioData: {fileID: 11400000, guid: 5dc26dc14497e4e44bc7a539f9cf8e22, type: 2}
 --- !u!1 &2069522896
 GameObject:
   m_ObjectHideFlags: 0

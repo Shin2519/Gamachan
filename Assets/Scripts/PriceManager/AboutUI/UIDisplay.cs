@@ -25,7 +25,7 @@ public class UIDisplay
     {
         TargetMoneyAmountText.text = AnythingData.payment.TargetAmount + "円";
 
-        InputMoneyAmountText.text = AnythingData.TotalMoney(AnythingData.coin) + "円";
+        InputMoneyAmountText.text = AnythingData.TotalMoney() + "円";
     }
 
     public void ChangeTextDisplay()
@@ -120,13 +120,14 @@ class ScoreDisplay
     [SerializeField] Text TotalScore;
     public void AllScoreDisplay()
     {
-        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge(AnythingData.gradecount,AmountManagement.Combo, AnythingData.coin, AnythingData.payment);
+        challengeScoreResult = ScoreCalculator.Instance.CalculateChallenge();
 
         PerfectScore.text = challengeScoreResult.perfectScore.ToString();
         GreatScore.text = challengeScoreResult.greatScore.ToString();
         GoodScore.text = challengeScoreResult.goodScore.ToString();
         BadScore.text = challengeScoreResult.badScore.ToString();
         ComboBonus.text = challengeScoreResult.comboBonus.ToString();
+        SpeedBonus.text = challengeScoreResult.speedBonus.ToString();
         ChangeBonus.text = challengeScoreResult.totalChange.ToString();
         TotalScore.text = challengeScoreResult.totalScore.ToString();
     }

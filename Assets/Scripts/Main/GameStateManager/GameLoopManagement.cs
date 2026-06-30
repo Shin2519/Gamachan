@@ -61,9 +61,9 @@ public class GameLoopManagement : MonoBehaviour
     [SerializeField] GamaState gamastate;
 
     SkillDetail skillDetail;
-
+    
     public GameState _Gamestate 
-    { 
+    {
         get => gameState; 
         set 
         {
@@ -121,8 +121,14 @@ public class GameLoopManagement : MonoBehaviour
         ButtonManagement.SetActionMesod_SkillState(SkillStateChange);
         PoolManagement.SetSkillState(GetSkillState);
     }
+    /// <summary>
+    /// それぞれのgameStateの状態の時の処理をさせる関数
+    /// </summary>
+    /// <param name="l_gamestate"></param>
     void OnGameState(GameState l_gamestate)
     {
+        float l_pasttimer = 0;
+
         switch (gameState)
         {
             case GameState.StartCountDownPhase:
@@ -132,13 +138,22 @@ public class GameLoopManagement : MonoBehaviour
             case GameState.GoodsSelectPhase:
                 _Gamastate = GamaState.Nomal;
                 _SkillState = Skill.NoSkill;
+                l_pasttimer = AmountManagement.Timer;
                 AnythingData.PaymentReset();
+                GameUI.ChangeMoneyDisplay();
                 GameUI.TextInRegister(false);
                 ChooseGoods.SpriteAndAmountChange();
                 break;
+            case GameState.RegisterPhase:
+                AnythingData.AddSpeedBonus(l_pasttimer,AmountManagement.Timer);
+                if (gamastate == GamaState.Gold) AnythingData.anotherbonus.GoldenCount++;
+                break;
         }
     }
-
+    /// <summary>
+    /// それぞれのスキルの状態の時の処理をする関数
+    /// </summary>
+    /// <param name="l_skillstate"></param>
     void OnSkillState(Skill l_skillstate)
     {
         switch (l_skillstate)
@@ -157,12 +172,18 @@ public class GameLoopManagement : MonoBehaviour
                 break;
         }
     }
-    public void GamaStateChange(bool Change)
+    /// <summary>
+    /// bool型の引数のtrue、falseでガマちゃんの状態を変える関数
+    /// </summary>
+    /// <param name="Change"></param>
+    void GamaStateChange(bool Change)
     {
         _Gamastate = Change ? GamaState.Gold : GamaState.Nomal;
     }
-
-    public void GameStateChange()
+    /// <summary>
+    /// それぞれのgameStateの時に次の状態に変える関数
+    /// </summary>
+    void GameStateChange()
     {
         switch (_Gamestate)
         {
@@ -182,8 +203,11 @@ public class GameLoopManagement : MonoBehaviour
                 break;
         }
     }
-
-    public void SkillStateChange(int num)
+    /// <summary>
+    /// int型の引数の変数の値によってスキルの状態を変える関数
+    /// </summary>
+    /// <param name="num"></param>
+    void SkillStateChange(int num)
     {
         switch (num)
         {
@@ -201,7 +225,9 @@ public class GameLoopManagement : MonoBehaviour
                 break;
         }
     }
-
+    /// <summary>
+    /// 投入金額から目標金額を引いた差額によって、gradestateの状態を変えたり、それぞれの状態になった回数を数えたりする関数
+    /// </summary>
     public void GradeJudge()
     {
         if (AnythingData.payment.InputMoney >= AnythingData.payment.TargetAmount)
@@ -219,21 +245,24 @@ public class GameLoopManagement : MonoBehaviour
                 _Gradestate = Grade.Great;
                 AnythingData.gradecount.GreatCount++;
                 AmountManagement.Combo++;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
             else if (Sub >= 501 && Sub <= 1000)
             {
                 _Gradestate = Grade.Good;
                 AnythingData.gradecount.GoodCount++;
                 AmountManagement.Combo++;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
             else
             {
                 _Gradestate = Grade.Bad;
                 AnythingData.gradecount.BadCount++;
                 AmountManagement.Combo = 0;
-                AnythingData.payment.ChangeMoney += Sub;
+                AnythingData.payment.ChangeMoney = Sub;
+                AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
         }
         else
@@ -243,11 +272,18 @@ public class GameLoopManagement : MonoBehaviour
             AmountManagement.Combo = 0;
         }
     }
+    /// <summary>
+    /// UIDisplayAmountManagementやPoolManagementにスキルの状態を渡す関数
+    /// </summary>
+    /// <returns></returns>
     Skill GetSkillState()
     {
         return SkillState;
     }
-
+    /// <summary>
+    /// GamachanRendererChangeにガマちゃんの状態を渡す変数
+    /// </summary>
+    /// <returns></returns>
     GamaState GetGamaState()
     {
         return gamastate;

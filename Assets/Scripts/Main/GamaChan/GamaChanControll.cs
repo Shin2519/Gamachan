@@ -64,7 +64,7 @@ public class GamaChanControll : MonoBehaviour
             shakecharge += drag.UpdatePosition(Input.GetWorldPosition(), Time.deltaTime, shakecharge);
             if (MoneyTimer<=0)
             {
-                MoneyTimer = 0.2f;
+                MoneyTimer = 0.1f;
                 
                 probability.KindofMoney(shakecharge);
             }

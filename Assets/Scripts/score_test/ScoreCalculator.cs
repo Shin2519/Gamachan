@@ -92,28 +92,21 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     // チャレンジ最終スコア
-    public ChallengeScoreResult CalculateChallenge(AnythingData.GradeCount count,int Combo, AnythingData.Coin coin,AnythingData.PaymentState am)
+    public ChallengeScoreResult CalculateChallenge()
     {
         ChallengeScoreResult r = new ChallengeScoreResult();
-        r.perfectScore = count.PerfectCount * 5000;
-        r.greatScore = count.GreatCount * 1000;
-        r.goodScore = count.GoodCount * 300;
-        r.badScore = count.BadCount * 100;
-        r.missScore = count.MissCount * -100;
-        r.goldenBonus = 0;
-        r.comboBonus = GetComboBonus(Combo);
-        r.speedBonus = 0;
+        r.perfectScore = AnythingData.gradecount.PerfectCount * 5000;
+        r.greatScore = AnythingData.gradecount.GreatCount * 1000;
+        r.goodScore = AnythingData.gradecount.GoodCount * 300;
+        r.badScore = AnythingData.gradecount.BadCount * 100;
+        r.missScore = AnythingData.gradecount.MissCount * -100;
+        r.goldenBonus = AnythingData.anotherbonus.GoldenCount;
+        r.comboBonus = AnythingData.anotherbonus.ComboBonusCount;
+        r.speedBonus = AnythingData.anotherbonus.SpeedCount;
 
-        r.coinScore = GetCoinScore(
-            coin.OneYenCoins,
-            coin.FiveYenCoins,
-            coin.TenYenCoins,
-            coin.FiftyYenCoins,
-            coin.OnehundredYenCoins,
-            coin.FivehundredYenCoins
-        );
+        r.coinScore = AnythingData.anotherbonus.CoinBonusCount;
 
-        r.totalChange = am.ChangeMoney;
+        r.totalChange = AnythingData.anotherbonus.TotalChangeCount;
 
         r.totalScore =
             r.perfectScore +

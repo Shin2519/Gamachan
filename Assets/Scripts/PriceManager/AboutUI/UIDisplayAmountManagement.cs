@@ -4,6 +4,8 @@ using System.Collections;
 
 public class UIDisplayAmountManagement : MonoBehaviour
 {
+    const int Min_ComboCount = 3;
+
     Action<bool> Ongaugefull;
 
     Action<Action<bool>> Ongaugeimagecontrol;
@@ -50,6 +52,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
         set
         {
             f_combo = value;
+            if(f_combo>=Min_ComboCount) AnythingData.AddComboBonus(f_combo);
         }
     }
     // Update is called once per frame
