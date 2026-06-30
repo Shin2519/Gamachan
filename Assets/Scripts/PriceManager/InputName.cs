@@ -96,9 +96,9 @@ public class InputName : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            
+            RankingData.Save_Name(inputField.text);
         }
-            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
 
     }
 

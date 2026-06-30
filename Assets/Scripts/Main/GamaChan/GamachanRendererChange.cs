@@ -26,6 +26,7 @@ public class GamachanRendererChange : MonoBehaviour
                 break;
             case StateMashine.GamaState.Gold:
                 GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Gold(0);
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.BGM[2]);
                 break;
         }
     }

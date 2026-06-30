@@ -93,6 +93,7 @@ public class GameLoopManagement : MonoBehaviour
         {
             gamastate = value;
             GamaRendererChange.NomalAndGold();
+            
         }
     }
 
