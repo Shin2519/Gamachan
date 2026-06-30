@@ -183,7 +183,20 @@ public class GameUI : MonoBehaviour
 
         List<DataDetail> l_details = RankingData.Load_DataAmount();
 
-        if (l_details.Count < 5) Debug.Log("ランキング入り");
+        if (l_details.Count < 5)
+        {
+            
+        }
+        else
+        {
+            ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
+
+            if (scoreresult.totalScore <= l_details[4].Score) return;
+
+            l_details[4].Score = scoreresult.totalScore;
+
+            l_details[4].Name = string.Empty;
+        }
     }
 
     public void InputNameSetActive()
