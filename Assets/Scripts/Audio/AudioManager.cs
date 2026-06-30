@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -40,6 +41,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if(SceneManager.GetActiveScene().name == "TitleScene")
         PlayBGM(BGM[0]);
     }
     public void PlayBGM(AudioClip clip,bool loop = true)
