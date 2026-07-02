@@ -235,6 +235,7 @@ public class GameLoopManagement : MonoBehaviour
             int Sub = AnythingData.payment.InputMoney - AnythingData.payment.TargetAmount;
             if (Sub <= 0)
             {
+                AudioManager.Instance.PlaySE(AudioManager.Instance.SE[10]);
                 _Gradestate = Grade.Perfect;
                 AnythingData.gradecount.PerfectCount++;
                 AmountManagement.Combo++;
@@ -242,6 +243,7 @@ public class GameLoopManagement : MonoBehaviour
             }
             else if (Sub >= 1 && Sub <= 500)
             {
+                AudioManager.Instance.PlaySE(AudioManager.Instance.SE[11]);
                 _Gradestate = Grade.Great;
                 AnythingData.gradecount.GreatCount++;
                 AmountManagement.Combo++;
@@ -250,6 +252,7 @@ public class GameLoopManagement : MonoBehaviour
             }
             else if (Sub >= 501 && Sub <= 1000)
             {
+                AudioManager.Instance.PlaySE(AudioManager.Instance.SE[12]);
                 _Gradestate = Grade.Good;
                 AnythingData.gradecount.GoodCount++;
                 AmountManagement.Combo++;
@@ -258,6 +261,7 @@ public class GameLoopManagement : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlaySE(AudioManager.Instance.SE[13]);
                 _Gradestate = Grade.Bad;
                 AnythingData.gradecount.BadCount++;
                 AmountManagement.Combo = 0;
@@ -267,6 +271,7 @@ public class GameLoopManagement : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[15]);
             _Gradestate = Grade.Miss;
             AnythingData.gradecount.MissCount++;
             AmountManagement.Combo = 0;
