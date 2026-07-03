@@ -29,3 +29,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c1562c5e9a613bb448a4b4bc3899f64d, type: 3}
   - {fileID: 21300000, guid: 5b5000ab317b3db448d7caf7348a8a45, type: 3}
   - {fileID: 21300000, guid: 124df4b2868711b4c85e61c5abfcf249, type: 3}
+  GradeEfect:
+  - {fileID: 21300000, guid: b009534e7bfcc1c4ca01b6a36baea1f0, type: 3}
+  - {fileID: 21300000, guid: 9be8bf8754d4ebf48a8dd94bc5bee387, type: 3}
+  - {fileID: 21300000, guid: 87071b486e96ac349befa7d431142508, type: 3}

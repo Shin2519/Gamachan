@@ -52,6 +52,29 @@ public class KindOfSprite
         return l_grade_sp;
     }
 
+    public Sprite GradeEfect_sp(StateMashine.Grade l_grade)
+    {
+        Sprite l_gradeEfect_sp = null;
+        switch (l_grade)
+        {
+            case StateMashine.Grade.Perfect:
+                l_gradeEfect_sp = anything.GetGradeEfect(0);
+                Debug.Log("イメージ変更perfect");
+                break;
+            case StateMashine.Grade.Great:
+                l_gradeEfect_sp = anything.GetGradeEfect(1);
+                Debug.Log("イメージ変更great");
+
+                break;
+            case StateMashine.Grade.Good:
+                l_gradeEfect_sp = anything.GetGradeEfect(2);
+                Debug.Log("イメージ変更good");
+
+                break;
+        }
+        return l_gradeEfect_sp;
+    }
+
     public Sprite Combo_Sp(int l_comboCount)
     {
         if (l_comboCount > 3&& l_comboCount % 3 != 0) return null;

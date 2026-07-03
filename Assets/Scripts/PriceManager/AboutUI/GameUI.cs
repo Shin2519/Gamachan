@@ -13,6 +13,8 @@ public class GameUI : MonoBehaviour
 
     Action OnGameState;
 
+    [SerializeField] private GameObject f_efectgaradeimage;
+
     [SerializeField] private GameObject f_gradeimage;
 
     [SerializeField] private GameObject f_comboimage;
@@ -162,6 +164,25 @@ public class GameUI : MonoBehaviour
         gr_sp.sprite = KindOfSprite.Grade_Sp(l_grade);
     }
     /// <summary>
+    /// 評価UIのエフェクト
+    /// </summary>
+    /// <param name="l_grade"></param>
+    void ShowGradeEfect(StateMashine.Grade l_grade)
+    {
+        int index = (int)l_grade;
+
+        Image gr_efect = f_efectgaradeimage.GetComponent<Image>();
+
+        if (index >= 3)
+        {
+            gr_efect.sprite = KindOfSprite.GradeEfect_sp(l_grade);
+
+            f_efectgaradeimage.SetActive(true);
+        }
+
+    }
+
+    /// <summary>
     /// コンボUIを表示した後に、spriteを変更する
     /// </summary>
     /// <param name="l_combo"></param>
@@ -180,6 +201,7 @@ public class GameUI : MonoBehaviour
     {
         f_gradeimage.SetActive(false);
         f_comboimage.SetActive(false);
+        f_efectgaradeimage.SetActive(false);
     }
 
     public void PauseActive(bool l_active)
@@ -248,7 +270,9 @@ public class GameUI : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
+        ShowGradeEfect(f_grade);
         ShowGrade(f_grade);
+        
 
         gamachanRendererChange.NormalOrGold_GradeEmotion(f_grade);
 
