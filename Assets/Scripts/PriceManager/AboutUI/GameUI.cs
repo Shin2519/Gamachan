@@ -96,6 +96,8 @@ public class GameUI : MonoBehaviour
 
         while (startTimer > -1)
         {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[3]);
+
             sprite.sprite = startsprites[startTimer];
             startTimer--;
             yield return new WaitForSeconds(1);
@@ -118,10 +120,15 @@ public class GameUI : MonoBehaviour
         f_CountDownImage.SetActive(true);
         while (finishTimer > -1)
         {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[3]);
+
             sprite.sprite = finishsprites[finishTimer];
             finishTimer--;
             yield return new WaitForSeconds(1);
         }
+
+        timetext.SetActive(false);
+
         sprite.sprite = finishsprites[3];
         
         yield return new WaitForSeconds(1);
@@ -190,6 +197,8 @@ public class GameUI : MonoBehaviour
     /// <param name="l_combo"></param>
     public void ShowCombo(int l_combo)
     {
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[12]);
+
         f_comboimage.SetActive(true);
 
         Image com_sp = f_comboimage.GetComponent<Image>();
@@ -229,10 +238,20 @@ public class GameUI : MonoBehaviour
 
         if (l_details.Count < 5)
         {
-            
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
+
+            ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
+
+            RankingData.Save_Score(scoreresult.totalScore);
+
+            f_RankInFlag_ui.SetActive(true);
         }
         else
         {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
+
+            f_RankInFlag_ui.SetActive(true);
+
             ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
 
             if (scoreresult.totalScore <= l_details[4].Score) yield break;
@@ -248,6 +267,13 @@ public class GameUI : MonoBehaviour
         f_InputName_ui.SetActive(true);
     }
 
+    public void TopFiveFlagUISetActive()
+    {
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
+
+        f_RankInFlag_ui.SetActive(false);
+    }
+
     public void GoodsCanvas()
     {
         goodscanvas.SetActive(false);
@@ -255,6 +281,8 @@ public class GameUI : MonoBehaviour
 
     public void ToInputNameUI()
     {
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
+
         f_RankInFlag_ui.SetActive(false);
 
         f_InputName_ui.SetActive(true);
@@ -268,6 +296,8 @@ public class GameUI : MonoBehaviour
         if (OnPaying) yield break;
         OnPaying = true;
 
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[6]);
+
         ChangeMoneyDisplay();
 
         yield return new WaitForSeconds(1.0f);
@@ -280,6 +310,8 @@ public class GameUI : MonoBehaviour
 
         if (AmountManagement.Combo >= 3)
         {
+            yield return new WaitForSeconds(1.0f);
+
             ShowCombo(AmountManagement.Combo);
         }
 

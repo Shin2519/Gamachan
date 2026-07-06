@@ -85,7 +85,7 @@ public class ResultManagement : MonoBehaviour
     Sequence BuildItemTween(int index)
     {
         var item = scoreItems[index];
-    var cg = item.GetComponent<CanvasGroup>();
+        var cg = item.GetComponent<CanvasGroup>();
 
     Vector2 endPos = item.anchoredPosition;
     item.anchoredPosition = endPos + new Vector2(0, startOffsetY);
@@ -115,6 +115,8 @@ public class ResultManagement : MonoBehaviour
             target,
             countDuration
         );
+
+        sequenceskip = false;
     }
 
     public void SequenceSkip()

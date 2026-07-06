@@ -27,6 +27,8 @@ public class ButtonManagement : MonoBehaviour
     {
         if (OnGameState != StateMashine.GameState.GoodsSelectPhase) return;
 
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[4]);
+
         OnSkillStateChange(l_changeStateNum);
 
         gameUI.rejistergoods.sprite = goodsimage;

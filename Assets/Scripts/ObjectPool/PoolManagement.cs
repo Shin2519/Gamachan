@@ -40,6 +40,8 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
 
     private void OnCoinReturned(Coin coin, ObjectPool<Coin> pool)
     {
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[5]);
+
         pool.Return(coin);
         AddCoinCount(coin.Yen);
         StateMashine.Skill l_skillstate = OnSkillState();
