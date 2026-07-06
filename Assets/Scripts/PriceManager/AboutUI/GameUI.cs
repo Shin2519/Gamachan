@@ -61,6 +61,8 @@ public class GameUI : MonoBehaviour
 
     bool OnPaying;
     public bool p_OnPaying => OnPaying;
+
+    public Image rejistergoods;
     void Start()
     {
         AmountManagement.SetActionMesod(GaugeImageControl);
@@ -287,6 +289,7 @@ public class GameUI : MonoBehaviour
 
         gamachanRendererChange.NomalAndGold();
 
+        rejistergoods.sprite = null;
         goodscanvas.SetActive(true);
 
         OnGameState();

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 public class ButtonManagement : MonoBehaviour
 {
     [SerializeField] GameUI gameUI;
@@ -16,15 +17,19 @@ public class ButtonManagement : MonoBehaviour
     int f_changeStateNum;
 
     public int p_changeStateNum => f_changeStateNum;
+
+    
     /// <summary>
     /// 生成されたボタン一つ一つに入っている関数
     /// </summary>
     /// <param name="am"></param>
-    public void Money(int am,List<GameObject> l_destroy,int l_changeStateNum)
+    public void Money(int am,Sprite goodsimage,List<GameObject> l_destroy,int l_changeStateNum)
     {
         if (OnGameState != StateMashine.GameState.GoodsSelectPhase) return;
 
         OnSkillStateChange(l_changeStateNum);
+
+        gameUI.rejistergoods.sprite = goodsimage;
 
         gameUI.TextInRegister(true);
 
@@ -54,6 +59,8 @@ public class ButtonManagement : MonoBehaviour
         OnGradeJudge();
 
         StartCoroutine(gameUI.AmountDisplay());
+
+        
     }
 
     public void SetActionMesod(Action l_gradejudge)
