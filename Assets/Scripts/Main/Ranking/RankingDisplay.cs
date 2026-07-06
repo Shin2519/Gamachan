@@ -18,7 +18,7 @@ public class RankingDisplay : MonoBehaviour
         for(int i = 0;i < details.Count;i++)
         {
             int rankingnum = i + 1;
-            if (details[i].Score.HasValue) RankingText[i].text = rankingnum + "位:" +  details[i].Score.ToString() + details[i].Name.ToString();
+            RankingText[i].text = rankingnum + "位:" +  details[i].Score.ToString() + details[i].Name.ToString();
         }
     }
 }
