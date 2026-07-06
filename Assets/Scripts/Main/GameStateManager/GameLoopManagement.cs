@@ -233,7 +233,7 @@ public class GameLoopManagement : MonoBehaviour
         if (AnythingData.payment.InputMoney >= AnythingData.payment.TargetAmount)
         {
             int Sub = AnythingData.payment.InputMoney - AnythingData.payment.TargetAmount;
-            if (Sub <= 0)
+            if (Sub <= 500)
             {
                 AudioManager.Instance.PlaySE(AudioManager.Instance.SE[10]);
                 _Gradestate = Grade.Perfect;
@@ -241,7 +241,7 @@ public class GameLoopManagement : MonoBehaviour
                 AmountManagement.Combo++;
                 AnythingData.payment.ChangeMoney += Sub;
             }
-            else if (Sub >= 1 && Sub <= 500)
+            else if (Sub >= 501 && Sub <= 750)
             {
                 AudioManager.Instance.PlaySE(AudioManager.Instance.SE[11]);
                 _Gradestate = Grade.Great;
@@ -250,7 +250,7 @@ public class GameLoopManagement : MonoBehaviour
                 AnythingData.payment.ChangeMoney = Sub;
                 AnythingData.anotherbonus.TotalChangeCount += Sub;
             }
-            else if (Sub >= 501 && Sub <= 1000)
+            else if (Sub >= 751 && Sub <= 1000)
             {
                 AudioManager.Instance.PlaySE(AudioManager.Instance.SE[12]);
                 _Gradestate = Grade.Good;
