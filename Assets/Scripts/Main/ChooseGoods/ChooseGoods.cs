@@ -43,7 +43,7 @@ public class ChooseGoods : MonoBehaviour
     void CreateButton(GoodsCatalog.Entry entry, Transform parent)
     {
         GameObject but = Instantiate(ChoiceButton, parent);
-        but.GetComponent<Button>().onClick.AddListener(() => buttonmanagement.Money(entry.Amount,Destroygameobject,entry.Number));
+        but.GetComponent<Button>().onClick.AddListener(() => buttonmanagement.Money(entry.Amount,entry.Sprite,Destroygameobject,entry.Number));
 
         Destroygameobject.Add(but);
 
