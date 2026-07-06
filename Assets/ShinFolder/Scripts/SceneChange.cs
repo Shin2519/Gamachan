@@ -61,8 +61,24 @@ public class SceneChange : MonoBehaviour
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
         obj.SetActive(true);
     }
+
+    
     public void ChangeButton_false(GameObject obj)
     {
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+        obj.SetActive(false);
+    }
+
+    public void PoseButtonTrue(GameObject obj)
+    {
+        Time.timeScale = 0;
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
+        obj.SetActive(true);
+    }
+
+    public void PoseButtonFalse(GameObject obj)
+    {
+        Time.timeScale = 1;
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
         obj.SetActive(false);
     }

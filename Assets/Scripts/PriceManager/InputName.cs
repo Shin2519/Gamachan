@@ -22,6 +22,11 @@ public class InputName : MonoBehaviour
 
     [SerializeField] PlayerInput playerinput;
 
+    void OnNext(InputValue value)
+    {
+        if(value.isPressed) NameEnter();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,11 +54,6 @@ public class InputName : MonoBehaviour
         if (inputField.text != Regex.Replace(inputField.text, "[^a-zA-Z]", ""))
         {
             return;
-        }
-
-        if (playerinput.actions["OnNext"].WasPressedThisFrame())
-        {
-            NameEnter();
         }
     }
 
