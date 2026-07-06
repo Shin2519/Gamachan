@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class DataDetail
 {
-    public int? Score;
+    public int Score;
 
     public string Name;
 }

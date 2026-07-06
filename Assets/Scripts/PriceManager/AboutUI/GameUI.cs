@@ -235,7 +235,6 @@ public class GameUI : MonoBehaviour
         yield return new WaitUntil(() => !ResultManagement.Instance.p_skip);
 
         List<DataDetail> l_details = RankingData.Load_DataAmount();
-
         if (l_details.Count < 5)
         {
             AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
