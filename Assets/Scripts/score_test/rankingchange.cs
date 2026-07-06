@@ -11,7 +11,7 @@ public class rankingchange: MonoBehaviour
     [SerializeField]
     float duration = 0.5f;
 
-    private bool isFlipping = false;
+    bool isFlipping = false;
 
     RectTransform t_canvas;
 
@@ -25,7 +25,7 @@ public class rankingchange: MonoBehaviour
         t_canvas = timecanvas.GetComponent<RectTransform>();
         t_canvas.transform.localRotation = Quaternion.identity;
 
-        c_canvas = timecanvas.GetComponent<RectTransform>();
+        c_canvas = challengecanvas.GetComponent<RectTransform>();
         c_canvas.transform.localRotation = Quaternion.Euler(0, 180, 0);// 裏向きで待機
     }
 
@@ -56,6 +56,8 @@ public class rankingchange: MonoBehaviour
 
         while (time < duration)
         {
+
+
             float t = time / duration;
 
             // A: 0° → 90°
