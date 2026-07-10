@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-public class PoolManagement : MonoBehaviour//SingletonMonoBehaviour<PoolManagement>
+public class PoolManagement : MonoBehaviour
 {
     public static PoolManagement Instance;
 
