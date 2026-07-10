@@ -6,14 +6,6 @@ public class ProbabilityManager
     public int NormalRange;
     [Range(0,99)]
     public int GoldRange;
-    //public void Normal(float Shakespeed)
-    //{
-    //    int rnd = Random.Range(0, 100);
-    //    if (rnd >= 0 && rnd <= NormalRange)
-    //    {
-    //        KindofMoney(Shakespeed);
-    //    }
-    //}
     public void Gold(float Shakespeed)
     {
         int rnd = Random.Range(0, 100);

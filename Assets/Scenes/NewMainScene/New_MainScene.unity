@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243, y: 349}
+  m_AnchoredPosition: {x: 206, y: 349}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1818787
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1346,7 +1346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: 447}
+  m_AnchoredPosition: {x: -454, y: 85}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &294787783
@@ -1647,7 +1647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -239, y: 252}
+  m_AnchoredPosition: {x: -257, y: 252}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427116668
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChange
   titlepanels: []
-  fadeTime: 1
+  fadeTime: 2
 --- !u!1 &487286648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 194}
+  m_AnchoredPosition: {x: -44.999996, y: 194}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494637536
@@ -2854,7 +2854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243, y: 191}
+  m_AnchoredPosition: {x: 206.00002, y: 191}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &787110847
@@ -2904,8 +2904,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3489,7 +3489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 349}
+  m_AnchoredPosition: {x: -45, y: 349}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093616671
@@ -3770,7 +3770,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 1e3cd46833146af4fa5c5b12bcea149b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4709,7 +4709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
   gameUI: {fileID: 1259304339}
-  f_timer: 180
+  f_timer: 120
   f_current: 0
   f_combo: 0
 --- !u!1 &1259926201
@@ -5714,6 +5714,58 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 0.11328125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.r
+      value: 0.1252203
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 0.9197426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252699198080881219, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5036873361247252592, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: m_Camera
       value: 
@@ -5724,7 +5776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5036873361247252592, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: m_SortingOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5036873361247252592, guid: e78ae6ab04eac5c4eb490d64f17a1fe3, type: 3}
       propertyPath: m_PlaneDistance
@@ -6709,7 +6761,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 5f3ccc92718afd646bed4a972204e205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6890,7 +6942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 270}
+  m_AnchoredPosition: {x: -44.999996, y: 270}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094025527
@@ -7027,7 +7079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243, y: 270}
+  m_AnchoredPosition: {x: 206.00002, y: 270}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106929778
@@ -7077,8 +7129,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
