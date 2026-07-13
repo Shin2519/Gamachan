@@ -22,13 +22,12 @@ public class GamachanRendererChange : MonoBehaviour
         switch (l_gamastate)
         {
             case StateMashine.GamaState.Nomal:
-                GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Normal(0);
                 AudioManager.Instance.PlayBGM(AudioManager.Instance.BGM[0]);
-
+                GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Normal(0);
                 break;
             case StateMashine.GamaState.Gold:
-                GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Gold(0);
                 AudioManager.Instance.PlayBGM(AudioManager.Instance.BGM[2]);
+                GamaRenderer.sprite = Gama_SpriteRenderer.GetGamaEmotion_Gold(0);
                 break;
         }
     }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System;
 
-public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
+public class PoolManagement : MonoBehaviour
 {
+    public static PoolManagement Instance;
+
     [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     [SerializeField] private Coin[] CoinPrefab;
@@ -17,6 +19,11 @@ public class PoolManagement : SingletonMonoBehaviour<PoolManagement>
     Func<StateMashine.Skill> OnSkillState;
 
     private Dictionary<int, ObjectPool<Coin>> Pools = new();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void CoinInitialize()
     {
         foreach (var prefab in CoinPrefab)
