@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 50;
         if (Instance == null)
         {
             Instance = this;

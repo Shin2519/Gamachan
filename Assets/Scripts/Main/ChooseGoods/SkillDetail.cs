@@ -29,7 +29,9 @@ public class SkillDetail
 
     public void AddTime()
     {
-        AmountManagement.AddTimer(5);
+        int[] a = { 5, 7, 10 };
+        int i = Random.Range(0, a.Length);
+        AmountManagement.AddTimer(a[i]);
         Debug.Log("時間が増えた");
     }
 }
