@@ -290,17 +290,16 @@ public class GameUI : MonoBehaviour
     /// 精算ボタンを押したときに処理されるコルーチン
     /// </summary>
     /// <returns></returns>
-    public IEnumerator AmountDisplay()
+    public IEnumerator AmountDisplay(GameObject sumText)
     {
         if (OnPaying) yield break;
         OnPaying = true;
-
+        sumText.SetActive(true);
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[6]);
 
         ChangeMoneyDisplay();
 
         yield return new WaitForSeconds(1.0f);
-
         ShowGradeEfect(f_grade);
         ShowGrade(f_grade);
         
@@ -324,7 +323,6 @@ public class GameUI : MonoBehaviour
         goodscanvas.SetActive(true);
 
         OnGameState();
-
         OnPaying = false;
     }
     /// <summary>

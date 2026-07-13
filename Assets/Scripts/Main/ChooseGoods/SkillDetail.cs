@@ -29,7 +29,7 @@ public class SkillDetail
 
     public void AddTime()
     {
-        AmountManagement.AddTimer(3);
+        AmountManagement.AddTimer(5);
         Debug.Log("時間が増えた");
     }
 }

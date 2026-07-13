@@ -51,7 +51,7 @@ public class ButtonManagement : MonoBehaviour
     /// <summary>
     /// 精算ボタンを押したときにPaymentStatesという構造体の要素の中に値が入り、おつりや評価、コンボ数が表示される
     /// </summary>
-    public void TotalInputMoney()
+    public void TotalInputMoney(GameObject sumText)
     {
         if (OnGameState != StateMashine.GameState.GamaSakePhase) return;
         if (gameUI.p_OnPaying) return;
@@ -60,7 +60,7 @@ public class ButtonManagement : MonoBehaviour
 
         OnGradeJudge();
 
-        StartCoroutine(gameUI.AmountDisplay());
+        StartCoroutine(gameUI.AmountDisplay(sumText));
 
         
     }
