@@ -19,14 +19,14 @@ public class rankingchange: MonoBehaviour
     void Start()
     {
         // 最初は A を表示、B を非表示
-        timecanvas.SetActive(true);
-        challengecanvas.SetActive(false);
-
-        t_canvas = timecanvas.GetComponent<RectTransform>();
-        t_canvas.transform.localRotation = Quaternion.identity;
+        timecanvas.SetActive(false);
+        challengecanvas.SetActive(true);
 
         c_canvas = challengecanvas.GetComponent<RectTransform>();
-        c_canvas.transform.localRotation = Quaternion.Euler(0, 180, 0);// 裏向きで待機
+        c_canvas.transform.localRotation = Quaternion.identity;
+
+        t_canvas = timecanvas.GetComponent<RectTransform>();
+        t_canvas.transform.localRotation = Quaternion.Euler(0, 180, 0);// 裏向きで待機
     }
 
     public void FlipToCanvasB()
