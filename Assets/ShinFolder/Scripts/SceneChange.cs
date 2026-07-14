@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using NaughtyAttributes;
-using UnityEngine.UI;
+
 
 
 public class SceneChange : MonoBehaviour
@@ -24,36 +21,13 @@ public class SceneChange : MonoBehaviour
             titlepanels[i].SetActive(false);
         }
     }
-    //パネル切り替え,チュートリアルチェック
-    public void TitletoTutorialCheck()
-    {
-        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
-        titlepanels[1].SetActive(true);
-    }
 
-    //シーン切り替え
-    public void TutorialChecktoTutorialYES()
-    {
-        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
-        FadeManager.Instance.LoadLevel(0, fadeTime);
-
-    }
-
-    //パネル切り替えモード選択
-    public void TutorialChecktoTutorialNO()
-    {
-        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[0]);
-        titlepanels[1].SetActive(false);
-
-        titlepanels[2].SetActive(true);
-
-    }
     public void RoadCharengeScene()
     {
         if (ispush) return;
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[2]);
-        ispush = true;
         FadeManager.Instance.LoadLevel(2,fadeTime);
+        ispush = true;
     }
 
     public void ChangeButton_true(GameObject obj)
@@ -93,7 +67,6 @@ public class SceneChange : MonoBehaviour
     {
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[2]);
         FadeManager.Instance.LoadLevel(0, fadeTime);
-
     }
 
     public void EndGame()

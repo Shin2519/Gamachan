@@ -59,8 +59,8 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>//singleはどこ�
 
         //シーンの切り替え
         SceneManager.LoadScene(scene);
- 
 
+        yield return new WaitForSeconds(interval);
 
         //だんだん明るく
         time = 0;
