@@ -6030,7 +6030,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1320417352712090353, guid: 691eaf580b0c3ba49a8c14c7344af231, type: 3}
       propertyPath: fadeTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1320417352712090353, guid: 691eaf580b0c3ba49a8c14c7344af231, type: 3}
       propertyPath: audioData

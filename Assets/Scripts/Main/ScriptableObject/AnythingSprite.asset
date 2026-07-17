@@ -32,4 +32,4 @@ MonoBehaviour:
   GradeEfect:
   - {fileID: 21300000, guid: c8bb5dd4f87003a42bde05970f30c3e1, type: 3}
   - {fileID: 21300000, guid: 9be8bf8754d4ebf48a8dd94bc5bee387, type: 3}
-  - {fileID: 21300000, guid: 9be8bf8754d4ebf48a8dd94bc5bee387, type: 3}
+  - {fileID: 21300000, guid: b5922f285d63e3a4c84b5011e959634d, type: 3}
