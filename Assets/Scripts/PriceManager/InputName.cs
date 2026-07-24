@@ -22,7 +22,7 @@ public class InputName : MonoBehaviour
 
     [SerializeField] PlayerInput playerinput;
 
-    void OnNext(InputValue value)
+    public void OnNext(InputValue value)
     {
         if(value.isPressed) NameEnter();
     }
@@ -35,8 +35,6 @@ public class InputName : MonoBehaviour
         namecount.enabled = false;
         ngtext.enabled = false;
         ngtext_e.enabled = false;
-
-        inputField.onValueChanged.AddListener(delegate { InputText(); });
 
     }
 

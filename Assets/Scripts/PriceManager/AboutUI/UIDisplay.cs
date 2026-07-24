@@ -21,15 +21,13 @@ public class UIDisplay
         ChangeMoneyText = l_ChangeMoneyText.GetComponent<TextMeshProUGUI>();
     }
 
-    public void TargetAmountTextDisPlay()
+    public void TextDisPlay()
     {
         TargetMoneyAmountText.text = AnythingData.payment.TargetAmount + "円";
-    }
 
-    public void InputMoneyAmountTextDisplay()
-    {
         InputMoneyAmountText.text = AnythingData.TotalMoney() + "円";
     }
+
     public void ChangeTextDisplay()
     {
         ChangeMoneyText.text = AnythingData.payment.ChangeMoney + "円";
@@ -51,12 +49,15 @@ class TimerDisplay
 
         UpdateColor(timer);
     }
+
     private void UpdateColor(float timer)
     {
         if (10 < timer && timer <= 30)
             TimerText.color = new Color32(255, 128, 0, 255);
         else if (timer <= 10)
             TimerText.color = new Color32(255, 0, 0, 255);
+        else
+            TimerText.color = new Color32(0,0,0,255);
     }
 }
 class GaugeDisplay
