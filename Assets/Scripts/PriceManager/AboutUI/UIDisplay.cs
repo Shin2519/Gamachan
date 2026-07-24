@@ -49,10 +49,6 @@ class TimerDisplay
 
         UpdateColor(timer);
     }
-    public void PlusTime(float time)
-    {
-
-    }
 
     private void UpdateColor(float timer)
     {
@@ -60,6 +56,8 @@ class TimerDisplay
             TimerText.color = new Color32(255, 128, 0, 255);
         else if (timer <= 10)
             TimerText.color = new Color32(255, 0, 0, 255);
+        else
+            TimerText.color = new Color32(0,0,0,255);
     }
 }
 class GaugeDisplay

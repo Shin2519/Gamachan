@@ -22,7 +22,8 @@ namespace StateMashine
         NoSkill,
         Golden,
         NormalLocked,
-        AddTime
+        AddTime,
+        AutomaticPayment
     }
 
     public enum Grade
@@ -223,6 +224,9 @@ public class GameLoopManagement : MonoBehaviour
                 break;
             case 3:
                 _SkillState = Skill.AddTime;
+                break;
+            case 4:
+                _SkillState = Skill.AutomaticPayment;
                 break;
         }
     }

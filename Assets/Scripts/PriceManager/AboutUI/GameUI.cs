@@ -24,7 +24,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject[] f_register_text;
 
     [SerializeField] private GameObject timetext;//���ԃe�L�X�g
-
+    [SerializeField] private GameObject plusTime;
 
     [SerializeField] private GameObject[] f_gaugeimege;
 
@@ -41,6 +41,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject f_CountDownImage;
 
     [SerializeField] private GameObject result;
+
+    public GameObject sumText;
+
 
     [SerializeField] KindOfSprite KindOfSprite = new KindOfSprite();
 
@@ -262,6 +265,16 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    public IEnumerator PlusTimeText(float plustime)
+    {
+        TextMeshProUGUI text = plusTime.GetComponent<TextMeshProUGUI>();
+
+        text.text = "+" + plustime.ToString();
+
+        yield return new WaitForSeconds(1f);
+
+        text.text = " ";
+    }
     public void InputNameSetActive()
     {
         f_InputName_ui.SetActive(true);
