@@ -21,10 +21,13 @@ public class UIDisplay
         ChangeMoneyText = l_ChangeMoneyText.GetComponent<TextMeshProUGUI>();
     }
 
-    public void TextDisPlay()
+    public void TargetAmountTextDisPlay()
     {
         TargetMoneyAmountText.text = AnythingData.payment.TargetAmount + "円";
+    }
 
+    public void InputMoneyAmountTextDisplay()
+    {
         InputMoneyAmountText.text = AnythingData.TotalMoney() + "円";
     }
 

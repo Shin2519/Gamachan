@@ -4938,6 +4938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69933d8967ef39e4bacdbb86ba44a691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolManagement
+  display: {fileID: 1259304339}
   AmountManagement: {fileID: 1259304341}
   CoinPrefab:
   - {fileID: 3510132005825385936, guid: 1c11839eece5141479218b7130979be0, type: 3}
@@ -5961,6 +5962,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef5b4dc7064a51043b28caed2df779b8, type: 3}
   f_CountDownImage: {fileID: 1946740035}
   result: {fileID: 1435336849}
+  sumText: {fileID: 494637534}
   KindOfSprite:
     Gama: {fileID: 11400000, guid: 9b1f18e5f8aedfa448c3371a3da21b78, type: 2}
     anything: {fileID: 11400000, guid: 4a65be1e1682bd84daed71a1e9610b0c, type: 2}

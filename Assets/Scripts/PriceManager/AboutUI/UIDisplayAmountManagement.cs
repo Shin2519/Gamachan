@@ -22,6 +22,8 @@ public class UIDisplayAmountManagement : MonoBehaviour
 
     StateMashine.GameState OnGameState;
 
+    [SerializeField] GameUI gameUI;
+
     [SerializeField, Header("制限時間")]
     float f_timer;
 
@@ -77,7 +79,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        f_timer -= Time.deltaTime;
+        Timer -= Time.deltaTime;
     }
 
     public void SetActionMesod_bool(Action<bool> l_changestate)

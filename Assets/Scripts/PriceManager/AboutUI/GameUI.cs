@@ -51,7 +51,7 @@ public class GameUI : MonoBehaviour
 
     TimerDisplay timerDisplay;
 
-    [SerializeField] GaugeDisplay gaugeDisplay;
+     GaugeDisplay gaugeDisplay;
 
     [SerializeField] ScoreDisplay scoredisplay;
 
@@ -69,13 +69,15 @@ public class GameUI : MonoBehaviour
     public Image rejistergoods;
     void Start()
     {
+        uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
+        timerDisplay = new TimerDisplay(timetext);
+        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1], gradient, AmountManagement);
         AmountManagement.SetActionMesod(GaugeImageControl);
         AmountManagement.SetFuncMesod(FinishTimer);
         AmountManagement.SetActionMethod_Gauge(gaugeDisplay.GaugeUpdate);
         AmountManagement.SetActionMethod_Timer(TimerDisplay);
-        uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
-        timerDisplay = new TimerDisplay(timetext);
-        gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient,AmountManagement);
+        
+        
         f_pause_ui.SetActive(false);
     }
     /// <summary>
