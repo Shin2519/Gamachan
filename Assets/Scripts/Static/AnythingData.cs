@@ -113,4 +113,30 @@ public static class AnythingData
         coin.FiveYenCoins = 0;
         coin.OneYenCoins = 0;
     }
+
+    public static void DataInitialize()
+    {
+        gradecount.PerfectCount = 0;
+        gradecount.GreatCount = 0;
+        gradecount.GoodCount = 0;
+        gradecount.BadCount = 0;
+        gradecount.MissCount = 0;
+
+        coin.FivehundredYenCoins = 0;
+        coin.OnehundredYenCoins = 0;
+        coin.FiftyYenCoins = 0;
+        coin.TenYenCoins = 0;
+        coin.FiveYenCoins = 0;
+        coin.OneYenCoins = 0;
+
+        payment.TargetAmount = 0;
+        payment.InputMoney = 0;
+        payment.ChangeMoney = 0;
+
+        anotherbonus.CoinBonusCount = 0;
+        anotherbonus.GoldenCount = 0;
+        anotherbonus.ComboBonusCount = 0;
+        anotherbonus.SpeedCount = 0;
+        anotherbonus.TotalChangeCount = 0;
+    }
 }

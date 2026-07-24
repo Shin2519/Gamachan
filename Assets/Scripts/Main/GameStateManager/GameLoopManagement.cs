@@ -132,6 +132,7 @@ public class GameLoopManagement : MonoBehaviour
         switch (gameState)
         {
             case GameState.StartCountDownPhase:
+                AnythingData.DataInitialize();
                 StartCoroutine(GameUI.StartTimer());
                 PoolManagement.CoinInitialize();
                 break;
