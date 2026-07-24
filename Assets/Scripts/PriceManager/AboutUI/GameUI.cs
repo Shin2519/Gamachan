@@ -68,17 +68,12 @@ public class GameUI : MonoBehaviour
     {
         AmountManagement.SetActionMesod(GaugeImageControl);
         AmountManagement.SetFuncMesod(FinishTimer);
+        AmountManagement.SetActionMethod_Gauge(gaugeDisplay.GaugeUpdate);
+        AmountManagement.SetActionMethod_Timer(TimerDisplay);
         uidisplay = new UIDisplay(f_register_text[1], f_register_text[3], f_register_text[5]);
         timerDisplay = new TimerDisplay(timetext);
         gaugeDisplay = new GaugeDisplay(f_gaugeimege[1],gradient,AmountManagement);
         f_pause_ui.SetActive(false);
-    }
-
-    void Update()
-    {
-        uidisplay.TextDisPlay();
-        gaugeDisplay.GaugeUpdate(AmountManagement.Current,100);
-        timerDisplay.Refresh(AmountManagement.Timer);
     }
     /// <summary>
     /// StartCountDownPhaseになったら発動させるカウントダウンのコルーチン
@@ -328,6 +323,21 @@ public class GameUI : MonoBehaviour
 
         OnGameState();
         OnPaying = false;
+    }
+
+    public void TargetAmountDisplay()
+    {
+        uidisplay.TargetAmountTextDisPlay();
+    }
+
+    public void InputAmountDisplay()
+    {
+        uidisplay.InputMoneyAmountTextDisplay();
+    }
+
+    void TimerDisplay()
+    {
+        timerDisplay.Refresh(AmountManagement.Timer);
     }
     /// <summary>
     /// GoodsSelectPhaseや精算ボタンを押したときに発動する、おつりのテキストを更新させる関数

@@ -1,5 +1,6 @@
 ﻿using StateMashine;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 namespace StateMashine
 { 
@@ -144,6 +145,9 @@ public class GameLoopManagement : MonoBehaviour
                 GameUI.ChangeMoneyDisplay();
                 GameUI.TextInRegister(false);
                 ChooseGoods.SpriteAndAmountChange();
+                break;
+            case GameState.GamaSakePhase:
+                GameUI.TargetAmountDisplay();
                 break;
             case GameState.RegisterPhase:
                 AnythingData.AddSpeedBonus(l_pasttimer,AmountManagement.Timer);

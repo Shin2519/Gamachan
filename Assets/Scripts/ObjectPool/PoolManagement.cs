@@ -6,6 +6,8 @@ public class PoolManagement : MonoBehaviour
 {
     public static PoolManagement Instance;
 
+    [SerializeField] UIDisplay display;
+
     [SerializeField] UIDisplayAmountManagement AmountManagement;
 
     [SerializeField] private Coin[] CoinPrefab;
@@ -67,6 +69,7 @@ public class PoolManagement : MonoBehaviour
             case 100: AnythingData.coin.OnehundredYenCoins++; break;
             case 500: AnythingData.coin.FivehundredYenCoins++; break;
         }
+        display.InputMoneyAmountTextDisplay();
     }
 
     public void SetSkillState(Func<StateMashine.Skill> l_skillstate)

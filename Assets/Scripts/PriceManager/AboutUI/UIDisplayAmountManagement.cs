@@ -6,17 +6,21 @@ public class UIDisplayAmountManagement : MonoBehaviour
 {
     const int Min_ComboCount = 3;
 
+    const float Max_Gauge = 100;
+
     Action<bool> Ongaugefull;
 
     Action<Action<bool>> Ongaugeimagecontrol;
+
+    Action<float,float> OnGaugeUpdate;
+
+    Action OnTimerDisplay;
 
     Func<IEnumerator> OnFinishCountDown;
 
     Func<StateMashine.Skill> GetSkillState;
 
     StateMashine.GameState OnGameState;
-
-    [SerializeField] GameUI gameUI;
 
     [SerializeField, Header("制限時間")]
     float f_timer;
@@ -26,7 +30,21 @@ public class UIDisplayAmountManagement : MonoBehaviour
 
     [SerializeField]
     int f_combo;
-    public float Timer => f_timer;
+    public float Timer
+    {
+        get => f_timer;
+        set
+        {
+            if (OnGameState == StateMashine.GameState.StartCountDownPhase) return;
+            f_timer = Mathf.Max(value,0);
+            OnTimerDisplay();
+            if (f_timer <= 4 && !finish)
+            {
+                StartCoroutine(OnFinishCountDown());
+                finish = true;
+            }
+        }
+    }
 
     bool finish = false;
     public float Current
@@ -34,8 +52,9 @@ public class UIDisplayAmountManagement : MonoBehaviour
         get => f_current;
         set
         {
-            f_current = Mathf.Clamp(value,0,100);
-            if(f_current>=100)
+            f_current = Mathf.Clamp(value,0,Max_Gauge);
+            OnGaugeUpdate(value, Max_Gauge);
+            if(f_current>= Max_Gauge)
             {
                 Ongaugefull(true);
                 StateMashine.Skill OnSkillState = GetSkillState();
@@ -58,14 +77,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (OnGameState == StateMashine.GameState.StartCountDownPhase) return;
         f_timer -= Time.deltaTime;
-        if(f_timer<=4&&!finish)
-        {
-            StartCoroutine(OnFinishCountDown());
-            finish = true;
-        }
-        if (f_timer < 0) f_timer = 0;
     }
 
     public void SetActionMesod_bool(Action<bool> l_changestate)
@@ -89,6 +101,16 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public void SetSkillState(Func<StateMashine.Skill> l_skillstate)
     {
         GetSkillState = l_skillstate;
+    }
+
+    public void SetActionMethod_Gauge(Action<float,float> l_gaugeupdate)
+    {
+        OnGaugeUpdate = l_gaugeupdate;
+    }
+
+    public void SetActionMethod_Timer(Action l_timerdisplay)
+    {
+        OnTimerDisplay = l_timerdisplay;
     }
 
     public void AddTimer(float addtime)
