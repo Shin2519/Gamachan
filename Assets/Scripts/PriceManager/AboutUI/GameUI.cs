@@ -25,6 +25,7 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject timetext;//���ԃe�L�X�g
 
+
     [SerializeField] private GameObject[] f_gaugeimege;
 
     [SerializeField] private GameObject f_pause_ui;
@@ -306,11 +307,14 @@ public class GameUI : MonoBehaviour
 
         gamachanRendererChange.NormalOrGold_GradeEmotion(f_grade);
 
-        if (AmountManagement.Combo >= 3)
+        if (AmountManagement.Combo >0)
         {
-            yield return new WaitForSeconds(1.0f);
+            if ((AmountManagement.Combo % 3) == 0)
+            {
+                yield return new WaitForSeconds(1.0f);
 
-            ShowCombo(AmountManagement.Combo);
+                ShowCombo(AmountManagement.Combo);
+            }
         }
 
         yield return new WaitForSeconds(1.0f);

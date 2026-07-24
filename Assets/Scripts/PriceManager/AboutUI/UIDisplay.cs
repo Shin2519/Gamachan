@@ -36,7 +36,6 @@ public class UIDisplay
 class TimerDisplay
 { 
     private readonly TextMeshProUGUI TimerText;
-
     public TimerDisplay(GameObject l_timertext)
     {
         TimerText = l_timertext.GetComponent<TextMeshProUGUI>();
@@ -49,6 +48,10 @@ class TimerDisplay
         TimerText.text = string.Format("TIME:{0:D2}:{1:D2}", minutes, seconds);
 
         UpdateColor(timer);
+    }
+    public void PlusTime(float time)
+    {
+
     }
 
     private void UpdateColor(float timer)

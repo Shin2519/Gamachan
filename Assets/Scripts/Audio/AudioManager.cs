@@ -45,14 +45,13 @@ public class AudioManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "TitleScene")
         PlayBGM(BGM[0]);
     }
-    public void PlayBGM(AudioClip clip,bool loop = true)
+    public void PlayBGM(AudioClip clip)
     {
         if (clip == null) return;
 
         if (bgmSource.clip == clip && bgmSource.isPlaying) return;
         
         bgmSource.clip = clip;
-        bgmSource.loop = loop;
         bgmSource.Play();
     }
 

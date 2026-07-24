@@ -94,5 +94,6 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public void AddTimer(float addtime)
     {
         f_timer += addtime;
+
     }
 }

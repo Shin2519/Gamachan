@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour
     [SerializeField] private GameObject[] titlepanels;
     bool ispush = false;
 
-    [SerializeField] private float fadeTime = 1f;
+    [SerializeField] private float fadeTime;
 
 
 
@@ -65,6 +65,7 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeButton_Ti()
     {
+        Time.timeScale = 1;
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[2]);
         FadeManager.Instance.LoadLevel(0, fadeTime);
     }
