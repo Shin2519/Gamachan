@@ -5,7 +5,10 @@ using System.Collections.Generic;
 public class RankingDisplay : MonoBehaviour
 {
     [SerializeField]
-    Text[] RankingText;
+    Text[] RankingScoreText;
+
+    [SerializeField]
+    Text[] RankingNameText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +24,8 @@ public class RankingDisplay : MonoBehaviour
         for(int i = 0;i < details.Count;i++)
         {
             int rankingnum = i + 1;
-            RankingText[i].text = rankingnum + "位:" + sort_details[i].Score + "  " + sort_details[i].Name.ToString();
+            RankingScoreText[i].text = rankingnum + "位:" + sort_details[i].Score.ToString();
+            RankingNameText[i].text = sort_details[i].Name.ToString();
         }
     }
 }

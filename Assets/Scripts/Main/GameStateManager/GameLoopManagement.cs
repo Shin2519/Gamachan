@@ -1,7 +1,5 @@
 ﻿using StateMashine;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
-
 namespace StateMashine
 { 
     public enum GameState
