@@ -1,29 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField, Header("‰‘¬“x")]
+    [SerializeField, Header("åˆé€Ÿåº¦")]
     private float v0;
 
-    [SerializeField, Header("‹àŠz")]
+    [SerializeField, Header("é‡‘é¡")]
     private int yen;
 
     public int Yen => yen;
 
     Action<Coin> onReturn;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Initialize(Action<Coin> onReturn)
     {
         this.onReturn = onReturn;
