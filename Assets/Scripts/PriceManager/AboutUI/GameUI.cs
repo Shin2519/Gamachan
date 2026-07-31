@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using DG.Tweening.Core.Easing;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 /// <summary>
 /// UIを表示させる処理のスクリプト
 /// </summary>
@@ -39,6 +40,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] private Sprite[] finishsprites;
 
     [SerializeField] private GameObject f_CountDownImage;
+
+    [SerializeField] private GameObject countDownBackGround;
 
     [SerializeField] private GameObject result;
 
@@ -106,6 +109,7 @@ public class GameUI : MonoBehaviour
         yield return null;
         sprite.sprite = startsprites[3];
         yield return new WaitForSeconds(1);
+        countDownBackGround.SetActive(false);
         f_CountDownImage.SetActive(false);
         StartSetActive(true);
         OnGameState();
