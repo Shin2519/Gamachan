@@ -1,7 +1,9 @@
 ﻿using DG.Tweening;
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
@@ -29,6 +31,12 @@ public class UIDisplay
     public void InputMoneyAmountTextDisplay()
     {
         InputMoneyAmountText.text = AnythingData.TotalMoney() + "円";
+
+    }
+    public void InputMoneyReset()
+    {
+        InputMoneyAmountText.text = 0+ "円";
+
     }
 
     public void ChangeTextDisplay()

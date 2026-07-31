@@ -335,7 +335,7 @@ public class GameUI : MonoBehaviour
 
         rejistergoods.sprite = null;
         goodscanvas.SetActive(true);
-
+        uidisplay.InputMoneyReset();
         OnGameState();
         OnPaying = false;
     }
