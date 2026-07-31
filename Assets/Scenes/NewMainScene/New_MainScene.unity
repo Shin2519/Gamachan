@@ -1478,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &275113055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2869,7 +2869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2877,15 +2877,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 225
+      value: 337
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2917,11 +2917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 399.99997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -224.99998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 744068536000682583, guid: 2e50040cc943a9a45894bbdb370eecc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8162,7 +8162,7 @@ MonoBehaviour:
   ChoiceButton: {fileID: 6536324933968809918, guid: 9bd5eafd440880a4380579f4916f317e, type: 3}
   GoodsPanel: {fileID: 734432820}
   ParentGoodsPanel: {fileID: 666450970}
-  ParentGoodsCanvas: {fileID: 666450970}
+  ParentGoodsCanvas: {fileID: 275113059}
   descripsion: {fileID: 11400000, guid: 3418605dfd57cdf48b689142c0ddf909, type: 2}
 --- !u!4 &1958669712
 Transform:
