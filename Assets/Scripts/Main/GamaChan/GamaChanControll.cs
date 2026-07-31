@@ -31,8 +31,6 @@ public class GamaChanControll : MonoBehaviour
             ShakeCharge = Mathf.Clamp(value,0,100);
         }
     }
-
-    public Sprite p_GamachanRenderer { set => GamachanRenderer.sprite = value; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

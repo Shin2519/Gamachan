@@ -6039,7 +6039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerManagement
   gameUI: {fileID: 1259304339}
-  f_timer: 120
+  f_timer: 150
   f_current: 0
   f_combo: 0
 --- !u!1001 &1314118940

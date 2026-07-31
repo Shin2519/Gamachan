@@ -6060,6 +6060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 6572248538738154681, guid: 691eaf580b0c3ba49a8c14c7344af231, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8267880161320910360, guid: 691eaf580b0c3ba49a8c14c7344af231, type: 3}
       propertyPath: m_Pivot.x
       value: 0

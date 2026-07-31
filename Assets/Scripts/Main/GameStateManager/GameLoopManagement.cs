@@ -1,6 +1,5 @@
 ﻿using StateMashine;
 using UnityEngine;
-
 namespace StateMashine
 { 
     public enum GameState
