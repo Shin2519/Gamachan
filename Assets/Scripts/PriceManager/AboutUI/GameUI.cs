@@ -90,6 +90,7 @@ public class GameUI : MonoBehaviour
     public IEnumerator StartTimer()
     {
         f_CountDownImage.SetActive(true);
+        countDownBackGround.SetActive(true);
         StartSetActive(false);
         TextInRegister(false);
         int startTimer = 2;
