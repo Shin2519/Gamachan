@@ -236,11 +236,11 @@ public class GameUI : MonoBehaviour
         yield return new WaitUntil(() => !ResultManagement.Instance.p_skip);
 
         List<DataDetail> l_details = RankingData.Load_DataAmount();
+
+        ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
         if (l_details.Count < 5)
         {
             AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
-
-            ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
 
             RankingData.Save_Score(scoreresult.totalScore);
 
@@ -250,11 +250,9 @@ public class GameUI : MonoBehaviour
         {
             AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
 
-            f_RankInFlag_ui.SetActive(true);
-
-            ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
-
             if (scoreresult.totalScore <= l_details[4].Score) yield break;
+
+            f_RankInFlag_ui.SetActive(true);
 
             l_details[4].Score = scoreresult.totalScore;
 
