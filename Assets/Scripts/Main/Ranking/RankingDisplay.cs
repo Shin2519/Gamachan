@@ -9,17 +9,22 @@ public class RankingDisplay : MonoBehaviour
 
     [SerializeField]
     Text[] RankingNameText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void OnEnable()
     {
         ScoreAndNameDisplay();
     }
-
+    void OnDisable()
+    {
+        
+    }
     void ScoreAndNameDisplay()
     {
         List<DataDetail> details = RankingData.Load_DataAmount();
 
         var sort_details = details.OrderByDescending(x => x.Score).ToList();
+
+        Debug.Log(sort_details);
 
         for(int i = 0;i < details.Count;i++)
         {
