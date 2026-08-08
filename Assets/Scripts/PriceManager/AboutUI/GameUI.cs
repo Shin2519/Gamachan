@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using DG.Tweening.Core.Easing;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 /// <summary>
 /// UIを表示させる処理のスクリプト
 /// </summary>
@@ -39,6 +40,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] private Sprite[] finishsprites;
 
     [SerializeField] private GameObject f_CountDownImage;
+
+    [SerializeField] private GameObject countDownBackGround;
 
     [SerializeField] private GameObject result;
 
@@ -87,6 +90,7 @@ public class GameUI : MonoBehaviour
     public IEnumerator StartTimer()
     {
         f_CountDownImage.SetActive(true);
+        countDownBackGround.SetActive(true);
         StartSetActive(false);
         TextInRegister(false);
         int startTimer = 2;
@@ -106,6 +110,7 @@ public class GameUI : MonoBehaviour
         yield return null;
         sprite.sprite = startsprites[3];
         yield return new WaitForSeconds(1);
+        countDownBackGround.SetActive(false);
         f_CountDownImage.SetActive(false);
         StartSetActive(true);
         OnGameState();
@@ -333,7 +338,7 @@ public class GameUI : MonoBehaviour
 
         rejistergoods.sprite = null;
         goodscanvas.SetActive(true);
-
+        uidisplay.InputMoneyReset();
         OnGameState();
         OnPaying = false;
     }
