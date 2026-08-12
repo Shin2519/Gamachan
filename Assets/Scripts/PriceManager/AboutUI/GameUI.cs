@@ -240,29 +240,9 @@ public class GameUI : MonoBehaviour
 
         yield return new WaitUntil(() => !ResultManagement.Instance.p_skip);
 
-        List<DataDetail> l_details = RankingData.Load_DataAmount();
-
         ChallengeScoreResult scoreresult = ScoreCalculator.Instance.CalculateChallenge();
-        if (l_details.Count < 5)
-        {
-            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
 
-            RankingData.Save_Score(scoreresult.totalScore);
-
-            f_RankInFlag_ui.SetActive(true);
-        }
-        else
-        {
-            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
-
-            if (scoreresult.totalScore <= l_details[4].Score) yield break;
-
-            f_RankInFlag_ui.SetActive(true);
-
-            l_details[4].Score = scoreresult.totalScore;
-
-            l_details[4].Name = string.Empty;
-        }
+        RankingData.Save_Score(scoreresult.totalScore, f_RankInFlag_ui);
     }
 
     public IEnumerator PlusTimeText(float plustime)
@@ -285,6 +265,8 @@ public class GameUI : MonoBehaviour
         AudioManager.Instance.PlaySE(AudioManager.Instance.SE[1]);
 
         f_RankInFlag_ui.SetActive(false);
+
+        RankingData.Save_Name(string.Empty);
     }
 
     public void GoodsCanvas()

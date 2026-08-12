@@ -62,7 +62,6 @@ public class ButtonManagement : MonoBehaviour
 
         StartCoroutine(gameUI.AmountDisplay(sumText));
     }
-
     public void SetActionMesod(Action l_gradejudge)
     {
         OnGradeJudge = l_gradejudge;
