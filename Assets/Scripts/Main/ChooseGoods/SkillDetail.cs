@@ -7,6 +7,7 @@ public class SkillDetail
     float before_gaugeamount;
 
     UIDisplayAmountManagement AmountManagement;
+
     public SkillDetail(UIDisplayAmountManagement l_amountmanagement)
     {
         AmountManagement = l_amountmanagement;
@@ -27,11 +28,19 @@ public class SkillDetail
         Debug.Log("ノーマル固定");
     }
 
-    public void AddTime()
+    public void AddTime5()
     {
-        int[] a = { 5, 7, 10 };
-        int i = Random.Range(0, a.Length);
-        AmountManagement.AddTimer(a[i]);
+        AmountManagement.AddTimer(5);
         Debug.Log("時間が増えた");
+    }
+    public void AddTime7()
+    {
+        AmountManagement.AddTimer(7);
+        Debug.Log("7");
+    }
+    public void AddTime10()
+    {
+        AmountManagement.AddTimer(10);
+        Debug.Log("10");
     }
 }

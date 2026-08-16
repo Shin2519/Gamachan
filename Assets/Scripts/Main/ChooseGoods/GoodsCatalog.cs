@@ -22,7 +22,7 @@ public class GoodsCatalog
         {
             foreach (var item in genre.Items)
             {
-                int Num = Random.Range(0,4);
+                int Num = Random.Range(0,6);
                 string l_detail = descripsion.GetSkillDetail(Num);
                 entries.Add(new Entry{Sprite = item.GoodsSprite,Amount = item.Amount,Number = Num,Description = l_detail});
             }

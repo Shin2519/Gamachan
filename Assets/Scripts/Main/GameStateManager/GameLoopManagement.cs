@@ -21,8 +21,9 @@ namespace StateMashine
         NoSkill,
         Golden,
         NormalLocked,
-        AddTime,
-        AutomaticPayment
+        AddTime5,
+        AddTime7,
+        AddTime10,
     }
 
     public enum Grade
@@ -171,9 +172,16 @@ public class GameLoopManagement : MonoBehaviour
             case Skill.NormalLocked:
                 skillDetail.NormalLocked();
                 break;
-            case Skill.AddTime:
-                skillDetail.AddTime();
+            case Skill.AddTime5:
+                skillDetail.AddTime5();
                 break;
+            case Skill.AddTime7:
+                skillDetail.AddTime7();
+                break;
+            case Skill.AddTime10:
+                skillDetail.AddTime10();
+                break;
+
         }
     }
     /// <summary>
@@ -225,10 +233,13 @@ public class GameLoopManagement : MonoBehaviour
                 _SkillState = Skill.NormalLocked;
                 break;
             case 3:
-                _SkillState = Skill.AddTime;
+                _SkillState = Skill.AddTime5;
                 break;
             case 4:
-                _SkillState = Skill.AutomaticPayment;
+                _SkillState = Skill.AddTime7;
+                break;
+            case 5:
+                _SkillState = Skill.AddTime10;
                 break;
         }
     }

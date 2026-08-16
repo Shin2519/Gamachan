@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class ChooseGoods : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class ChooseGoods : MonoBehaviour
     [SerializeField] SkillDescripsion descripsion;
 
     Transform ParentPanel;
+    
 
     List<GameObject> Destroygameobject = new List<GameObject>();
 
@@ -47,13 +50,13 @@ public class ChooseGoods : MonoBehaviour
 
         Destroygameobject.Add(but);
 
-        Text text = but.transform.GetChild(0).GetComponent<Text>();
+        TextMeshProUGUI text = but.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         text.text = entry.Amount.ToString();
 
         Image image = but.transform.GetChild(1).GetComponent<Image>();
         image.sprite = entry.Sprite;
 
-        Text text_2 = but.transform.GetChild(2).GetComponent<Text>();
+        TextMeshProUGUI text_2 = but.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         text_2.text = entry.Description.ToString();
     }
     public void SpriteAndAmountChange()
