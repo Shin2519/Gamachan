@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.IO;
 using UnityEngine;
 [Serializable]
@@ -17,6 +18,9 @@ public class Data
 
 public static class RankingData
 {
+    static string filePath = Application.persistentDataPath + "/RankingData.json";
+
+    static string json;
     public static List<DataDetail> Load_DataAmount()
     {
         Data data = new Data();
@@ -26,17 +30,36 @@ public static class RankingData
         return data.datadetails;
     }
 
-    public static void Save_Score(int l_score)
+    public static void Save_Score(int l_score,GameObject l_setactive)
     {
-        string filePath = Application.persistentDataPath + "/RankingData.json";
-
-        string json;
-
         Data data = new Data();
 
         data = GetData(data);
 
-        data.datadetails.Add(new DataDetail { Score = l_score,Name = string.Empty});
+        if(data.datadetails.Count > 5&&l_score > data.datadetails[4].Score)
+        {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
+
+            data.datadetails.Add(new DataDetail { Score = l_score, Name = string.Empty });
+
+            l_setactive.SetActive(true);
+
+            var sort_details = data.datadetails.OrderByDescending(x => x.Score).Take(5).ToList();
+
+            data.datadetails = sort_details;
+        }
+        else
+        {
+            AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
+
+            data.datadetails.Add(new DataDetail { Score = l_score, Name = string.Empty });
+
+            l_setactive.SetActive(true);
+
+            var sort_details = data.datadetails.OrderByDescending(x => x.Score).ToList();
+
+            data.datadetails = sort_details;
+        }
 
         json = JsonUtility.ToJson(data);
 
@@ -45,15 +68,13 @@ public static class RankingData
 
     public static void Save_Name(string l_name)
     {
-        string filePath = Application.persistentDataPath + "/RankingData.json";
-
-        string json;
-
         Data data = new Data();
 
         data = GetData(data);
 
-        if(data.datadetails.Count > 0)
+        AudioManager.Instance.PlaySE(AudioManager.Instance.SE[16]);
+
+        if (data.datadetails.Count > 0)
         {
             data.datadetails[data.datadetails.Count - 1].Name = l_name;
         }
@@ -62,13 +83,8 @@ public static class RankingData
 
         File.WriteAllText(filePath, json);
     }
-
     static Data GetData(Data l_data)
     {
-        string filePath = Application.persistentDataPath + "/RankingData.json";
-
-        string json;
-
         if (File.Exists(filePath))
         {
             json = File.ReadAllText(filePath);

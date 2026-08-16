@@ -61,10 +61,7 @@ public class ButtonManagement : MonoBehaviour
         OnGradeJudge();
 
         StartCoroutine(gameUI.AmountDisplay(sumText));
-
-        
     }
-
     public void SetActionMesod(Action l_gradejudge)
     {
         OnGradeJudge = l_gradejudge;
@@ -83,18 +80,5 @@ public class ButtonManagement : MonoBehaviour
     public void SetActionMesod_SkillState(Action<int> l_skillstatechange)
     {
         OnSkillStateChange = l_skillstatechange;
-    }
-
-    public void SaveNameData()
-    {
-        string Namedata = gameUI.p_InputNameUGUI.ToString(); 
-        for(int i = 0;i < 5;i++)
-        {
-            if(!PlayerPrefs.HasKey("Name" + (i + 1).ToString()))
-            {
-                PlayerPrefs.SetString((i + 1).ToString(),Namedata);
-                break;
-            }
-        }
     }
 }
