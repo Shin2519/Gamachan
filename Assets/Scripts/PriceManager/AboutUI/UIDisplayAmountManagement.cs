@@ -30,6 +30,7 @@ public class UIDisplayAmountManagement : MonoBehaviour
     [SerializeField]
     float f_current = 0;
 
+    Coroutine finishCountDownCoroutine;
     [SerializeField]
     int f_combo;
     public float Timer
@@ -42,13 +43,17 @@ public class UIDisplayAmountManagement : MonoBehaviour
             OnTimerDisplay();
             if (f_timer <= 4 && !finish)
             {
-                StartCoroutine(OnFinishCountDown());
+                finishCountDownCoroutine = StartCoroutine(OnFinishCountDown());
                 finish = true;
             }
         }
     }
 
     bool finish = false;
+
+    /// <summary>
+    /// ゲージ管理
+    /// </summary>
     public float Current
     {
         get => f_current;
@@ -118,6 +123,26 @@ public class UIDisplayAmountManagement : MonoBehaviour
     public void AddTimer(float addtime)
     {
         f_timer += addtime;
+        if (f_timer > 4 && finish)
+        {
+            if (finishCountDownCoroutine != null)
+            {
+                StopCoroutine(finishCountDownCoroutine);
+                finishCountDownCoroutine = null;
+            }
+
+            finish = false;
+            gameUI.CancelFinishTimer();
+        }
+
+        OnTimerDisplay();
         StartCoroutine(gameUI.PlusTimeText(addtime));
     }
+
+    public void MinusTimer(float time)
+    {
+        f_timer -= time;
+        StartCoroutine(gameUI.MinusTimeText(time));
+    }
+
 }

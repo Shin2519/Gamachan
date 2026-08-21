@@ -37,12 +37,6 @@ public class ChooseGoods : MonoBehaviour
         ParentPanel = GoodsPanel.transform;
         catalog = new GoodsCatalog(goods,descripsion);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void CreateButton(GoodsCatalog.Entry entry, Transform parent)
     {
         GameObject but = Instantiate(ChoiceButton, parent);
@@ -51,7 +45,7 @@ public class ChooseGoods : MonoBehaviour
         Destroygameobject.Add(but);
 
         TextMeshProUGUI text = but.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        text.text = entry.Amount.ToString();
+        text.text = "￥"+ entry.Amount.ToString();
 
         Image image = but.transform.GetChild(1).GetComponent<Image>();
         image.sprite = entry.Sprite;
@@ -76,6 +70,17 @@ public class ChooseGoods : MonoBehaviour
                 CreateButton(picked[i], ParentPanel);
 
             for (int i = 3; i < 5; i++)
+                CreateButton(picked[i], extraPanelTrans);
+        }
+        else if(buttonCount == 4)
+        {
+            GameObject extraPanel = Instantiate(GoodsPanel, ParentGoodsCanvas);
+            Destroygameobject.Add(extraPanel);
+            Transform extraPanelTrans = extraPanel.transform;
+            for (int i = 0; i < 2; i++)
+                CreateButton(picked[i], ParentPanel);
+
+            for (int i = 2; i < 4; i++)
                 CreateButton(picked[i], extraPanelTrans);
         }
         else

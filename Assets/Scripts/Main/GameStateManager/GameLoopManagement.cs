@@ -121,6 +121,7 @@ public class GameLoopManagement : MonoBehaviour
         ButtonManagement.SetActionMesod_GameState(GameStateChange);
         ButtonManagement.SetActionMesod_SkillState(SkillStateChange);
         PoolManagement.SetSkillState(GetSkillState);
+        _SkillState = Skill.NoSkill;
     }
     /// <summary>
     /// それぞれのgameStateの状態の時の処理をさせる関数
@@ -139,7 +140,7 @@ public class GameLoopManagement : MonoBehaviour
                 break;
             case GameState.GoodsSelectPhase:
                 _Gamastate = GamaState.Nomal;
-                _SkillState = Skill.NoSkill;
+                
                 l_pasttimer = AmountManagement.Timer;
                 AnythingData.PaymentReset();
                 GameUI.ChangeMoneyDisplay();
@@ -281,6 +282,8 @@ public class GameLoopManagement : MonoBehaviour
             {
                 AudioManager.Instance.PlaySE(AudioManager.Instance.SE[13]);
                 _Gradestate = Grade.Bad;
+                AmountManagement.MinusTimer(3);
+
                 AnythingData.gradecount.BadCount++;
                 AmountManagement.Combo = 0;
                 AnythingData.payment.ChangeMoney = Sub;
@@ -291,6 +294,7 @@ public class GameLoopManagement : MonoBehaviour
         {
             AudioManager.Instance.PlaySE(AudioManager.Instance.SE[15]);
             _Gradestate = Grade.Miss;
+            AmountManagement.MinusTimer(5);
             AnythingData.gradecount.MissCount++;
             AmountManagement.Combo = 0;
         }
