@@ -15,7 +15,7 @@ public class SkillDetail
 
     public void None()
     {
-        AmountManagement.Current = before_gaugeamount;
+        //AmountManagement.Current = before_gaugeamount;
     }
     public void Golden()
     {
@@ -43,4 +43,5 @@ public class SkillDetail
         AmountManagement.AddTimer(10);
         Debug.Log("10");
     }
+
 }

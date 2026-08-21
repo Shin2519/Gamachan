@@ -255,6 +255,16 @@ public class GameUI : MonoBehaviour
 
         text.text = " ";
     }
+    public IEnumerator MinusTimeText(float minustime)
+    {
+        TextMeshProUGUI text = plusTime.GetComponent<TextMeshProUGUI>();
+
+        text.text = "-" + minustime.ToString();
+
+        yield return new WaitForSeconds(1f);
+
+        text.text = " ";
+    }
     public void InputNameSetActive()
     {
         f_InputName_ui.SetActive(true);
@@ -369,5 +379,12 @@ public class GameUI : MonoBehaviour
     public void SetActionMesod_GameState(Action l_gamestate)
     {
         OnGameState = l_gamestate;
+    }
+
+    public void CancelFinishTimer()
+    {
+        f_CountDownImage.SetActive(false);
+        countDownBackGround.SetActive(false);
+        timetext.SetActive(true);
     }
 }
